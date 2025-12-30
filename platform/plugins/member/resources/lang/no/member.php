@@ -1,0 +1,82 @@
+<?php
+
+return [
+    'create' => 'Nytt medlem',
+    'menu_name' => 'Medlemmer',
+    'edit_this_member' => 'Rediger dette medlemmet',
+    'menu_description' => 'Se og administrer medlemmene dine',
+    'confirmation_subject' => 'E-postverifisering',
+    'confirmation_subject_title' => 'Bekreft e-posten din',
+    'not_confirmed' => 'Den oppgitte e-postadressen er ikke bekreftet. <a href=":resend_link">Send bekreftelseslenke på nytt.</a>',
+    'confirmation_successful' => 'Du har bekreftet e-postadressen din.',
+    'confirmation_info' => 'Vennligst bekreft e-postadressen din.',
+    'confirmation_resent' => 'Vi sendte deg en ny bekreftelses-e-post. Du bør motta den snart.',
+    'form' => [
+        'login_title' => 'Medlemspåloggingsskjema',
+        'register_title' => 'Medlemsregistreringsskjema',
+        'reset_password_title' => 'Medlems tilbakestill passord-skjema',
+        'forgot_password_title' => 'Medlems glemt passord-skjema',
+        'email' => 'E-post',
+        'password' => 'Passord',
+        'password_confirmation' => 'Passordbekreftelse',
+        'change_password' => 'Endre passord?',
+    ],
+    'forgot_password' => 'Glemt passord',
+    'login' => 'Logg inn',
+    'settings' => [
+        'email' => [
+            'title' => 'Medlem',
+            'description' => 'Medlems e-postkonfigurasjon',
+        ],
+    ],
+    'first_name' => 'Fornavn',
+    'last_name' => 'Etternavn',
+    'email_placeholder' => 'Eks: example@gmail.com',
+    'write_a_post' => 'Skriv et innlegg',
+    'phone' => 'Telefon',
+    'phone_placeholder' => 'Telefon',
+    'confirmed_at' => 'Bekreftet',
+    'avatar' => 'Avatar',
+    'dob' => 'Fødselsdato',
+    'theme_options' => [
+        'name' => 'Medlem',
+        'login_background_image' => 'Påloggingsbakgrunnsbilde',
+        'register_background_image' => 'Registreringsbakgrunnsbilde',
+    ],
+    'dashboard' => 'Kontrollpanel',
+    'author' => 'Forfatter',
+    'author_helper' => 'Listen over forfattere er fra Admin -> Medlemmer.',
+    'select_author' => 'Velg forfatter',
+    'email_verified' => 'E-post verifisert?',
+    'verify_email' => [
+        'confirm_heading' => 'Bekreft e-postbekreftelse',
+        'confirm_description' => 'Er du sikker på at du vil bekrefte e-posten til denne kontoen?',
+        'notification' => 'Denne kontoen har ikke bekreftet e-post ennå? :approve_link for å bekrefte e-post.',
+        'approve_here' => 'klikk her',
+        'confirm_button' => 'Bekreft',
+    ],
+    'email_templates' => [
+        // Confirm email template
+        'confirm_email_title' => 'Bekreft e-post',
+        'confirm_email_welcome' => 'Vi er glade for å ha deg her, :member_name!',
+        'confirm_email_instruction' => 'Vennligst bekreft e-postadressen din for å få tilgang til denne nettsiden. Klikk på knappen nedenfor for å bekrefte e-posten din.',
+        'confirm_email_button' => 'Bekreft e-postadressen din',
+
+        // New pending post template
+        'new_pending_post_title' => 'Nytt innlegg venter på gjennomgang',
+        'new_pending_post_greeting' => 'Kjære Admin,',
+        'new_pending_post_intro' => 'Et nytt innlegg er sendt inn og venter på gjennomgang og godkjenning.',
+        'new_pending_post_details_title' => 'Innleggsdetaljer:',
+        'new_pending_post_author_label' => 'Forfatter:',
+        'new_pending_post_title_label' => 'Tittel:',
+        'new_pending_post_action_needed' => 'Vennligst gjennomgå dette innlegget og ta passende handling.',
+        'new_pending_post_review_button' => 'Gjennomgå innlegg',
+        'new_pending_post_footer_note' => 'Dette innlegget vil forbli i ventende status til du godkjenner eller avviser det.',
+
+        // Password reminder template
+        'password_reminder_title' => 'Instruksjoner for tilbakestilling av passord',
+        'password_reminder_message' => 'Du mottar denne e-posten fordi vi mottok en forespørsel om tilbakestilling av passord for kontoen din.',
+        'password_reminder_button' => 'Tilbakestill passord',
+        'password_reminder_trouble' => 'Hvis du har problemer med å klikke på "Tilbakestill passord"-knappen, kopier og lim inn URL-en nedenfor i nettleseren din: <a href=":reset_link">:reset_link</a> og lim den inn i nettleseren din. Hvis du ikke ba om tilbakestilling av passord, vennligst ignorer denne meldingen eller kontakt oss hvis du har spørsmål.',
+    ],
+];

@@ -1,0 +1,82 @@
+<?php
+
+return [
+    'create' => 'Ahli baharu',
+    'menu_name' => 'Ahli',
+    'edit_this_member' => 'Edit ahli ini',
+    'menu_description' => 'Lihat dan urus ahli anda',
+    'confirmation_subject' => 'Pengesahan e-mel',
+    'confirmation_subject_title' => 'Sahkan e-mel anda',
+    'not_confirmed' => 'Alamat e-mel yang diberikan belum disahkan. <a href=":resend_link">Hantar semula pautan pengesahan.</a>',
+    'confirmation_successful' => 'Anda berjaya mengesahkan alamat e-mel anda.',
+    'confirmation_info' => 'Sila sahkan alamat e-mel anda.',
+    'confirmation_resent' => 'Kami telah menghantar e-mel pengesahan lain kepada anda. Anda sepatutnya menerimanya tidak lama lagi.',
+    'form' => [
+        'login_title' => 'Borang log masuk ahli',
+        'register_title' => 'Borang pendaftaran ahli',
+        'reset_password_title' => 'Borang tetapkan semula kata laluan ahli',
+        'forgot_password_title' => 'Borang lupa kata laluan ahli',
+        'email' => 'E-mel',
+        'password' => 'Kata laluan',
+        'password_confirmation' => 'Pengesahan kata laluan',
+        'change_password' => 'Tukar kata laluan?',
+    ],
+    'forgot_password' => 'Lupa kata laluan',
+    'login' => 'Log masuk',
+    'settings' => [
+        'email' => [
+            'title' => 'Ahli',
+            'description' => 'Konfigurasi e-mel ahli',
+        ],
+    ],
+    'first_name' => 'Nama Pertama',
+    'last_name' => 'Nama Keluarga',
+    'email_placeholder' => 'Cth: example@gmail.com',
+    'write_a_post' => 'Tulis catatan',
+    'phone' => 'Telefon',
+    'phone_placeholder' => 'Telefon',
+    'confirmed_at' => 'Disahkan pada',
+    'avatar' => 'Avatar',
+    'dob' => 'Tarikh lahir',
+    'theme_options' => [
+        'name' => 'Ahli',
+        'login_background_image' => 'Imej latar belakang log masuk',
+        'register_background_image' => 'Imej latar belakang pendaftaran',
+    ],
+    'dashboard' => 'Papan pemuka',
+    'author' => 'Pengarang',
+    'author_helper' => 'Senarai pengarang adalah dari Admin -> Ahli.',
+    'select_author' => 'Pilih pengarang',
+    'email_verified' => 'E-mel disahkan?',
+    'verify_email' => [
+        'confirm_heading' => 'Sahkan pengesahan e-mel',
+        'confirm_description' => 'Adakah anda pasti mahu mengesahkan e-mel akaun ini?',
+        'notification' => 'Akaun ini belum mengesahkan e-mel? :approve_link untuk mengesahkan e-mel.',
+        'approve_here' => 'klik di sini',
+        'confirm_button' => 'Sahkan',
+    ],
+    'email_templates' => [
+        // Confirm email template
+        'confirm_email_title' => 'Sahkan E-mel',
+        'confirm_email_welcome' => 'Kami gembira anda berada di sini, :member_name!',
+        'confirm_email_instruction' => 'Sila sahkan alamat e-mel anda untuk mengakses laman web ini. Klik pada butang di bawah untuk mengesahkan e-mel anda.',
+        'confirm_email_button' => 'Sahkan alamat e-mel anda',
+
+        // New pending post template
+        'new_pending_post_title' => 'Catatan Baharu Menunggu Semakan',
+        'new_pending_post_greeting' => 'Admin yang dihormati,',
+        'new_pending_post_intro' => 'Catatan baharu telah dihantar dan sedang menunggu semakan dan kelulusan anda.',
+        'new_pending_post_details_title' => 'Butiran Catatan:',
+        'new_pending_post_author_label' => 'Pengarang:',
+        'new_pending_post_title_label' => 'Tajuk:',
+        'new_pending_post_action_needed' => 'Sila semak catatan ini dan ambil tindakan yang sewajarnya.',
+        'new_pending_post_review_button' => 'Semak Catatan',
+        'new_pending_post_footer_note' => 'Catatan ini akan kekal dalam status menunggu sehingga anda meluluskan atau menolaknya.',
+
+        // Password reminder template
+        'password_reminder_title' => 'Arahan Tetapkan Semula Kata Laluan',
+        'password_reminder_message' => 'Anda menerima e-mel ini kerana kami menerima permintaan tetapkan semula kata laluan untuk akaun anda.',
+        'password_reminder_button' => 'Tetapkan semula kata laluan',
+        'password_reminder_trouble' => 'Jika anda menghadapi masalah mengklik butang "Tetapkan Semula Kata Laluan", salin dan tampal URL di bawah ke dalam pelayar web anda: <a href=":reset_link">:reset_link</a> dan tampalkannya ke dalam pelayar anda. Jika anda tidak meminta tetapan semula kata laluan, sila abaikan mesej ini atau hubungi kami jika anda mempunyai sebarang pertanyaan.',
+    ],
+];

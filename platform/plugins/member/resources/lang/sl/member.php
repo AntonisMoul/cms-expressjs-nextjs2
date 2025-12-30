@@ -1,0 +1,82 @@
+<?php
+
+return [
+    'create' => 'Nov član',
+    'menu_name' => 'Člani',
+    'edit_this_member' => 'Uredi tega člana',
+    'menu_description' => 'Oglejte si in upravljajte svoje člane',
+    'confirmation_subject' => 'Preverjanje e-pošte',
+    'confirmation_subject_title' => 'Preverite svoj e-poštni naslov',
+    'not_confirmed' => 'Navedeni e-poštni naslov ni bil potrjen. <a href=":resend_link">Ponovno pošlji potrditveno povezavo.</a>',
+    'confirmation_successful' => 'Uspešno ste potrdili svoj e-poštni naslov.',
+    'confirmation_info' => 'Prosimo, potrdite svoj e-poštni naslov.',
+    'confirmation_resent' => 'Poslali smo vam še eno potrditveno e-sporočilo. Kmalu bi ga morali prejeti.',
+    'form' => [
+        'login_title' => 'Obrazec za prijavo člana',
+        'register_title' => 'Obrazec za registracijo člana',
+        'reset_password_title' => 'Obrazec za ponastavitev gesla člana',
+        'forgot_password_title' => 'Obrazec za pozabljeno geslo člana',
+        'email' => 'E-pošta',
+        'password' => 'Geslo',
+        'password_confirmation' => 'Potrditev gesla',
+        'change_password' => 'Spremeniti geslo?',
+    ],
+    'forgot_password' => 'Pozabljeno geslo',
+    'login' => 'Prijava',
+    'settings' => [
+        'email' => [
+            'title' => 'Član',
+            'description' => 'Konfiguracija e-pošte člana',
+        ],
+    ],
+    'first_name' => 'Ime',
+    'last_name' => 'Priimek',
+    'email_placeholder' => 'Npr.: example@gmail.com',
+    'write_a_post' => 'Napiši objavo',
+    'phone' => 'Telefon',
+    'phone_placeholder' => 'Telefon',
+    'confirmed_at' => 'Potrjeno ob',
+    'avatar' => 'Avatar',
+    'dob' => 'Datum rojstva',
+    'theme_options' => [
+        'name' => 'Član',
+        'login_background_image' => 'Slika ozadja prijave',
+        'register_background_image' => 'Slika ozadja registracije',
+    ],
+    'dashboard' => 'Nadzorna plošča',
+    'author' => 'Avtor',
+    'author_helper' => 'Seznam avtorjev je iz Admin -> Člani.',
+    'select_author' => 'Izberi avtorja',
+    'email_verified' => 'E-pošta preverjena?',
+    'verify_email' => [
+        'confirm_heading' => 'Preveri potrditev e-pošte',
+        'confirm_description' => 'Ste prepričani, da želite preveriti e-poštni naslov tega računa?',
+        'notification' => 'Ta račun še nima preverjene e-pošte? :approve_link za preverjanje e-pošte.',
+        'approve_here' => 'kliknite tukaj',
+        'confirm_button' => 'Preveri',
+    ],
+    'email_templates' => [
+        // Confirm email template
+        'confirm_email_title' => 'Preverite E-pošto',
+        'confirm_email_welcome' => 'Veseli smo, da si tukaj, :member_name!',
+        'confirm_email_instruction' => 'Prosimo, preverite svoj e-poštni naslov, da lahko dostopate do te spletne strani. Kliknite spodnji gumb, da preverite svojo e-pošto.',
+        'confirm_email_button' => 'Potrdite svoj e-poštni naslov',
+
+        // New pending post template
+        'new_pending_post_title' => 'Nova Objava Čaka na Pregled',
+        'new_pending_post_greeting' => 'Spoštovani Administrator,',
+        'new_pending_post_intro' => 'Nova objava je bila poslana in čaka na vaš pregled ter odobritev.',
+        'new_pending_post_details_title' => 'Podrobnosti Objave:',
+        'new_pending_post_author_label' => 'Avtor:',
+        'new_pending_post_title_label' => 'Naslov:',
+        'new_pending_post_action_needed' => 'Prosimo preglejte to objavo in ukrepajte ustrezno.',
+        'new_pending_post_review_button' => 'Preglej Objavo',
+        'new_pending_post_footer_note' => 'Ta objava bo ostala v statusu čakanja, dokler je ne odobrite ali zavrnete.',
+
+        // Password reminder template
+        'password_reminder_title' => 'Navodila za Ponastavitev Gesla',
+        'password_reminder_message' => 'To e-sporočilo prejemate, ker smo prejeli zahtevo za ponastavitev gesla za vaš račun.',
+        'password_reminder_button' => 'Ponastavi geslo',
+        'password_reminder_trouble' => 'Če imate težave s klikom na gumb "Ponastavi Geslo", kopirajte in prilepite spodnji URL v svoj spletni brskalnik: <a href=":reset_link">:reset_link</a> in ga prilepite v brskalnik. Če niste zahtevali ponastavitve gesla, prosimo, ignorirajte to sporočilo ali nas kontaktirajte, če imate kakršna koli vprašanja.',
+    ],
+];

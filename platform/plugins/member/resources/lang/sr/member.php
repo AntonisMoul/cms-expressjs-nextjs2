@@ -1,0 +1,82 @@
+<?php
+
+return [
+    'create' => 'Нови члан',
+    'menu_name' => 'Чланови',
+    'edit_this_member' => 'Уреди овог člана',
+    'menu_description' => 'Прегледајте и управљајте својим члановима',
+    'confirmation_subject' => 'Верификација имејла',
+    'confirmation_subject_title' => 'Верификујте своју имејл адресу',
+    'not_confirmed' => 'Наведена имејл адреса није потврђена. <a href=":resend_link">Поново пошаљи линк за потврду.</a>',
+    'confirmation_successful' => 'Успешно сте потврдили своју имејл адресу.',
+    'confirmation_info' => 'Молимо потврдите своју имејл адресу.',
+    'confirmation_resent' => 'Послали смо вам још један потврдни имејл. Требало би да га ускоро примите.',
+    'form' => [
+        'login_title' => 'Формулар за пријаву члана',
+        'register_title' => 'Формулар за регистрацију члана',
+        'reset_password_title' => 'Формулар за ресетовање лозинке члана',
+        'forgot_password_title' => 'Формулар за заборављену лозинку члана',
+        'email' => 'Имејл',
+        'password' => 'Лозинка',
+        'password_confirmation' => 'Потврда лозинке',
+        'change_password' => 'Променити лозинку?',
+    ],
+    'forgot_password' => 'Заборављена лозинка',
+    'login' => 'Пријава',
+    'settings' => [
+        'email' => [
+            'title' => 'Члан',
+            'description' => 'Конфигурација имејла члана',
+        ],
+    ],
+    'first_name' => 'Име',
+    'last_name' => 'Презиме',
+    'email_placeholder' => 'Нпр.: example@gmail.com',
+    'write_a_post' => 'Напиши објаву',
+    'phone' => 'Телефон',
+    'phone_placeholder' => 'Телефон',
+    'confirmed_at' => 'Потврђено',
+    'avatar' => 'Аватар',
+    'dob' => 'Датум рођења',
+    'theme_options' => [
+        'name' => 'Члан',
+        'login_background_image' => 'Слика позадине пријаве',
+        'register_background_image' => 'Слика позадине регистрације',
+    ],
+    'dashboard' => 'Контролна табла',
+    'author' => 'Аутор',
+    'author_helper' => 'Листа аутора је из Admin -> Чланови.',
+    'select_author' => 'Изабери аутора',
+    'email_verified' => 'Имејл верификован?',
+    'verify_email' => [
+        'confirm_heading' => 'Верификација потврде имејла',
+        'confirm_description' => 'Да ли сте сигурни да желите да верификујете имејл овог налога?',
+        'notification' => 'Овај налог још нема верификован имејл? :approve_link за верификацију имејла.',
+        'approve_here' => 'кликните овде',
+        'confirm_button' => 'Верификуј',
+    ],
+    'email_templates' => [
+        // Confirm email template
+        'confirm_email_title' => 'Верификујте Имејл',
+        'confirm_email_welcome' => 'Драго нам је што си овде, :member_name!',
+        'confirm_email_instruction' => 'Молимо верификујте своју имејл адресу како бисте приступили овој веб страници. Кликните на дугме испод да верификујете свој имејл.',
+        'confirm_email_button' => 'Потврдите своју имејл адресу',
+
+        // New pending post template
+        'new_pending_post_title' => 'Нова Објава Чека на Преглед',
+        'new_pending_post_greeting' => 'Поштовани Администраторе,',
+        'new_pending_post_intro' => 'Нова објава је послата и чека на ваш преглед и одобрење.',
+        'new_pending_post_details_title' => 'Детаљи Објаве:',
+        'new_pending_post_author_label' => 'Аутор:',
+        'new_pending_post_title_label' => 'Наслов:',
+        'new_pending_post_action_needed' => 'Молимо прегледајте ову објаву и предузмите одговарајуће мере.',
+        'new_pending_post_review_button' => 'Прегледај Објаву',
+        'new_pending_post_footer_note' => 'Ова објава ће остати у статусу чекања док је не одобрите или одбијете.',
+
+        // Password reminder template
+        'password_reminder_title' => 'Упутства за Ресетовање Лозинке',
+        'password_reminder_message' => 'Примате овај имејл јер смо примили захтев за ресетовање лозинке за ваш налог.',
+        'password_reminder_button' => 'Ресетуј лозинку',
+        'password_reminder_trouble' => 'Ако имате проблема са кликом на дугме "Ресетуј Лозинку", копирајте и налепите URL испод у ваш веб прегледач: <a href=":reset_link">:reset_link</a> и налепите га у прегледач. Ако нисте захтевали ресетовање лозинке, молимо игноришите ову поруку или нас контактирајте ако имате било каква питања.',
+    ],
+];

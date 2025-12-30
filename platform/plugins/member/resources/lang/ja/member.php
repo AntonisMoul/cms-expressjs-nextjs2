@@ -1,0 +1,82 @@
+<?php
+
+return [
+    'create' => '新しいメンバー',
+    'menu_name' => 'メンバー',
+    'edit_this_member' => 'このメンバーを編集',
+    'menu_description' => 'メンバーの表示と管理',
+    'confirmation_subject' => 'メール認証',
+    'confirmation_subject_title' => 'メールアドレスを確認してください',
+    'not_confirmed' => '指定されたメールアドレスは確認されていません。<a href=":resend_link">確認リンクを再送信する。</a>',
+    'confirmation_successful' => 'メールアドレスの確認が完了しました。',
+    'confirmation_info' => 'メールアドレスを確認してください。',
+    'confirmation_resent' => '確認メールを再送信しました。まもなく届くはずです。',
+    'form' => [
+        'login_title' => 'メンバーログインフォーム',
+        'register_title' => 'メンバー登録フォーム',
+        'reset_password_title' => 'メンバーパスワードリセットフォーム',
+        'forgot_password_title' => 'メンバーパスワード忘れフォーム',
+        'email' => 'メールアドレス',
+        'password' => 'パスワード',
+        'password_confirmation' => 'パスワード確認',
+        'change_password' => 'パスワードを変更しますか？',
+    ],
+    'forgot_password' => 'パスワードを忘れた',
+    'login' => 'ログイン',
+    'settings' => [
+        'email' => [
+            'title' => 'メンバー',
+            'description' => 'メンバーメール設定',
+        ],
+    ],
+    'first_name' => '名',
+    'last_name' => '姓',
+    'email_placeholder' => '例: example@gmail.com',
+    'write_a_post' => '投稿を書く',
+    'phone' => '電話番号',
+    'phone_placeholder' => '電話番号',
+    'confirmed_at' => '確認日時',
+    'avatar' => 'アバター',
+    'dob' => '生年月日',
+    'theme_options' => [
+        'name' => 'メンバー',
+        'login_background_image' => 'ログイン背景画像',
+        'register_background_image' => '登録背景画像',
+    ],
+    'dashboard' => 'ダッシュボード',
+    'author' => '著者',
+    'author_helper' => '著者リストは管理者 -> メンバーから取得されます。',
+    'select_author' => '著者を選択',
+    'email_verified' => 'メール認証済み？',
+    'verify_email' => [
+        'confirm_heading' => 'メール確認を認証',
+        'confirm_description' => 'このアカウントのメールアドレスを認証してもよろしいですか？',
+        'notification' => 'このアカウントはまだメールを認証していません。メールを認証するには:approve_link。',
+        'approve_here' => 'ここをクリック',
+        'confirm_button' => '認証',
+    ],
+    'email_templates' => [
+        // Confirm email template
+        'confirm_email_title' => 'メールアドレスを確認',
+        'confirm_email_welcome' => 'ようこそ、:member_name！',
+        'confirm_email_instruction' => 'このウェブサイトにアクセスするには、メールアドレスを確認してください。下のボタンをクリックしてメールアドレスを確認してください。',
+        'confirm_email_button' => 'メールアドレスを確認する',
+
+        // New pending post template
+        'new_pending_post_title' => '新しい投稿がレビュー待ち',
+        'new_pending_post_greeting' => '管理者様',
+        'new_pending_post_intro' => '新しい投稿が送信され、レビューと承認をお待ちしています。',
+        'new_pending_post_details_title' => '投稿の詳細：',
+        'new_pending_post_author_label' => '著者：',
+        'new_pending_post_title_label' => 'タイトル：',
+        'new_pending_post_action_needed' => 'この投稿をレビューして、適切な措置を講じてください。',
+        'new_pending_post_review_button' => '投稿をレビュー',
+        'new_pending_post_footer_note' => 'この投稿は、承認または却下するまで保留状態のままになります。',
+
+        // Password reminder template
+        'password_reminder_title' => 'パスワードリセット手順',
+        'password_reminder_message' => 'アカウントのパスワードリセット要求を受け取ったため、このメールをお送りしています。',
+        'password_reminder_button' => 'パスワードをリセット',
+        'password_reminder_trouble' => '「パスワードをリセット」ボタンのクリックに問題がある場合は、以下のURLをコピーしてウェブブラウザに貼り付けてください：<a href=":reset_link">:reset_link</a>。パスワードリセットを要求していない場合は、このメッセージを無視するか、ご質問がある場合はお問い合わせください。',
+    ],
+];

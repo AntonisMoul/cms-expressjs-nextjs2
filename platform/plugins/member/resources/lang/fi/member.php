@@ -1,0 +1,82 @@
+<?php
+
+return [
+    'create' => 'Uusi jäsen',
+    'menu_name' => 'Jäsenet',
+    'edit_this_member' => 'Muokkaa tätä jäsentä',
+    'menu_description' => 'Tarkastele ja hallinnoi jäseniäsi',
+    'confirmation_subject' => 'Sähköpostin vahvistus',
+    'confirmation_subject_title' => 'Vahvista sähköpostisi',
+    'not_confirmed' => 'Annettua sähköpostiosoitetta ei ole vahvistettu. <a href=":resend_link">Lähetä vahvistuslinkki uudelleen.</a>',
+    'confirmation_successful' => 'Olet vahvistanut sähköpostiosoitteesi onnistuneesti.',
+    'confirmation_info' => 'Ole hyvä ja vahvista sähköpostiosoitteesi.',
+    'confirmation_resent' => 'Lähetimme sinulle toisen vahvistussähköpostin. Sinun pitäisi saada se pian.',
+    'form' => [
+        'login_title' => 'Jäsenen kirjautumislomake',
+        'register_title' => 'Jäsenen rekisteröintilomake',
+        'reset_password_title' => 'Jäsenen salasanan palautuslomake',
+        'forgot_password_title' => 'Jäsenen unohtunut salasana -lomake',
+        'email' => 'Sähköposti',
+        'password' => 'Salasana',
+        'password_confirmation' => 'Salasanan vahvistus',
+        'change_password' => 'Vaihda salasana?',
+    ],
+    'forgot_password' => 'Unohtunut salasana',
+    'login' => 'Kirjaudu sisään',
+    'settings' => [
+        'email' => [
+            'title' => 'Jäsen',
+            'description' => 'Jäsenen sähköpostiasetukset',
+        ],
+    ],
+    'first_name' => 'Etunimi',
+    'last_name' => 'Sukunimi',
+    'email_placeholder' => 'Esim: example@gmail.com',
+    'write_a_post' => 'Kirjoita viesti',
+    'phone' => 'Puhelin',
+    'phone_placeholder' => 'Puhelin',
+    'confirmed_at' => 'Vahvistettu',
+    'avatar' => 'Avatar',
+    'dob' => 'Syntymäaika',
+    'theme_options' => [
+        'name' => 'Jäsen',
+        'login_background_image' => 'Kirjautumisen taustakuva',
+        'register_background_image' => 'Rekisteröinnin taustakuva',
+    ],
+    'dashboard' => 'Kojelauta',
+    'author' => 'Kirjoittaja',
+    'author_helper' => 'Kirjoittajien luettelo on kohdassa Admin -> Jäsenet.',
+    'select_author' => 'Valitse kirjoittaja',
+    'email_verified' => 'Sähköposti vahvistettu?',
+    'verify_email' => [
+        'confirm_heading' => 'Vahvista sähköpostin vahvistus',
+        'confirm_description' => 'Haluatko varmasti vahvistaa tämän tilin sähköpostin?',
+        'notification' => 'Tämän tilin sähköpostia ei ole vielä vahvistettu? :approve_link vahvistaaksesi sähköpostin.',
+        'approve_here' => 'klikkaa tästä',
+        'confirm_button' => 'Vahvista',
+    ],
+    'email_templates' => [
+        // Confirm email template
+        'confirm_email_title' => 'Vahvista sähköposti',
+        'confirm_email_welcome' => 'Olemme iloisia, että olet täällä, :member_name!',
+        'confirm_email_instruction' => 'Ole hyvä ja vahvista sähköpostiosoitteesi päästäksesi tälle verkkosivustolle. Klikkaa alla olevaa painiketta vahvistaaksesi sähköpostisi.',
+        'confirm_email_button' => 'Vahvista sähköpostiosoitteesi',
+
+        // New pending post template
+        'new_pending_post_title' => 'Uusi viesti odottaa tarkistusta',
+        'new_pending_post_greeting' => 'Hyvä ylläpitäjä,',
+        'new_pending_post_intro' => 'Uusi viesti on lähetetty ja odottaa tarkistustasi ja hyväksyntääsi.',
+        'new_pending_post_details_title' => 'Viestin tiedot:',
+        'new_pending_post_author_label' => 'Kirjoittaja:',
+        'new_pending_post_title_label' => 'Otsikko:',
+        'new_pending_post_action_needed' => 'Ole hyvä ja tarkista tämä viesti ja ryhdy asianmukaisiin toimiin.',
+        'new_pending_post_review_button' => 'Tarkista viesti',
+        'new_pending_post_footer_note' => 'Tämä viesti pysyy odottavassa tilassa, kunnes hyväksyt tai hylkäät sen.',
+
+        // Password reminder template
+        'password_reminder_title' => 'Salasanan palautusohjeet',
+        'password_reminder_message' => 'Saat tämän sähköpostin, koska olemme vastaanottaneet salasanan palautuspyynnön tilillesi.',
+        'password_reminder_button' => 'Palauta salasana',
+        'password_reminder_trouble' => 'Jos sinulla on ongelmia "Palauta salasana" -painikkeen klikkaamisessa, kopioi ja liitä alla oleva URL-osoite verkkoselaimeen: <a href=":reset_link">:reset_link</a> ja liitä se selaimeesi. Jos et pyytänyt salasanan palautusta, jätä tämä viesti huomiotta tai ota meihin yhteyttä, jos sinulla on kysyttävää.',
+    ],
+];

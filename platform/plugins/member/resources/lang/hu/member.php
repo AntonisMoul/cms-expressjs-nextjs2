@@ -1,0 +1,82 @@
+<?php
+
+return [
+    'create' => 'Új tag',
+    'menu_name' => 'Tagok',
+    'edit_this_member' => 'Tag szerkesztése',
+    'menu_description' => 'Tagok megtekintése és kezelése',
+    'confirmation_subject' => 'E-mail hitelesítés',
+    'confirmation_subject_title' => 'E-mail cím megerősítése',
+    'not_confirmed' => 'A megadott e-mail cím nem lett megerősítve. <a href=":resend_link">Megerősítő link újraküldése.</a>',
+    'confirmation_successful' => 'Sikeresen megerősítette az e-mail címét.',
+    'confirmation_info' => 'Kérjük, erősítse meg az e-mail címét.',
+    'confirmation_resent' => 'Küldtünk egy újabb megerősítő e-mailt. Hamarosan meg kell kapnia.',
+    'form' => [
+        'login_title' => 'Tag bejelentkezési űrlap',
+        'register_title' => 'Tag regisztrációs űrlap',
+        'reset_password_title' => 'Tag jelszó-visszaállító űrlap',
+        'forgot_password_title' => 'Tag elfelejtett jelszó űrlap',
+        'email' => 'E-mail',
+        'password' => 'Jelszó',
+        'password_confirmation' => 'Jelszó megerősítése',
+        'change_password' => 'Jelszó megváltoztatása?',
+    ],
+    'forgot_password' => 'Elfelejtett jelszó',
+    'login' => 'Bejelentkezés',
+    'settings' => [
+        'email' => [
+            'title' => 'Tag',
+            'description' => 'Tag e-mail konfiguráció',
+        ],
+    ],
+    'first_name' => 'Keresztnév',
+    'last_name' => 'Vezetéknév',
+    'email_placeholder' => 'Pl: example@gmail.com',
+    'write_a_post' => 'Bejegyzés írása',
+    'phone' => 'Telefon',
+    'phone_placeholder' => 'Telefon',
+    'confirmed_at' => 'Megerősítve',
+    'avatar' => 'Avatár',
+    'dob' => 'Születési dátum',
+    'theme_options' => [
+        'name' => 'Tag',
+        'login_background_image' => 'Bejelentkezési háttérkép',
+        'register_background_image' => 'Regisztrációs háttérkép',
+    ],
+    'dashboard' => 'Irányítópult',
+    'author' => 'Szerző',
+    'author_helper' => 'A szerzők listája az Admin -> Tagok menüpontból származik.',
+    'select_author' => 'Szerző kiválasztása',
+    'email_verified' => 'E-mail megerősítve?',
+    'verify_email' => [
+        'confirm_heading' => 'E-mail megerősítés ellenőrzése',
+        'confirm_description' => 'Biztosan meg szeretné erősíteni ennek a fióknak az e-mail címét?',
+        'notification' => 'Ez a fiók még nem rendelkezik megerősített e-mail címmel? :approve_link az e-mail megerősítéséhez.',
+        'approve_here' => 'kattintson ide',
+        'confirm_button' => 'Megerősítés',
+    ],
+    'email_templates' => [
+        // Confirm email template
+        'confirm_email_title' => 'E-mail megerősítése',
+        'confirm_email_welcome' => 'Örülünk, hogy itt vagy, :member_name!',
+        'confirm_email_instruction' => 'Kérjük, erősítse meg az e-mail címét, hogy hozzáférjen ehhez a weboldalhoz. Kattintson az alábbi gombra az e-mail megerősítéséhez.',
+        'confirm_email_button' => 'E-mail cím megerősítése',
+
+        // New pending post template
+        'new_pending_post_title' => 'Új bejegyzés vár ellenőrzésre',
+        'new_pending_post_greeting' => 'Kedves Adminisztrátor,',
+        'new_pending_post_intro' => 'Egy új bejegyzés került beküldésre, és az Ön felülvizsgálatára és jóváhagyására vár.',
+        'new_pending_post_details_title' => 'Bejegyzés részletei:',
+        'new_pending_post_author_label' => 'Szerző:',
+        'new_pending_post_title_label' => 'Cím:',
+        'new_pending_post_action_needed' => 'Kérjük, ellenőrizze ezt a bejegyzést, és tegye meg a megfelelő lépéseket.',
+        'new_pending_post_review_button' => 'Bejegyzés ellenőrzése',
+        'new_pending_post_footer_note' => 'Ez a bejegyzés függőben lévő állapotban marad, amíg jóvá nem hagyja vagy el nem utasítja.',
+
+        // Password reminder template
+        'password_reminder_title' => 'Jelszó visszaállítási utasítások',
+        'password_reminder_message' => 'Ezt az e-mailt azért kapja, mert jelszó-visszaállítási kérést kaptunk a fiókjához.',
+        'password_reminder_button' => 'Jelszó visszaállítása',
+        'password_reminder_trouble' => 'Ha problémája van a "Jelszó visszaállítása" gombra való kattintással, másolja ki és illessze be az alábbi URL-t a böngészőjébe: <a href=":reset_link">:reset_link</a> és illessze be a böngészőjébe. Ha nem kért jelszó-visszaállítást, kérjük, hagyja figyelmen kívül ezt az üzenetet, vagy lépjen kapcsolatba velünk, ha kérdése van.',
+    ],
+];

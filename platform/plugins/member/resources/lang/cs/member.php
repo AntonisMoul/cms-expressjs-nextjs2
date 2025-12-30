@@ -1,0 +1,82 @@
+<?php
+
+return [
+    'create' => 'Nový člen',
+    'menu_name' => 'Členové',
+    'edit_this_member' => 'Upravit tohoto člena',
+    'menu_description' => 'Zobrazit a spravovat vaše členy',
+    'confirmation_subject' => 'Ověření emailu',
+    'confirmation_subject_title' => 'Ověřte svůj email',
+    'not_confirmed' => 'Zadaná emailová adresa nebyla potvrzena. <a href=":resend_link">Znovu odeslat ověřovací odkaz.</a>',
+    'confirmation_successful' => 'Úspěšně jste potvrdili svou emailovou adresu.',
+    'confirmation_info' => 'Prosím potvrďte svou emailovou adresu.',
+    'confirmation_resent' => 'Poslali jsme vám další ověřovací email. Měli byste jej brzy obdržet.',
+    'form' => [
+        'login_title' => 'Přihlašovací formulář člena',
+        'register_title' => 'Registrační formulář člena',
+        'reset_password_title' => 'Formulář pro obnovení hesla člena',
+        'forgot_password_title' => 'Formulář zapomenuté heslo člena',
+        'email' => 'Email',
+        'password' => 'Heslo',
+        'password_confirmation' => 'Potvrzení hesla',
+        'change_password' => 'Změnit heslo?',
+    ],
+    'forgot_password' => 'Zapomenuté heslo',
+    'login' => 'Přihlásit se',
+    'settings' => [
+        'email' => [
+            'title' => 'Člen',
+            'description' => 'Konfigurace emailu člena',
+        ],
+    ],
+    'first_name' => 'Jméno',
+    'last_name' => 'Příjmení',
+    'email_placeholder' => 'Např: example@gmail.com',
+    'write_a_post' => 'Napsat příspěvek',
+    'phone' => 'Telefon',
+    'phone_placeholder' => 'Telefon',
+    'confirmed_at' => 'Potvrzeno',
+    'avatar' => 'Avatar',
+    'dob' => 'Datum narození',
+    'theme_options' => [
+        'name' => 'Člen',
+        'login_background_image' => 'Obrázek pozadí přihlášení',
+        'register_background_image' => 'Obrázek pozadí registrace',
+    ],
+    'dashboard' => 'Nástěnka',
+    'author' => 'Autor',
+    'author_helper' => 'Seznam autorů je z Admin -> Členové.',
+    'select_author' => 'Vybrat autora',
+    'email_verified' => 'Email ověřen?',
+    'verify_email' => [
+        'confirm_heading' => 'Ověřit potvrzení emailu',
+        'confirm_description' => 'Opravdu chcete ověřit email tohoto účtu?',
+        'notification' => 'Tento účet ještě nemá ověřený email? :approve_link pro ověření emailu.',
+        'approve_here' => 'klikněte zde',
+        'confirm_button' => 'Ověřit',
+    ],
+    'email_templates' => [
+        // Confirm email template
+        'confirm_email_title' => 'Ověřit email',
+        'confirm_email_welcome' => 'Jsme rádi, že jste zde, :member_name!',
+        'confirm_email_instruction' => 'Prosím ověřte svou emailovou adresu, abyste mohli přistupovat k těmto webovým stránkám. Klikněte na tlačítko níže pro ověření vašeho emailu.',
+        'confirm_email_button' => 'Potvrďte svou emailovou adresu',
+
+        // New pending post template
+        'new_pending_post_title' => 'Nový příspěvek čeká na kontrolu',
+        'new_pending_post_greeting' => 'Vážený správce,',
+        'new_pending_post_intro' => 'Byl odeslán nový příspěvek a čeká na vaši kontrolu a schválení.',
+        'new_pending_post_details_title' => 'Podrobnosti příspěvku:',
+        'new_pending_post_author_label' => 'Autor:',
+        'new_pending_post_title_label' => 'Název:',
+        'new_pending_post_action_needed' => 'Prosím zkontrolujte tento příspěvek a proveďte příslušné kroky.',
+        'new_pending_post_review_button' => 'Zkontrolovat příspěvek',
+        'new_pending_post_footer_note' => 'Tento příspěvek zůstane ve stavu čekání, dokud jej neschválíte nebo neodmítnete.',
+
+        // Password reminder template
+        'password_reminder_title' => 'Instrukce pro obnovení hesla',
+        'password_reminder_message' => 'Tento email dostáváte, protože jsme obdrželi žádost o obnovení hesla pro váš účet.',
+        'password_reminder_button' => 'Obnovit heslo',
+        'password_reminder_trouble' => 'Pokud máte problémy s kliknutím na tlačítko "Obnovit heslo", zkopírujte a vložte níže uvedenou URL do vašeho webového prohlížeče: <a href=":reset_link">:reset_link</a> a vložte ji do prohlížeče. Pokud jste o obnovení hesla nežádali, prosím ignorujte tuto zprávu nebo nás kontaktujte, pokud máte jakékoli otázky.',
+    ],
+];

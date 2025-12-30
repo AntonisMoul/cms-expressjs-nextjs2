@@ -1,0 +1,82 @@
+<?php
+
+return [
+    'create' => 'Naujas narys',
+    'menu_name' => 'Nariai',
+    'edit_this_member' => 'Redaguoti šį narį',
+    'menu_description' => 'Peržiūrėti ir valdyti savo narius',
+    'confirmation_subject' => 'El. pašto patvirtinimas',
+    'confirmation_subject_title' => 'Patvirtinkite savo el. paštą',
+    'not_confirmed' => 'Nurodytas el. pašto adresas nebuvo patvirtintas. <a href=":resend_link">Siųsti patvirtinimo nuorodą iš naujo.</a>',
+    'confirmation_successful' => 'Sėkmingai patvirtinote savo el. pašto adresą.',
+    'confirmation_info' => 'Patvirtinkite savo el. pašto adresą.',
+    'confirmation_resent' => 'Išsiuntėme jums kitą patvirtinimo el. laišką. Turėtumėte jį gauti netrukus.',
+    'form' => [
+        'login_title' => 'Nario prisijungimo forma',
+        'register_title' => 'Nario registracijos forma',
+        'reset_password_title' => 'Nario slaptažodžio atstatymo forma',
+        'forgot_password_title' => 'Nario pamiršto slaptažodžio forma',
+        'email' => 'El. paštas',
+        'password' => 'Slaptažodis',
+        'password_confirmation' => 'Slaptažodžio patvirtinimas',
+        'change_password' => 'Keisti slaptažodį?',
+    ],
+    'forgot_password' => 'Pamiršote slaptažodį',
+    'login' => 'Prisijungti',
+    'settings' => [
+        'email' => [
+            'title' => 'Narys',
+            'description' => 'Nario el. pašto konfigūracija',
+        ],
+    ],
+    'first_name' => 'Vardas',
+    'last_name' => 'Pavardė',
+    'email_placeholder' => 'Pvz.: example@gmail.com',
+    'write_a_post' => 'Rašyti įrašą',
+    'phone' => 'Telefonas',
+    'phone_placeholder' => 'Telefonas',
+    'confirmed_at' => 'Patvirtinta',
+    'avatar' => 'Avataras',
+    'dob' => 'Gimimo data',
+    'theme_options' => [
+        'name' => 'Narys',
+        'login_background_image' => 'Prisijungimo fono vaizdas',
+        'register_background_image' => 'Registracijos fono vaizdas',
+    ],
+    'dashboard' => 'Skydelis',
+    'author' => 'Autorius',
+    'author_helper' => 'Autorių sąrašas yra iš Administratorius -> Nariai.',
+    'select_author' => 'Pasirinkti autorių',
+    'email_verified' => 'El. paštas patvirtintas?',
+    'verify_email' => [
+        'confirm_heading' => 'Patvirtinti el. pašto patvirtinimą',
+        'confirm_description' => 'Ar tikrai norite patvirtinti šios paskyros el. paštą?',
+        'notification' => 'Ši paskyra dar nepatvirtino el. pašto? :approve_link norėdami patvirtinti el. paštą.',
+        'approve_here' => 'spustelėkite čia',
+        'confirm_button' => 'Patvirtinti',
+    ],
+    'email_templates' => [
+        // Confirm email template
+        'confirm_email_title' => 'Patvirtinti el. paštą',
+        'confirm_email_welcome' => 'Džiaugiamės turėdami jus čia, :member_name!',
+        'confirm_email_instruction' => 'Patvirtinkite savo el. pašto adresą, kad galėtumėte pasiekti šią svetainę. Spustelėkite žemiau esantį mygtuką, kad patvirtintumėte savo el. paštą.',
+        'confirm_email_button' => 'Patvirtinkite savo el. pašto adresą',
+
+        // New pending post template
+        'new_pending_post_title' => 'Naujas įrašas laukia peržiūros',
+        'new_pending_post_greeting' => 'Gerbiamas administratoriau,',
+        'new_pending_post_intro' => 'Naujas įrašas buvo pateiktas ir laukia jūsų peržiūros ir patvirtinimo.',
+        'new_pending_post_details_title' => 'Įrašo informacija:',
+        'new_pending_post_author_label' => 'Autorius:',
+        'new_pending_post_title_label' => 'Pavadinimas:',
+        'new_pending_post_action_needed' => 'Peržiūrėkite šį įrašą ir imkitės atitinkamų veiksmų.',
+        'new_pending_post_review_button' => 'Peržiūrėti įrašą',
+        'new_pending_post_footer_note' => 'Šis įrašas liks laukimo būsenoje, kol jį patvirtinsite arba atmessite.',
+
+        // Password reminder template
+        'password_reminder_title' => 'Slaptažodžio atstatymo instrukcijos',
+        'password_reminder_message' => 'Gaunate šį el. laišką, nes gavome slaptažodžio atstatymo užklausą jūsų paskyroje.',
+        'password_reminder_button' => 'Atstatyti slaptažodį',
+        'password_reminder_trouble' => 'Jei kyla problemų spustelint mygtuką "Atstatyti slaptažodį", nukopijuokite ir įklijuokite žemiau esantį URL į savo interneto naršyklę: <a href=":reset_link">:reset_link</a> ir įklijuokite jį į naršyklę. Jei neprašėte slaptažodžio atstatymo, nepaisykite šio pranešimo arba susisiekite su mumis, jei turite klausimų.',
+    ],
+];

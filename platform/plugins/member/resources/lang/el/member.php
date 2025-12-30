@@ -1,0 +1,82 @@
+<?php
+
+return [
+    'create' => 'Νέο μέλος',
+    'menu_name' => 'Μέλη',
+    'edit_this_member' => 'Επεξεργασία αυτού του μέλους',
+    'menu_description' => 'Προβολή και διαχείριση των μελών σας',
+    'confirmation_subject' => 'Επαλήθευση email',
+    'confirmation_subject_title' => 'Επαληθεύστε το email σας',
+    'not_confirmed' => 'Η δοθείσα διεύθυνση email δεν έχει επαληθευτεί. <a href=":resend_link">Αποστολή συνδέσμου επιβεβαίωσης ξανά.</a>',
+    'confirmation_successful' => 'Επαληθεύσατε επιτυχώς τη διεύθυνση email σας.',
+    'confirmation_info' => 'Παρακαλούμε επιβεβαιώστε τη διεύθυνση email σας.',
+    'confirmation_resent' => 'Σας στείλαμε άλλο ένα email επιβεβαίωσης. Θα το λάβετε σύντομα.',
+    'form' => [
+        'login_title' => 'Φόρμα σύνδεσης μέλους',
+        'register_title' => 'Φόρμα εγγραφής μέλους',
+        'reset_password_title' => 'Φόρμα επαναφοράς κωδικού μέλους',
+        'forgot_password_title' => 'Φόρμα ξεχασμένου κωδικού μέλους',
+        'email' => 'Email',
+        'password' => 'Κωδικός πρόσβασης',
+        'password_confirmation' => 'Επιβεβαίωση κωδικού',
+        'change_password' => 'Αλλαγή κωδικού;',
+    ],
+    'forgot_password' => 'Ξεχάσατε τον κωδικό',
+    'login' => 'Σύνδεση',
+    'settings' => [
+        'email' => [
+            'title' => 'Μέλος',
+            'description' => 'Διαμόρφωση email μέλους',
+        ],
+    ],
+    'first_name' => 'Όνομα',
+    'last_name' => 'Επώνυμο',
+    'email_placeholder' => 'Π.χ.: example@gmail.com',
+    'write_a_post' => 'Γράψτε μια ανάρτηση',
+    'phone' => 'Τηλέφωνο',
+    'phone_placeholder' => 'Τηλέφωνο',
+    'confirmed_at' => 'Επιβεβαιώθηκε στις',
+    'avatar' => 'Άβαταρ',
+    'dob' => 'Ημερομηνία γέννησης',
+    'theme_options' => [
+        'name' => 'Μέλος',
+        'login_background_image' => 'Εικόνα φόντου σύνδεσης',
+        'register_background_image' => 'Εικόνα φόντου εγγραφής',
+    ],
+    'dashboard' => 'Πίνακας ελέγχου',
+    'author' => 'Συγγραφέας',
+    'author_helper' => 'Η λίστα συγγραφέων προέρχεται από Διαχειριστής -> Μέλη.',
+    'select_author' => 'Επιλέξτε συγγραφέα',
+    'email_verified' => 'Email επαληθευμένο;',
+    'verify_email' => [
+        'confirm_heading' => 'Επαλήθευση επιβεβαίωσης email',
+        'confirm_description' => 'Είστε βέβαιοι ότι θέλετε να επαληθεύσετε το email αυτού του λογαριασμού;',
+        'notification' => 'Αυτός ο λογαριασμός δεν έχει επαληθευμένο email ακόμα; :approve_link για επαλήθευση email.',
+        'approve_here' => 'κάντε κλικ εδώ',
+        'confirm_button' => 'Επαλήθευση',
+    ],
+    'email_templates' => [
+        // Confirm email template
+        'confirm_email_title' => 'Επαλήθευση Email',
+        'confirm_email_welcome' => 'Χαιρόμαστε που είστε εδώ, :member_name!',
+        'confirm_email_instruction' => 'Παρακαλούμε επαληθεύστε τη διεύθυνση email σας για να αποκτήσετε πρόσβαση σε αυτόν τον ιστότοπο. Κάντε κλικ στο κουμπί παρακάτω για να επαληθεύσετε το email σας.',
+        'confirm_email_button' => 'Επιβεβαιώστε τη διεύθυνση email σας',
+
+        // New pending post template
+        'new_pending_post_title' => 'Νέα Ανάρτηση σε Αναμονή Έγκρισης',
+        'new_pending_post_greeting' => 'Αγαπητέ Διαχειριστή,',
+        'new_pending_post_intro' => 'Μια νέα ανάρτηση έχει υποβληθεί και περιμένει την αναθεώρηση και έγκρισή σας.',
+        'new_pending_post_details_title' => 'Λεπτομέρειες Ανάρτησης:',
+        'new_pending_post_author_label' => 'Συγγραφέας:',
+        'new_pending_post_title_label' => 'Τίτλος:',
+        'new_pending_post_action_needed' => 'Παρακαλούμε ελέγξτε αυτήν την ανάρτηση και λάβετε την κατάλληλη ενέργεια.',
+        'new_pending_post_review_button' => 'Αναθεώρηση Ανάρτησης',
+        'new_pending_post_footer_note' => 'Αυτή η ανάρτηση θα παραμείνει σε κατάσταση αναμονής μέχρι να την εγκρίνετε ή να την απορρίψετε.',
+
+        // Password reminder template
+        'password_reminder_title' => 'Οδηγίες Επαναφοράς Κωδικού',
+        'password_reminder_message' => 'Λαμβάνετε αυτό το email επειδή λάβαμε αίτημα επαναφοράς κωδικού για τον λογαριασμό σας.',
+        'password_reminder_button' => 'Επαναφορά κωδικού',
+        'password_reminder_trouble' => 'Εάν αντιμετωπίζετε πρόβλημα με το κλικ στο κουμπί "Επαναφορά Κωδικού", αντιγράψτε και επικολλήστε το παρακάτω URL στο πρόγραμμα περιήγησης ιστού σας: <a href=":reset_link">:reset_link</a> και επικολλήστε το στο πρόγραμμα περιήγησής σας. Εάν δεν ζητήσατε επαναφορά κωδικού, παρακαλούμε αγνοήστε αυτό το μήνυμα ή επικοινωνήστε μαζί μας εάν έχετε οποιεσδήποτε ερωτήσεις.',
+    ],
+];

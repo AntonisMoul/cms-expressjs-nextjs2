@@ -1,0 +1,82 @@
+<?php
+
+return [
+    'create' => 'Nuovo membro',
+    'menu_name' => 'Membri',
+    'edit_this_member' => 'Modifica questo membro',
+    'menu_description' => 'Visualizza e gestisci i tuoi membri',
+    'confirmation_subject' => 'Verifica email',
+    'confirmation_subject_title' => 'Verifica la tua email',
+    'not_confirmed' => 'L\'indirizzo email fornito non è stato confermato. <a href=":resend_link">Invia nuovamente il link di conferma.</a>',
+    'confirmation_successful' => 'Hai confermato con successo il tuo indirizzo email.',
+    'confirmation_info' => 'Si prega di confermare il proprio indirizzo email.',
+    'confirmation_resent' => 'Ti abbiamo inviato un\'altra email di conferma. Dovresti riceverla a breve.',
+    'form' => [
+        'login_title' => 'Modulo di accesso membri',
+        'register_title' => 'Modulo di registrazione membri',
+        'reset_password_title' => 'Modulo di reimpostazione password membri',
+        'forgot_password_title' => 'Modulo password dimenticata membri',
+        'email' => 'Email',
+        'password' => 'Password',
+        'password_confirmation' => 'Conferma password',
+        'change_password' => 'Cambiare password?',
+    ],
+    'forgot_password' => 'Password dimenticata',
+    'login' => 'Accedi',
+    'settings' => [
+        'email' => [
+            'title' => 'Membro',
+            'description' => 'Configurazione email membri',
+        ],
+    ],
+    'first_name' => 'Nome',
+    'last_name' => 'Cognome',
+    'email_placeholder' => 'Es: example@gmail.com',
+    'write_a_post' => 'Scrivi un post',
+    'phone' => 'Telefono',
+    'phone_placeholder' => 'Telefono',
+    'confirmed_at' => 'Confermato il',
+    'avatar' => 'Avatar',
+    'dob' => 'Data di nascita',
+    'theme_options' => [
+        'name' => 'Membro',
+        'login_background_image' => 'Immagine di sfondo login',
+        'register_background_image' => 'Immagine di sfondo registrazione',
+    ],
+    'dashboard' => 'Dashboard',
+    'author' => 'Autore',
+    'author_helper' => 'L\'elenco degli autori proviene da Admin -> Membri.',
+    'select_author' => 'Seleziona autore',
+    'email_verified' => 'Email verificata?',
+    'verify_email' => [
+        'confirm_heading' => 'Verifica conferma email',
+        'confirm_description' => 'Sei sicuro di voler verificare l\'email di questo account?',
+        'notification' => 'Questo account non ha ancora verificato l\'email? :approve_link per verificare l\'email.',
+        'approve_here' => 'clicca qui',
+        'confirm_button' => 'Verifica',
+    ],
+    'email_templates' => [
+        // Confirm email template
+        'confirm_email_title' => 'Verifica Email',
+        'confirm_email_welcome' => 'Siamo felici di averti qui, :member_name!',
+        'confirm_email_instruction' => 'Si prega di verificare il proprio indirizzo email per accedere a questo sito web. Fare clic sul pulsante qui sotto per verificare la propria email.',
+        'confirm_email_button' => 'Conferma il tuo indirizzo email',
+
+        // New pending post template
+        'new_pending_post_title' => 'Nuovo Post in Attesa di Revisione',
+        'new_pending_post_greeting' => 'Caro Admin,',
+        'new_pending_post_intro' => 'Un nuovo post è stato inviato ed è in attesa della tua revisione e approvazione.',
+        'new_pending_post_details_title' => 'Dettagli Post:',
+        'new_pending_post_author_label' => 'Autore:',
+        'new_pending_post_title_label' => 'Titolo:',
+        'new_pending_post_action_needed' => 'Si prega di rivedere questo post e intraprendere l\'azione appropriata.',
+        'new_pending_post_review_button' => 'Rivedi Post',
+        'new_pending_post_footer_note' => 'Questo post rimarrà in stato di attesa fino a quando non lo approvi o lo rifiuti.',
+
+        // Password reminder template
+        'password_reminder_title' => 'Istruzioni per il Ripristino della Password',
+        'password_reminder_message' => 'Stai ricevendo questa email perché abbiamo ricevuto una richiesta di reimpostazione della password per il tuo account.',
+        'password_reminder_button' => 'Reimposta password',
+        'password_reminder_trouble' => 'Se hai problemi a fare clic sul pulsante "Reimposta Password", copia e incolla l\'URL qui sotto nel tuo browser web: <a href=":reset_link">:reset_link</a> e incollalo nel tuo browser. Se non hai richiesto un ripristino della password, ignora questo messaggio o contattaci se hai domande.',
+    ],
+];

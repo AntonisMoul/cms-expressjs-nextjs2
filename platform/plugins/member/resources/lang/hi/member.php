@@ -1,0 +1,82 @@
+<?php
+
+return [
+    'create' => 'नया सदस्य',
+    'menu_name' => 'सदस्य',
+    'edit_this_member' => 'इस सदस्य को संपादित करें',
+    'menu_description' => 'अपने सदस्यों को देखें और प्रबंधित करें',
+    'confirmation_subject' => 'ईमेल सत्यापन',
+    'confirmation_subject_title' => 'अपना ईमेल सत्यापित करें',
+    'not_confirmed' => 'दिया गया ईमेल पता पुष्टि नहीं किया गया है। <a href=":resend_link">पुष्टि लिंक फिर से भेजें।</a>',
+    'confirmation_successful' => 'आपने अपना ईमेल पता सफलतापूर्वक पुष्टि कर दिया है।',
+    'confirmation_info' => 'कृपया अपना ईमेल पता पुष्टि करें।',
+    'confirmation_resent' => 'हमने आपको एक और पुष्टि ईमेल भेजा है। आपको जल्द ही प्राप्त होना चाहिए।',
+    'form' => [
+        'login_title' => 'सदस्य लॉगिन फॉर्म',
+        'register_title' => 'सदस्य पंजीकरण फॉर्म',
+        'reset_password_title' => 'सदस्य पासवर्ड रीसेट फॉर्म',
+        'forgot_password_title' => 'सदस्य भूला पासवर्ड फॉर्म',
+        'email' => 'ईमेल',
+        'password' => 'पासवर्ड',
+        'password_confirmation' => 'पासवर्ड पुष्टि',
+        'change_password' => 'पासवर्ड बदलें?',
+    ],
+    'forgot_password' => 'पासवर्ड भूल गए',
+    'login' => 'लॉगिन',
+    'settings' => [
+        'email' => [
+            'title' => 'सदस्य',
+            'description' => 'सदस्य ईमेल कॉन्फ़िगरेशन',
+        ],
+    ],
+    'first_name' => 'पहला नाम',
+    'last_name' => 'अंतिम नाम',
+    'email_placeholder' => 'उदा: example@gmail.com',
+    'write_a_post' => 'एक पोस्ट लिखें',
+    'phone' => 'फोन',
+    'phone_placeholder' => 'फोन',
+    'confirmed_at' => 'पुष्टि की गई',
+    'avatar' => 'अवतार',
+    'dob' => 'जन्म तिथि',
+    'theme_options' => [
+        'name' => 'सदस्य',
+        'login_background_image' => 'लॉगिन पृष्ठभूमि छवि',
+        'register_background_image' => 'पंजीकरण पृष्ठभूमि छवि',
+    ],
+    'dashboard' => 'डैशबोर्ड',
+    'author' => 'लेखक',
+    'author_helper' => 'लेखकों की सूची व्यवस्थापक -> सदस्यों से है।',
+    'select_author' => 'लेखक चुनें',
+    'email_verified' => 'ईमेल सत्यापित?',
+    'verify_email' => [
+        'confirm_heading' => 'ईमेल सत्यापन पुष्टि',
+        'confirm_description' => 'क्या आप सुनिश्चित हैं कि आप इस खाते का ईमेल सत्यापित करना चाहते हैं?',
+        'notification' => 'यह खाता अभी तक ईमेल सत्यापित नहीं है? ईमेल सत्यापित करने के लिए :approve_link।',
+        'approve_here' => 'यहाँ क्लिक करें',
+        'confirm_button' => 'सत्यापित करें',
+    ],
+    'email_templates' => [
+        // Confirm email template
+        'confirm_email_title' => 'ईमेल सत्यापित करें',
+        'confirm_email_welcome' => 'हमें आपको यहाँ पाकर खुशी है, :member_name!',
+        'confirm_email_instruction' => 'कृपया इस वेबसाइट तक पहुँचने के लिए अपना ईमेल पता सत्यापित करें। अपना ईमेल सत्यापित करने के लिए नीचे दिए गए बटन पर क्लिक करें।',
+        'confirm_email_button' => 'अपना ईमेल पता पुष्टि करें',
+
+        // New pending post template
+        'new_pending_post_title' => 'नया पोस्ट समीक्षा के लिए लंबित',
+        'new_pending_post_greeting' => 'प्रिय व्यवस्थापक,',
+        'new_pending_post_intro' => 'एक नया पोस्ट सबमिट किया गया है और आपकी समीक्षा और अनुमोदन का इंतजार कर रहा है।',
+        'new_pending_post_details_title' => 'पोस्ट विवरण:',
+        'new_pending_post_author_label' => 'लेखक:',
+        'new_pending_post_title_label' => 'शीर्षक:',
+        'new_pending_post_action_needed' => 'कृपया इस पोस्ट की समीक्षा करें और उचित कार्रवाई करें।',
+        'new_pending_post_review_button' => 'पोस्ट की समीक्षा करें',
+        'new_pending_post_footer_note' => 'यह पोस्ट तब तक लंबित स्थिति में रहेगा जब तक आप इसे स्वीकार या अस्वीकार नहीं करते।',
+
+        // Password reminder template
+        'password_reminder_title' => 'पासवर्ड रीसेट निर्देश',
+        'password_reminder_message' => 'आपको यह ईमेल इसलिए मिल रहा है क्योंकि हमें आपके खाते के लिए पासवर्ड रीसेट अनुरोध प्राप्त हुआ है।',
+        'password_reminder_button' => 'पासवर्ड रीसेट करें',
+        'password_reminder_trouble' => 'यदि आपको "पासवर्ड रीसेट करें" बटन पर क्लिक करने में परेशानी हो रही है, तो नीचे दिए गए URL को कॉपी करके अपने वेब ब्राउज़र में पेस्ट करें: <a href=":reset_link">:reset_link</a> और इसे अपने ब्राउज़र में पेस्ट करें। यदि आपने पासवर्ड रीसेट का अनुरोध नहीं किया है, तो कृपया इस संदेश को अनदेखा करें या यदि आपके कोई प्रश्न हैं तो हमसे संपर्क करें।',
+    ],
+];

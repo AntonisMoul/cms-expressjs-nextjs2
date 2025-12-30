@@ -1,0 +1,82 @@
+<?php
+
+return [
+    'create' => 'Novo membro',
+    'menu_name' => 'Membros',
+    'edit_this_member' => 'Editar este membro',
+    'menu_description' => 'Visualizar e gerenciar seus membros',
+    'confirmation_subject' => 'Verificação de e-mail',
+    'confirmation_subject_title' => 'Verifique seu e-mail',
+    'not_confirmed' => 'O endereço de e-mail fornecido não foi confirmado. <a href=":resend_link">Reenviar link de confirmação.</a>',
+    'confirmation_successful' => 'Você confirmou seu endereço de e-mail com sucesso.',
+    'confirmation_info' => 'Por favor, confirme seu endereço de e-mail.',
+    'confirmation_resent' => 'Enviamos outro e-mail de confirmação. Você deve recebê-lo em breve.',
+    'form' => [
+        'login_title' => 'Formulário de login de membro',
+        'register_title' => 'Formulário de registro de membro',
+        'reset_password_title' => 'Formulário de redefinição de senha de membro',
+        'forgot_password_title' => 'Formulário de senha esquecida de membro',
+        'email' => 'E-mail',
+        'password' => 'Senha',
+        'password_confirmation' => 'Confirmação de senha',
+        'change_password' => 'Alterar senha?',
+    ],
+    'forgot_password' => 'Esqueceu a senha',
+    'login' => 'Entrar',
+    'settings' => [
+        'email' => [
+            'title' => 'Membro',
+            'description' => 'Configuração de e-mail de membro',
+        ],
+    ],
+    'first_name' => 'Nome',
+    'last_name' => 'Sobrenome',
+    'email_placeholder' => 'Ex: exemplo@gmail.com',
+    'write_a_post' => 'Escrever uma publicação',
+    'phone' => 'Telefone',
+    'phone_placeholder' => 'Telefone',
+    'confirmed_at' => 'Confirmado em',
+    'avatar' => 'Avatar',
+    'dob' => 'Data de nascimento',
+    'theme_options' => [
+        'name' => 'Membro',
+        'login_background_image' => 'Imagem de fundo de login',
+        'register_background_image' => 'Imagem de fundo de registro',
+    ],
+    'dashboard' => 'Painel',
+    'author' => 'Autor',
+    'author_helper' => 'A lista de autores é de Admin -> Membros.',
+    'select_author' => 'Selecionar autor',
+    'email_verified' => 'E-mail verificado?',
+    'verify_email' => [
+        'confirm_heading' => 'Confirmação de verificação de e-mail',
+        'confirm_description' => 'Tem certeza de que deseja verificar o e-mail desta conta?',
+        'notification' => 'Esta conta ainda não tem e-mail verificado? :approve_link para verificar o e-mail.',
+        'approve_here' => 'clique aqui',
+        'confirm_button' => 'Verificar',
+    ],
+    'email_templates' => [
+        // Confirm email template
+        'confirm_email_title' => 'Verificar E-mail',
+        'confirm_email_welcome' => 'Ficamos felizes em ter você aqui, :member_name!',
+        'confirm_email_instruction' => 'Por favor, verifique seu endereço de e-mail para acessar este site. Clique no botão abaixo para verificar seu e-mail.',
+        'confirm_email_button' => 'Confirmar seu endereço de e-mail',
+
+        // New pending post template
+        'new_pending_post_title' => 'Nova Publicação Aguardando Revisão',
+        'new_pending_post_greeting' => 'Caro Administrador,',
+        'new_pending_post_intro' => 'Uma nova publicação foi enviada e está aguardando sua revisão e aprovação.',
+        'new_pending_post_details_title' => 'Detalhes da Publicação:',
+        'new_pending_post_author_label' => 'Autor:',
+        'new_pending_post_title_label' => 'Título:',
+        'new_pending_post_action_needed' => 'Por favor, revise esta publicação e tome as medidas apropriadas.',
+        'new_pending_post_review_button' => 'Revisar Publicação',
+        'new_pending_post_footer_note' => 'Esta publicação permanecerá em status pendente até que você a aprove ou rejeite.',
+
+        // Password reminder template
+        'password_reminder_title' => 'Instruções de Redefinição de Senha',
+        'password_reminder_message' => 'Você está recebendo este e-mail porque recebemos uma solicitação de redefinição de senha para sua conta.',
+        'password_reminder_button' => 'Redefinir senha',
+        'password_reminder_trouble' => 'Se você está tendo problemas para clicar no botão "Redefinir Senha", copie e cole a URL abaixo em seu navegador: <a href=":reset_link">:reset_link</a> e cole em seu navegador. Se você não solicitou uma redefinição de senha, ignore esta mensagem ou entre em contato conosco se tiver alguma dúvida.',
+    ],
+];

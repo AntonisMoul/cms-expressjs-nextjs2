@@ -1,0 +1,82 @@
+<?php
+
+return [
+    'create' => 'নতুন সদস্য',
+    'menu_name' => 'সদস্যগণ',
+    'edit_this_member' => 'এই সদস্য সম্পাদনা করুন',
+    'menu_description' => 'আপনার সদস্যদের দেখুন এবং পরিচালনা করুন',
+    'confirmation_subject' => 'ইমেইল যাচাইকরণ',
+    'confirmation_subject_title' => 'আপনার ইমেইল যাচাই করুন',
+    'not_confirmed' => 'প্রদত্ত ইমেইল ঠিকানা নিশ্চিত করা হয়নি। <a href=":resend_link">নিশ্চিতকরণ লিঙ্ক পুনরায় পাঠান।</a>',
+    'confirmation_successful' => 'আপনি সফলভাবে আপনার ইমেইল ঠিকানা নিশ্চিত করেছেন।',
+    'confirmation_info' => 'অনুগ্রহ করে আপনার ইমেইল ঠিকানা নিশ্চিত করুন।',
+    'confirmation_resent' => 'আমরা আপনাকে আরেকটি নিশ্চিতকরণ ইমেইল পাঠিয়েছি। আপনি শীঘ্রই এটি পাবেন।',
+    'form' => [
+        'login_title' => 'সদস্য লগইন ফর্ম',
+        'register_title' => 'সদস্য নিবন্ধন ফর্ম',
+        'reset_password_title' => 'সদস্য পাসওয়ার্ড রিসেট ফর্ম',
+        'forgot_password_title' => 'সদস্য পাসওয়ার্ড ভুলে গেছেন ফর্ম',
+        'email' => 'ইমেইল',
+        'password' => 'পাসওয়ার্ড',
+        'password_confirmation' => 'পাসওয়ার্ড নিশ্চিতকরণ',
+        'change_password' => 'পাসওয়ার্ড পরিবর্তন করবেন?',
+    ],
+    'forgot_password' => 'পাসওয়ার্ড ভুলে গেছেন',
+    'login' => 'লগইন',
+    'settings' => [
+        'email' => [
+            'title' => 'সদস্য',
+            'description' => 'সদস্য ইমেইল কনফিগারেশন',
+        ],
+    ],
+    'first_name' => 'নাম',
+    'last_name' => 'পদবি',
+    'email_placeholder' => 'উদাহরণ: example@gmail.com',
+    'write_a_post' => 'একটি পোস্ট লিখুন',
+    'phone' => 'ফোন',
+    'phone_placeholder' => 'ফোন',
+    'confirmed_at' => 'নিশ্চিত হয়েছে',
+    'avatar' => 'অবতার',
+    'dob' => 'জন্ম তারিখ',
+    'theme_options' => [
+        'name' => 'সদস্য',
+        'login_background_image' => 'লগইন পটভূমি চিত্র',
+        'register_background_image' => 'নিবন্ধন পটভূমি চিত্র',
+    ],
+    'dashboard' => 'ড্যাশবোর্ড',
+    'author' => 'লেখক',
+    'author_helper' => 'লেখকদের তালিকা প্রশাসক -> সদস্যগণ থেকে।',
+    'select_author' => 'লেখক নির্বাচন করুন',
+    'email_verified' => 'ইমেইল যাচাই করা হয়েছে?',
+    'verify_email' => [
+        'confirm_heading' => 'ইমেইল যাচাইকরণ নিশ্চিত করুন',
+        'confirm_description' => 'আপনি কি নিশ্চিত যে আপনি এই অ্যাকাউন্টের ইমেইল যাচাই করতে চান?',
+        'notification' => 'এই অ্যাকাউন্ট এখনও ইমেইল যাচাই করেনি। ইমেইল যাচাই করতে :approve_link।',
+        'approve_here' => 'এখানে ক্লিক করুন',
+        'confirm_button' => 'যাচাই করুন',
+    ],
+    'email_templates' => [
+        // Confirm email template
+        'confirm_email_title' => 'ইমেইল যাচাই করুন',
+        'confirm_email_welcome' => 'আমরা আপনাকে এখানে পেয়ে আনন্দিত, :member_name!',
+        'confirm_email_instruction' => 'এই ওয়েবসাইট অ্যাক্সেস করার জন্য অনুগ্রহ করে আপনার ইমেইল ঠিকানা যাচাই করুন। আপনার ইমেইল যাচাই করতে নিচের বোতামে ক্লিক করুন।',
+        'confirm_email_button' => 'আপনার ইমেইল ঠিকানা নিশ্চিত করুন',
+
+        // New pending post template
+        'new_pending_post_title' => 'নতুন পোস্ট পর্যালোচনার জন্য অপেক্ষমাণ',
+        'new_pending_post_greeting' => 'প্রিয় প্রশাসক,',
+        'new_pending_post_intro' => 'একটি নতুন পোস্ট জমা দেওয়া হয়েছে এবং আপনার পর্যালোচনা এবং অনুমোদনের জন্য অপেক্ষা করছে।',
+        'new_pending_post_details_title' => 'পোস্টের বিবরণ:',
+        'new_pending_post_author_label' => 'লেখক:',
+        'new_pending_post_title_label' => 'শিরোনাম:',
+        'new_pending_post_action_needed' => 'অনুগ্রহ করে এই পোস্টটি পর্যালোচনা করুন এবং উপযুক্ত পদক্ষেপ নিন।',
+        'new_pending_post_review_button' => 'পোস্ট পর্যালোচনা করুন',
+        'new_pending_post_footer_note' => 'এই পোস্টটি অপেক্ষমাণ অবস্থায় থাকবে যতক্ষণ না আপনি এটি অনুমোদন বা প্রত্যাখ্যান করেন।',
+
+        // Password reminder template
+        'password_reminder_title' => 'পাসওয়ার্ড রিসেট নির্দেশনা',
+        'password_reminder_message' => 'আপনি এই ইমেইলটি পাচ্ছেন কারণ আমরা আপনার অ্যাকাউন্টের জন্য একটি পাসওয়ার্ড রিসেট অনুরোধ পেয়েছি।',
+        'password_reminder_button' => 'পাসওয়ার্ড রিসেট করুন',
+        'password_reminder_trouble' => 'যদি আপনি "পাসওয়ার্ড রিসেট করুন" বোতামে ক্লিক করতে সমস্যা হয়, নিচের URL টি কপি করে আপনার ওয়েব ব্রাউজারে পেস্ট করুন: <a href=":reset_link">:reset_link</a>। আপনি যদি পাসওয়ার্ড রিসেট অনুরোধ না করে থাকেন, তাহলে দয়া করে এই বার্তাটি উপেক্ষা করুন বা কোন প্রশ্ন থাকলে আমাদের সাথে যোগাযোগ করুন।',
+    ],
+];

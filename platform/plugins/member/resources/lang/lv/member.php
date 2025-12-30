@@ -1,0 +1,82 @@
+<?php
+
+return [
+    'create' => 'Jauns biedrs',
+    'menu_name' => 'Biedri',
+    'edit_this_member' => 'Rediģēt šo biedru',
+    'menu_description' => 'Skatīt un pārvaldīt savus biedrus',
+    'confirmation_subject' => 'E-pasta verifikācija',
+    'confirmation_subject_title' => 'Verificējiet savu e-pastu',
+    'not_confirmed' => 'Norādītā e-pasta adrese nav apstiprināta. <a href=":resend_link">Atkārtoti nosūtīt apstiprinājuma saiti.</a>',
+    'confirmation_successful' => 'Jūs veiksmīgi apstiprinājāt savu e-pasta adresi.',
+    'confirmation_info' => 'Lūdzu, apstipriniet savu e-pasta adresi.',
+    'confirmation_resent' => 'Mēs jums nosūtījām vēl vienu apstiprinājuma e-pastu. Jums tas drīzumā vajadzētu saņemt.',
+    'form' => [
+        'login_title' => 'Biedra pieteikšanās forma',
+        'register_title' => 'Biedra reģistrācijas forma',
+        'reset_password_title' => 'Biedra paroles atiestatīšanas forma',
+        'forgot_password_title' => 'Biedra aizmirstās paroles forma',
+        'email' => 'E-pasts',
+        'password' => 'Parole',
+        'password_confirmation' => 'Paroles apstiprinājums',
+        'change_password' => 'Mainīt paroli?',
+    ],
+    'forgot_password' => 'Aizmirsāt paroli',
+    'login' => 'Pieteikties',
+    'settings' => [
+        'email' => [
+            'title' => 'Biedrs',
+            'description' => 'Biedra e-pasta konfigurācija',
+        ],
+    ],
+    'first_name' => 'Vārds',
+    'last_name' => 'Uzvārds',
+    'email_placeholder' => 'Piemērs: example@gmail.com',
+    'write_a_post' => 'Rakstīt ierakstu',
+    'phone' => 'Tālrunis',
+    'phone_placeholder' => 'Tālrunis',
+    'confirmed_at' => 'Apstiprināts',
+    'avatar' => 'Avatars',
+    'dob' => 'Dzimšanas datums',
+    'theme_options' => [
+        'name' => 'Biedrs',
+        'login_background_image' => 'Pieteikšanās fona attēls',
+        'register_background_image' => 'Reģistrācijas fona attēls',
+    ],
+    'dashboard' => 'Informācijas panelis',
+    'author' => 'Autors',
+    'author_helper' => 'Autoru saraksts ir no Administrators -> Biedri.',
+    'select_author' => 'Izvēlēties autoru',
+    'email_verified' => 'E-pasts verificēts?',
+    'verify_email' => [
+        'confirm_heading' => 'Verificēt e-pasta apstiprinājumu',
+        'confirm_description' => 'Vai tiešām vēlaties verificēt šī konta e-pastu?',
+        'notification' => 'Šis konts vēl nav verificējis e-pastu? :approve_link, lai verificētu e-pastu.',
+        'approve_here' => 'noklikšķiniet šeit',
+        'confirm_button' => 'Verificēt',
+    ],
+    'email_templates' => [
+        // Confirm email template
+        'confirm_email_title' => 'Verificēt e-pastu',
+        'confirm_email_welcome' => 'Mēs priecājamies, ka esat šeit, :member_name!',
+        'confirm_email_instruction' => 'Lūdzu, verificējiet savu e-pasta adresi, lai piekļūtu šai vietnei. Noklikšķiniet uz zemāk esošās pogas, lai verificētu savu e-pastu.',
+        'confirm_email_button' => 'Apstipriniet savu e-pasta adresi',
+
+        // New pending post template
+        'new_pending_post_title' => 'Jauns ieraksts gaida pārskatīšanu',
+        'new_pending_post_greeting' => 'Cienījamais administrators,',
+        'new_pending_post_intro' => 'Jauns ieraksts ir iesniegts un gaida jūsu pārskatīšanu un apstiprināšanu.',
+        'new_pending_post_details_title' => 'Ieraksta detaļas:',
+        'new_pending_post_author_label' => 'Autors:',
+        'new_pending_post_title_label' => 'Nosaukums:',
+        'new_pending_post_action_needed' => 'Lūdzu, pārskatiet šo ierakstu un veiciet atbilstošas darbības.',
+        'new_pending_post_review_button' => 'Pārskatīt ierakstu',
+        'new_pending_post_footer_note' => 'Šis ieraksts paliks gaidīšanas statusā, līdz to apstiprināsit vai noraidīsit.',
+
+        // Password reminder template
+        'password_reminder_title' => 'Paroles atiestatīšanas instrukcijas',
+        'password_reminder_message' => 'Jūs saņemat šo e-pastu, jo mēs saņēmām paroles atiestatīšanas pieprasījumu jūsu kontam.',
+        'password_reminder_button' => 'Atiestatīt paroli',
+        'password_reminder_trouble' => 'Ja jums ir problēmas ar pogas "Atiestatīt paroli" noklikšķināšanu, nokopējiet un ielīmējiet zemāk esošo URL savā tīmekļa pārlūkprogrammā: <a href=":reset_link">:reset_link</a> un ielīmējiet to savā pārlūkprogrammā. Ja neesat pieprasījis paroles atiestatīšanu, lūdzu, ignorējiet šo ziņojumu vai sazinieties ar mums, ja jums ir kādi jautājumi.',
+    ],
+];

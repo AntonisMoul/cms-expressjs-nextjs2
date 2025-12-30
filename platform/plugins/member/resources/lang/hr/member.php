@@ -1,0 +1,82 @@
+<?php
+
+return [
+    'create' => 'Novi član',
+    'menu_name' => 'Članovi',
+    'edit_this_member' => 'Uredi ovog člana',
+    'menu_description' => 'Pregledaj i upravljaj svojim članovima',
+    'confirmation_subject' => 'Potvrda e-pošte',
+    'confirmation_subject_title' => 'Potvrdite svoju e-poštu',
+    'not_confirmed' => 'Navedena adresa e-pošte nije potvrđena. <a href=":resend_link">Ponovno pošalji poveznicu za potvrdu.</a>',
+    'confirmation_successful' => 'Uspješno ste potvrdili svoju adresu e-pošte.',
+    'confirmation_info' => 'Molimo potvrdite svoju adresu e-pošte.',
+    'confirmation_resent' => 'Poslali smo vam još jednu e-poštu za potvrdu. Trebali biste je uskoro primiti.',
+    'form' => [
+        'login_title' => 'Obrazac za prijavu člana',
+        'register_title' => 'Obrazac za registraciju člana',
+        'reset_password_title' => 'Obrazac za resetiranje lozinke člana',
+        'forgot_password_title' => 'Obrazac za zaboravljenu lozinku člana',
+        'email' => 'E-pošta',
+        'password' => 'Lozinka',
+        'password_confirmation' => 'Potvrda lozinke',
+        'change_password' => 'Promijeni lozinku?',
+    ],
+    'forgot_password' => 'Zaboravljena lozinka',
+    'login' => 'Prijavi se',
+    'settings' => [
+        'email' => [
+            'title' => 'Član',
+            'description' => 'Konfiguracija e-pošte člana',
+        ],
+    ],
+    'first_name' => 'Ime',
+    'last_name' => 'Prezime',
+    'email_placeholder' => 'Npr: example@gmail.com',
+    'write_a_post' => 'Napiši objavu',
+    'phone' => 'Telefon',
+    'phone_placeholder' => 'Telefon',
+    'confirmed_at' => 'Potvrđeno',
+    'avatar' => 'Avatar',
+    'dob' => 'Datum rođenja',
+    'theme_options' => [
+        'name' => 'Član',
+        'login_background_image' => 'Pozadinska slika prijave',
+        'register_background_image' => 'Pozadinska slika registracije',
+    ],
+    'dashboard' => 'Nadzorna ploča',
+    'author' => 'Autor',
+    'author_helper' => 'Popis autora je iz Admin -> Članovi.',
+    'select_author' => 'Odaberi autora',
+    'email_verified' => 'E-pošta potvrđena?',
+    'verify_email' => [
+        'confirm_heading' => 'Potvrdi verifikaciju e-pošte',
+        'confirm_description' => 'Jeste li sigurni da želite potvrditi e-poštu ovog računa?',
+        'notification' => 'Ovaj račun još nema potvrđenu e-poštu? :approve_link za potvrdu e-pošte.',
+        'approve_here' => 'kliknite ovdje',
+        'confirm_button' => 'Potvrdi',
+    ],
+    'email_templates' => [
+        // Confirm email template
+        'confirm_email_title' => 'Potvrdi e-poštu',
+        'confirm_email_welcome' => 'Drago nam je što si ovdje, :member_name!',
+        'confirm_email_instruction' => 'Molimo potvrdite svoju adresu e-pošte kako biste pristupili ovoj web stranici. Kliknite na gumb ispod da potvrdite svoju e-poštu.',
+        'confirm_email_button' => 'Potvrdite svoju adresu e-pošte',
+
+        // New pending post template
+        'new_pending_post_title' => 'Nova objava čeka pregled',
+        'new_pending_post_greeting' => 'Poštovani administratore,',
+        'new_pending_post_intro' => 'Nova objava je poslana i čeka vaš pregled i odobrenje.',
+        'new_pending_post_details_title' => 'Detalji objave:',
+        'new_pending_post_author_label' => 'Autor:',
+        'new_pending_post_title_label' => 'Naslov:',
+        'new_pending_post_action_needed' => 'Molimo pregledajte ovu objavu i poduzmnite odgovarajuće radnje.',
+        'new_pending_post_review_button' => 'Pregledaj objavu',
+        'new_pending_post_footer_note' => 'Ova objava će ostati u statusu na čekanju dok je ne odobrite ili odbijete.',
+
+        // Password reminder template
+        'password_reminder_title' => 'Upute za resetiranje lozinke',
+        'password_reminder_message' => 'Primili ste ovaj e-mail jer smo primili zahtjev za resetiranje lozinke za vaš račun.',
+        'password_reminder_button' => 'Resetiraj lozinku',
+        'password_reminder_trouble' => 'Ako imate problema s klikom na gumb "Resetiraj lozinku", kopirajte i zalijepite URL ispod u svoj web preglednik: <a href=":reset_link">:reset_link</a> i zalijepite ga u svoj preglednik. Ako niste zatražili resetiranje lozinke, molimo zanemarite ovu poruku ili nas kontaktirajte ako imate pitanja.',
+    ],
+];

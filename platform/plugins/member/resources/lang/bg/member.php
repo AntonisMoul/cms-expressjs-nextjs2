@@ -1,0 +1,82 @@
+<?php
+
+return [
+    'create' => 'Нов член',
+    'menu_name' => 'Членове',
+    'edit_this_member' => 'Редактиране на този член',
+    'menu_description' => 'Преглед и управление на вашите членове',
+    'confirmation_subject' => 'Потвърждение на имейл',
+    'confirmation_subject_title' => 'Потвърдете вашия имейл',
+    'not_confirmed' => 'Посоченият имейл адрес не е потвърден. <a href=":resend_link">Изпратете отново връзка за потвърждение.</a>',
+    'confirmation_successful' => 'Успешно потвърдихте вашия имейл адрес.',
+    'confirmation_info' => 'Моля, потвърдете вашия имейл адрес.',
+    'confirmation_resent' => 'Изпратихме ви още един имейл за потвърждение. Трябва да го получите скоро.',
+    'form' => [
+        'login_title' => 'Формуляр за вход на член',
+        'register_title' => 'Формуляр за регистрация на член',
+        'reset_password_title' => 'Формуляр за нулиране на парола на член',
+        'forgot_password_title' => 'Формуляр за забравена парола на член',
+        'email' => 'Имейл',
+        'password' => 'Парола',
+        'password_confirmation' => 'Потвърждение на парола',
+        'change_password' => 'Промяна на парола?',
+    ],
+    'forgot_password' => 'Забравена парола',
+    'login' => 'Вход',
+    'settings' => [
+        'email' => [
+            'title' => 'Член',
+            'description' => 'Конфигурация на имейл за членове',
+        ],
+    ],
+    'first_name' => 'Име',
+    'last_name' => 'Фамилия',
+    'email_placeholder' => 'Напр: example@gmail.com',
+    'write_a_post' => 'Напишете публикация',
+    'phone' => 'Телефон',
+    'phone_placeholder' => 'Телефон',
+    'confirmed_at' => 'Потвърдено на',
+    'avatar' => 'Аватар',
+    'dob' => 'Дата на раждане',
+    'theme_options' => [
+        'name' => 'Член',
+        'login_background_image' => 'Фоново изображение за вход',
+        'register_background_image' => 'Фоново изображение за регистрация',
+    ],
+    'dashboard' => 'Табло',
+    'author' => 'Автор',
+    'author_helper' => 'Списъкът с автори е от Администратор -> Членове.',
+    'select_author' => 'Изберете автор',
+    'email_verified' => 'Имейл потвърден?',
+    'verify_email' => [
+        'confirm_heading' => 'Потвърждение на имейл',
+        'confirm_description' => 'Сигурни ли сте, че искате да потвърдите имейла на този акаунт?',
+        'notification' => 'Този акаунт все още не е потвърдил имейла си. :approve_link за потвърждение на имейла.',
+        'approve_here' => 'кликнете тук',
+        'confirm_button' => 'Потвърди',
+    ],
+    'email_templates' => [
+        // Confirm email template
+        'confirm_email_title' => 'Потвърдете имейл',
+        'confirm_email_welcome' => 'Радваме се да ви имаме тук, :member_name!',
+        'confirm_email_instruction' => 'Моля, потвърдете вашия имейл адрес, за да получите достъп до този уебсайт. Кликнете на бутона по-долу, за да потвърдите вашия имейл.',
+        'confirm_email_button' => 'Потвърдете вашия имейл адрес',
+
+        // New pending post template
+        'new_pending_post_title' => 'Нова публикация чака преглед',
+        'new_pending_post_greeting' => 'Уважаеми администратор,',
+        'new_pending_post_intro' => 'Нова публикация е изпратена и чака вашия преглед и одобрение.',
+        'new_pending_post_details_title' => 'Детайли на публикацията:',
+        'new_pending_post_author_label' => 'Автор:',
+        'new_pending_post_title_label' => 'Заглавие:',
+        'new_pending_post_action_needed' => 'Моля, прегледайте тази публикация и предприемете подходящо действие.',
+        'new_pending_post_review_button' => 'Преглед на публикацията',
+        'new_pending_post_footer_note' => 'Тази публикация ще остане в състояние на изчакване, докато я одобрите или отхвърлите.',
+
+        // Password reminder template
+        'password_reminder_title' => 'Инструкции за нулиране на парола',
+        'password_reminder_message' => 'Получавате този имейл, защото получихме заявка за нулиране на паролата за вашия акаунт.',
+        'password_reminder_button' => 'Нулиране на парола',
+        'password_reminder_trouble' => 'Ако имате проблеми с кликване на бутона "Нулиране на парола", копирайте и поставете URL адреса по-долу във вашия уеб браузър: <a href=":reset_link">:reset_link</a>. Ако не сте поискали нулиране на парола, моля игнорирайте това съобщение или се свържете с нас, ако имате въпроси.',
+    ],
+];

@@ -1,0 +1,82 @@
+<?php
+
+return [
+    'create' => 'Membru nou',
+    'menu_name' => 'Membri',
+    'edit_this_member' => 'Editează acest membru',
+    'menu_description' => 'Vizualizați și gestionați membrii dvs.',
+    'confirmation_subject' => 'Verificare email',
+    'confirmation_subject_title' => 'Verificați-vă emailul',
+    'not_confirmed' => 'Adresa de email furnizată nu a fost confirmată. <a href=":resend_link">Retrimite link-ul de confirmare.</a>',
+    'confirmation_successful' => 'Ați confirmat cu succes adresa dvs. de email.',
+    'confirmation_info' => 'Vă rugăm să confirmați adresa dvs. de email.',
+    'confirmation_resent' => 'V-am trimis un alt email de confirmare. Ar trebui să îl primiți în curând.',
+    'form' => [
+        'login_title' => 'Formular de autentificare membru',
+        'register_title' => 'Formular de înregistrare membru',
+        'reset_password_title' => 'Formular de resetare parolă membru',
+        'forgot_password_title' => 'Formular am uitat parola membru',
+        'email' => 'Email',
+        'password' => 'Parolă',
+        'password_confirmation' => 'Confirmare parolă',
+        'change_password' => 'Schimbați parola?',
+    ],
+    'forgot_password' => 'Am uitat parola',
+    'login' => 'Autentificare',
+    'settings' => [
+        'email' => [
+            'title' => 'Membru',
+            'description' => 'Configurare email membru',
+        ],
+    ],
+    'first_name' => 'Prenume',
+    'last_name' => 'Nume',
+    'email_placeholder' => 'Ex: example@gmail.com',
+    'write_a_post' => 'Scrie o postare',
+    'phone' => 'Telefon',
+    'phone_placeholder' => 'Telefon',
+    'confirmed_at' => 'Confirmat la',
+    'avatar' => 'Avatar',
+    'dob' => 'Data nașterii',
+    'theme_options' => [
+        'name' => 'Membru',
+        'login_background_image' => 'Imagine de fundal autentificare',
+        'register_background_image' => 'Imagine de fundal înregistrare',
+    ],
+    'dashboard' => 'Tablou de bord',
+    'author' => 'Autor',
+    'author_helper' => 'Lista de autori este din Admin -> Membri.',
+    'select_author' => 'Selectați autorul',
+    'email_verified' => 'Email verificat?',
+    'verify_email' => [
+        'confirm_heading' => 'Verificare confirmare email',
+        'confirm_description' => 'Sigur doriți să verificați emailul acestui cont?',
+        'notification' => 'Acest cont nu are emailul verificat încă? :approve_link pentru a verifica emailul.',
+        'approve_here' => 'faceți clic aici',
+        'confirm_button' => 'Verifică',
+    ],
+    'email_templates' => [
+        // Confirm email template
+        'confirm_email_title' => 'Verificați Emailul',
+        'confirm_email_welcome' => 'Ne bucurăm că ești aici, :member_name!',
+        'confirm_email_instruction' => 'Vă rugăm să verificați adresa dvs. de email pentru a accesa acest site web. Faceți clic pe butonul de mai jos pentru a vă verifica emailul.',
+        'confirm_email_button' => 'Confirmați adresa dvs. de email',
+
+        // New pending post template
+        'new_pending_post_title' => 'Postare Nouă În Așteptarea Revizuirii',
+        'new_pending_post_greeting' => 'Stimate Administrator,',
+        'new_pending_post_intro' => 'O postare nouă a fost trimisă și așteaptă revizuirea și aprobarea dvs.',
+        'new_pending_post_details_title' => 'Detalii Postare:',
+        'new_pending_post_author_label' => 'Autor:',
+        'new_pending_post_title_label' => 'Titlu:',
+        'new_pending_post_action_needed' => 'Vă rugăm să revizuiți această postare și să luați măsurile corespunzătoare.',
+        'new_pending_post_review_button' => 'Revizuiește Postarea',
+        'new_pending_post_footer_note' => 'Această postare va rămâne în stare de așteptare până când o aprobați sau o respingeți.',
+
+        // Password reminder template
+        'password_reminder_title' => 'Instrucțiuni de Resetare Parolă',
+        'password_reminder_message' => 'Primiți acest email deoarece am primit o solicitare de resetare a parolei pentru contul dvs.',
+        'password_reminder_button' => 'Resetați parola',
+        'password_reminder_trouble' => 'Dacă aveți probleme la apăsarea butonului "Resetați Parola", copiați și lipiți URL-ul de mai jos în browserul dvs. web: <a href=":reset_link">:reset_link</a> și lipiți-l în browser. Dacă nu ați solicitat resetarea parolei, vă rugăm să ignorați acest mesaj sau să ne contactați dacă aveți întrebări.',
+    ],
+];

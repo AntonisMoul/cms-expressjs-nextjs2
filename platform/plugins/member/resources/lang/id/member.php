@@ -1,0 +1,82 @@
+<?php
+
+return [
+    'create' => 'Anggota baru',
+    'menu_name' => 'Anggota',
+    'edit_this_member' => 'Edit anggota ini',
+    'menu_description' => 'Lihat dan kelola anggota Anda',
+    'confirmation_subject' => 'Verifikasi email',
+    'confirmation_subject_title' => 'Verifikasi email Anda',
+    'not_confirmed' => 'Alamat email yang diberikan belum dikonfirmasi. <a href=":resend_link">Kirim ulang tautan konfirmasi.</a>',
+    'confirmation_successful' => 'Anda berhasil mengkonfirmasi alamat email Anda.',
+    'confirmation_info' => 'Silakan konfirmasi alamat email Anda.',
+    'confirmation_resent' => 'Kami telah mengirimkan email konfirmasi lainnya kepada Anda. Anda harus menerimanya segera.',
+    'form' => [
+        'login_title' => 'Formulir login anggota',
+        'register_title' => 'Formulir pendaftaran anggota',
+        'reset_password_title' => 'Formulir reset kata sandi anggota',
+        'forgot_password_title' => 'Formulir lupa kata sandi anggota',
+        'email' => 'Email',
+        'password' => 'Kata sandi',
+        'password_confirmation' => 'Konfirmasi kata sandi',
+        'change_password' => 'Ubah kata sandi?',
+    ],
+    'forgot_password' => 'Lupa kata sandi',
+    'login' => 'Masuk',
+    'settings' => [
+        'email' => [
+            'title' => 'Anggota',
+            'description' => 'Konfigurasi email anggota',
+        ],
+    ],
+    'first_name' => 'Nama Depan',
+    'last_name' => 'Nama Belakang',
+    'email_placeholder' => 'Contoh: example@gmail.com',
+    'write_a_post' => 'Tulis pos',
+    'phone' => 'Telepon',
+    'phone_placeholder' => 'Telepon',
+    'confirmed_at' => 'Dikonfirmasi pada',
+    'avatar' => 'Avatar',
+    'dob' => 'Tanggal lahir',
+    'theme_options' => [
+        'name' => 'Anggota',
+        'login_background_image' => 'Gambar latar belakang login',
+        'register_background_image' => 'Gambar latar belakang pendaftaran',
+    ],
+    'dashboard' => 'Dasbor',
+    'author' => 'Penulis',
+    'author_helper' => 'Daftar penulis dari Admin -> Anggota.',
+    'select_author' => 'Pilih penulis',
+    'email_verified' => 'Email terverifikasi?',
+    'verify_email' => [
+        'confirm_heading' => 'Konfirmasi verifikasi email',
+        'confirm_description' => 'Apakah Anda yakin ingin memverifikasi email akun ini?',
+        'notification' => 'Akun ini belum terverifikasi emailnya? :approve_link untuk memverifikasi email.',
+        'approve_here' => 'klik di sini',
+        'confirm_button' => 'Verifikasi',
+    ],
+    'email_templates' => [
+        // Confirm email template
+        'confirm_email_title' => 'Verifikasi Email',
+        'confirm_email_welcome' => 'Kami senang memiliki Anda di sini, :member_name!',
+        'confirm_email_instruction' => 'Silakan verifikasi alamat email Anda untuk mengakses situs web ini. Klik tombol di bawah untuk memverifikasi email Anda.',
+        'confirm_email_button' => 'Konfirmasi alamat email Anda',
+
+        // New pending post template
+        'new_pending_post_title' => 'Pos Baru Menunggu Ulasan',
+        'new_pending_post_greeting' => 'Admin yang terhormat,',
+        'new_pending_post_intro' => 'Pos baru telah dikirim dan menunggu ulasan dan persetujuan Anda.',
+        'new_pending_post_details_title' => 'Detail Pos:',
+        'new_pending_post_author_label' => 'Penulis:',
+        'new_pending_post_title_label' => 'Judul:',
+        'new_pending_post_action_needed' => 'Silakan tinjau pos ini dan ambil tindakan yang tepat.',
+        'new_pending_post_review_button' => 'Tinjau Pos',
+        'new_pending_post_footer_note' => 'Pos ini akan tetap dalam status tertunda sampai Anda menyetujui atau menolaknya.',
+
+        // Password reminder template
+        'password_reminder_title' => 'Instruksi Reset Kata Sandi',
+        'password_reminder_message' => 'Anda menerima email ini karena kami menerima permintaan reset kata sandi untuk akun Anda.',
+        'password_reminder_button' => 'Reset kata sandi',
+        'password_reminder_trouble' => 'Jika Anda mengalami kesulitan mengklik tombol "Reset Kata Sandi", salin dan tempel URL di bawah ini ke browser web Anda: <a href=":reset_link">:reset_link</a> dan tempel ke browser Anda. Jika Anda tidak meminta reset kata sandi, silakan abaikan pesan ini atau hubungi kami jika Anda memiliki pertanyaan.',
+    ],
+];

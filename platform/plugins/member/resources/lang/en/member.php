@@ -1,0 +1,82 @@
+<?php
+
+return [
+    'create' => 'New member',
+    'menu_name' => 'Members',
+    'edit_this_member' => 'Edit this member',
+    'menu_description' => 'View and manage your members',
+    'confirmation_subject' => 'Email verification',
+    'confirmation_subject_title' => 'Verify your email',
+    'not_confirmed' => 'The given email address has not been confirmed. <a href=":resend_link">Resend confirmation link.</a>',
+    'confirmation_successful' => 'You successfully confirmed your email address.',
+    'confirmation_info' => 'Please confirm your email address.',
+    'confirmation_resent' => 'We sent you another confirmation email. You should receive it shortly.',
+    'form' => [
+        'login_title' => 'Member login form',
+        'register_title' => 'Member registration form',
+        'reset_password_title' => 'Member reset password form',
+        'forgot_password_title' => 'Member forgot password form',
+        'email' => 'Email',
+        'password' => 'Password',
+        'password_confirmation' => 'Password confirmation',
+        'change_password' => 'Change password?',
+    ],
+    'forgot_password' => 'Forgot password',
+    'login' => 'Login',
+    'settings' => [
+        'email' => [
+            'title' => 'Member',
+            'description' => 'Member email configuration',
+        ],
+    ],
+    'first_name' => 'First Name',
+    'last_name' => 'Last Name',
+    'email_placeholder' => 'Ex: example@gmail.com',
+    'write_a_post' => 'Write a post',
+    'phone' => 'Phone',
+    'phone_placeholder' => 'Phone',
+    'confirmed_at' => 'Confirmed at',
+    'avatar' => 'Avatar',
+    'dob' => 'Date of birth',
+    'theme_options' => [
+        'name' => 'Member',
+        'login_background_image' => 'Login background image',
+        'register_background_image' => 'Register background image',
+    ],
+    'dashboard' => 'Dashboard',
+    'author' => 'Author',
+    'author_helper' => 'The list of authors is from Admin -> Members.',
+    'select_author' => 'Select author',
+    'email_verified' => 'Email verified?',
+    'verify_email' => [
+        'confirm_heading' => 'Verify email confirmation',
+        'confirm_description' => 'Are you sure you want to verify email this account?',
+        'notification' => 'This account is not verified email yet? :approve_link to verify email.',
+        'approve_here' => 'click here',
+        'confirm_button' => 'Verify',
+    ],
+    'email_templates' => [
+        // Confirm email template
+        'confirm_email_title' => 'Verify Email',
+        'confirm_email_welcome' => 'We\'re glad to have you here, :member_name!',
+        'confirm_email_instruction' => 'Please verify your email address in order to access this website. Click on the button below to verify your email..',
+        'confirm_email_button' => 'Confirm your email address',
+
+        // New pending post template
+        'new_pending_post_title' => 'New Post Pending Review',
+        'new_pending_post_greeting' => 'Dear Admin,',
+        'new_pending_post_intro' => 'A new post has been submitted and is waiting for your review and approval.',
+        'new_pending_post_details_title' => 'Post Details:',
+        'new_pending_post_author_label' => 'Author:',
+        'new_pending_post_title_label' => 'Title:',
+        'new_pending_post_action_needed' => 'Please review this post and take appropriate action.',
+        'new_pending_post_review_button' => 'Review Post',
+        'new_pending_post_footer_note' => 'This post will remain in pending status until you approve or reject it.',
+
+        // Password reminder template
+        'password_reminder_title' => 'Reset Password Instruction',
+        'password_reminder_message' => 'You are receiving this email because we received a password reset request for your account.',
+        'password_reminder_button' => 'Reset password',
+        'password_reminder_trouble' => 'If you\'re having trouble clicking the "Reset Password" button, copy and paste the URL below into your web browser: <a href=":reset_link">:reset_link</a> and paste it into your browser. If you didn\'t request a password reset, please ignore this message or contact us if you have any questions.',
+    ],
+];

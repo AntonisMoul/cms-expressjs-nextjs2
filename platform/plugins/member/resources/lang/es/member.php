@@ -1,0 +1,82 @@
+<?php
+
+return [
+    'create' => 'Nuevo miembro',
+    'menu_name' => 'Miembros',
+    'edit_this_member' => 'Editar este miembro',
+    'menu_description' => 'Ver y gestionar tus miembros',
+    'confirmation_subject' => 'Verificación de correo electrónico',
+    'confirmation_subject_title' => 'Verifica tu correo electrónico',
+    'not_confirmed' => 'La dirección de correo electrónico proporcionada no ha sido confirmada. <a href=":resend_link">Reenviar enlace de confirmación.</a>',
+    'confirmation_successful' => 'Has confirmado exitosamente tu dirección de correo electrónico.',
+    'confirmation_info' => 'Por favor confirma tu dirección de correo electrónico.',
+    'confirmation_resent' => 'Te hemos enviado otro correo electrónico de confirmación. Deberías recibirlo pronto.',
+    'form' => [
+        'login_title' => 'Formulario de inicio de sesión de miembro',
+        'register_title' => 'Formulario de registro de miembro',
+        'reset_password_title' => 'Formulario de restablecimiento de contraseña de miembro',
+        'forgot_password_title' => 'Formulario de contraseña olvidada de miembro',
+        'email' => 'Correo electrónico',
+        'password' => 'Contraseña',
+        'password_confirmation' => 'Confirmación de contraseña',
+        'change_password' => '¿Cambiar contraseña?',
+    ],
+    'forgot_password' => 'Contraseña olvidada',
+    'login' => 'Iniciar sesión',
+    'settings' => [
+        'email' => [
+            'title' => 'Miembro',
+            'description' => 'Configuración de correo electrónico de miembro',
+        ],
+    ],
+    'first_name' => 'Nombre',
+    'last_name' => 'Apellido',
+    'email_placeholder' => 'Ej: ejemplo@gmail.com',
+    'write_a_post' => 'Escribir una publicación',
+    'phone' => 'Teléfono',
+    'phone_placeholder' => 'Teléfono',
+    'confirmed_at' => 'Confirmado el',
+    'avatar' => 'Avatar',
+    'dob' => 'Fecha de nacimiento',
+    'theme_options' => [
+        'name' => 'Miembro',
+        'login_background_image' => 'Imagen de fondo de inicio de sesión',
+        'register_background_image' => 'Imagen de fondo de registro',
+    ],
+    'dashboard' => 'Panel',
+    'author' => 'Autor',
+    'author_helper' => 'La lista de autores es de Admin -> Miembros.',
+    'select_author' => 'Seleccionar autor',
+    'email_verified' => '¿Correo electrónico verificado?',
+    'verify_email' => [
+        'confirm_heading' => 'Verificar confirmación de correo electrónico',
+        'confirm_description' => '¿Estás seguro de que quieres verificar el correo electrónico de esta cuenta?',
+        'notification' => 'Esta cuenta aún no tiene el correo electrónico verificado. :approve_link para verificar el correo electrónico.',
+        'approve_here' => 'haz clic aquí',
+        'confirm_button' => 'Verificar',
+    ],
+    'email_templates' => [
+        // Confirm email template
+        'confirm_email_title' => 'Verificar correo electrónico',
+        'confirm_email_welcome' => '¡Nos alegra tenerte aquí, :member_name!',
+        'confirm_email_instruction' => 'Por favor verifica tu dirección de correo electrónico para acceder a este sitio web. Haz clic en el botón de abajo para verificar tu correo electrónico.',
+        'confirm_email_button' => 'Confirma tu dirección de correo electrónico',
+
+        // New pending post template
+        'new_pending_post_title' => 'Nueva publicación pendiente de revisión',
+        'new_pending_post_greeting' => 'Estimado administrador,',
+        'new_pending_post_intro' => 'Se ha enviado una nueva publicación y está esperando tu revisión y aprobación.',
+        'new_pending_post_details_title' => 'Detalles de la publicación:',
+        'new_pending_post_author_label' => 'Autor:',
+        'new_pending_post_title_label' => 'Título:',
+        'new_pending_post_action_needed' => 'Por favor revisa esta publicación y toma la acción apropiada.',
+        'new_pending_post_review_button' => 'Revisar publicación',
+        'new_pending_post_footer_note' => 'Esta publicación permanecerá en estado pendiente hasta que la apruebes o rechaces.',
+
+        // Password reminder template
+        'password_reminder_title' => 'Instrucciones para restablecer contraseña',
+        'password_reminder_message' => 'Estás recibiendo este correo electrónico porque recibimos una solicitud de restablecimiento de contraseña para tu cuenta.',
+        'password_reminder_button' => 'Restablecer contraseña',
+        'password_reminder_trouble' => 'Si tienes problemas para hacer clic en el botón "Restablecer contraseña", copia y pega la URL a continuación en tu navegador web: <a href=":reset_link">:reset_link</a>. Si no solicitaste un restablecimiento de contraseña, ignora este mensaje o contáctanos si tienes alguna pregunta.',
+    ],
+];

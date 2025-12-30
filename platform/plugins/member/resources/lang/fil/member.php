@@ -1,0 +1,82 @@
+<?php
+
+return [
+    'create' => 'Bagong miyembro',
+    'menu_name' => 'Mga Miyembro',
+    'edit_this_member' => 'I-edit ang miyembrong ito',
+    'menu_description' => 'Tingnan at pamahalaan ang iyong mga miyembro',
+    'confirmation_subject' => 'Pag-verify ng email',
+    'confirmation_subject_title' => 'I-verify ang iyong email',
+    'not_confirmed' => 'Ang ibinigay na email address ay hindi pa nakumpirma. <a href=":resend_link">Ipadala muli ang confirmation link.</a>',
+    'confirmation_successful' => 'Matagumpay mong nakumpirma ang iyong email address.',
+    'confirmation_info' => 'Mangyaring kumpirmahin ang iyong email address.',
+    'confirmation_resent' => 'Nagpadala kami sa iyo ng isa pang confirmation email. Dapat mong matanggap ito sa lalong madaling panahon.',
+    'form' => [
+        'login_title' => 'Form ng pag-login ng miyembro',
+        'register_title' => 'Form ng pagpaparehistro ng miyembro',
+        'reset_password_title' => 'Form ng pag-reset ng password ng miyembro',
+        'forgot_password_title' => 'Form ng nakalimutang password ng miyembro',
+        'email' => 'Email',
+        'password' => 'Password',
+        'password_confirmation' => 'Kumpirmasyon ng password',
+        'change_password' => 'Palitan ang password?',
+    ],
+    'forgot_password' => 'Nakalimutan ang password',
+    'login' => 'Mag-login',
+    'settings' => [
+        'email' => [
+            'title' => 'Miyembro',
+            'description' => 'Pagsasaayos ng email ng miyembro',
+        ],
+    ],
+    'first_name' => 'Pangalan',
+    'last_name' => 'Apelyido',
+    'email_placeholder' => 'Hal: example@gmail.com',
+    'write_a_post' => 'Sumulat ng post',
+    'phone' => 'Telepono',
+    'phone_placeholder' => 'Telepono',
+    'confirmed_at' => 'Nakumpirma noong',
+    'avatar' => 'Avatar',
+    'dob' => 'Petsa ng kapanganakan',
+    'theme_options' => [
+        'name' => 'Miyembro',
+        'login_background_image' => 'Larawan ng background ng login',
+        'register_background_image' => 'Larawan ng background ng pagpaparehistro',
+    ],
+    'dashboard' => 'Dashboard',
+    'author' => 'May-akda',
+    'author_helper' => 'Ang listahan ng mga may-akda ay mula sa Admin -> Mga Miyembro.',
+    'select_author' => 'Pumili ng may-akda',
+    'email_verified' => 'Na-verify ang email?',
+    'verify_email' => [
+        'confirm_heading' => 'I-verify ang kumpirmasyon ng email',
+        'confirm_description' => 'Sigurado ka bang gusto mong i-verify ang email ng account na ito?',
+        'notification' => 'Ang account na ito ay hindi pa na-verify ang email? :approve_link upang i-verify ang email.',
+        'approve_here' => 'i-click dito',
+        'confirm_button' => 'I-verify',
+    ],
+    'email_templates' => [
+        // Confirm email template
+        'confirm_email_title' => 'I-verify ang Email',
+        'confirm_email_welcome' => 'Natutuwa kaming mayroon ka dito, :member_name!',
+        'confirm_email_instruction' => 'Mangyaring i-verify ang iyong email address upang ma-access ang website na ito. I-click ang button sa ibaba upang i-verify ang iyong email.',
+        'confirm_email_button' => 'Kumpirmahin ang iyong email address',
+
+        // New pending post template
+        'new_pending_post_title' => 'Bagong Post na Naghihintay ng Pagsusuri',
+        'new_pending_post_greeting' => 'Mahal na Admin,',
+        'new_pending_post_intro' => 'Ang isang bagong post ay naisumite at naghihintay ng iyong pagsusuri at pag-apruba.',
+        'new_pending_post_details_title' => 'Mga Detalye ng Post:',
+        'new_pending_post_author_label' => 'May-akda:',
+        'new_pending_post_title_label' => 'Pamagat:',
+        'new_pending_post_action_needed' => 'Mangyaring suriin ang post na ito at gumawa ng naaangkop na aksyon.',
+        'new_pending_post_review_button' => 'Suriin ang Post',
+        'new_pending_post_footer_note' => 'Ang post na ito ay mananatili sa nakabinbing katayuan hanggang sa iyong aprubahan o tanggihan ito.',
+
+        // Password reminder template
+        'password_reminder_title' => 'Tagubilin sa Pag-reset ng Password',
+        'password_reminder_message' => 'Nakakatanggap ka ng email na ito dahil nakatanggap kami ng kahilingan sa pag-reset ng password para sa iyong account.',
+        'password_reminder_button' => 'I-reset ang password',
+        'password_reminder_trouble' => 'Kung nagkakaproblema ka sa pag-click ng button na "I-reset ang Password", kopyahin at i-paste ang URL sa ibaba sa iyong web browser: <a href=":reset_link">:reset_link</a> at i-paste ito sa iyong browser. Kung hindi ka humiling ng pag-reset ng password, mangyaring huwag pansinin ang mensaheng ito o makipag-ugnayan sa amin kung mayroon kang mga katanungan.',
+    ],
+];

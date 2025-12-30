@@ -1,0 +1,82 @@
+<?php
+
+return [
+    'create' => 'Neues Mitglied',
+    'menu_name' => 'Mitglieder',
+    'edit_this_member' => 'Dieses Mitglied bearbeiten',
+    'menu_description' => 'Anzeigen und Verwalten Ihrer Mitglieder',
+    'confirmation_subject' => 'E-Mail-Verifizierung',
+    'confirmation_subject_title' => 'Verifizieren Sie Ihre E-Mail',
+    'not_confirmed' => 'Die angegebene E-Mail-Adresse wurde noch nicht bestätigt. <a href=":resend_link">Bestätigungslink erneut senden.</a>',
+    'confirmation_successful' => 'Sie haben Ihre E-Mail-Adresse erfolgreich bestätigt.',
+    'confirmation_info' => 'Bitte bestätigen Sie Ihre E-Mail-Adresse.',
+    'confirmation_resent' => 'Wir haben Ihnen eine weitere Bestätigungs-E-Mail gesendet. Sie sollten sie in Kürze erhalten.',
+    'form' => [
+        'login_title' => 'Mitglieds-Anmeldeformular',
+        'register_title' => 'Mitglieds-Registrierungsformular',
+        'reset_password_title' => 'Mitglieds-Passwort-Zurücksetzen-Formular',
+        'forgot_password_title' => 'Mitglieds-Passwort-Vergessen-Formular',
+        'email' => 'E-Mail',
+        'password' => 'Passwort',
+        'password_confirmation' => 'Passwort-Bestätigung',
+        'change_password' => 'Passwort ändern?',
+    ],
+    'forgot_password' => 'Passwort vergessen',
+    'login' => 'Anmelden',
+    'settings' => [
+        'email' => [
+            'title' => 'Mitglied',
+            'description' => 'Mitglieder-E-Mail-Konfiguration',
+        ],
+    ],
+    'first_name' => 'Vorname',
+    'last_name' => 'Nachname',
+    'email_placeholder' => 'Bsp: beispiel@gmail.com',
+    'write_a_post' => 'Einen Beitrag schreiben',
+    'phone' => 'Telefon',
+    'phone_placeholder' => 'Telefon',
+    'confirmed_at' => 'Bestätigt am',
+    'avatar' => 'Avatar',
+    'dob' => 'Geburtsdatum',
+    'theme_options' => [
+        'name' => 'Mitglied',
+        'login_background_image' => 'Hintergrundbild Anmeldung',
+        'register_background_image' => 'Hintergrundbild Registrierung',
+    ],
+    'dashboard' => 'Dashboard',
+    'author' => 'Autor',
+    'author_helper' => 'Die Autorenliste stammt aus Admin -> Mitglieder.',
+    'select_author' => 'Autor auswählen',
+    'email_verified' => 'E-Mail verifiziert?',
+    'verify_email' => [
+        'confirm_heading' => 'E-Mail-Bestätigung verifizieren',
+        'confirm_description' => 'Sind Sie sicher, dass Sie die E-Mail dieses Kontos verifizieren möchten?',
+        'notification' => 'Dieses Konto hat seine E-Mail noch nicht verifiziert. :approve_link um die E-Mail zu verifizieren.',
+        'approve_here' => 'hier klicken',
+        'confirm_button' => 'Verifizieren',
+    ],
+    'email_templates' => [
+        // Confirm email template
+        'confirm_email_title' => 'E-Mail verifizieren',
+        'confirm_email_welcome' => 'Wir freuen uns, Sie hier zu haben, :member_name!',
+        'confirm_email_instruction' => 'Bitte verifizieren Sie Ihre E-Mail-Adresse, um auf diese Website zuzugreifen. Klicken Sie auf die Schaltfläche unten, um Ihre E-Mail zu verifizieren.',
+        'confirm_email_button' => 'Bestätigen Sie Ihre E-Mail-Adresse',
+
+        // New pending post template
+        'new_pending_post_title' => 'Neuer Beitrag wartet auf Überprüfung',
+        'new_pending_post_greeting' => 'Sehr geehrter Administrator,',
+        'new_pending_post_intro' => 'Ein neuer Beitrag wurde eingereicht und wartet auf Ihre Überprüfung und Genehmigung.',
+        'new_pending_post_details_title' => 'Beitragsdetails:',
+        'new_pending_post_author_label' => 'Autor:',
+        'new_pending_post_title_label' => 'Titel:',
+        'new_pending_post_action_needed' => 'Bitte überprüfen Sie diesen Beitrag und ergreifen Sie geeignete Maßnahmen.',
+        'new_pending_post_review_button' => 'Beitrag überprüfen',
+        'new_pending_post_footer_note' => 'Dieser Beitrag bleibt im ausstehenden Status, bis Sie ihn genehmigen oder ablehnen.',
+
+        // Password reminder template
+        'password_reminder_title' => 'Anleitung zum Zurücksetzen des Passworts',
+        'password_reminder_message' => 'Sie erhalten diese E-Mail, weil wir eine Anfrage zum Zurücksetzen des Passworts für Ihr Konto erhalten haben.',
+        'password_reminder_button' => 'Passwort zurücksetzen',
+        'password_reminder_trouble' => 'Wenn Sie Probleme beim Klicken auf die Schaltfläche "Passwort zurücksetzen" haben, kopieren Sie die URL unten und fügen Sie sie in Ihren Webbrowser ein: <a href=":reset_link">:reset_link</a>. Wenn Sie kein Zurücksetzen des Passworts angefordert haben, ignorieren Sie bitte diese Nachricht oder kontaktieren Sie uns, wenn Sie Fragen haben.',
+    ],
+];

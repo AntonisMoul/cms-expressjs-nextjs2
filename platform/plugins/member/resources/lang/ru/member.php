@@ -1,0 +1,82 @@
+<?php
+
+return [
+    'create' => 'Новый участник',
+    'menu_name' => 'Участники',
+    'edit_this_member' => 'Редактировать этого участника',
+    'menu_description' => 'Просмотр и управление участниками',
+    'confirmation_subject' => 'Подтверждение электронной почты',
+    'confirmation_subject_title' => 'Подтвердите ваш email',
+    'not_confirmed' => 'Указанный адрес электронной почты не был подтвержден. <a href=":resend_link">Отправить ссылку подтверждения повторно.</a>',
+    'confirmation_successful' => 'Вы успешно подтвердили свой адрес электронной почты.',
+    'confirmation_info' => 'Пожалуйста, подтвердите свой адрес электронной почты.',
+    'confirmation_resent' => 'Мы отправили вам еще одно письмо с подтверждением. Вы должны получить его в ближайшее время.',
+    'form' => [
+        'login_title' => 'Форма входа участника',
+        'register_title' => 'Форма регистрации участника',
+        'reset_password_title' => 'Форма сброса пароля участника',
+        'forgot_password_title' => 'Форма восстановления пароля участника',
+        'email' => 'Электронная почта',
+        'password' => 'Пароль',
+        'password_confirmation' => 'Подтверждение пароля',
+        'change_password' => 'Изменить пароль?',
+    ],
+    'forgot_password' => 'Забыли пароль',
+    'login' => 'Войти',
+    'settings' => [
+        'email' => [
+            'title' => 'Участник',
+            'description' => 'Настройка электронной почты участника',
+        ],
+    ],
+    'first_name' => 'Имя',
+    'last_name' => 'Фамилия',
+    'email_placeholder' => 'Например: example@gmail.com',
+    'write_a_post' => 'Написать пост',
+    'phone' => 'Телефон',
+    'phone_placeholder' => 'Телефон',
+    'confirmed_at' => 'Подтверждено',
+    'avatar' => 'Аватар',
+    'dob' => 'Дата рождения',
+    'theme_options' => [
+        'name' => 'Участник',
+        'login_background_image' => 'Фоновое изображение входа',
+        'register_background_image' => 'Фоновое изображение регистрации',
+    ],
+    'dashboard' => 'Панель управления',
+    'author' => 'Автор',
+    'author_helper' => 'Список авторов из Администратор -> Участники.',
+    'select_author' => 'Выберите автора',
+    'email_verified' => 'Email подтвержден?',
+    'verify_email' => [
+        'confirm_heading' => 'Подтвердить email',
+        'confirm_description' => 'Вы уверены, что хотите подтвердить email этого аккаунта?',
+        'notification' => 'Этот аккаунт еще не подтвердил email. :approve_link для подтверждения email.',
+        'approve_here' => 'нажмите здесь',
+        'confirm_button' => 'Подтвердить',
+    ],
+    'email_templates' => [
+        // Confirm email template
+        'confirm_email_title' => 'Подтвердите Email',
+        'confirm_email_welcome' => 'Мы рады видеть вас здесь, :member_name!',
+        'confirm_email_instruction' => 'Пожалуйста, подтвердите свой адрес электронной почты, чтобы получить доступ к этому сайту. Нажмите на кнопку ниже, чтобы подтвердить свой email.',
+        'confirm_email_button' => 'Подтвердите ваш адрес электронной почты',
+
+        // New pending post template
+        'new_pending_post_title' => 'Новый пост ожидает проверки',
+        'new_pending_post_greeting' => 'Уважаемый администратор,',
+        'new_pending_post_intro' => 'Новый пост был отправлен и ожидает вашей проверки и одобрения.',
+        'new_pending_post_details_title' => 'Детали поста:',
+        'new_pending_post_author_label' => 'Автор:',
+        'new_pending_post_title_label' => 'Название:',
+        'new_pending_post_action_needed' => 'Пожалуйста, просмотрите этот пост и примите соответствующие меры.',
+        'new_pending_post_review_button' => 'Просмотреть пост',
+        'new_pending_post_footer_note' => 'Этот пост останется в статусе ожидания, пока вы не одобрите или не отклоните его.',
+
+        // Password reminder template
+        'password_reminder_title' => 'Инструкция по сбросу пароля',
+        'password_reminder_message' => 'Вы получили это письмо, потому что мы получили запрос на сброс пароля для вашей учетной записи.',
+        'password_reminder_button' => 'Сбросить пароль',
+        'password_reminder_trouble' => 'Если у вас возникли проблемы с нажатием кнопки "Сбросить пароль", скопируйте и вставьте URL-адрес ниже в свой веб-браузер: <a href=":reset_link">:reset_link</a>. Если вы не запрашивали сброс пароля, пожалуйста, проигнорируйте это сообщение или свяжитесь с нами, если у вас есть вопросы.',
+    ],
+];

@@ -1,0 +1,82 @@
+<?php
+
+return [
+    'create' => 'สมาชิกใหม่',
+    'menu_name' => 'สมาชิก',
+    'edit_this_member' => 'แก้ไขสมาชิกนี้',
+    'menu_description' => 'ดูและจัดการสมาชิกของคุณ',
+    'confirmation_subject' => 'การยืนยันอีเมล',
+    'confirmation_subject_title' => 'ยืนยันอีเมลของคุณ',
+    'not_confirmed' => 'ที่อยู่อีเมลที่ให้มายังไม่ได้รับการยืนยัน <a href=":resend_link">ส่งลิงก์ยืนยันอีกครั้ง</a>',
+    'confirmation_successful' => 'คุณยืนยันที่อยู่อีเมลของคุณเรียบร้อยแล้ว',
+    'confirmation_info' => 'โปรดยืนยันที่อยู่อีเมลของคุณ',
+    'confirmation_resent' => 'เราได้ส่งอีเมลยืนยันอีกครั้งให้คุณแล้ว คุณจะได้รับในไม่ช้า',
+    'form' => [
+        'login_title' => 'แบบฟอร์มเข้าสู่ระบบสมาชิก',
+        'register_title' => 'แบบฟอร์มลงทะเบียนสมาชิก',
+        'reset_password_title' => 'แบบฟอร์มรีเซ็ตรหัสผ่านสมาชิก',
+        'forgot_password_title' => 'แบบฟอร์มลืมรหัสผ่านสมาชิก',
+        'email' => 'อีเมล',
+        'password' => 'รหัสผ่าน',
+        'password_confirmation' => 'ยืนยันรหัสผ่าน',
+        'change_password' => 'เปลี่ยนรหัสผ่าน?',
+    ],
+    'forgot_password' => 'ลืมรหัสผ่าน',
+    'login' => 'เข้าสู่ระบบ',
+    'settings' => [
+        'email' => [
+            'title' => 'สมาชิก',
+            'description' => 'การตั้งค่าอีเมลสมาชิก',
+        ],
+    ],
+    'first_name' => 'ชื่อ',
+    'last_name' => 'นามสกุล',
+    'email_placeholder' => 'ตัวอย่าง: example@gmail.com',
+    'write_a_post' => 'เขียนโพสต์',
+    'phone' => 'โทรศัพท์',
+    'phone_placeholder' => 'โทรศัพท์',
+    'confirmed_at' => 'ยืนยันเมื่อ',
+    'avatar' => 'รูปประจำตัว',
+    'dob' => 'วันเกิด',
+    'theme_options' => [
+        'name' => 'สมาชิก',
+        'login_background_image' => 'ภาพพื้นหลังหน้าเข้าสู่ระบบ',
+        'register_background_image' => 'ภาพพื้นหลังหน้าลงทะเบียน',
+    ],
+    'dashboard' => 'แดชบอร์ด',
+    'author' => 'ผู้เขียน',
+    'author_helper' => 'รายชื่อผู้เขียนมาจาก ผู้ดูแลระบบ -> สมาชิก',
+    'select_author' => 'เลือกผู้เขียน',
+    'email_verified' => 'ยืนยันอีเมลแล้ว?',
+    'verify_email' => [
+        'confirm_heading' => 'ยืนยันการตรวจสอบอีเมล',
+        'confirm_description' => 'คุณแน่ใจหรือไม่ว่าต้องการยืนยันอีเมลบัญชีนี้?',
+        'notification' => 'บัญชีนี้ยังไม่ได้ยืนยันอีเมล? :approve_link เพื่อยืนยันอีเมล',
+        'approve_here' => 'คลิกที่นี่',
+        'confirm_button' => 'ยืนยัน',
+    ],
+    'email_templates' => [
+        // Confirm email template
+        'confirm_email_title' => 'ยืนยันอีเมล',
+        'confirm_email_welcome' => 'เรายินดีที่คุณมาที่นี่ :member_name!',
+        'confirm_email_instruction' => 'โปรดยืนยันที่อยู่อีเมลของคุณเพื่อเข้าถึงเว็บไซต์นี้ คลิกที่ปุ่มด้านล่างเพื่อยืนยันอีเมลของคุณ',
+        'confirm_email_button' => 'ยืนยันที่อยู่อีเมลของคุณ',
+
+        // New pending post template
+        'new_pending_post_title' => 'โพสต์ใหม่รอการตรวจสอบ',
+        'new_pending_post_greeting' => 'เรียน ผู้ดูแลระบบ',
+        'new_pending_post_intro' => 'มีโพสต์ใหม่ถูกส่งและกำลังรอการตรวจสอบและอนุมัติจากคุณ',
+        'new_pending_post_details_title' => 'รายละเอียดโพสต์:',
+        'new_pending_post_author_label' => 'ผู้เขียน:',
+        'new_pending_post_title_label' => 'ชื่อเรื่อง:',
+        'new_pending_post_action_needed' => 'โปรดตรวจสอบโพสต์นี้และดำเนินการที่เหมาะสม',
+        'new_pending_post_review_button' => 'ตรวจสอบโพสต์',
+        'new_pending_post_footer_note' => 'โพสต์นี้จะยังคงอยู่ในสถานะรอดำเนินการจนกว่าคุณจะอนุมัติหรือปฏิเสธ',
+
+        // Password reminder template
+        'password_reminder_title' => 'คำแนะนำในการรีเซ็ตรหัสผ่าน',
+        'password_reminder_message' => 'คุณได้รับอีเมลนี้เนื่องจากเราได้รับคำขอรีเซ็ตรหัสผ่านสำหรับบัญชีของคุณ',
+        'password_reminder_button' => 'รีเซ็ตรหัสผ่าน',
+        'password_reminder_trouble' => 'หากคุณมีปัญหาในการคลิกปุ่ม "รีเซ็ตรหัสผ่าน" ให้คัดลอกและวาง URL ด้านล่างลงในเว็บเบราว์เซอร์ของคุณ: <a href=":reset_link">:reset_link</a> และวางลงในเบราว์เซอร์ของคุณ หากคุณไม่ได้ขอรีเซ็ตรหัสผ่าน โปรดเพิกเฉยข้อความนี้หรือติดต่อเราหากคุณมีคำถามใดๆ',
+    ],
+];

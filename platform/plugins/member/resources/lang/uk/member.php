@@ -1,0 +1,82 @@
+<?php
+
+return [
+    'create' => 'Новий учасник',
+    'menu_name' => 'Учасники',
+    'edit_this_member' => 'Редагувати цього учасника',
+    'menu_description' => 'Перегляд і керування вашими учасниками',
+    'confirmation_subject' => 'Підтвердження електронної пошти',
+    'confirmation_subject_title' => 'Підтвердіть ваш email',
+    'not_confirmed' => 'Вказана адреса електронної пошти не була підтверджена. <a href=":resend_link">Надіслати посилання підтвердження повторно.</a>',
+    'confirmation_successful' => 'Ви успішно підтвердили свою адресу електронної пошти.',
+    'confirmation_info' => 'Будь ласка, підтвердіть свою адресу електронної пошти.',
+    'confirmation_resent' => 'Ми надіслали вам ще один лист з підтвердженням. Ви повинні отримати його найближчим часом.',
+    'form' => [
+        'login_title' => 'Форма входу учасника',
+        'register_title' => 'Форма реєстрації учасника',
+        'reset_password_title' => 'Форма скидання пароля учасника',
+        'forgot_password_title' => 'Форма відновлення пароля учасника',
+        'email' => 'Електронна пошта',
+        'password' => 'Пароль',
+        'password_confirmation' => 'Підтвердження пароля',
+        'change_password' => 'Змінити пароль?',
+    ],
+    'forgot_password' => 'Забули пароль',
+    'login' => 'Увійти',
+    'settings' => [
+        'email' => [
+            'title' => 'Учасник',
+            'description' => 'Налаштування електронної пошти учасника',
+        ],
+    ],
+    'first_name' => 'Ім\'я',
+    'last_name' => 'Прізвище',
+    'email_placeholder' => 'Наприклад: example@gmail.com',
+    'write_a_post' => 'Написати пост',
+    'phone' => 'Телефон',
+    'phone_placeholder' => 'Телефон',
+    'confirmed_at' => 'Підтверджено',
+    'avatar' => 'Аватар',
+    'dob' => 'Дата народження',
+    'theme_options' => [
+        'name' => 'Учасник',
+        'login_background_image' => 'Фонове зображення входу',
+        'register_background_image' => 'Фонове зображення реєстрації',
+    ],
+    'dashboard' => 'Панель керування',
+    'author' => 'Автор',
+    'author_helper' => 'Список авторів з Адміністратор -> Учасники.',
+    'select_author' => 'Виберіть автора',
+    'email_verified' => 'Email підтверджено?',
+    'verify_email' => [
+        'confirm_heading' => 'Підтвердити email',
+        'confirm_description' => 'Ви впевнені, що хочете підтвердити email цього облікового запису?',
+        'notification' => 'Цей обліковий запис ще не підтвердив email. :approve_link для підтвердження email.',
+        'approve_here' => 'натисніть тут',
+        'confirm_button' => 'Підтвердити',
+    ],
+    'email_templates' => [
+        // Confirm email template
+        'confirm_email_title' => 'Підтвердіть Email',
+        'confirm_email_welcome' => 'Ми раді бачити вас тут, :member_name!',
+        'confirm_email_instruction' => 'Будь ласка, підтвердіть свою адресу електронної пошти, щоб отримати доступ до цього сайту. Натисніть на кнопку нижче, щоб підтвердити свій email.',
+        'confirm_email_button' => 'Підтвердіть вашу адресу електронної пошти',
+
+        // New pending post template
+        'new_pending_post_title' => 'Новий пост очікує перевірки',
+        'new_pending_post_greeting' => 'Шановний адміністратор,',
+        'new_pending_post_intro' => 'Новий пост було надіслано і він очікує вашої перевірки та затвердження.',
+        'new_pending_post_details_title' => 'Деталі посту:',
+        'new_pending_post_author_label' => 'Автор:',
+        'new_pending_post_title_label' => 'Назва:',
+        'new_pending_post_action_needed' => 'Будь ласка, перегляньте цей пост і вживіть відповідних заходів.',
+        'new_pending_post_review_button' => 'Переглянути пост',
+        'new_pending_post_footer_note' => 'Цей пост залишиться в статусі очікування, доки ви не затвердите або не відхилите його.',
+
+        // Password reminder template
+        'password_reminder_title' => 'Інструкція зі скидання пароля',
+        'password_reminder_message' => 'Ви отримали цей лист, тому що ми отримали запит на скидання пароля для вашого облікового запису.',
+        'password_reminder_button' => 'Скинути пароль',
+        'password_reminder_trouble' => 'Якщо у вас виникли проблеми з натисканням кнопки "Скинути пароль", скопіюйте і вставте URL-адресу нижче у свій веб-браузер: <a href=":reset_link">:reset_link</a>. Якщо ви не запитували скидання пароля, будь ласка, проігноруйте це повідомлення або зв\'яжіться з нами, якщо у вас є питання.',
+    ],
+];

@@ -1,0 +1,82 @@
+<?php
+
+return [
+    'create' => 'Nowy członek',
+    'menu_name' => 'Członkowie',
+    'edit_this_member' => 'Edytuj tego członka',
+    'menu_description' => 'Zobacz i zarządzaj swoimi członkami',
+    'confirmation_subject' => 'Weryfikacja emaila',
+    'confirmation_subject_title' => 'Zweryfikuj swój email',
+    'not_confirmed' => 'Podany adres email nie został potwierdzony. <a href=":resend_link">Wyślij ponownie link potwierdzający.</a>',
+    'confirmation_successful' => 'Pomyślnie potwierdziłeś swój adres email.',
+    'confirmation_info' => 'Proszę potwierdź swój adres email.',
+    'confirmation_resent' => 'Wysłaliśmy Ci kolejny email potwierdzający. Powinieneś go wkrótce otrzymać.',
+    'form' => [
+        'login_title' => 'Formularz logowania członka',
+        'register_title' => 'Formularz rejestracji członka',
+        'reset_password_title' => 'Formularz resetowania hasła członka',
+        'forgot_password_title' => 'Formularz zapomniałem hasła członka',
+        'email' => 'Email',
+        'password' => 'Hasło',
+        'password_confirmation' => 'Potwierdzenie hasła',
+        'change_password' => 'Zmienić hasło?',
+    ],
+    'forgot_password' => 'Zapomniałem hasła',
+    'login' => 'Zaloguj się',
+    'settings' => [
+        'email' => [
+            'title' => 'Członek',
+            'description' => 'Konfiguracja emaila członka',
+        ],
+    ],
+    'first_name' => 'Imię',
+    'last_name' => 'Nazwisko',
+    'email_placeholder' => 'Np.: example@gmail.com',
+    'write_a_post' => 'Napisz wpis',
+    'phone' => 'Telefon',
+    'phone_placeholder' => 'Telefon',
+    'confirmed_at' => 'Potwierdzono',
+    'avatar' => 'Avatar',
+    'dob' => 'Data urodzenia',
+    'theme_options' => [
+        'name' => 'Członek',
+        'login_background_image' => 'Obraz tła logowania',
+        'register_background_image' => 'Obraz tła rejestracji',
+    ],
+    'dashboard' => 'Panel',
+    'author' => 'Autor',
+    'author_helper' => 'Lista autorów znajduje się w Admin -> Członkowie.',
+    'select_author' => 'Wybierz autora',
+    'email_verified' => 'Email zweryfikowany?',
+    'verify_email' => [
+        'confirm_heading' => 'Weryfikacja potwierdzenia emaila',
+        'confirm_description' => 'Czy na pewno chcesz zweryfikować email tego konta?',
+        'notification' => 'To konto nie ma zweryfikowanego emaila? :approve_link aby zweryfikować email.',
+        'approve_here' => 'kliknij tutaj',
+        'confirm_button' => 'Weryfikuj',
+    ],
+    'email_templates' => [
+        // Confirm email template
+        'confirm_email_title' => 'Zweryfikuj Email',
+        'confirm_email_welcome' => 'Cieszymy się, że tu jesteś, :member_name!',
+        'confirm_email_instruction' => 'Proszę zweryfikuj swój adres email, aby uzyskać dostęp do tej strony. Kliknij przycisk poniżej, aby zweryfikować swój email.',
+        'confirm_email_button' => 'Potwierdź swój adres email',
+
+        // New pending post template
+        'new_pending_post_title' => 'Nowy Wpis Oczekuje na Przegląd',
+        'new_pending_post_greeting' => 'Szanowny Administratorze,',
+        'new_pending_post_intro' => 'Nowy wpis został przesłany i czeka na Twój przegląd i zatwierdzenie.',
+        'new_pending_post_details_title' => 'Szczegóły Wpisu:',
+        'new_pending_post_author_label' => 'Autor:',
+        'new_pending_post_title_label' => 'Tytuł:',
+        'new_pending_post_action_needed' => 'Proszę przejrzyj ten wpis i podejmij odpowiednie działanie.',
+        'new_pending_post_review_button' => 'Przejrzyj Wpis',
+        'new_pending_post_footer_note' => 'Ten wpis pozostanie w statusie oczekującym, dopóki go nie zatwierdzisz lub odrzucisz.',
+
+        // Password reminder template
+        'password_reminder_title' => 'Instrukcja Resetowania Hasła',
+        'password_reminder_message' => 'Otrzymujesz ten email, ponieważ otrzymaliśmy prośbę o zresetowanie hasła dla Twojego konta.',
+        'password_reminder_button' => 'Zresetuj hasło',
+        'password_reminder_trouble' => 'Jeśli masz problem z kliknięciem przycisku "Zresetuj Hasło", skopiuj i wklej poniższy adres URL do przeglądarki internetowej: <a href=":reset_link">:reset_link</a> i wklej go do przeglądarki. Jeśli nie prosiłeś o zresetowanie hasła, zignoruj tę wiadomość lub skontaktuj się z nami, jeśli masz jakieś pytania.',
+    ],
+];

@@ -1,0 +1,82 @@
+<?php
+
+return [
+    'create' => 'Thành viên mới',
+    'menu_name' => 'Thành viên',
+    'edit_this_member' => 'Chỉnh sửa thành viên này',
+    'menu_description' => 'Xem và quản lý thành viên của bạn',
+    'confirmation_subject' => 'Xác thực email',
+    'confirmation_subject_title' => 'Xác thực địa chỉ email của bạn',
+    'not_confirmed' => 'Email của bạn vẫn chưa được xác nhận. <a href=":resend_link">Gửi lại liên kết xác nhận.</a>',
+    'confirmation_successful' => 'Bạn đã xác nhận địa chỉ email thành công.',
+    'confirmation_info' => 'Hãy xác nhận địa chỉ email của bạn.',
+    'confirmation_resent' => 'Chúng tôi đã gửi một email cho bạn. Vui lòng kiểm tra và xác nhận.',
+    'form' => [
+        'login_title' => 'Mẫu đăng nhập thành viên',
+        'register_title' => 'Mẫu đăng ký thành viên',
+        'reset_password_title' => 'Mẫu đặt lại mật khẩu thành viên',
+        'forgot_password_title' => 'Mẫu quên mật khẩu thành viên',
+        'email' => 'Email',
+        'password' => 'Mật khẩu',
+        'password_confirmation' => 'Xác nhận mật khẩu',
+        'change_password' => 'Thay đổi mật khẩu?',
+    ],
+    'forgot_password' => 'Quên mật khẩu',
+    'login' => 'Đăng nhập',
+    'settings' => [
+        'email' => [
+            'title' => 'Thành viên',
+            'description' => 'Cấu hình email cho thành viên',
+        ],
+    ],
+    'first_name' => 'Tên',
+    'last_name' => 'Họ',
+    'email_placeholder' => 'Ví dụ: example@gmail.com',
+    'write_a_post' => 'Viết bài đăng',
+    'phone' => 'Điện thoại',
+    'phone_placeholder' => 'Điện thoại',
+    'confirmed_at' => 'Xác nhận lúc',
+    'avatar' => 'Ảnh đại diện',
+    'dob' => 'Ngày sinh',
+    'theme_options' => [
+        'name' => 'Thành viên',
+        'login_background_image' => 'Hình nền đăng nhập',
+        'register_background_image' => 'Hình nền đăng ký',
+    ],
+    'dashboard' => 'Bảng điều khiển',
+    'author' => 'Tác giả',
+    'author_helper' => 'Danh sách tác giả từ Quản trị -> Thành viên.',
+    'select_author' => 'Chọn tác giả',
+    'email_verified' => 'Email đã xác thực?',
+    'verify_email' => [
+        'confirm_heading' => 'Xác nhận xác thực email',
+        'confirm_description' => 'Bạn có chắc chắn muốn xác thực email cho tài khoản này?',
+        'notification' => 'Tài khoản này chưa xác thực email? :approve_link để xác thực email.',
+        'approve_here' => 'nhấp vào đây',
+        'confirm_button' => 'Xác thực',
+    ],
+    'email_templates' => [
+        // Confirm email template
+        'confirm_email_title' => 'Xác thực Email',
+        'confirm_email_welcome' => 'Chúng tôi rất vui khi có bạn ở đây, :member_name!',
+        'confirm_email_instruction' => 'Vui lòng xác thực địa chỉ email của bạn để truy cập trang web này. Nhấp vào nút bên dưới để xác thực email của bạn.',
+        'confirm_email_button' => 'Xác nhận địa chỉ email của bạn',
+
+        // New pending post template
+        'new_pending_post_title' => 'Bài đăng mới đang chờ xét duyệt',
+        'new_pending_post_greeting' => 'Kính gửi Quản trị viên,',
+        'new_pending_post_intro' => 'Một bài đăng mới đã được gửi và đang chờ xét duyệt và phê duyệt của bạn.',
+        'new_pending_post_details_title' => 'Chi tiết bài đăng:',
+        'new_pending_post_author_label' => 'Tác giả:',
+        'new_pending_post_title_label' => 'Tiêu đề:',
+        'new_pending_post_action_needed' => 'Vui lòng xem xét bài đăng này và thực hiện hành động phù hợp.',
+        'new_pending_post_review_button' => 'Xem xét bài đăng',
+        'new_pending_post_footer_note' => 'Bài đăng này sẽ ở trạng thái chờ cho đến khi bạn phê duyệt hoặc từ chối.',
+
+        // Password reminder template
+        'password_reminder_title' => 'Hướng dẫn đặt lại mật khẩu',
+        'password_reminder_message' => 'Bạn nhận được email này vì chúng tôi đã nhận được yêu cầu đặt lại mật khẩu cho tài khoản của bạn.',
+        'password_reminder_button' => 'Đặt lại mật khẩu',
+        'password_reminder_trouble' => 'Nếu bạn gặp khó khăn khi nhấp vào nút "Đặt lại mật khẩu", hãy sao chép và dán URL bên dưới vào trình duyệt web của bạn: <a href=":reset_link">:reset_link</a>. Nếu bạn không yêu cầu đặt lại mật khẩu, vui lòng bỏ qua tin nhắn này hoặc liên hệ với chúng tôi nếu bạn có bất kỳ câu hỏi nào.',
+    ],
+];

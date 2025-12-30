@@ -1,0 +1,82 @@
+<?php
+
+return [
+    'create' => 'Yeni üye',
+    'menu_name' => 'Üyeler',
+    'edit_this_member' => 'Bu üyeyi düzenle',
+    'menu_description' => 'Üyelerinizi görüntüleyin ve yönetin',
+    'confirmation_subject' => 'E-posta doğrulama',
+    'confirmation_subject_title' => 'E-postanızı doğrulayın',
+    'not_confirmed' => 'Verilen e-posta adresi henüz onaylanmadı. <a href=":resend_link">Onay bağlantısını yeniden gönder.</a>',
+    'confirmation_successful' => 'E-posta adresinizi başarıyla onayladınız.',
+    'confirmation_info' => 'Lütfen e-posta adresinizi onaylayın.',
+    'confirmation_resent' => 'Size başka bir onay e-postası gönderdik. Kısa süre içinde alacaksınız.',
+    'form' => [
+        'login_title' => 'Üye giriş formu',
+        'register_title' => 'Üye kayıt formu',
+        'reset_password_title' => 'Üye şifre sıfırlama formu',
+        'forgot_password_title' => 'Üye şifremi unuttum formu',
+        'email' => 'E-posta',
+        'password' => 'Şifre',
+        'password_confirmation' => 'Şifre onayı',
+        'change_password' => 'Şifre değiştir?',
+    ],
+    'forgot_password' => 'Şifremi unuttum',
+    'login' => 'Giriş',
+    'settings' => [
+        'email' => [
+            'title' => 'Üye',
+            'description' => 'Üye e-posta yapılandırması',
+        ],
+    ],
+    'first_name' => 'Ad',
+    'last_name' => 'Soyad',
+    'email_placeholder' => 'Örnek: example@gmail.com',
+    'write_a_post' => 'Bir gönderi yaz',
+    'phone' => 'Telefon',
+    'phone_placeholder' => 'Telefon',
+    'confirmed_at' => 'Onaylandı',
+    'avatar' => 'Avatar',
+    'dob' => 'Doğum tarihi',
+    'theme_options' => [
+        'name' => 'Üye',
+        'login_background_image' => 'Giriş arka plan resmi',
+        'register_background_image' => 'Kayıt arka plan resmi',
+    ],
+    'dashboard' => 'Gösterge Paneli',
+    'author' => 'Yazar',
+    'author_helper' => 'Yazarların listesi Yönetici -> Üyeler\'den alınır.',
+    'select_author' => 'Yazar seç',
+    'email_verified' => 'E-posta doğrulandı mı?',
+    'verify_email' => [
+        'confirm_heading' => 'E-posta doğrulamayı onayla',
+        'confirm_description' => 'Bu hesabın e-postasını doğrulamak istediğinizden emin misiniz?',
+        'notification' => 'Bu hesap henüz e-postayı doğrulamadı. E-postayı doğrulamak için :approve_link.',
+        'approve_here' => 'buraya tıklayın',
+        'confirm_button' => 'Doğrula',
+    ],
+    'email_templates' => [
+        // Confirm email template
+        'confirm_email_title' => 'E-postayı Doğrula',
+        'confirm_email_welcome' => 'Burada olmanıza sevindik, :member_name!',
+        'confirm_email_instruction' => 'Bu web sitesine erişmek için lütfen e-posta adresinizi doğrulayın. E-postanızı doğrulamak için aşağıdaki düğmeye tıklayın.',
+        'confirm_email_button' => 'E-posta adresinizi onaylayın',
+
+        // New pending post template
+        'new_pending_post_title' => 'Yeni Gönderi İnceleme Bekliyor',
+        'new_pending_post_greeting' => 'Sayın Yönetici,',
+        'new_pending_post_intro' => 'Yeni bir gönderi gönderildi ve incelemenizi ve onayınızı bekliyor.',
+        'new_pending_post_details_title' => 'Gönderi Detayları:',
+        'new_pending_post_author_label' => 'Yazar:',
+        'new_pending_post_title_label' => 'Başlık:',
+        'new_pending_post_action_needed' => 'Lütfen bu gönderiyi inceleyin ve uygun işlemi yapın.',
+        'new_pending_post_review_button' => 'Gönderiyi İncele',
+        'new_pending_post_footer_note' => 'Bu gönderi, onaylayana veya reddedene kadar beklemede kalacaktır.',
+
+        // Password reminder template
+        'password_reminder_title' => 'Şifre Sıfırlama Talimatı',
+        'password_reminder_message' => 'Hesabınız için bir şifre sıfırlama talebi aldığımız için bu e-postayı alıyorsunuz.',
+        'password_reminder_button' => 'Şifreyi sıfırla',
+        'password_reminder_trouble' => '"Şifreyi Sıfırla" düğmesine tıklamakta sorun yaşıyorsanız, aşağıdaki URL\'yi kopyalayıp web tarayıcınıza yapıştırın: <a href=":reset_link">:reset_link</a>. Şifre sıfırlama talebinde bulunmadıysanız, lütfen bu mesajı görmezden gelin veya sorularınız varsa bizimle iletişime geçin.',
+    ],
+];

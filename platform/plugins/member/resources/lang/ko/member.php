@@ -1,0 +1,82 @@
+<?php
+
+return [
+    'create' => '새 회원',
+    'menu_name' => '회원',
+    'edit_this_member' => '이 회원 편집',
+    'menu_description' => '회원 보기 및 관리',
+    'confirmation_subject' => '이메일 인증',
+    'confirmation_subject_title' => '이메일을 인증하세요',
+    'not_confirmed' => '제공된 이메일 주소가 확인되지 않았습니다. <a href=":resend_link">확인 링크 재전송.</a>',
+    'confirmation_successful' => '이메일 주소를 성공적으로 확인했습니다.',
+    'confirmation_info' => '이메일 주소를 확인해 주세요.',
+    'confirmation_resent' => '다른 확인 이메일을 보냈습니다. 곧 받으실 수 있습니다.',
+    'form' => [
+        'login_title' => '회원 로그인 양식',
+        'register_title' => '회원 가입 양식',
+        'reset_password_title' => '회원 비밀번호 재설정 양식',
+        'forgot_password_title' => '회원 비밀번호 찾기 양식',
+        'email' => '이메일',
+        'password' => '비밀번호',
+        'password_confirmation' => '비밀번호 확인',
+        'change_password' => '비밀번호를 변경하시겠습니까?',
+    ],
+    'forgot_password' => '비밀번호 찾기',
+    'login' => '로그인',
+    'settings' => [
+        'email' => [
+            'title' => '회원',
+            'description' => '회원 이메일 구성',
+        ],
+    ],
+    'first_name' => '이름',
+    'last_name' => '성',
+    'email_placeholder' => '예: example@gmail.com',
+    'write_a_post' => '게시물 작성',
+    'phone' => '전화번호',
+    'phone_placeholder' => '전화번호',
+    'confirmed_at' => '확인 날짜',
+    'avatar' => '아바타',
+    'dob' => '생년월일',
+    'theme_options' => [
+        'name' => '회원',
+        'login_background_image' => '로그인 배경 이미지',
+        'register_background_image' => '가입 배경 이미지',
+    ],
+    'dashboard' => '대시보드',
+    'author' => '작성자',
+    'author_helper' => '작성자 목록은 관리자 -> 회원에서 가져옵니다.',
+    'select_author' => '작성자 선택',
+    'email_verified' => '이메일 인증됨?',
+    'verify_email' => [
+        'confirm_heading' => '이메일 확인 인증',
+        'confirm_description' => '이 계정의 이메일을 확인하시겠습니까?',
+        'notification' => '이 계정은 아직 이메일이 확인되지 않았습니까? :approve_link 하여 이메일을 확인하세요.',
+        'approve_here' => '여기를 클릭하세요',
+        'confirm_button' => '인증',
+    ],
+    'email_templates' => [
+        // Confirm email template
+        'confirm_email_title' => '이메일 인증',
+        'confirm_email_welcome' => ':member_name님, 여기 오신 것을 환영합니다!',
+        'confirm_email_instruction' => '이 웹사이트에 액세스하려면 이메일 주소를 확인하세요. 아래 버튼을 클릭하여 이메일을 확인하세요.',
+        'confirm_email_button' => '이메일 주소 확인',
+
+        // New pending post template
+        'new_pending_post_title' => '검토 대기 중인 새 게시물',
+        'new_pending_post_greeting' => '관리자님께,',
+        'new_pending_post_intro' => '새 게시물이 제출되었으며 귀하의 검토 및 승인을 기다리고 있습니다.',
+        'new_pending_post_details_title' => '게시물 세부정보:',
+        'new_pending_post_author_label' => '작성자:',
+        'new_pending_post_title_label' => '제목:',
+        'new_pending_post_action_needed' => '이 게시물을 검토하고 적절한 조치를 취하세요.',
+        'new_pending_post_review_button' => '게시물 검토',
+        'new_pending_post_footer_note' => '이 게시물은 승인 또는 거부할 때까지 대기 상태로 유지됩니다.',
+
+        // Password reminder template
+        'password_reminder_title' => '비밀번호 재설정 안내',
+        'password_reminder_message' => '귀하의 계정에 대한 비밀번호 재설정 요청을 받았기 때문에 이 이메일을 받고 있습니다.',
+        'password_reminder_button' => '비밀번호 재설정',
+        'password_reminder_trouble' => '"비밀번호 재설정" 버튼을 클릭하는 데 문제가 있는 경우 아래 URL을 복사하여 웹 브라우저에 붙여넣으세요: <a href=":reset_link">:reset_link</a> 그리고 브라우저에 붙여넣으세요. 비밀번호 재설정을 요청하지 않은 경우 이 메시지를 무시하거나 질문이 있으면 문의하세요.',
+    ],
+];

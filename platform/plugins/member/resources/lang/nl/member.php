@@ -1,0 +1,82 @@
+<?php
+
+return [
+    'create' => 'Nieuw lid',
+    'menu_name' => 'Leden',
+    'edit_this_member' => 'Dit lid bewerken',
+    'menu_description' => 'Bekijk en beheer je leden',
+    'confirmation_subject' => 'E-mailverificatie',
+    'confirmation_subject_title' => 'Verifieer je e-mail',
+    'not_confirmed' => 'Het opgegeven e-mailadres is nog niet bevestigd. <a href=":resend_link">Bevestigingslink opnieuw verzenden.</a>',
+    'confirmation_successful' => 'Je hebt je e-mailadres succesvol bevestigd.',
+    'confirmation_info' => 'Bevestig alsjeblieft je e-mailadres.',
+    'confirmation_resent' => 'We hebben je nog een bevestigingsmail gestuurd. Je zou deze binnenkort moeten ontvangen.',
+    'form' => [
+        'login_title' => 'Lid inlogformulier',
+        'register_title' => 'Lid registratieformulier',
+        'reset_password_title' => 'Lid wachtwoord reset formulier',
+        'forgot_password_title' => 'Lid wachtwoord vergeten formulier',
+        'email' => 'E-mail',
+        'password' => 'Wachtwoord',
+        'password_confirmation' => 'Wachtwoordbevestiging',
+        'change_password' => 'Wachtwoord wijzigen?',
+    ],
+    'forgot_password' => 'Wachtwoord vergeten',
+    'login' => 'Inloggen',
+    'settings' => [
+        'email' => [
+            'title' => 'Lid',
+            'description' => 'Lid e-mailconfiguratie',
+        ],
+    ],
+    'first_name' => 'Voornaam',
+    'last_name' => 'Achternaam',
+    'email_placeholder' => 'Bijv: voorbeeld@gmail.com',
+    'write_a_post' => 'Schrijf een bericht',
+    'phone' => 'Telefoon',
+    'phone_placeholder' => 'Telefoon',
+    'confirmed_at' => 'Bevestigd op',
+    'avatar' => 'Avatar',
+    'dob' => 'Geboortedatum',
+    'theme_options' => [
+        'name' => 'Lid',
+        'login_background_image' => 'Inlog achtergrondafbeelding',
+        'register_background_image' => 'Registratie achtergrondafbeelding',
+    ],
+    'dashboard' => 'Dashboard',
+    'author' => 'Auteur',
+    'author_helper' => 'De auteurslijst komt uit Admin -> Leden.',
+    'select_author' => 'Selecteer auteur',
+    'email_verified' => 'E-mail geverifieerd?',
+    'verify_email' => [
+        'confirm_heading' => 'E-mailverificatie bevestigen',
+        'confirm_description' => 'Weet je zeker dat je het e-mailadres van dit account wilt verifiëren?',
+        'notification' => 'Dit account heeft zijn e-mail nog niet geverifieerd. :approve_link om e-mail te verifiëren.',
+        'approve_here' => 'klik hier',
+        'confirm_button' => 'Verifiëren',
+    ],
+    'email_templates' => [
+        // Confirm email template
+        'confirm_email_title' => 'E-mail verifiëren',
+        'confirm_email_welcome' => 'We zijn blij dat je hier bent, :member_name!',
+        'confirm_email_instruction' => 'Verifieer alsjeblieft je e-mailadres om toegang te krijgen tot deze website. Klik op de onderstaande knop om je e-mail te verifiëren.',
+        'confirm_email_button' => 'Bevestig je e-mailadres',
+
+        // New pending post template
+        'new_pending_post_title' => 'Nieuw bericht wacht op beoordeling',
+        'new_pending_post_greeting' => 'Beste beheerder,',
+        'new_pending_post_intro' => 'Er is een nieuw bericht ingediend dat wacht op jouw beoordeling en goedkeuring.',
+        'new_pending_post_details_title' => 'Berichtdetails:',
+        'new_pending_post_author_label' => 'Auteur:',
+        'new_pending_post_title_label' => 'Titel:',
+        'new_pending_post_action_needed' => 'Beoordeel dit bericht en onderneem passende actie.',
+        'new_pending_post_review_button' => 'Bericht beoordelen',
+        'new_pending_post_footer_note' => 'Dit bericht blijft in afwachting totdat je het goedkeurt of afwijst.',
+
+        // Password reminder template
+        'password_reminder_title' => 'Wachtwoord reset instructies',
+        'password_reminder_message' => 'Je ontvangt deze e-mail omdat we een verzoek hebben ontvangen om het wachtwoord voor je account te resetten.',
+        'password_reminder_button' => 'Wachtwoord resetten',
+        'password_reminder_trouble' => 'Als je problemen hebt met het klikken op de knop "Wachtwoord resetten", kopieer en plak dan de onderstaande URL in je webbrowser: <a href=":reset_link">:reset_link</a>. Als je geen wachtwoordreset hebt aangevraagd, negeer dan dit bericht of neem contact met ons op als je vragen hebt.',
+    ],
+];

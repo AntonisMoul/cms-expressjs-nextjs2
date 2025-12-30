@@ -1,0 +1,82 @@
+<?php
+
+return [
+    'create' => 'חבר חדש',
+    'menu_name' => 'חברים',
+    'edit_this_member' => 'ערוך חבר זה',
+    'menu_description' => 'הצג ונהל את החברים שלך',
+    'confirmation_subject' => 'אימות דוא"ל',
+    'confirmation_subject_title' => 'אמת את הדוא"ל שלך',
+    'not_confirmed' => 'כתובת הדוא"ל שסופקה לא אומתה. <a href=":resend_link">שלח מחדש קישור אימות.</a>',
+    'confirmation_successful' => 'אימתת בהצלחה את כתובת הדוא"ל שלך.',
+    'confirmation_info' => 'אנא אמת את כתובת הדוא"ל שלך.',
+    'confirmation_resent' => 'שלחנו לך דוא"ל אימות נוסף. אתה אמור לקבל אותו בקרוב.',
+    'form' => [
+        'login_title' => 'טופס כניסה לחברים',
+        'register_title' => 'טופס הרשמת חברים',
+        'reset_password_title' => 'טופס איפוס סיסמה לחברים',
+        'forgot_password_title' => 'טופס שכחתי סיסמה לחברים',
+        'email' => 'דוא"ל',
+        'password' => 'סיסמה',
+        'password_confirmation' => 'אימות סיסמה',
+        'change_password' => 'שנה סיסמה?',
+    ],
+    'forgot_password' => 'שכחתי סיסמה',
+    'login' => 'כניסה',
+    'settings' => [
+        'email' => [
+            'title' => 'חבר',
+            'description' => 'תצורת דוא"ל חבר',
+        ],
+    ],
+    'first_name' => 'שם פרטי',
+    'last_name' => 'שם משפחה',
+    'email_placeholder' => 'לדוגמה: example@gmail.com',
+    'write_a_post' => 'כתוב פוסט',
+    'phone' => 'טלפון',
+    'phone_placeholder' => 'טלפון',
+    'confirmed_at' => 'אומת ב',
+    'avatar' => 'אווטאר',
+    'dob' => 'תאריך לידה',
+    'theme_options' => [
+        'name' => 'חבר',
+        'login_background_image' => 'תמונת רקע לכניסה',
+        'register_background_image' => 'תמונת רקע להרשמה',
+    ],
+    'dashboard' => 'לוח בקרה',
+    'author' => 'מחבר',
+    'author_helper' => 'רשימת המחברים היא מ-מנהל -> חברים.',
+    'select_author' => 'בחר מחבר',
+    'email_verified' => 'דוא"ל מאומת?',
+    'verify_email' => [
+        'confirm_heading' => 'אימות אישור דוא"ל',
+        'confirm_description' => 'האם אתה בטוח שברצונך לאמת את הדוא"ל של חשבון זה?',
+        'notification' => 'חשבון זה עדיין לא אימת דוא"ל? :approve_link כדי לאמת דוא"ל.',
+        'approve_here' => 'לחץ כאן',
+        'confirm_button' => 'אמת',
+    ],
+    'email_templates' => [
+        // Confirm email template
+        'confirm_email_title' => 'אמת דוא"ל',
+        'confirm_email_welcome' => 'אנחנו שמחים שאתה כאן, :member_name!',
+        'confirm_email_instruction' => 'אנא אמת את כתובת הדוא"ל שלך כדי לגשת לאתר זה. לחץ על הכפתור למטה כדי לאמת את הדוא"ל שלך.',
+        'confirm_email_button' => 'אמת את כתובת הדוא"ל שלך',
+
+        // New pending post template
+        'new_pending_post_title' => 'פוסט חדש ממתין לבדיקה',
+        'new_pending_post_greeting' => 'מנהל יקר,',
+        'new_pending_post_intro' => 'פוסט חדש הוגש וממתין לבדיקה ואישור שלך.',
+        'new_pending_post_details_title' => 'פרטי הפוסט:',
+        'new_pending_post_author_label' => 'מחבר:',
+        'new_pending_post_title_label' => 'כותרת:',
+        'new_pending_post_action_needed' => 'אנא בדוק פוסט זה ונקוט פעולה מתאימה.',
+        'new_pending_post_review_button' => 'בדוק פוסט',
+        'new_pending_post_footer_note' => 'פוסט זה יישאר במצב ממתין עד שתאשר או תדחה אותו.',
+
+        // Password reminder template
+        'password_reminder_title' => 'הוראות איפוס סיסמה',
+        'password_reminder_message' => 'אתה מקבל דוא"ל זה מכיוון שקיבלנו בקשת איפוס סיסמה עבור החשבון שלך.',
+        'password_reminder_button' => 'אפס סיסמה',
+        'password_reminder_trouble' => 'אם אתה נתקל בבעיה בלחיצה על כפתור "אפס סיסמה", העתק והדבק את כתובת האתר שלהלן לדפדפן האינטרנט שלך: <a href=":reset_link">:reset_link</a> והדבק אותו בדפדפן שלך. אם לא ביקשת איפוס סיסמה, אנא התעלם מהודעה זו או צור איתנו קשר אם יש לך שאלות כלשהן.',
+    ],
+];

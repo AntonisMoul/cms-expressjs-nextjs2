@@ -1,0 +1,82 @@
+<?php
+
+return [
+    'create' => 'Nyt medlem',
+    'menu_name' => 'Medlemmer',
+    'edit_this_member' => 'Rediger dette medlem',
+    'menu_description' => 'Se og administrer dine medlemmer',
+    'confirmation_subject' => 'E-mail verifikation',
+    'confirmation_subject_title' => 'Bekræft din e-mail',
+    'not_confirmed' => 'Den angivne e-mailadresse er ikke blevet bekræftet. <a href=":resend_link">Send bekræftelseslink igen.</a>',
+    'confirmation_successful' => 'Du har bekræftet din e-mailadresse.',
+    'confirmation_info' => 'Bekræft venligst din e-mailadresse.',
+    'confirmation_resent' => 'Vi har sendt dig en ny bekræftelses-e-mail. Du skulle modtage den om kort tid.',
+    'form' => [
+        'login_title' => 'Medlem login formular',
+        'register_title' => 'Medlem registreringsformular',
+        'reset_password_title' => 'Medlem nulstil adgangskode formular',
+        'forgot_password_title' => 'Medlem glemt adgangskode formular',
+        'email' => 'E-mail',
+        'password' => 'Adgangskode',
+        'password_confirmation' => 'Bekræft adgangskode',
+        'change_password' => 'Skift adgangskode?',
+    ],
+    'forgot_password' => 'Glemt adgangskode',
+    'login' => 'Log ind',
+    'settings' => [
+        'email' => [
+            'title' => 'Medlem',
+            'description' => 'Medlem e-mail konfiguration',
+        ],
+    ],
+    'first_name' => 'Fornavn',
+    'last_name' => 'Efternavn',
+    'email_placeholder' => 'Fx: example@gmail.com',
+    'write_a_post' => 'Skriv et indlæg',
+    'phone' => 'Telefon',
+    'phone_placeholder' => 'Telefon',
+    'confirmed_at' => 'Bekræftet den',
+    'avatar' => 'Avatar',
+    'dob' => 'Fødselsdato',
+    'theme_options' => [
+        'name' => 'Medlem',
+        'login_background_image' => 'Login baggrundsbillede',
+        'register_background_image' => 'Registrering baggrundsbillede',
+    ],
+    'dashboard' => 'Dashboard',
+    'author' => 'Forfatter',
+    'author_helper' => 'Listen over forfattere er fra Admin -> Medlemmer.',
+    'select_author' => 'Vælg forfatter',
+    'email_verified' => 'E-mail bekræftet?',
+    'verify_email' => [
+        'confirm_heading' => 'Bekræft e-mail verifikation',
+        'confirm_description' => 'Er du sikker på, at du vil bekræfte e-mailen for denne konto?',
+        'notification' => 'Denne konto har ikke bekræftet e-mail endnu? :approve_link for at bekræfte e-mail.',
+        'approve_here' => 'klik her',
+        'confirm_button' => 'Bekræft',
+    ],
+    'email_templates' => [
+        // Confirm email template
+        'confirm_email_title' => 'Bekræft e-mail',
+        'confirm_email_welcome' => 'Vi er glade for at have dig her, :member_name!',
+        'confirm_email_instruction' => 'Bekræft venligst din e-mailadresse for at få adgang til denne hjemmeside. Klik på knappen nedenfor for at bekræfte din e-mail.',
+        'confirm_email_button' => 'Bekræft din e-mailadresse',
+
+        // New pending post template
+        'new_pending_post_title' => 'Nyt indlæg afventer gennemgang',
+        'new_pending_post_greeting' => 'Kære administrator,',
+        'new_pending_post_intro' => 'Et nyt indlæg er blevet indsendt og afventer din gennemgang og godkendelse.',
+        'new_pending_post_details_title' => 'Indlægsdetaljer:',
+        'new_pending_post_author_label' => 'Forfatter:',
+        'new_pending_post_title_label' => 'Titel:',
+        'new_pending_post_action_needed' => 'Gennemgå venligst dette indlæg og foretag passende handling.',
+        'new_pending_post_review_button' => 'Gennemgå indlæg',
+        'new_pending_post_footer_note' => 'Dette indlæg forbliver i afventende status, indtil du godkender eller afviser det.',
+
+        // Password reminder template
+        'password_reminder_title' => 'Nulstil adgangskode instruktion',
+        'password_reminder_message' => 'Du modtager denne e-mail, fordi vi har modtaget en anmodning om nulstilling af adgangskode for din konto.',
+        'password_reminder_button' => 'Nulstil adgangskode',
+        'password_reminder_trouble' => 'Hvis du har problemer med at klikke på knappen "Nulstil adgangskode", skal du kopiere og indsætte URL\'en nedenfor i din webbrowser: <a href=":reset_link">:reset_link</a> og indsætte den i din browser. Hvis du ikke har anmodet om en nulstilling af adgangskode, skal du ignorere denne besked eller kontakte os, hvis du har spørgsmål.',
+    ],
+];

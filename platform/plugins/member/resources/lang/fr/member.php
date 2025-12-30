@@ -1,0 +1,82 @@
+<?php
+
+return [
+    'create' => 'Nouveau membre',
+    'menu_name' => 'Membres',
+    'edit_this_member' => 'Modifier ce membre',
+    'menu_description' => 'Voir et gérer vos membres',
+    'confirmation_subject' => 'Vérification de l\'email',
+    'confirmation_subject_title' => 'Vérifiez votre email',
+    'not_confirmed' => 'L\'adresse email fournie n\'a pas été confirmée. <a href=":resend_link">Renvoyer le lien de confirmation.</a>',
+    'confirmation_successful' => 'Vous avez confirmé votre adresse email avec succès.',
+    'confirmation_info' => 'Veuillez confirmer votre adresse email.',
+    'confirmation_resent' => 'Nous vous avons envoyé un autre email de confirmation. Vous devriez le recevoir bientôt.',
+    'form' => [
+        'login_title' => 'Formulaire de connexion membre',
+        'register_title' => 'Formulaire d\'inscription membre',
+        'reset_password_title' => 'Formulaire de réinitialisation du mot de passe membre',
+        'forgot_password_title' => 'Formulaire de mot de passe oublié membre',
+        'email' => 'Email',
+        'password' => 'Mot de passe',
+        'password_confirmation' => 'Confirmation du mot de passe',
+        'change_password' => 'Changer le mot de passe ?',
+    ],
+    'forgot_password' => 'Mot de passe oublié',
+    'login' => 'Connexion',
+    'settings' => [
+        'email' => [
+            'title' => 'Membre',
+            'description' => 'Configuration email pour les membres',
+        ],
+    ],
+    'first_name' => 'Prénom',
+    'last_name' => 'Nom',
+    'email_placeholder' => 'Ex : exemple@gmail.com',
+    'write_a_post' => 'Écrire un article',
+    'phone' => 'Téléphone',
+    'phone_placeholder' => 'Téléphone',
+    'confirmed_at' => 'Confirmé le',
+    'avatar' => 'Photo de profil',
+    'dob' => 'Date de naissance',
+    'theme_options' => [
+        'name' => 'Membre',
+        'login_background_image' => 'Image d\'arrière-plan de connexion',
+        'register_background_image' => 'Image d\'arrière-plan d\'inscription',
+    ],
+    'dashboard' => 'Tableau de bord',
+    'author' => 'Auteur',
+    'author_helper' => 'La liste des auteurs provient d\'Admin -> Membres.',
+    'select_author' => 'Sélectionner un auteur',
+    'email_verified' => 'Email vérifié ?',
+    'verify_email' => [
+        'confirm_heading' => 'Vérifier la confirmation de l\'email',
+        'confirm_description' => 'Êtes-vous sûr de vouloir vérifier l\'email de ce compte ?',
+        'notification' => 'Ce compte n\'a pas encore vérifié son email. :approve_link pour vérifier l\'email.',
+        'approve_here' => 'cliquez ici',
+        'confirm_button' => 'Vérifier',
+    ],
+    'email_templates' => [
+        // Confirm email template
+        'confirm_email_title' => 'Vérifier l\'email',
+        'confirm_email_welcome' => 'Nous sommes ravis de vous avoir ici, :member_name !',
+        'confirm_email_instruction' => 'Veuillez vérifier votre adresse email pour accéder à ce site Web. Cliquez sur le bouton ci-dessous pour vérifier votre email.',
+        'confirm_email_button' => 'Confirmez votre adresse email',
+
+        // New pending post template
+        'new_pending_post_title' => 'Nouvel article en attente de révision',
+        'new_pending_post_greeting' => 'Cher administrateur,',
+        'new_pending_post_intro' => 'Un nouvel article a été soumis et attend votre révision et approbation.',
+        'new_pending_post_details_title' => 'Détails de l\'article :',
+        'new_pending_post_author_label' => 'Auteur :',
+        'new_pending_post_title_label' => 'Titre :',
+        'new_pending_post_action_needed' => 'Veuillez examiner cet article et prendre les mesures appropriées.',
+        'new_pending_post_review_button' => 'Examiner l\'article',
+        'new_pending_post_footer_note' => 'Cet article restera en attente jusqu\'à ce que vous l\'approuviez ou le rejetiez.',
+
+        // Password reminder template
+        'password_reminder_title' => 'Instructions de réinitialisation du mot de passe',
+        'password_reminder_message' => 'Vous recevez cet email car nous avons reçu une demande de réinitialisation de mot de passe pour votre compte.',
+        'password_reminder_button' => 'Réinitialiser le mot de passe',
+        'password_reminder_trouble' => 'Si vous avez des difficultés à cliquer sur le bouton "Réinitialiser le mot de passe", copiez et collez l\'URL ci-dessous dans votre navigateur Web : <a href=":reset_link">:reset_link</a>. Si vous n\'avez pas demandé de réinitialisation de mot de passe, veuillez ignorer ce message ou nous contacter si vous avez des questions.',
+    ],
+];

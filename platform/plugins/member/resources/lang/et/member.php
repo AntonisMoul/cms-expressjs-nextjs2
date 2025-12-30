@@ -1,0 +1,82 @@
+<?php
+
+return [
+    'create' => 'Uus liige',
+    'menu_name' => 'Liikmed',
+    'edit_this_member' => 'Muuda seda liiget',
+    'menu_description' => 'Vaata ja halda oma liikmeid',
+    'confirmation_subject' => 'E-posti kinnitamine',
+    'confirmation_subject_title' => 'Kinnita oma e-posti aadress',
+    'not_confirmed' => 'Antud e-posti aadressi ei ole kinnitatud. <a href=":resend_link">Saada kinnituslink uuesti.</a>',
+    'confirmation_successful' => 'Olete oma e-posti aadressi edukalt kinnitanud.',
+    'confirmation_info' => 'Palun kinnitage oma e-posti aadress.',
+    'confirmation_resent' => 'Saatsime teile uue kinnitusmeili. Peaksite selle varsti kätte saama.',
+    'form' => [
+        'login_title' => 'Liikme sisselogimise vorm',
+        'register_title' => 'Liikme registreerimise vorm',
+        'reset_password_title' => 'Liikme parooli lähtestamise vorm',
+        'forgot_password_title' => 'Liikme unustatud parooli vorm',
+        'email' => 'E-post',
+        'password' => 'Parool',
+        'password_confirmation' => 'Parooli kinnitus',
+        'change_password' => 'Muuda parooli?',
+    ],
+    'forgot_password' => 'Unustasid parooli',
+    'login' => 'Logi sisse',
+    'settings' => [
+        'email' => [
+            'title' => 'Liige',
+            'description' => 'Liikme e-posti seadistus',
+        ],
+    ],
+    'first_name' => 'Eesnimi',
+    'last_name' => 'Perekonnanimi',
+    'email_placeholder' => 'Näiteks: example@gmail.com',
+    'write_a_post' => 'Kirjuta postitus',
+    'phone' => 'Telefon',
+    'phone_placeholder' => 'Telefon',
+    'confirmed_at' => 'Kinnitatud',
+    'avatar' => 'Avatar',
+    'dob' => 'Sünnipäev',
+    'theme_options' => [
+        'name' => 'Liige',
+        'login_background_image' => 'Sisselogimise taustapilt',
+        'register_background_image' => 'Registreerimise taustapilt',
+    ],
+    'dashboard' => 'Töölaud',
+    'author' => 'Autor',
+    'author_helper' => 'Autorite nimekiri on Admin -> Liikmed.',
+    'select_author' => 'Vali autor',
+    'email_verified' => 'E-post kinnitatud?',
+    'verify_email' => [
+        'confirm_heading' => 'E-posti kinnituse verifitseerimine',
+        'confirm_description' => 'Kas olete kindel, et soovite selle konto e-posti kinnitada?',
+        'notification' => 'Selle konto e-posti ei ole veel kinnitatud? :approve_link e-posti kinnitamiseks.',
+        'approve_here' => 'klõpsake siia',
+        'confirm_button' => 'Kinnita',
+    ],
+    'email_templates' => [
+        // Confirm email template
+        'confirm_email_title' => 'E-posti kinnitamine',
+        'confirm_email_welcome' => 'Meil on hea meel, et olete siin, :member_name!',
+        'confirm_email_instruction' => 'Palun kinnitage oma e-posti aadress, et pääseda sellele veebisaidile juurde. Klõpsake allolevale nupule, et kinnitada oma e-post.',
+        'confirm_email_button' => 'Kinnita oma e-posti aadress',
+
+        // New pending post template
+        'new_pending_post_title' => 'Uus postitus ootab ülevaatamist',
+        'new_pending_post_greeting' => 'Lugupeetud administraator,',
+        'new_pending_post_intro' => 'Uus postitus on esitatud ja ootab teie ülevaatamist ja kinnitamist.',
+        'new_pending_post_details_title' => 'Postituse üksikasjad:',
+        'new_pending_post_author_label' => 'Autor:',
+        'new_pending_post_title_label' => 'Pealkiri:',
+        'new_pending_post_action_needed' => 'Palun vaadake see postitus üle ja võtke asjakohane meede.',
+        'new_pending_post_review_button' => 'Vaata postitust üle',
+        'new_pending_post_footer_note' => 'See postitus jääb ootel olekusse, kuni te selle kinnitate või tagasi lükkate.',
+
+        // Password reminder template
+        'password_reminder_title' => 'Parooli lähtestamise juhised',
+        'password_reminder_message' => 'Saite selle e-kirja, kuna saime teie konto jaoks parooli lähtestamise taotluse.',
+        'password_reminder_button' => 'Lähtesta parool',
+        'password_reminder_trouble' => 'Kui teil on probleeme "Lähtesta parool" nupu klõpsamisega, kopeerige ja kleepige alljärgnev URL oma veebibrauserisse: <a href=":reset_link">:reset_link</a> ja kleepige see oma brauserisse. Kui te ei taotlenud parooli lähtestamist, palun ignoreerige seda sõnumit või võtke meiega ühendust, kui teil on küsimusi.',
+    ],
+];

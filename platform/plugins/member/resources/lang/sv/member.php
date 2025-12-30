@@ -1,0 +1,82 @@
+<?php
+
+return [
+    'create' => 'Ny medlem',
+    'menu_name' => 'Medlemmar',
+    'edit_this_member' => 'Redigera denna medlem',
+    'menu_description' => 'Visa och hantera dina medlemmar',
+    'confirmation_subject' => 'E-postverifiering',
+    'confirmation_subject_title' => 'Verifiera din e-post',
+    'not_confirmed' => 'Den angivna e-postadressen har inte bekräftats. <a href=":resend_link">Skicka bekräftelselänk igen.</a>',
+    'confirmation_successful' => 'Du har framgångsrikt bekräftat din e-postadress.',
+    'confirmation_info' => 'Vänligen bekräfta din e-postadress.',
+    'confirmation_resent' => 'Vi skickade dig ett nytt bekräftelsemail. Du bör få det inom kort.',
+    'form' => [
+        'login_title' => 'Medlemsinloggningsformulär',
+        'register_title' => 'Medlemsregistreringsformulär',
+        'reset_password_title' => 'Formulär för återställning av medlemslösenord',
+        'forgot_password_title' => 'Formulär för glömt medlemslösenord',
+        'email' => 'E-post',
+        'password' => 'Lösenord',
+        'password_confirmation' => 'Lösenordsbekräftelse',
+        'change_password' => 'Byta lösenord?',
+    ],
+    'forgot_password' => 'Glömt lösenord',
+    'login' => 'Logga in',
+    'settings' => [
+        'email' => [
+            'title' => 'Medlem',
+            'description' => 'Konfiguration av medlems e-post',
+        ],
+    ],
+    'first_name' => 'Förnamn',
+    'last_name' => 'Efternamn',
+    'email_placeholder' => 'Ex: example@gmail.com',
+    'write_a_post' => 'Skriv ett inlägg',
+    'phone' => 'Telefon',
+    'phone_placeholder' => 'Telefon',
+    'confirmed_at' => 'Bekräftad den',
+    'avatar' => 'Avatar',
+    'dob' => 'Födelsedatum',
+    'theme_options' => [
+        'name' => 'Medlem',
+        'login_background_image' => 'Bakgrundsbild för inloggning',
+        'register_background_image' => 'Bakgrundsbild för registrering',
+    ],
+    'dashboard' => 'Instrumentpanel',
+    'author' => 'Författare',
+    'author_helper' => 'Listan över författare kommer från Admin -> Medlemmar.',
+    'select_author' => 'Välj författare',
+    'email_verified' => 'E-post verifierad?',
+    'verify_email' => [
+        'confirm_heading' => 'Verifiera e-postbekräftelse',
+        'confirm_description' => 'Är du säker på att du vill verifiera e-postadressen för detta konto?',
+        'notification' => 'Detta konto har inte verifierat e-post än? :approve_link för att verifiera e-post.',
+        'approve_here' => 'klicka här',
+        'confirm_button' => 'Verifiera',
+    ],
+    'email_templates' => [
+        // Confirm email template
+        'confirm_email_title' => 'Verifiera E-post',
+        'confirm_email_welcome' => 'Vi är glada att ha dig här, :member_name!',
+        'confirm_email_instruction' => 'Vänligen verifiera din e-postadress för att få tillgång till denna webbplats. Klicka på knappen nedan för att verifiera din e-post.',
+        'confirm_email_button' => 'Bekräfta din e-postadress',
+
+        // New pending post template
+        'new_pending_post_title' => 'Nytt Inlägg Väntar på Granskning',
+        'new_pending_post_greeting' => 'Kära Administratör,',
+        'new_pending_post_intro' => 'Ett nytt inlägg har skickats in och väntar på din granskning och godkännande.',
+        'new_pending_post_details_title' => 'Inläggsdetaljer:',
+        'new_pending_post_author_label' => 'Författare:',
+        'new_pending_post_title_label' => 'Titel:',
+        'new_pending_post_action_needed' => 'Vänligen granska detta inlägg och vidta lämpliga åtgärder.',
+        'new_pending_post_review_button' => 'Granska Inlägg',
+        'new_pending_post_footer_note' => 'Detta inlägg kommer att förbli i väntande status tills du godkänner eller avvisar det.',
+
+        // Password reminder template
+        'password_reminder_title' => 'Instruktioner för Återställning av Lösenord',
+        'password_reminder_message' => 'Du får detta e-postmeddelande eftersom vi fick en begäran om lösenordsåterställning för ditt konto.',
+        'password_reminder_button' => 'Återställ lösenord',
+        'password_reminder_trouble' => 'Om du har problem med att klicka på knappen "Återställ Lösenord", kopiera och klistra in URL:en nedan i din webbläsare: <a href=":reset_link">:reset_link</a> och klistra in den i din webbläsare. Om du inte begärde en lösenordsåterställning, vänligen ignorera detta meddelande eller kontakta oss om du har några frågor.',
+    ],
+];
