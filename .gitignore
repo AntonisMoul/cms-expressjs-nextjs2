@@ -59,3 +59,7 @@ storage/framework/maintenance.php
 .claude/
 .mcp.json
 .taskmaster/
+
+# Next.js build artifacts
+.next/
+node_modules/

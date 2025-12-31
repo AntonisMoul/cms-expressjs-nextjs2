@@ -1,0 +1,88 @@
+// Media Plugin Database Schema
+
+model MediaFile {
+  id          Int      @id @default(autoincrement())
+  name        String   @db.VarChar(255)
+  fileName    String   @db.VarChar(255)
+  mimeType    String   @db.VarChar(100)
+  path        String   @db.VarChar(500)
+  disk        String   @default("local") @db.VarChar(50)
+  fileSize    Int
+  folderId    Int?
+  fileHash    String?  @db.VarChar(128) // For duplicate detection
+  alt         String?  @db.VarChar(255)
+  description String?  @db.Text
+  userId      Int?
+  isPublic    Boolean  @default(true)
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  // Relations
+  user User? @relation(fields: [userId], references: [id], onDelete: SetNull)
+  folder MediaFolder? @relation(fields: [folderId], references: [id], onDelete: SetNull)
+  galleries MediaGalleryItem[]
+
+  @@map("media_files")
+}
+
+model MediaFolder {
+  id          Int      @id @default(autoincrement())
+  name        String   @db.VarChar(255)
+  slug        String   @unique @db.VarChar(255)
+  parentId    Int?     @default(0)
+  description String?  @db.Text
+  userId      Int?
+  color       String?  @db.VarChar(7) // Hex color for UI
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  // Relations
+  user User? @relation(fields: [userId], references: [id], onDelete: SetNull)
+  parent MediaFolder? @relation("MediaFolderHierarchy", fields: [parentId], references: [id])
+  children MediaFolder[] @relation("MediaFolderHierarchy")
+  files MediaFile[]
+
+  @@map("media_folders")
+}
+
+model MediaGallery {
+  id          Int      @id @default(autoincrement())
+  name        String   @db.VarChar(120)
+  description String?  @db.VarChar(400)
+  isFeatured  Boolean  @default(false) @db.TinyInt
+  userId      Int?
+  slug        String?  @db.VarChar(255)
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  // Relations
+  user User? @relation(fields: [userId], references: [id], onDelete: SetNull)
+  items MediaGalleryItem[]
+
+  @@map("media_galleries")
+}
+
+model MediaGalleryItem {
+  id         Int @id @default(autoincrement())
+  galleryId  Int
+  fileId     Int
+  order      Int @default(0)
+
+  // Relations
+  gallery MediaGallery @relation(fields: [galleryId], references: [id], onDelete: Cascade)
+  file MediaFile @relation(fields: [fileId], references: [id], onDelete: Cascade)
+
+  @@unique([galleryId, fileId])
+  @@map("media_gallery_items")
+}
+
+// Extend the core User model to include media relations
+model User {
+  // ... existing fields from core schema
+  mediaFiles MediaFile[]
+  mediaFolders MediaFolder[]
+  mediaGalleries MediaGallery[]
+}

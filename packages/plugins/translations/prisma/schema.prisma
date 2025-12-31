@@ -1,0 +1,71 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+model Language {
+  id          Int      @id @default(autoincrement())
+  code        String   @unique // ISO language code (en, el, fr, etc.)
+  name        String   // Human readable name (English, Greek, French)
+  native_name String?  // Native name of the language
+  flag        String?  // Flag emoji or flag code
+  is_active   Boolean  @default(true)
+  is_default  Boolean  @default(false)
+  sort_order  Int      @default(0)
+  created_at  DateTime @default(now())
+  updated_at  DateTime @updatedAt
+
+  translations Translation[]
+
+  @@map("languages")
+}
+
+model Translation {
+  id          Int      @id @default(autoincrement())
+  language_id Int
+  key         String   // Translation key (e.g., "nav.home", "error.not_found")
+  value       String   // Translated text
+  context     String?  // Additional context or notes
+  is_translated Boolean @default(false)
+  created_at  DateTime @default(now())
+  updated_at  DateTime @updatedAt
+
+  language Language @relation(fields: [language_id], references: [id], onDelete: Cascade)
+
+  @@unique([language_id, key])
+  @@map("translations")
+}
+
+model TranslationGroup {
+  id          Int      @id @default(autoincrement())
+  name        String   // Group name (e.g., "Navigation", "Admin", "Frontend")
+  description String?
+  sort_order  Int      @default(0)
+  created_at  DateTime @default(now())
+  updated_at  DateTime @updatedAt
+
+  keys TranslationKey[]
+
+  @@map("translation_groups")
+}
+
+model TranslationKey {
+  id         Int      @id @default(autoincrement())
+  key        String   @unique // Translation key
+  group_id   Int?     // Reference to translation group
+  context    String?  // Description/context for translators
+  default_value String? // Default English value
+  created_at DateTime @default(now())
+  updated_at DateTime @updatedAt
+
+  group TranslationGroup? @relation(fields: [group_id], references: [id], onDelete: SetNull)
+
+  @@map("translation_keys")
+}

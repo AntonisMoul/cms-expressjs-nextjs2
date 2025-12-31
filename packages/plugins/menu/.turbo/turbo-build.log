@@ -1,0 +1,479 @@
+
+> @cms/menu@1.0.0 build D:\laragon\www\cms-expressjs-nextjs2\packages\plugins\menu
+> tsc --noEmit
+
+src/admin/index.ts(1,38): error TS6142: Module './pages/ListMenus' was resolved to 'D:/laragon/www/cms-expressjs-nextjs2/packages/plugins/menu/src/admin/pages/ListMenus.tsx', but '--jsx' is not set.
+src/admin/index.ts(2,39): error TS6142: Module './pages/CreateMenu' was resolved to 'D:/laragon/www/cms-expressjs-nextjs2/packages/plugins/menu/src/admin/pages/CreateMenu.tsx', but '--jsx' is not set.
+src/admin/index.ts(3,37): error TS6142: Module './pages/EditMenu' was resolved to 'D:/laragon/www/cms-expressjs-nextjs2/packages/plugins/menu/src/admin/pages/EditMenu.tsx', but '--jsx' is not set.
+src/admin/index.ts(4,38): error TS6142: Module './pages/MenuItems' was resolved to 'D:/laragon/www/cms-expressjs-nextjs2/packages/plugins/menu/src/admin/pages/MenuItems.tsx', but '--jsx' is not set.
+src/admin/pages/CreateMenu.tsx(3,26): error TS2307: Cannot find module 'react' or its corresponding type declarations.
+src/admin/pages/CreateMenu.tsx(4,27): error TS2307: Cannot find module 'next/navigation' or its corresponding type declarations.
+src/admin/pages/CreateMenu.tsx(16,33): error TS2503: Cannot find namespace 'React'.
+src/admin/pages/CreateMenu.tsx(16,51): error TS2304: Cannot find name 'HTMLInputElement'.
+src/admin/pages/CreateMenu.tsx(16,70): error TS2304: Cannot find name 'HTMLSelectElement'.
+src/admin/pages/CreateMenu.tsx(18,17): error TS7006: Parameter 'prev' implicitly has an 'any' type.
+src/admin/pages/CreateMenu.tsx(31,19): error TS7006: Parameter 'prev' implicitly has an 'any' type.
+src/admin/pages/CreateMenu.tsx(38,34): error TS2503: Cannot find namespace 'React'.
+src/admin/pages/CreateMenu.tsx(65,5): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/CreateMenu.tsx(65,5): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/admin/pages/CreateMenu.tsx(66,7): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/CreateMenu.tsx(66,7): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/admin/pages/CreateMenu.tsx(67,9): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/CreateMenu.tsx(67,9): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/admin/pages/CreateMenu.tsx(68,11): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/CreateMenu.tsx(68,11): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/admin/pages/CreateMenu.tsx(69,13): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/CreateMenu.tsx(69,13): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/admin/pages/CreateMenu.tsx(69,84): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/CreateMenu.tsx(70,13): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/CreateMenu.tsx(70,13): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/admin/pages/CreateMenu.tsx(72,13): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/CreateMenu.tsx(73,11): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/CreateMenu.tsx(74,9): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/CreateMenu.tsx(76,9): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/CreateMenu.tsx(76,9): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/admin/pages/CreateMenu.tsx(77,11): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/CreateMenu.tsx(77,11): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/admin/pages/CreateMenu.tsx(78,13): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/CreateMenu.tsx(78,13): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/admin/pages/CreateMenu.tsx(79,15): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/CreateMenu.tsx(79,15): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/admin/pages/CreateMenu.tsx(81,19): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/CreateMenu.tsx(81,19): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/admin/pages/CreateMenu.tsx(83,19): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/CreateMenu.tsx(86,17): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/CreateMenu.tsx(86,17): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/admin/pages/CreateMenu.tsx(87,19): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/CreateMenu.tsx(87,19): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/admin/pages/CreateMenu.tsx(89,19): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/CreateMenu.tsx(90,19): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/CreateMenu.tsx(90,19): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/admin/pages/CreateMenu.tsx(100,19): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/CreateMenu.tsx(100,19): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/admin/pages/CreateMenu.tsx(102,19): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/CreateMenu.tsx(103,17): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/CreateMenu.tsx(105,17): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/CreateMenu.tsx(105,17): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/admin/pages/CreateMenu.tsx(106,19): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/CreateMenu.tsx(106,19): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/admin/pages/CreateMenu.tsx(108,19): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/CreateMenu.tsx(109,19): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/CreateMenu.tsx(109,19): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/admin/pages/CreateMenu.tsx(118,19): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/CreateMenu.tsx(118,19): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/admin/pages/CreateMenu.tsx(120,19): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/CreateMenu.tsx(121,17): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/CreateMenu.tsx(123,17): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/CreateMenu.tsx(123,17): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/admin/pages/CreateMenu.tsx(124,19): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/CreateMenu.tsx(124,19): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/admin/pages/CreateMenu.tsx(126,19): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/CreateMenu.tsx(127,19): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/CreateMenu.tsx(127,19): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/admin/pages/CreateMenu.tsx(134,21): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/CreateMenu.tsx(134,21): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/admin/pages/CreateMenu.tsx(134,56): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/CreateMenu.tsx(135,21): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/CreateMenu.tsx(135,21): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/admin/pages/CreateMenu.tsx(135,48): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/CreateMenu.tsx(136,19): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/CreateMenu.tsx(137,19): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/CreateMenu.tsx(137,19): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/admin/pages/CreateMenu.tsx(139,19): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/CreateMenu.tsx(140,17): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/CreateMenu.tsx(141,15): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/CreateMenu.tsx(143,15): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/CreateMenu.tsx(143,15): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/admin/pages/CreateMenu.tsx(144,17): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/CreateMenu.tsx(144,17): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/admin/pages/CreateMenu.tsx(150,17): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/CreateMenu.tsx(151,17): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/CreateMenu.tsx(151,17): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/admin/pages/CreateMenu.tsx(157,17): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/CreateMenu.tsx(158,15): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/CreateMenu.tsx(159,13): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/CreateMenu.tsx(160,11): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/CreateMenu.tsx(161,9): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/CreateMenu.tsx(162,7): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/CreateMenu.tsx(163,5): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/EditMenu.tsx(3,37): error TS2307: Cannot find module 'react' or its corresponding type declarations.
+src/admin/pages/EditMenu.tsx(4,38): error TS2307: Cannot find module 'next/navigation' or its corresponding type declarations.
+src/admin/pages/EditMenu.tsx(30,13): error TS2322: Type 'unknown' is not assignable to type 'Menu'.
+  Type 'unknown' is not assignable to type '{ name: string; slug: string; status: string; id: number; created_at: Date; updated_at: Date; }'.
+src/admin/pages/EditMenu.tsx(43,33): error TS2503: Cannot find namespace 'React'.
+src/admin/pages/EditMenu.tsx(43,51): error TS2304: Cannot find name 'HTMLInputElement'.
+src/admin/pages/EditMenu.tsx(43,70): error TS2304: Cannot find name 'HTMLSelectElement'.
+src/admin/pages/EditMenu.tsx(45,17): error TS7006: Parameter 'prev' implicitly has an 'any' type.
+src/admin/pages/EditMenu.tsx(58,19): error TS7006: Parameter 'prev' implicitly has an 'any' type.
+src/admin/pages/EditMenu.tsx(65,34): error TS2503: Cannot find namespace 'React'.
+src/admin/pages/EditMenu.tsx(93,7): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/EditMenu.tsx(93,7): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/admin/pages/EditMenu.tsx(94,9): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/EditMenu.tsx(94,9): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/admin/pages/EditMenu.tsx(94,89): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/EditMenu.tsx(95,7): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/EditMenu.tsx(100,5): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/EditMenu.tsx(100,5): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/admin/pages/EditMenu.tsx(101,7): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/EditMenu.tsx(101,7): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/admin/pages/EditMenu.tsx(102,9): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/EditMenu.tsx(102,9): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/admin/pages/EditMenu.tsx(103,11): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/EditMenu.tsx(103,11): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/admin/pages/EditMenu.tsx(104,13): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/EditMenu.tsx(104,13): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/admin/pages/EditMenu.tsx(104,82): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/EditMenu.tsx(105,13): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/EditMenu.tsx(105,13): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/admin/pages/EditMenu.tsx(107,13): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/EditMenu.tsx(108,11): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/EditMenu.tsx(109,9): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/EditMenu.tsx(111,9): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/EditMenu.tsx(111,9): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/admin/pages/EditMenu.tsx(112,11): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/EditMenu.tsx(112,11): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/admin/pages/EditMenu.tsx(113,13): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/EditMenu.tsx(113,13): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/admin/pages/EditMenu.tsx(114,15): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/EditMenu.tsx(114,15): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/admin/pages/EditMenu.tsx(116,19): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/EditMenu.tsx(116,19): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/admin/pages/EditMenu.tsx(118,19): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/EditMenu.tsx(121,17): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/EditMenu.tsx(121,17): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/admin/pages/EditMenu.tsx(122,19): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/EditMenu.tsx(122,19): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/admin/pages/EditMenu.tsx(124,19): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/EditMenu.tsx(125,19): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/EditMenu.tsx(125,19): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/admin/pages/EditMenu.tsx(134,19): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/EditMenu.tsx(134,19): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/admin/pages/EditMenu.tsx(136,19): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/EditMenu.tsx(137,17): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/EditMenu.tsx(139,17): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/EditMenu.tsx(139,17): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/admin/pages/EditMenu.tsx(140,19): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/EditMenu.tsx(140,19): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/admin/pages/EditMenu.tsx(142,19): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/EditMenu.tsx(143,19): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/EditMenu.tsx(143,19): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/admin/pages/EditMenu.tsx(151,19): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/EditMenu.tsx(151,19): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/admin/pages/EditMenu.tsx(153,19): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/EditMenu.tsx(154,17): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/EditMenu.tsx(156,17): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/EditMenu.tsx(156,17): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/admin/pages/EditMenu.tsx(157,19): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/EditMenu.tsx(157,19): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/admin/pages/EditMenu.tsx(159,19): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/EditMenu.tsx(160,19): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/EditMenu.tsx(160,19): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/admin/pages/EditMenu.tsx(167,21): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/EditMenu.tsx(167,21): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/admin/pages/EditMenu.tsx(167,56): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/EditMenu.tsx(168,21): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/EditMenu.tsx(168,21): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/admin/pages/EditMenu.tsx(168,48): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/EditMenu.tsx(169,19): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/EditMenu.tsx(170,19): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/EditMenu.tsx(170,19): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/admin/pages/EditMenu.tsx(172,19): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/EditMenu.tsx(173,17): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/EditMenu.tsx(174,15): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/EditMenu.tsx(176,15): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/EditMenu.tsx(176,15): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/admin/pages/EditMenu.tsx(177,17): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/EditMenu.tsx(177,17): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/admin/pages/EditMenu.tsx(183,17): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/EditMenu.tsx(184,17): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/EditMenu.tsx(184,17): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/admin/pages/EditMenu.tsx(190,17): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/EditMenu.tsx(191,15): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/EditMenu.tsx(192,13): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/EditMenu.tsx(193,11): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/EditMenu.tsx(194,9): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/EditMenu.tsx(195,7): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/EditMenu.tsx(196,5): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/ListMenus.tsx(3,37): error TS2307: Cannot find module 'react' or its corresponding type declarations.
+src/admin/pages/ListMenus.tsx(4,18): error TS2307: Cannot find module 'next/link' or its corresponding type declarations.
+src/admin/pages/ListMenus.tsx(32,10): error TS2304: Cannot find name 'confirm'.
+src/admin/pages/ListMenus.tsx(45,29): error TS7006: Parameter 'menu' implicitly has an 'any' type.
+src/admin/pages/ListMenus.tsx(53,7): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/ListMenus.tsx(53,7): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/admin/pages/ListMenus.tsx(54,9): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/ListMenus.tsx(54,9): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/admin/pages/ListMenus.tsx(54,89): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/ListMenus.tsx(55,7): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/ListMenus.tsx(61,7): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/ListMenus.tsx(61,7): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/admin/pages/ListMenus.tsx(63,7): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/ListMenus.tsx(68,5): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/ListMenus.tsx(68,5): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/admin/pages/ListMenus.tsx(69,7): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/ListMenus.tsx(69,7): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/admin/pages/ListMenus.tsx(70,9): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/ListMenus.tsx(70,9): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/admin/pages/ListMenus.tsx(71,11): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/ListMenus.tsx(71,11): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/admin/pages/ListMenus.tsx(71,69): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/ListMenus.tsx(72,11): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/ListMenus.tsx(72,11): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/admin/pages/ListMenus.tsx(74,11): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/ListMenus.tsx(75,9): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/ListMenus.tsx(76,9): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/ListMenus.tsx(76,9): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/admin/pages/ListMenus.tsx(77,11): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/admin/pages/ListMenus.tsx(83,9): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/ListMenus.tsx(84,7): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/ListMenus.tsx(86,7): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/ListMenus.tsx(86,7): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/admin/pages/ListMenus.tsx(87,9): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/ListMenus.tsx(87,9): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/admin/pages/ListMenus.tsx(88,11): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/ListMenus.tsx(88,11): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/admin/pages/ListMenus.tsx(89,13): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/ListMenus.tsx(89,13): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/admin/pages/ListMenus.tsx(90,15): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/ListMenus.tsx(90,15): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/admin/pages/ListMenus.tsx(91,17): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/ListMenus.tsx(91,17): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/admin/pages/ListMenus.tsx(92,19): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/ListMenus.tsx(92,19): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/admin/pages/ListMenus.tsx(93,21): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/ListMenus.tsx(93,21): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/admin/pages/ListMenus.tsx(95,21): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/ListMenus.tsx(96,21): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/ListMenus.tsx(96,21): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/admin/pages/ListMenus.tsx(98,21): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/ListMenus.tsx(99,21): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/ListMenus.tsx(99,21): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/admin/pages/ListMenus.tsx(101,21): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/ListMenus.tsx(102,21): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/ListMenus.tsx(102,21): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/admin/pages/ListMenus.tsx(104,21): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/ListMenus.tsx(105,21): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/ListMenus.tsx(105,21): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/admin/pages/ListMenus.tsx(106,23): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/ListMenus.tsx(106,23): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/admin/pages/ListMenus.tsx(106,56): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/ListMenus.tsx(107,21): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/ListMenus.tsx(108,19): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/ListMenus.tsx(109,17): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/ListMenus.tsx(110,17): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/ListMenus.tsx(110,17): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/admin/pages/ListMenus.tsx(111,31): error TS7006: Parameter 'menu' implicitly has an 'any' type.
+src/admin/pages/ListMenus.tsx(112,21): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/ListMenus.tsx(112,21): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/admin/pages/ListMenus.tsx(113,23): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/ListMenus.tsx(113,23): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/admin/pages/ListMenus.tsx(115,23): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/ListMenus.tsx(116,23): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/ListMenus.tsx(116,23): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/admin/pages/ListMenus.tsx(118,23): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/ListMenus.tsx(119,23): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/ListMenus.tsx(119,23): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/admin/pages/ListMenus.tsx(120,25): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/ListMenus.tsx(120,25): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/admin/pages/ListMenus.tsx(126,25): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/ListMenus.tsx(127,23): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/ListMenus.tsx(128,23): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/ListMenus.tsx(128,23): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/admin/pages/ListMenus.tsx(130,23): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/ListMenus.tsx(131,23): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/ListMenus.tsx(131,23): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/admin/pages/ListMenus.tsx(132,25): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/admin/pages/ListMenus.tsx(138,25): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/admin/pages/ListMenus.tsx(144,25): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/ListMenus.tsx(144,25): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/admin/pages/ListMenus.tsx(149,25): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/ListMenus.tsx(150,23): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/ListMenus.tsx(151,21): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/ListMenus.tsx(153,17): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/ListMenus.tsx(154,15): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/ListMenus.tsx(155,13): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/ListMenus.tsx(156,11): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/ListMenus.tsx(157,9): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/ListMenus.tsx(158,7): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/ListMenus.tsx(161,9): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/ListMenus.tsx(161,9): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/admin/pages/ListMenus.tsx(162,11): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/ListMenus.tsx(162,11): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/admin/pages/ListMenus.tsx(162,55): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/ListMenus.tsx(163,11): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/admin/pages/ListMenus.tsx(169,9): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/ListMenus.tsx(171,5): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/MenuItems.tsx(3,37): error TS2307: Cannot find module 'react' or its corresponding type declarations.
+src/admin/pages/MenuItems.tsx(4,38): error TS2307: Cannot find module 'next/navigation' or its corresponding type declarations.
+src/admin/pages/MenuItems.tsx(43,13): error TS2322: Type 'unknown' is not assignable to type 'MenuItem[]'.
+src/admin/pages/MenuItems.tsx(97,33): error TS2503: Cannot find namespace 'React'.
+src/admin/pages/MenuItems.tsx(97,51): error TS2304: Cannot find name 'HTMLInputElement'.
+src/admin/pages/MenuItems.tsx(97,70): error TS2304: Cannot find name 'HTMLSelectElement'.
+src/admin/pages/MenuItems.tsx(99,17): error TS7006: Parameter 'prev' implicitly has an 'any' type.
+src/admin/pages/MenuItems.tsx(105,34): error TS2503: Cannot find namespace 'React'.
+src/admin/pages/MenuItems.tsx(155,10): error TS2304: Cannot find name 'confirm'.
+src/admin/pages/MenuItems.tsx(175,5): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/MenuItems.tsx(175,5): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/admin/pages/MenuItems.tsx(176,7): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/MenuItems.tsx(176,7): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/admin/pages/MenuItems.tsx(177,9): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/MenuItems.tsx(177,9): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/admin/pages/MenuItems.tsx(178,30): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/MenuItems.tsx(178,30): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/admin/pages/MenuItems.tsx(178,69): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/MenuItems.tsx(179,11): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/MenuItems.tsx(179,11): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/admin/pages/MenuItems.tsx(179,53): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/MenuItems.tsx(180,11): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/MenuItems.tsx(180,11): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/admin/pages/MenuItems.tsx(180,68): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/MenuItems.tsx(181,9): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/MenuItems.tsx(182,7): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/MenuItems.tsx(183,7): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/MenuItems.tsx(183,7): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/admin/pages/MenuItems.tsx(184,9): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/MenuItems.tsx(184,9): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/admin/pages/MenuItems.tsx(189,9): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/MenuItems.tsx(190,9): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/MenuItems.tsx(190,9): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/admin/pages/MenuItems.tsx(195,9): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/MenuItems.tsx(196,7): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/MenuItems.tsx(197,5): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/MenuItems.tsx(202,7): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/MenuItems.tsx(202,7): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/admin/pages/MenuItems.tsx(203,9): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/MenuItems.tsx(203,9): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/admin/pages/MenuItems.tsx(203,89): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/MenuItems.tsx(204,7): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/MenuItems.tsx(209,5): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/MenuItems.tsx(209,5): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/admin/pages/MenuItems.tsx(210,7): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/MenuItems.tsx(210,7): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/admin/pages/MenuItems.tsx(211,9): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/MenuItems.tsx(211,9): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/admin/pages/MenuItems.tsx(212,11): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/MenuItems.tsx(212,11): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/admin/pages/MenuItems.tsx(212,74): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/MenuItems.tsx(213,11): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/MenuItems.tsx(213,11): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/admin/pages/MenuItems.tsx(215,11): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/MenuItems.tsx(216,9): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/MenuItems.tsx(217,9): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/MenuItems.tsx(217,9): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/admin/pages/MenuItems.tsx(218,11): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/MenuItems.tsx(218,11): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/admin/pages/MenuItems.tsx(223,11): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/MenuItems.tsx(224,9): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/MenuItems.tsx(225,7): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/MenuItems.tsx(228,9): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/MenuItems.tsx(228,9): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/admin/pages/MenuItems.tsx(230,9): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/MenuItems.tsx(234,9): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/MenuItems.tsx(234,9): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/admin/pages/MenuItems.tsx(235,11): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/MenuItems.tsx(235,11): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/admin/pages/MenuItems.tsx(236,13): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/MenuItems.tsx(236,13): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/admin/pages/MenuItems.tsx(238,13): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/MenuItems.tsx(239,13): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/MenuItems.tsx(239,13): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/admin/pages/MenuItems.tsx(240,15): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/MenuItems.tsx(240,15): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/admin/pages/MenuItems.tsx(241,17): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/MenuItems.tsx(241,17): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/admin/pages/MenuItems.tsx(243,17): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/MenuItems.tsx(244,17): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/MenuItems.tsx(244,17): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/admin/pages/MenuItems.tsx(253,15): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/MenuItems.tsx(255,15): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/MenuItems.tsx(255,15): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/admin/pages/MenuItems.tsx(256,17): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/MenuItems.tsx(256,17): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/admin/pages/MenuItems.tsx(258,17): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/MenuItems.tsx(259,17): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/MenuItems.tsx(259,17): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/admin/pages/MenuItems.tsx(269,15): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/MenuItems.tsx(271,15): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/MenuItems.tsx(271,15): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/admin/pages/MenuItems.tsx(272,17): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/MenuItems.tsx(272,17): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/admin/pages/MenuItems.tsx(273,19): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/MenuItems.tsx(273,19): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/admin/pages/MenuItems.tsx(275,19): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/MenuItems.tsx(276,19): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/MenuItems.tsx(276,19): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/admin/pages/MenuItems.tsx(283,21): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/MenuItems.tsx(283,21): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/admin/pages/MenuItems.tsx(283,54): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/MenuItems.tsx(284,21): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/MenuItems.tsx(284,21): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/admin/pages/MenuItems.tsx(284,54): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/MenuItems.tsx(285,21): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/MenuItems.tsx(285,21): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/admin/pages/MenuItems.tsx(285,57): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/MenuItems.tsx(286,21): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/MenuItems.tsx(286,21): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/admin/pages/MenuItems.tsx(286,51): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/MenuItems.tsx(287,19): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/MenuItems.tsx(288,17): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/MenuItems.tsx(290,17): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/MenuItems.tsx(290,17): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/admin/pages/MenuItems.tsx(291,19): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/MenuItems.tsx(291,19): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/admin/pages/MenuItems.tsx(293,19): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/MenuItems.tsx(294,19): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/MenuItems.tsx(294,19): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/admin/pages/MenuItems.tsx(303,17): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/MenuItems.tsx(304,15): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/MenuItems.tsx(306,15): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/MenuItems.tsx(306,15): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/admin/pages/MenuItems.tsx(307,17): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/MenuItems.tsx(307,17): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/admin/pages/MenuItems.tsx(309,17): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/MenuItems.tsx(310,17): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/MenuItems.tsx(310,17): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/admin/pages/MenuItems.tsx(319,15): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/MenuItems.tsx(321,15): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/MenuItems.tsx(321,15): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/admin/pages/MenuItems.tsx(322,17): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/MenuItems.tsx(322,17): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/admin/pages/MenuItems.tsx(338,17): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/MenuItems.tsx(339,17): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/MenuItems.tsx(339,17): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/admin/pages/MenuItems.tsx(344,17): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/MenuItems.tsx(345,15): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/MenuItems.tsx(346,13): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/MenuItems.tsx(347,11): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/MenuItems.tsx(348,9): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/MenuItems.tsx(351,7): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/MenuItems.tsx(351,7): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/admin/pages/MenuItems.tsx(352,9): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/MenuItems.tsx(352,9): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/admin/pages/MenuItems.tsx(353,11): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/MenuItems.tsx(353,11): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/admin/pages/MenuItems.tsx(353,85): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/MenuItems.tsx(354,11): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/MenuItems.tsx(354,11): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/admin/pages/MenuItems.tsx(356,11): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/MenuItems.tsx(357,9): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/MenuItems.tsx(358,9): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/MenuItems.tsx(358,9): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/admin/pages/MenuItems.tsx(359,11): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/MenuItems.tsx(359,11): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/admin/pages/MenuItems.tsx(361,15): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/MenuItems.tsx(361,15): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/admin/pages/MenuItems.tsx(363,15): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/MenuItems.tsx(365,15): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/MenuItems.tsx(365,15): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/admin/pages/MenuItems.tsx(366,40): error TS7006: Parameter 'item' implicitly has an 'any' type.
+src/admin/pages/MenuItems.tsx(367,15): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/MenuItems.tsx(369,11): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/MenuItems.tsx(370,9): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/MenuItems.tsx(371,7): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/MenuItems.tsx(373,7): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/MenuItems.tsx(373,7): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/admin/pages/MenuItems.tsx(374,9): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/MenuItems.tsx(374,9): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/admin/pages/MenuItems.tsx(379,9): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/MenuItems.tsx(380,7): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/MenuItems.tsx(381,5): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+ ELIFECYCLE  Command failed with exit code 1.

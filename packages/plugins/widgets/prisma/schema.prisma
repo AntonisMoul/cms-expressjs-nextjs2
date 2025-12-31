@@ -1,0 +1,52 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+model Widget {
+  id          Int      @id @default(autoincrement())
+  name        String
+  widget_type String   // text, menu, recent_posts, categories, custom_html, etc.
+  sidebar_id  Int?     // References sidebar/placement
+  position    Int      @default(0)
+  status      String   @default("active") // active, inactive
+  created_at  DateTime @default(now())
+  updated_at  DateTime @updatedAt
+
+  settings WidgetSetting[]
+
+  @@map("widgets")
+}
+
+model WidgetSetting {
+  id        Int      @id @default(autoincrement())
+  widget_id Int
+  key       String
+  value     String?  // JSON string for complex values
+  created_at DateTime @default(now())
+  updated_at DateTime @updatedAt
+
+  widget Widget @relation(fields: [widget_id], references: [id], onDelete: Cascade)
+
+  @@map("widget_settings")
+}
+
+model Sidebar {
+  id          Int      @id @default(autoincrement())
+  name        String   // Human readable name
+  location    String   @unique // Machine name like "sidebar-1", "footer-1", etc.
+  description String?
+  theme       String?  // Theme identifier
+  status      String   @default("active")
+  created_at  DateTime @default(now())
+  updated_at  DateTime @updatedAt
+
+  @@map("sidebars")
+}

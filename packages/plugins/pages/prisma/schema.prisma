@@ -1,0 +1,61 @@
+// Pages Plugin Database Schema
+
+model Page {
+  id            Int      @id @default(autoincrement())
+  name          String   @db.VarChar(120)
+  content       String?  @db.Text
+  userId        Int?
+  image         String?  @db.VarChar(255)
+  template      String?  @db.VarChar(60)
+  isFeatured    Boolean  @default(false) @db.TinyInt
+  description   String?  @db.VarChar(400)
+  status        String   @default("published") @db.VarChar(60)
+  translationGroupId String? @db.VarChar(36) // UUID for linking translations
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  // Relations
+  user User? @relation(fields: [userId], references: [id], onDelete: SetNull)
+  translations PageTranslation[]
+  meta PageMeta[]
+
+  @@map("pages")
+}
+
+model PageTranslation {
+  langCode  String @db.VarChar(20)
+  pagesId   Int
+  name      String? @db.VarChar(120)
+  description String? @db.VarChar(400)
+  content   String? @db.Text
+
+  // Relations
+  page Page @relation(fields: [pagesId], references: [id], onDelete: Cascade)
+
+  @@id([langCode, pagesId])
+  @@map("pages_translations")
+}
+
+model PageMeta {
+  id     Int    @id @default(autoincrement())
+  key    String @db.VarChar(120)
+  value  String? @db.Text
+  pageId Int
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  // Relations
+  page Page @relation(fields: [pageId], references: [id], onDelete: Cascade)
+
+  @@unique([key, pageId])
+  @@index([pageId])
+  @@map("page_meta")
+}
+
+// Extend the core User model to include pages relation
+model User {
+  // ... existing fields from core schema
+  pages Page[]
+}

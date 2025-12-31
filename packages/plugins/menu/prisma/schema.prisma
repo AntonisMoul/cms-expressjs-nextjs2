@@ -1,0 +1,58 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+model Menu {
+  id          Int      @id @default(autoincrement())
+  name        String
+  slug        String   @unique
+  status      String   @default("published") // published, draft
+  created_at  DateTime @default(now())
+  updated_at  DateTime @updatedAt
+
+  items     MenuItem[]
+  locations MenuLocation[]
+
+  @@map("menus")
+}
+
+model MenuItem {
+  id         Int         @id @default(autoincrement())
+  menu_id    Int
+  parent_id  Int?       @default(0)
+  title      String
+  url        String      // Can be relative URL, full URL, or slug reference
+  target     String?     @default("_self") // _self, _blank, _parent, _top
+  icon_class String?
+  css_class  String?
+  position   Int         @default(0)
+  created_at DateTime    @default(now())
+  updated_at DateTime    @updatedAt
+
+  menu     Menu            @relation(fields: [menu_id], references: [id], onDelete: Cascade)
+  parent   MenuItem?       @relation("MenuItemHierarchy", fields: [parent_id], references: [id], onDelete: SetNull)
+  children MenuItem[]      @relation("MenuItemHierarchy")
+
+  @@map("menu_items")
+}
+
+model MenuLocation {
+  id        Int      @id @default(autoincrement())
+  name      String   // Human readable name like "Header Menu"
+  location  String   @unique // Machine name like "header"
+  menu_id   Int?
+  created_at DateTime @default(now())
+  updated_at DateTime @updatedAt
+
+  menu Menu? @relation(fields: [menu_id], references: [id], onDelete: SetNull)
+
+  @@map("menu_locations")
+}

@@ -1,0 +1,65 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+model Theme {
+  id          Int      @id @default(autoincrement())
+  name        String
+  description String?
+  version     String   @default("1.0.0")
+  author      String?
+  author_url  String?
+  folder      String   @unique // theme folder name
+  status      String   @default("inactive") // active, inactive
+  image       String?  // screenshot/thumbnail URL
+  tags        String?  // comma-separated tags
+  created_at  DateTime @default(now())
+  updated_at  DateTime @updatedAt
+
+  options ThemeOption[]
+
+  @@map("themes")
+}
+
+model ThemeOption {
+  id        Int      @id @default(autoincrement())
+  theme_id  Int
+  section   String   // section name like "general", "colors", "typography"
+  key       String
+  value     String?  // JSON string for complex values
+  type      String   @default("text") // text, number, boolean, color, select, etc.
+  label     String
+  description String?
+  default_value String?
+  options   String?  // JSON string for select options
+  priority  Int      @default(0)
+  created_at DateTime @default(now())
+  updated_at DateTime @updatedAt
+
+  theme Theme @relation(fields: [theme_id], references: [id], onDelete: Cascade)
+
+  @@unique([theme_id, section, key])
+  @@map("theme_options")
+}
+
+model ThemeSetting {
+  id        Int      @id @default(autoincrement())
+  theme_id  Int
+  option_key String
+  value     String?  // JSON string for complex values
+  created_at DateTime @default(now())
+  updated_at DateTime @updatedAt
+
+  theme Theme @relation(fields: [theme_id], references: [id], onDelete: Cascade)
+
+  @@unique([theme_id, option_key])
+  @@map("theme_settings")
+}

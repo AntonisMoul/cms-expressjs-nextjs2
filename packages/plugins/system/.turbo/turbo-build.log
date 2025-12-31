@@ -1,0 +1,801 @@
+
+> @cms/system@1.0.0 build D:\laragon\www\cms-expressjs-nextjs2\packages\plugins\system
+> tsc --noEmit
+
+src/admin/index.ts(1,39): error TS6142: Module './pages/SystemInfo' was resolved to 'D:/laragon/www/cms-expressjs-nextjs2/packages/plugins/system/src/admin/pages/SystemInfo.tsx', but '--jsx' is not set.
+src/admin/index.ts(2,40): error TS6142: Module './pages/Maintenance' was resolved to 'D:/laragon/www/cms-expressjs-nextjs2/packages/plugins/system/src/admin/pages/Maintenance.tsx', but '--jsx' is not set.
+src/admin/index.ts(3,38): error TS6142: Module './pages/Redirects' was resolved to 'D:/laragon/www/cms-expressjs-nextjs2/packages/plugins/system/src/admin/pages/Redirects.tsx', but '--jsx' is not set.
+src/admin/pages/Maintenance.tsx(3,37): error TS2307: Cannot find module 'react' or its corresponding type declarations.
+src/admin/pages/Maintenance.tsx(33,21): error TS7006: Parameter 'prev' implicitly has an 'any' type.
+src/admin/pages/Maintenance.tsx(41,18): error TS7006: Parameter 'prev' implicitly has an 'any' type.
+src/admin/pages/Maintenance.tsx(43,18): error TS7006: Parameter 'prev' implicitly has an 'any' type.
+src/admin/pages/Maintenance.tsx(51,23): error TS7006: Parameter 'prev' implicitly has an 'any' type.
+src/admin/pages/Maintenance.tsx(68,7): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/Maintenance.tsx(68,7): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/admin/pages/Maintenance.tsx(69,9): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/Maintenance.tsx(69,9): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/admin/pages/Maintenance.tsx(69,89): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/Maintenance.tsx(70,7): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/Maintenance.tsx(76,7): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/Maintenance.tsx(76,7): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/admin/pages/Maintenance.tsx(78,7): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/Maintenance.tsx(83,5): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/Maintenance.tsx(83,5): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/admin/pages/Maintenance.tsx(84,7): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/Maintenance.tsx(84,7): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/admin/pages/Maintenance.tsx(85,9): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/Maintenance.tsx(85,9): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/admin/pages/Maintenance.tsx(86,11): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/Maintenance.tsx(86,11): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/admin/pages/Maintenance.tsx(86,82): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/Maintenance.tsx(87,11): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/Maintenance.tsx(87,11): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/admin/pages/Maintenance.tsx(89,11): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/Maintenance.tsx(90,9): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/Maintenance.tsx(91,9): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/Maintenance.tsx(91,9): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/admin/pages/Maintenance.tsx(92,11): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/Maintenance.tsx(92,11): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/admin/pages/Maintenance.tsx(97,11): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/Maintenance.tsx(98,9): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/Maintenance.tsx(99,7): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/Maintenance.tsx(101,7): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/Maintenance.tsx(101,7): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/admin/pages/Maintenance.tsx(102,9): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/Maintenance.tsx(102,9): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/admin/pages/Maintenance.tsx(103,23): error TS7006: Parameter 'task' implicitly has an 'any' type.
+src/admin/pages/Maintenance.tsx(108,15): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/Maintenance.tsx(108,15): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/admin/pages/Maintenance.tsx(109,17): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/Maintenance.tsx(109,17): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/admin/pages/Maintenance.tsx(110,19): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/Maintenance.tsx(110,19): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/admin/pages/Maintenance.tsx(111,21): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/Maintenance.tsx(111,21): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/admin/pages/Maintenance.tsx(112,23): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/Maintenance.tsx(112,23): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/admin/pages/Maintenance.tsx(112,84): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/Maintenance.tsx(113,23): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/Maintenance.tsx(113,23): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/admin/pages/Maintenance.tsx(113,83): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/Maintenance.tsx(114,23): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/Maintenance.tsx(114,23): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/admin/pages/Maintenance.tsx(116,23): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/Maintenance.tsx(117,21): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/Maintenance.tsx(118,21): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/Maintenance.tsx(118,21): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/admin/pages/Maintenance.tsx(119,23): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/Maintenance.tsx(119,23): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/admin/pages/Maintenance.tsx(129,27): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/admin/pages/Maintenance.tsx(130,29): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/Maintenance.tsx(130,29): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/admin/pages/Maintenance.tsx(130,109): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/Maintenance.tsx(136,23): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/Maintenance.tsx(137,21): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/Maintenance.tsx(138,19): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/Maintenance.tsx(141,21): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/Maintenance.tsx(141,21): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/admin/pages/Maintenance.tsx(146,23): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/Maintenance.tsx(146,23): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/admin/pages/Maintenance.tsx(147,25): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/Maintenance.tsx(147,25): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/admin/pages/Maintenance.tsx(149,29): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/Maintenance.tsx(149,29): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/admin/pages/Maintenance.tsx(150,31): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/Maintenance.tsx(150,31): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/admin/pages/Maintenance.tsx(151,29): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/Maintenance.tsx(153,29): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/Maintenance.tsx(153,29): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/admin/pages/Maintenance.tsx(154,31): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/Maintenance.tsx(154,31): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/admin/pages/Maintenance.tsx(155,29): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/Maintenance.tsx(157,25): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/Maintenance.tsx(158,25): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/Maintenance.tsx(158,25): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/admin/pages/Maintenance.tsx(159,27): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/Maintenance.tsx(159,27): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/admin/pages/Maintenance.tsx(163,27): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/Maintenance.tsx(164,27): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/Maintenance.tsx(164,27): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/admin/pages/Maintenance.tsx(168,27): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/Maintenance.tsx(169,25): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/Maintenance.tsx(170,23): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/Maintenance.tsx(171,21): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/Maintenance.tsx(173,17): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/Maintenance.tsx(174,15): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/Maintenance.tsx(177,9): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/Maintenance.tsx(178,7): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/Maintenance.tsx(181,9): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/Maintenance.tsx(181,9): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/admin/pages/Maintenance.tsx(182,11): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/Maintenance.tsx(182,11): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/admin/pages/Maintenance.tsx(182,71): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/Maintenance.tsx(183,9): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/Maintenance.tsx(185,5): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/Redirects.tsx(3,37): error TS2307: Cannot find module 'react' or its corresponding type declarations.
+src/admin/pages/Redirects.tsx(66,33): error TS2503: Cannot find namespace 'React'.
+src/admin/pages/Redirects.tsx(66,51): error TS2304: Cannot find name 'HTMLInputElement'.
+src/admin/pages/Redirects.tsx(66,70): error TS2304: Cannot find name 'HTMLSelectElement'.
+src/admin/pages/Redirects.tsx(68,34): error TS2304: Cannot find name 'HTMLInputElement'.
+src/admin/pages/Redirects.tsx(70,17): error TS7006: Parameter 'prev' implicitly has an 'any' type.
+src/admin/pages/Redirects.tsx(76,34): error TS2503: Cannot find namespace 'React'.
+src/admin/pages/Redirects.tsx(98,25): error TS18046: 'errorData' is of type 'unknown'.
+src/admin/pages/Redirects.tsx(131,10): error TS2304: Cannot find name 'confirm'.
+src/admin/pages/Redirects.tsx(144,37): error TS7006: Parameter 'r' implicitly has an 'any' type.
+src/admin/pages/Redirects.tsx(163,7): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/Redirects.tsx(163,7): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/admin/pages/Redirects.tsx(164,9): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/Redirects.tsx(164,9): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/admin/pages/Redirects.tsx(164,89): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/Redirects.tsx(165,7): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/Redirects.tsx(170,5): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/Redirects.tsx(170,5): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/admin/pages/Redirects.tsx(171,7): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/Redirects.tsx(171,7): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/admin/pages/Redirects.tsx(172,9): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/Redirects.tsx(172,9): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/admin/pages/Redirects.tsx(173,11): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/Redirects.tsx(173,11): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/admin/pages/Redirects.tsx(173,77): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/Redirects.tsx(174,11): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/Redirects.tsx(174,11): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/admin/pages/Redirects.tsx(176,11): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/Redirects.tsx(177,9): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/Redirects.tsx(178,9): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/Redirects.tsx(178,9): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/admin/pages/Redirects.tsx(179,11): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/Redirects.tsx(179,11): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/admin/pages/Redirects.tsx(184,11): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/Redirects.tsx(185,9): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/Redirects.tsx(186,7): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/Redirects.tsx(189,7): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/Redirects.tsx(189,7): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/admin/pages/Redirects.tsx(190,9): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/Redirects.tsx(190,9): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/admin/pages/Redirects.tsx(191,11): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/Redirects.tsx(191,11): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/admin/pages/Redirects.tsx(192,13): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/Redirects.tsx(192,13): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/admin/pages/Redirects.tsx(193,15): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/Redirects.tsx(193,15): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/admin/pages/Redirects.tsx(194,17): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/Redirects.tsx(194,17): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/admin/pages/Redirects.tsx(195,19): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/Redirects.tsx(195,19): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/admin/pages/Redirects.tsx(195,69): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/Redirects.tsx(196,17): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/Redirects.tsx(197,15): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/Redirects.tsx(198,15): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/Redirects.tsx(198,15): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/admin/pages/Redirects.tsx(199,17): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/Redirects.tsx(199,17): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/admin/pages/Redirects.tsx(200,19): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/Redirects.tsx(200,19): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/admin/pages/Redirects.tsx(200,93): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/Redirects.tsx(201,19): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/Redirects.tsx(201,19): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/admin/pages/Redirects.tsx(201,82): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/Redirects.tsx(202,17): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/Redirects.tsx(203,15): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/Redirects.tsx(204,13): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/Redirects.tsx(205,11): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/Redirects.tsx(206,9): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/Redirects.tsx(208,9): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/Redirects.tsx(208,9): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/admin/pages/Redirects.tsx(209,11): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/Redirects.tsx(209,11): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/admin/pages/Redirects.tsx(210,13): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/Redirects.tsx(210,13): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/admin/pages/Redirects.tsx(211,15): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/Redirects.tsx(211,15): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/admin/pages/Redirects.tsx(212,17): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/Redirects.tsx(212,17): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/admin/pages/Redirects.tsx(213,19): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/Redirects.tsx(213,19): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/admin/pages/Redirects.tsx(213,69): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/Redirects.tsx(214,17): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/Redirects.tsx(215,15): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/Redirects.tsx(216,15): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/Redirects.tsx(216,15): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/admin/pages/Redirects.tsx(217,17): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/Redirects.tsx(217,17): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/admin/pages/Redirects.tsx(218,19): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/Redirects.tsx(218,19): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/admin/pages/Redirects.tsx(218,94): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/Redirects.tsx(219,19): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/Redirects.tsx(219,19): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/admin/pages/Redirects.tsx(219,83): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/Redirects.tsx(220,17): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/Redirects.tsx(221,15): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/Redirects.tsx(222,13): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/Redirects.tsx(223,11): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/Redirects.tsx(224,9): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/Redirects.tsx(226,9): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/Redirects.tsx(226,9): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/admin/pages/Redirects.tsx(227,11): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/Redirects.tsx(227,11): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/admin/pages/Redirects.tsx(228,13): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/Redirects.tsx(228,13): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/admin/pages/Redirects.tsx(229,15): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/Redirects.tsx(229,15): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/admin/pages/Redirects.tsx(230,17): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/Redirects.tsx(230,17): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/admin/pages/Redirects.tsx(231,19): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/Redirects.tsx(231,19): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/admin/pages/Redirects.tsx(231,69): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/Redirects.tsx(232,17): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/Redirects.tsx(233,15): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/Redirects.tsx(234,15): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/Redirects.tsx(234,15): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/admin/pages/Redirects.tsx(235,17): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/Redirects.tsx(235,17): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/admin/pages/Redirects.tsx(236,19): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/Redirects.tsx(236,19): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/admin/pages/Redirects.tsx(236,88): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/Redirects.tsx(237,19): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/Redirects.tsx(237,19): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/admin/pages/Redirects.tsx(237,103): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/Redirects.tsx(238,17): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/Redirects.tsx(239,15): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/Redirects.tsx(240,13): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/Redirects.tsx(241,11): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/Redirects.tsx(242,9): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/Redirects.tsx(243,7): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/Redirects.tsx(246,9): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/Redirects.tsx(246,9): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/admin/pages/Redirects.tsx(248,9): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/Redirects.tsx(253,9): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/Redirects.tsx(253,9): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/admin/pages/Redirects.tsx(254,11): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/Redirects.tsx(254,11): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/admin/pages/Redirects.tsx(255,13): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/Redirects.tsx(255,13): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/admin/pages/Redirects.tsx(257,13): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/Redirects.tsx(258,13): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/Redirects.tsx(258,13): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/admin/pages/Redirects.tsx(259,15): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/Redirects.tsx(259,15): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/admin/pages/Redirects.tsx(260,17): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/Redirects.tsx(260,17): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/admin/pages/Redirects.tsx(261,19): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/Redirects.tsx(261,19): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/admin/pages/Redirects.tsx(263,19): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/Redirects.tsx(264,19): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/Redirects.tsx(264,19): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/admin/pages/Redirects.tsx(274,19): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/Redirects.tsx(274,19): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/admin/pages/Redirects.tsx(276,19): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/Redirects.tsx(277,17): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/Redirects.tsx(279,17): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/Redirects.tsx(279,17): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/admin/pages/Redirects.tsx(280,19): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/Redirects.tsx(280,19): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/admin/pages/Redirects.tsx(282,19): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/Redirects.tsx(283,19): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/Redirects.tsx(283,19): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/admin/pages/Redirects.tsx(293,19): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/Redirects.tsx(293,19): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/admin/pages/Redirects.tsx(295,19): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/Redirects.tsx(296,17): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/Redirects.tsx(297,15): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/Redirects.tsx(299,15): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/Redirects.tsx(299,15): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/admin/pages/Redirects.tsx(300,17): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/Redirects.tsx(300,17): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/admin/pages/Redirects.tsx(301,19): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/Redirects.tsx(301,19): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/admin/pages/Redirects.tsx(303,19): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/Redirects.tsx(304,19): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/Redirects.tsx(304,19): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/admin/pages/Redirects.tsx(311,21): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/Redirects.tsx(311,21): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/admin/pages/Redirects.tsx(311,97): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/Redirects.tsx(312,21): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/Redirects.tsx(312,21): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/admin/pages/Redirects.tsx(312,73): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/Redirects.tsx(313,21): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/Redirects.tsx(313,21): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/admin/pages/Redirects.tsx(313,99): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/Redirects.tsx(314,21): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/Redirects.tsx(314,21): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/admin/pages/Redirects.tsx(314,99): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/Redirects.tsx(315,19): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/Redirects.tsx(316,17): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/Redirects.tsx(318,17): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/Redirects.tsx(318,17): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/admin/pages/Redirects.tsx(319,19): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/Redirects.tsx(319,19): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/admin/pages/Redirects.tsx(327,19): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/Redirects.tsx(327,19): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/admin/pages/Redirects.tsx(329,19): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/Redirects.tsx(330,17): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/Redirects.tsx(331,15): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/Redirects.tsx(333,15): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/Redirects.tsx(333,15): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/admin/pages/Redirects.tsx(334,17): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/Redirects.tsx(334,17): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/admin/pages/Redirects.tsx(349,17): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/Redirects.tsx(350,17): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/Redirects.tsx(350,17): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/admin/pages/Redirects.tsx(356,17): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/Redirects.tsx(357,15): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/Redirects.tsx(358,13): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/Redirects.tsx(359,11): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/Redirects.tsx(360,9): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/Redirects.tsx(364,7): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/Redirects.tsx(364,7): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/admin/pages/Redirects.tsx(365,9): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/Redirects.tsx(365,9): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/admin/pages/Redirects.tsx(366,11): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/Redirects.tsx(366,11): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/admin/pages/Redirects.tsx(367,13): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/Redirects.tsx(367,13): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/admin/pages/Redirects.tsx(368,15): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/Redirects.tsx(368,15): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/admin/pages/Redirects.tsx(369,17): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/Redirects.tsx(369,17): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/admin/pages/Redirects.tsx(370,19): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/Redirects.tsx(370,19): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/admin/pages/Redirects.tsx(371,21): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/Redirects.tsx(371,21): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/admin/pages/Redirects.tsx(373,21): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/Redirects.tsx(374,21): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/Redirects.tsx(374,21): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/admin/pages/Redirects.tsx(376,21): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/Redirects.tsx(377,21): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/Redirects.tsx(377,21): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/admin/pages/Redirects.tsx(379,21): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/Redirects.tsx(380,21): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/Redirects.tsx(380,21): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/admin/pages/Redirects.tsx(382,21): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/Redirects.tsx(383,21): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/Redirects.tsx(383,21): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/admin/pages/Redirects.tsx(385,21): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/Redirects.tsx(386,21): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/Redirects.tsx(386,21): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/admin/pages/Redirects.tsx(387,23): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/Redirects.tsx(387,23): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/admin/pages/Redirects.tsx(387,56): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/Redirects.tsx(388,21): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/Redirects.tsx(389,19): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/Redirects.tsx(390,17): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/Redirects.tsx(391,17): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/Redirects.tsx(391,17): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/admin/pages/Redirects.tsx(392,35): error TS7006: Parameter 'redirect' implicitly has an 'any' type.
+src/admin/pages/Redirects.tsx(393,21): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/Redirects.tsx(393,21): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/admin/pages/Redirects.tsx(394,23): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/Redirects.tsx(394,23): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/admin/pages/Redirects.tsx(396,23): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/Redirects.tsx(397,23): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/Redirects.tsx(397,23): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/admin/pages/Redirects.tsx(399,23): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/Redirects.tsx(400,23): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/Redirects.tsx(400,23): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/admin/pages/Redirects.tsx(402,23): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/Redirects.tsx(403,23): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/Redirects.tsx(403,23): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/admin/pages/Redirects.tsx(405,23): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/Redirects.tsx(406,23): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/Redirects.tsx(406,23): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/admin/pages/Redirects.tsx(407,25): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/Redirects.tsx(407,25): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/admin/pages/Redirects.tsx(413,25): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/Redirects.tsx(414,23): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/Redirects.tsx(415,23): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/Redirects.tsx(415,23): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/admin/pages/Redirects.tsx(416,25): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/Redirects.tsx(416,25): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/admin/pages/Redirects.tsx(421,25): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/Redirects.tsx(422,25): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/Redirects.tsx(422,25): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/admin/pages/Redirects.tsx(427,25): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/Redirects.tsx(428,23): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/Redirects.tsx(429,21): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/Redirects.tsx(431,17): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/Redirects.tsx(432,15): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/Redirects.tsx(433,13): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/Redirects.tsx(434,11): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/Redirects.tsx(435,9): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/Redirects.tsx(436,7): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/Redirects.tsx(439,9): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/Redirects.tsx(439,9): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/admin/pages/Redirects.tsx(440,11): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/Redirects.tsx(440,11): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/admin/pages/Redirects.tsx(440,59): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/Redirects.tsx(441,11): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/Redirects.tsx(441,11): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/admin/pages/Redirects.tsx(446,11): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/Redirects.tsx(447,9): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/Redirects.tsx(449,5): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/SystemInfo.tsx(3,37): error TS2307: Cannot find module 'react' or its corresponding type declarations.
+src/admin/pages/SystemInfo.tsx(4,10): error TS2865: Import 'SystemInfo' conflicts with local value, so must be declared with a type-only import when 'isolatedModules' is enabled.
+src/admin/pages/SystemInfo.tsx(60,7): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/SystemInfo.tsx(60,7): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/admin/pages/SystemInfo.tsx(61,9): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/SystemInfo.tsx(61,9): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/admin/pages/SystemInfo.tsx(61,89): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/SystemInfo.tsx(62,7): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/SystemInfo.tsx(68,7): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/SystemInfo.tsx(68,7): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/admin/pages/SystemInfo.tsx(70,7): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/SystemInfo.tsx(75,5): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/SystemInfo.tsx(75,5): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/admin/pages/SystemInfo.tsx(76,7): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/SystemInfo.tsx(76,7): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/admin/pages/SystemInfo.tsx(77,9): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/SystemInfo.tsx(77,9): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/admin/pages/SystemInfo.tsx(78,11): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/SystemInfo.tsx(78,11): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/admin/pages/SystemInfo.tsx(78,82): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/SystemInfo.tsx(79,11): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/SystemInfo.tsx(79,11): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/admin/pages/SystemInfo.tsx(81,11): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/SystemInfo.tsx(82,9): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/SystemInfo.tsx(83,9): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/SystemInfo.tsx(83,9): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/admin/pages/SystemInfo.tsx(84,11): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/SystemInfo.tsx(84,11): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/admin/pages/SystemInfo.tsx(89,11): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/SystemInfo.tsx(90,9): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/SystemInfo.tsx(91,7): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/SystemInfo.tsx(93,7): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/SystemInfo.tsx(93,7): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/admin/pages/SystemInfo.tsx(95,9): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/SystemInfo.tsx(95,9): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/admin/pages/SystemInfo.tsx(96,11): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/SystemInfo.tsx(96,11): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/admin/pages/SystemInfo.tsx(97,13): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/SystemInfo.tsx(97,13): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/admin/pages/SystemInfo.tsx(98,15): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/SystemInfo.tsx(98,15): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/admin/pages/SystemInfo.tsx(99,17): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/SystemInfo.tsx(99,17): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/admin/pages/SystemInfo.tsx(100,19): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/SystemInfo.tsx(100,19): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/admin/pages/SystemInfo.tsx(100,69): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/SystemInfo.tsx(101,17): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/SystemInfo.tsx(102,15): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/SystemInfo.tsx(103,15): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/SystemInfo.tsx(103,15): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/admin/pages/SystemInfo.tsx(104,17): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/SystemInfo.tsx(104,17): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/admin/pages/SystemInfo.tsx(105,19): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/SystemInfo.tsx(105,19): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/admin/pages/SystemInfo.tsx(105,85): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/SystemInfo.tsx(106,19): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/SystemInfo.tsx(106,19): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/admin/pages/SystemInfo.tsx(106,90): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/SystemInfo.tsx(107,17): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/SystemInfo.tsx(108,15): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/SystemInfo.tsx(109,13): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/SystemInfo.tsx(110,13): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/SystemInfo.tsx(110,13): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/admin/pages/SystemInfo.tsx(111,15): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/SystemInfo.tsx(111,15): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/admin/pages/SystemInfo.tsx(112,17): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/SystemInfo.tsx(112,17): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/admin/pages/SystemInfo.tsx(112,61): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/SystemInfo.tsx(113,15): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/SystemInfo.tsx(114,15): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/SystemInfo.tsx(114,15): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/admin/pages/SystemInfo.tsx(115,17): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/SystemInfo.tsx(115,17): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/admin/pages/SystemInfo.tsx(115,85): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/SystemInfo.tsx(116,15): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/SystemInfo.tsx(117,13): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/SystemInfo.tsx(118,11): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/SystemInfo.tsx(119,9): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/SystemInfo.tsx(122,9): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/SystemInfo.tsx(122,9): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/admin/pages/SystemInfo.tsx(123,11): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/SystemInfo.tsx(123,11): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/admin/pages/SystemInfo.tsx(124,13): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/SystemInfo.tsx(124,13): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/admin/pages/SystemInfo.tsx(125,15): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/SystemInfo.tsx(125,15): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/admin/pages/SystemInfo.tsx(126,17): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/SystemInfo.tsx(126,17): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/admin/pages/SystemInfo.tsx(129,19): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/SystemInfo.tsx(129,19): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/admin/pages/SystemInfo.tsx(129,70): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/SystemInfo.tsx(130,17): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/SystemInfo.tsx(131,15): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/SystemInfo.tsx(132,15): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/SystemInfo.tsx(132,15): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/admin/pages/SystemInfo.tsx(133,17): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/SystemInfo.tsx(133,17): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/admin/pages/SystemInfo.tsx(134,19): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/SystemInfo.tsx(134,19): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/admin/pages/SystemInfo.tsx(134,86): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/SystemInfo.tsx(135,19): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/SystemInfo.tsx(135,19): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/admin/pages/SystemInfo.tsx(139,19): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/SystemInfo.tsx(140,17): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/SystemInfo.tsx(141,15): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/SystemInfo.tsx(142,13): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/SystemInfo.tsx(144,15): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/SystemInfo.tsx(144,15): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/admin/pages/SystemInfo.tsx(145,17): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/SystemInfo.tsx(145,17): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/admin/pages/SystemInfo.tsx(146,19): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/SystemInfo.tsx(146,19): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/admin/pages/SystemInfo.tsx(146,83): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/SystemInfo.tsx(147,17): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/SystemInfo.tsx(148,15): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/SystemInfo.tsx(150,11): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/SystemInfo.tsx(151,9): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/SystemInfo.tsx(154,9): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/SystemInfo.tsx(154,9): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/admin/pages/SystemInfo.tsx(155,11): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/SystemInfo.tsx(155,11): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/admin/pages/SystemInfo.tsx(156,13): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/SystemInfo.tsx(156,13): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/admin/pages/SystemInfo.tsx(157,15): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/SystemInfo.tsx(157,15): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/admin/pages/SystemInfo.tsx(158,17): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/SystemInfo.tsx(158,17): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/admin/pages/SystemInfo.tsx(159,19): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/SystemInfo.tsx(159,19): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/admin/pages/SystemInfo.tsx(159,69): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/SystemInfo.tsx(160,17): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/SystemInfo.tsx(161,15): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/SystemInfo.tsx(162,15): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/SystemInfo.tsx(162,15): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/admin/pages/SystemInfo.tsx(163,17): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/SystemInfo.tsx(163,17): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/admin/pages/SystemInfo.tsx(164,19): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/SystemInfo.tsx(164,19): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/admin/pages/SystemInfo.tsx(164,90): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/SystemInfo.tsx(165,19): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/SystemInfo.tsx(165,19): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/admin/pages/SystemInfo.tsx(167,19): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/SystemInfo.tsx(168,17): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/SystemInfo.tsx(169,15): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/SystemInfo.tsx(170,13): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/SystemInfo.tsx(171,13): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/SystemInfo.tsx(171,13): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/admin/pages/SystemInfo.tsx(172,15): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/SystemInfo.tsx(172,15): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/admin/pages/SystemInfo.tsx(173,17): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/SystemInfo.tsx(173,17): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/admin/pages/SystemInfo.tsx(173,87): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/SystemInfo.tsx(174,15): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/SystemInfo.tsx(175,15): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/SystemInfo.tsx(175,15): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/admin/pages/SystemInfo.tsx(176,17): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/SystemInfo.tsx(176,17): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/admin/pages/SystemInfo.tsx(176,89): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/SystemInfo.tsx(177,15): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/SystemInfo.tsx(178,13): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/SystemInfo.tsx(179,11): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/SystemInfo.tsx(180,9): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/SystemInfo.tsx(181,7): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/SystemInfo.tsx(184,7): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/SystemInfo.tsx(184,7): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/admin/pages/SystemInfo.tsx(185,9): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/SystemInfo.tsx(185,9): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/admin/pages/SystemInfo.tsx(185,83): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/SystemInfo.tsx(186,9): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/SystemInfo.tsx(186,9): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/admin/pages/SystemInfo.tsx(188,11): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/SystemInfo.tsx(188,11): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/admin/pages/SystemInfo.tsx(189,13): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/SystemInfo.tsx(189,13): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/admin/pages/SystemInfo.tsx(190,15): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/SystemInfo.tsx(190,15): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/admin/pages/SystemInfo.tsx(191,17): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/SystemInfo.tsx(191,17): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/admin/pages/SystemInfo.tsx(192,19): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/SystemInfo.tsx(192,19): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/admin/pages/SystemInfo.tsx(193,21): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/SystemInfo.tsx(193,21): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/admin/pages/SystemInfo.tsx(193,71): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/SystemInfo.tsx(194,19): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/SystemInfo.tsx(195,17): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/SystemInfo.tsx(196,17): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/SystemInfo.tsx(196,17): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/admin/pages/SystemInfo.tsx(197,19): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/SystemInfo.tsx(197,19): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/admin/pages/SystemInfo.tsx(198,21): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/SystemInfo.tsx(198,21): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/admin/pages/SystemInfo.tsx(198,89): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/SystemInfo.tsx(199,21): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/SystemInfo.tsx(199,21): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/admin/pages/SystemInfo.tsx(199,106): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/SystemInfo.tsx(200,19): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/SystemInfo.tsx(201,17): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/SystemInfo.tsx(202,15): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/SystemInfo.tsx(203,15): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/SystemInfo.tsx(203,15): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/admin/pages/SystemInfo.tsx(204,17): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/SystemInfo.tsx(204,17): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/admin/pages/SystemInfo.tsx(204,66): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/SystemInfo.tsx(205,17): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/SystemInfo.tsx(205,17): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/admin/pages/SystemInfo.tsx(205,79): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/SystemInfo.tsx(206,15): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/SystemInfo.tsx(207,13): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/SystemInfo.tsx(208,11): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/SystemInfo.tsx(211,11): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/SystemInfo.tsx(211,11): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/admin/pages/SystemInfo.tsx(212,13): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/SystemInfo.tsx(212,13): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/admin/pages/SystemInfo.tsx(213,15): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/SystemInfo.tsx(213,15): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/admin/pages/SystemInfo.tsx(214,17): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/SystemInfo.tsx(214,17): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/admin/pages/SystemInfo.tsx(215,19): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/SystemInfo.tsx(215,19): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/admin/pages/SystemInfo.tsx(216,21): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/SystemInfo.tsx(216,21): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/admin/pages/SystemInfo.tsx(216,71): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/SystemInfo.tsx(217,19): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/SystemInfo.tsx(218,17): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/SystemInfo.tsx(219,17): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/SystemInfo.tsx(219,17): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/admin/pages/SystemInfo.tsx(220,19): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/SystemInfo.tsx(220,19): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/admin/pages/SystemInfo.tsx(221,21): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/SystemInfo.tsx(221,21): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/admin/pages/SystemInfo.tsx(221,93): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/SystemInfo.tsx(222,21): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/SystemInfo.tsx(222,21): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/admin/pages/SystemInfo.tsx(222,104): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/SystemInfo.tsx(223,19): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/SystemInfo.tsx(224,17): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/SystemInfo.tsx(225,15): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/SystemInfo.tsx(226,15): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/SystemInfo.tsx(226,15): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/admin/pages/SystemInfo.tsx(227,17): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/SystemInfo.tsx(227,17): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/admin/pages/SystemInfo.tsx(227,92): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/SystemInfo.tsx(228,15): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/SystemInfo.tsx(229,13): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/SystemInfo.tsx(230,11): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/SystemInfo.tsx(233,11): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/SystemInfo.tsx(233,11): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/admin/pages/SystemInfo.tsx(234,13): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/SystemInfo.tsx(234,13): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/admin/pages/SystemInfo.tsx(235,15): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/SystemInfo.tsx(235,15): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/admin/pages/SystemInfo.tsx(236,17): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/SystemInfo.tsx(236,17): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/admin/pages/SystemInfo.tsx(237,19): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/SystemInfo.tsx(237,19): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/admin/pages/SystemInfo.tsx(238,21): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/SystemInfo.tsx(238,21): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/admin/pages/SystemInfo.tsx(238,71): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/SystemInfo.tsx(239,19): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/SystemInfo.tsx(240,17): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/SystemInfo.tsx(241,17): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/SystemInfo.tsx(241,17): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/admin/pages/SystemInfo.tsx(242,19): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/SystemInfo.tsx(242,19): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/admin/pages/SystemInfo.tsx(243,21): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/SystemInfo.tsx(243,21): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/admin/pages/SystemInfo.tsx(243,92): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/SystemInfo.tsx(244,21): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/SystemInfo.tsx(244,21): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/admin/pages/SystemInfo.tsx(244,104): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/SystemInfo.tsx(245,19): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/SystemInfo.tsx(246,17): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/SystemInfo.tsx(247,15): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/SystemInfo.tsx(248,15): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/SystemInfo.tsx(248,15): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/admin/pages/SystemInfo.tsx(249,17): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/SystemInfo.tsx(249,17): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/admin/pages/SystemInfo.tsx(249,64): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/SystemInfo.tsx(250,15): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/SystemInfo.tsx(251,13): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/SystemInfo.tsx(252,11): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/SystemInfo.tsx(255,11): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/SystemInfo.tsx(255,11): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/admin/pages/SystemInfo.tsx(256,13): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/SystemInfo.tsx(256,13): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/admin/pages/SystemInfo.tsx(257,15): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/SystemInfo.tsx(257,15): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/admin/pages/SystemInfo.tsx(258,17): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/SystemInfo.tsx(258,17): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/admin/pages/SystemInfo.tsx(259,19): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/SystemInfo.tsx(259,19): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/admin/pages/SystemInfo.tsx(260,21): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/SystemInfo.tsx(260,21): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/admin/pages/SystemInfo.tsx(260,71): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/SystemInfo.tsx(261,19): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/SystemInfo.tsx(262,17): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/SystemInfo.tsx(263,17): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/SystemInfo.tsx(263,17): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/admin/pages/SystemInfo.tsx(264,19): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/SystemInfo.tsx(264,19): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/admin/pages/SystemInfo.tsx(265,21): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/SystemInfo.tsx(265,21): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/admin/pages/SystemInfo.tsx(265,91): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/SystemInfo.tsx(266,21): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/SystemInfo.tsx(266,21): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/admin/pages/SystemInfo.tsx(266,108): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/SystemInfo.tsx(267,19): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/SystemInfo.tsx(268,17): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/SystemInfo.tsx(269,15): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/SystemInfo.tsx(270,15): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/SystemInfo.tsx(270,15): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/admin/pages/SystemInfo.tsx(271,17): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/SystemInfo.tsx(271,17): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/admin/pages/SystemInfo.tsx(271,61): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/SystemInfo.tsx(272,17): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/SystemInfo.tsx(272,17): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/admin/pages/SystemInfo.tsx(272,65): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/SystemInfo.tsx(273,15): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/SystemInfo.tsx(274,13): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/SystemInfo.tsx(275,11): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/SystemInfo.tsx(276,9): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/SystemInfo.tsx(277,7): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/admin/pages/SystemInfo.tsx(278,5): error TS7026: JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.
+src/api/routes.ts(319,27): error TS7053: Element implicitly has an 'any' type because expression of type '0' can't be used to index type '{}'.
+  Property '0' does not exist on type '{}'.
+src/models/types.ts(1,10): error TS2305: Module '"@prisma/client"' has no exported member 'Redirect'.
+src/models/types.ts(1,38): error TS2305: Module '"@prisma/client"' has no exported member 'CacheEntry'.
+src/models/types.ts(1,70): error TS2305: Module '"@prisma/client"' has no exported member 'SitemapEntry'.
+src/models/types.ts(1,106): error TS2305: Module '"@prisma/client"' has no exported member 'SystemLog'.
+src/services/cacheService.ts(9,32): error TS2339: Property 'cacheEntry' does not exist on type 'PrismaClient<PrismaClientOptions, never, DefaultArgs>'.
+src/services/cacheService.ts(34,18): error TS2339: Property 'cacheEntry' does not exist on type 'PrismaClient<PrismaClientOptions, never, DefaultArgs>'.
+src/services/cacheService.ts(52,18): error TS2339: Property 'cacheEntry' does not exist on type 'PrismaClient<PrismaClientOptions, never, DefaultArgs>'.
+src/services/cacheService.ts(60,32): error TS2339: Property 'cacheEntry' does not exist on type 'PrismaClient<PrismaClientOptions, never, DefaultArgs>'.
+src/services/cacheService.ts(95,33): error TS2339: Property 'cacheEntry' does not exist on type 'PrismaClient<PrismaClientOptions, never, DefaultArgs>'.
+src/services/cacheService.ts(103,33): error TS2339: Property 'cacheEntry' does not exist on type 'PrismaClient<PrismaClientOptions, never, DefaultArgs>'.
+src/services/cacheService.ts(115,34): error TS2339: Property 'cacheEntry' does not exist on type 'PrismaClient<PrismaClientOptions, never, DefaultArgs>'.
+src/services/cacheService.ts(145,21): error TS2339: Property 'cacheEntry' does not exist on type 'PrismaClient<PrismaClientOptions, never, DefaultArgs>'.
+src/services/cacheService.ts(173,14): error TS2339: Property 'cacheEntry' does not exist on type 'PrismaClient<PrismaClientOptions, never, DefaultArgs>'.
+src/services/cacheService.ts(174,14): error TS2339: Property 'cacheEntry' does not exist on type 'PrismaClient<PrismaClientOptions, never, DefaultArgs>'.
+src/services/cacheService.ts(181,14): error TS2339: Property 'cacheEntry' does not exist on type 'PrismaClient<PrismaClientOptions, never, DefaultArgs>'.
+src/services/cacheService.ts(197,39): error TS7006: Parameter 'tag' implicitly has an 'any' type.
+src/services/cacheService.ts(212,34): error TS2339: Property 'cacheEntry' does not exist on type 'PrismaClient<PrismaClientOptions, never, DefaultArgs>'.
+src/services/cacheService.ts(223,24): error TS7006: Parameter 'entry' implicitly has an 'any' type.
+src/services/cacheService.ts(227,34): error TS2339: Property 'cacheEntry' does not exist on type 'PrismaClient<PrismaClientOptions, never, DefaultArgs>'.
+src/services/cacheService.ts(238,24): error TS7006: Parameter 'entry' implicitly has an 'any' type.
+src/services/cacheService.ts(247,39): error TS2339: Property 'cacheEntry' does not exist on type 'PrismaClient<PrismaClientOptions, never, DefaultArgs>'.
+src/services/redirectService.ts(15,25): error TS2339: Property 'redirect' does not exist on type 'PrismaClient<PrismaClientOptions, never, DefaultArgs>'.
+src/services/redirectService.ts(21,25): error TS2339: Property 'redirect' does not exist on type 'PrismaClient<PrismaClientOptions, never, DefaultArgs>'.
+src/services/redirectService.ts(27,25): error TS2339: Property 'redirect' does not exist on type 'PrismaClient<PrismaClientOptions, never, DefaultArgs>'.
+src/services/redirectService.ts(37,25): error TS2339: Property 'redirect' does not exist on type 'PrismaClient<PrismaClientOptions, never, DefaultArgs>'.
+src/services/redirectService.ts(68,25): error TS2339: Property 'redirect' does not exist on type 'PrismaClient<PrismaClientOptions, never, DefaultArgs>'.
+src/services/redirectService.ts(75,18): error TS2339: Property 'redirect' does not exist on type 'PrismaClient<PrismaClientOptions, never, DefaultArgs>'.
+src/services/redirectService.ts(82,14): error TS2339: Property 'redirect' does not exist on type 'PrismaClient<PrismaClientOptions, never, DefaultArgs>'.
+src/services/redirectService.ts(92,18): error TS2339: Property 'redirect' does not exist on type 'PrismaClient<PrismaClientOptions, never, DefaultArgs>'.
+src/services/redirectService.ts(108,18): error TS2339: Property 'redirect' does not exist on type 'PrismaClient<PrismaClientOptions, never, DefaultArgs>'.
+src/services/redirectService.ts(127,14): error TS2339: Property 'redirect' does not exist on type 'PrismaClient<PrismaClientOptions, never, DefaultArgs>'.
+src/services/redirectService.ts(128,14): error TS2339: Property 'redirect' does not exist on type 'PrismaClient<PrismaClientOptions, never, DefaultArgs>'.
+src/services/redirectService.ts(129,14): error TS2339: Property 'redirect' does not exist on type 'PrismaClient<PrismaClientOptions, never, DefaultArgs>'.
+src/services/redirectService.ts(132,14): error TS2339: Property 'redirect' does not exist on type 'PrismaClient<PrismaClientOptions, never, DefaultArgs>'.
+src/services/redirectService.ts(153,25): error TS2339: Property 'redirect' does not exist on type 'PrismaClient<PrismaClientOptions, never, DefaultArgs>'.
+src/services/redirectService.ts(160,14): error TS2339: Property 'redirect' does not exist on type 'PrismaClient<PrismaClientOptions, never, DefaultArgs>'.
+src/services/redirectService.ts(216,37): error TS2339: Property 'redirect' does not exist on type 'PrismaClient<PrismaClientOptions, never, DefaultArgs>'.
+src/services/sitemapService.ts(17,25): error TS2339: Property 'sitemapEntry' does not exist on type 'PrismaClient<PrismaClientOptions, never, DefaultArgs>'.
+src/services/sitemapService.ts(23,25): error TS2339: Property 'sitemapEntry' does not exist on type 'PrismaClient<PrismaClientOptions, never, DefaultArgs>'.
+src/services/sitemapService.ts(30,25): error TS2339: Property 'sitemapEntry' does not exist on type 'PrismaClient<PrismaClientOptions, never, DefaultArgs>'.
+src/services/sitemapService.ts(54,25): error TS2339: Property 'sitemapEntry' does not exist on type 'PrismaClient<PrismaClientOptions, never, DefaultArgs>'.
+src/services/sitemapService.ts(61,18): error TS2339: Property 'sitemapEntry' does not exist on type 'PrismaClient<PrismaClientOptions, never, DefaultArgs>'.
+src/services/sitemapService.ts(92,15): error TS2345: Argument of type '(stream: Readable) => Promise<Buffer<ArrayBufferLike>>' is not assignable to parameter of type 'WritableStream'.
+src/services/sitemapService.ts(93,10): error TS2339: Property 'then' does not exist on type 'WritableStream'.
+src/services/sitemapService.ts(103,18): error TS2339: Property 'sitemapEntry' does not exist on type 'PrismaClient<PrismaClientOptions, never, DefaultArgs>'.
+src/services/sitemapService.ts(189,18): error TS2339: Property 'sitemapEntry' does not exist on type 'PrismaClient<PrismaClientOptions, never, DefaultArgs>'.
+src/services/sitemapService.ts(213,18): error TS2339: Property 'sitemapEntry' does not exist on type 'PrismaClient<PrismaClientOptions, never, DefaultArgs>'.
+src/services/sitemapService.ts(229,14): error TS2339: Property 'sitemapEntry' does not exist on type 'PrismaClient<PrismaClientOptions, never, DefaultArgs>'.
+src/services/sitemapService.ts(230,14): error TS2339: Property 'sitemapEntry' does not exist on type 'PrismaClient<PrismaClientOptions, never, DefaultArgs>'.
+src/services/sitemapService.ts(231,14): error TS2339: Property 'sitemapEntry' does not exist on type 'PrismaClient<PrismaClientOptions, never, DefaultArgs>'.
+src/services/sitemapService.ts(236,14): error TS2339: Property 'sitemapEntry' does not exist on type 'PrismaClient<PrismaClientOptions, never, DefaultArgs>'.
+src/services/sitemapService.ts(243,26): error TS7006: Parameter 'result' implicitly has an 'any' type.
+src/services/systemService.ts(42,34): error TS2339: Property '$metrics' does not exist on type 'PrismaClient<PrismaClientOptions, never, DefaultArgs>'.
+src/services/systemService.ts(74,7): error TS2741: Property 'hits' is missing in type '{ total: number; active: number; totalHits: number; topRedirects: { from_url: string; to_url: string; hits: number; }[]; }' but required in type '{ total: number; active: number; hits: number; }'.
+src/services/systemService.ts(75,7): error TS2741: Property 'size' is missing in type '{ entries: number; expired: number; totalSize: number; tags: string[]; }' but required in type '{ entries: number; size: number; }'.
+src/services/systemService.ts(76,7): error TS2741: Property 'urls' is missing in type '{ total: number; active: number; byType: Record<string, number>; lastModified?: Date | undefined; }' but required in type '{ urls: number; lastGenerated?: Date | undefined; }'.
+src/services/systemService.ts(83,18): error TS2339: Property 'systemLog' does not exist on type 'PrismaClient<PrismaClientOptions, never, DefaultArgs>'.
+src/services/systemService.ts(114,31): error TS2339: Property 'systemLog' does not exist on type 'PrismaClient<PrismaClientOptions, never, DefaultArgs>'.
+src/services/systemService.ts(121,21): error TS7006: Parameter 'log' implicitly has an 'any' type.
+src/services/systemService.ts(131,33): error TS2339: Property 'systemLog' does not exist on type 'PrismaClient<PrismaClientOptions, never, DefaultArgs>'.
+src/services/systemService.ts(265,25): error TS2322: Type '"warning"' is not assignable to type '"pass" | "fail"'.
+src/services/systemService.ts(272,65): error TS2367: This comparison appears to be unintentional because the types '"pass" | "fail"' and '"warning"' have no overlap.
+src/services/systemService.ts(318,14): error TS2339: Property 'systemLog' does not exist on type 'PrismaClient<PrismaClientOptions, never, DefaultArgs>'.
+src/services/systemService.ts(319,14): error TS2339: Property 'systemLog' does not exist on type 'PrismaClient<PrismaClientOptions, never, DefaultArgs>'.
+src/services/systemService.ts(320,14): error TS2339: Property 'systemLog' does not exist on type 'PrismaClient<PrismaClientOptions, never, DefaultArgs>'.
+ ELIFECYCLE  Command failed with exit code 1.
