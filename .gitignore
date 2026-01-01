@@ -63,3 +63,4 @@ storage/framework/maintenance.php
 # Next.js build artifacts
 .next/
 node_modules/
+.pnpm-store/
