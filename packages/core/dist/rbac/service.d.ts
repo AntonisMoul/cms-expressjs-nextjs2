@@ -1,12 +1,33 @@
 import { PrismaClient } from '@prisma/client';
-import { Role, UserRole } from '@cms/shared';
+import { Role, User } from '../types';
 export declare class RBACService {
-    static getUserPermissions(userId: number, prisma: PrismaClient): Promise<string[]>;
-    static hasPermission(userId: number, permission: string, prisma: PrismaClient): Promise<boolean>;
-    static hasAnyPermission(userId: number, permissions: string[], prisma: PrismaClient): Promise<boolean>;
-    static hasAllPermissions(userId: number, permissions: string[], prisma: PrismaClient): Promise<boolean>;
-    static assignRoleToUser(userId: number, roleId: number, prisma: PrismaClient): Promise<UserRole>;
-    static removeRoleFromUser(userId: number, roleId: number, prisma: PrismaClient): Promise<void>;
-    static getUserRoles(userId: number, prisma: PrismaClient): Promise<Role[]>;
+    private prisma;
+    constructor(prisma: PrismaClient);
+    createRole(data: {
+        slug: string;
+        name: string;
+        permissions?: Record<string, any>;
+        description?: string;
+        isDefault?: boolean;
+        createdBy: string;
+    }): Promise<Role>;
+    updateRole(id: string, data: {
+        name?: string;
+        permissions?: Record<string, any>;
+        description?: string;
+        isDefault?: boolean;
+        updatedBy: string;
+    }): Promise<Role>;
+    deleteRole(id: string): Promise<void>;
+    getRoleById(id: string): Promise<Role | null>;
+    getAllRoles(): Promise<Role[]>;
+    assignRoleToUser(userId: string, roleId: string): Promise<void>;
+    removeRoleFromUser(userId: string, roleId: string): Promise<void>;
+    getUserRoles(userId: string): Promise<Role[]>;
+    hasPermission(user: User & {
+        roles: Role[];
+    }, permission: string): Promise<boolean>;
+    private roleHasPermission;
+    getUserPermissions(userId: string): Promise<string[]>;
 }
 //# sourceMappingURL=service.d.ts.map

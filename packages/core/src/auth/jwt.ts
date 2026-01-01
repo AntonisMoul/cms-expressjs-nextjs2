@@ -1,49 +1,46 @@
 import jwt from 'jsonwebtoken';
-import { JWTPayload, JWT_CONSTANTS } from '@cms/shared';
+import { JWTPayload, AuthTokens } from '../types';
 
-export class JWTService {
-  private static readonly accessSecret = process.env.JWT_SECRET || 'your-jwt-secret';
-  private static readonly refreshSecret = process.env.JWT_REFRESH_SECRET || 'your-refresh-secret';
+const JWT_ACCESS_SECRET = process.env.JWT_ACCESS_SECRET || 'your-access-secret';
+const JWT_REFRESH_SECRET = process.env.JWT_REFRESH_SECRET || 'your-refresh-secret';
+const JWT_ACCESS_EXPIRES = process.env.JWT_ACCESS_EXPIRES || '15m';
+const JWT_REFRESH_EXPIRES = process.env.JWT_REFRESH_EXPIRES || '7d';
 
-  static generateAccessToken(payload: Omit<JWTPayload, 'iat' | 'exp'>): string {
-    return jwt.sign(payload, this.accessSecret, {
-      expiresIn: JWT_CONSTANTS.ACCESS_TOKEN_EXPIRY,
-    });
-  }
+export function generateAccessToken(payload: Omit<JWTPayload, 'iat' | 'exp'>): string {
+  return jwt.sign(payload, JWT_ACCESS_SECRET, {
+    expiresIn: JWT_ACCESS_EXPIRES,
+  });
+}
 
-  static generateRefreshToken(payload: Omit<JWTPayload, 'iat' | 'exp'>): string {
-    return jwt.sign(payload, this.refreshSecret, {
-      expiresIn: JWT_CONSTANTS.REFRESH_TOKEN_EXPIRY,
-    });
-  }
+export function generateRefreshToken(payload: Omit<JWTPayload, 'iat' | 'exp'>): string {
+  return jwt.sign(payload, JWT_REFRESH_SECRET, {
+    expiresIn: JWT_REFRESH_EXPIRES,
+  });
+}
 
-  static verifyAccessToken(token: string): JWTPayload | null {
-    try {
-      return jwt.verify(token, this.accessSecret) as JWTPayload;
-    } catch (error) {
-      return null;
-    }
-  }
+export function generateTokens(userId: string, email: string): AuthTokens {
+  const payload = { userId, email };
 
-  static verifyRefreshToken(token: string): JWTPayload | null {
-    try {
-      return jwt.verify(token, this.refreshSecret) as JWTPayload;
-    } catch (error) {
-      return null;
-    }
-  }
+  return {
+    accessToken: generateAccessToken(payload),
+    refreshToken: generateRefreshToken(payload),
+  };
+}
 
-  static refreshAccessToken(refreshToken: string): string | null {
-    const payload = this.verifyRefreshToken(refreshToken);
-    if (!payload) {
-      return null;
-    }
+export function verifyAccessToken(token: string): JWTPayload {
+  return jwt.verify(token, JWT_ACCESS_SECRET) as JWTPayload;
+}
 
-    // Generate new access token
-    return this.generateAccessToken({
-      userId: payload.userId,
-      email: payload.email,
-      permissions: payload.permissions,
-    });
+export function verifyRefreshToken(token: string): JWTPayload {
+  return jwt.verify(token, JWT_REFRESH_SECRET) as JWTPayload;
+}
+
+export function refreshAccessToken(refreshToken: string): AuthTokens | null {
+  try {
+    const payload = verifyRefreshToken(refreshToken);
+    return generateTokens(payload.userId, payload.email);
+  } catch (error) {
+    return null;
   }
 }
+

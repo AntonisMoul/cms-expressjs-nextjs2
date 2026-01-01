@@ -1,15 +1,44 @@
 import { PrismaClient } from '@prisma/client';
-import { AuditLogCreateData } from '@cms/shared';
+import { AuditHistory, AuditLogData } from '../types';
 export declare class AuditService {
     private prisma;
     constructor(prisma: PrismaClient);
-    log(data: AuditLogCreateData): Promise<void>;
-    logAction(userId: number, module: string, action: string, referenceId: number, referenceName: string, request?: any, userAgent?: string, ipAddress?: string, referenceUser?: number): Promise<void>;
-    logCreate(userId: number, module: string, referenceId: number, referenceName: string, request?: any, userAgent?: string, ipAddress?: string): Promise<void>;
-    logUpdate(userId: number, module: string, referenceId: number, referenceName: string, request?: any, userAgent?: string, ipAddress?: string): Promise<void>;
-    logDelete(userId: number, module: string, referenceId: number, referenceName: string, userAgent?: string, ipAddress?: string): Promise<void>;
-    logPublish(userId: number, module: string, referenceId: number, referenceName: string, userAgent?: string, ipAddress?: string): Promise<void>;
-    logLogin(userId: number, userAgent?: string, ipAddress?: string): Promise<void>;
-    logLogout(userId: number, userAgent?: string, ipAddress?: string): Promise<void>;
+    log(data: AuditLogData & {
+        userId: string;
+        ipAddress?: string;
+        userAgent?: string;
+    }): Promise<void>;
+    getLogs(options?: {
+        userId?: string;
+        module?: string;
+        action?: string;
+        referenceId?: string;
+        type?: string;
+        limit?: number;
+        offset?: number;
+        startDate?: Date;
+        endDate?: Date;
+    }): Promise<AuditHistory[]>;
+    getLogById(id: string): Promise<AuditHistory | null>;
+    getLogsCount(options?: {
+        userId?: string;
+        module?: string;
+        action?: string;
+        referenceId?: string;
+        type?: string;
+        startDate?: Date;
+        endDate?: Date;
+    }): Promise<number>;
+    deleteLogs(options?: {
+        userId?: string;
+        module?: string;
+        action?: string;
+        referenceId?: string;
+        type?: string;
+        olderThan?: Date;
+    }): Promise<number>;
+    logUserAction(userId: string, action: string, referenceId: string, referenceName: string, request?: any, ipAddress?: string, userAgent?: string): Promise<void>;
+    logContentAction(userId: string, module: string, action: string, referenceId: string, referenceName: string, request?: any, ipAddress?: string, userAgent?: string): Promise<void>;
+    logSystemAction(userId: string, action: string, referenceName: string, request?: any, ipAddress?: string, userAgent?: string): Promise<void>;
 }
 //# sourceMappingURL=service.d.ts.map

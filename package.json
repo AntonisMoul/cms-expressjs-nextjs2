@@ -1,23 +1,39 @@
 {
-  "name": "cms-expressjs-nextjs2",
+  "name": "cms-monorepo",
   "private": true,
-  "packageManager": "pnpm@9.0.0",
+  "workspaces": {
+    "packages": [
+      "packages/*",
+      "packages/plugins/*",
+      "apps/*"
+    ]
+  },
   "scripts": {
-    "dev": "turbo dev",
-    "build": "turbo build",
-    "start": "turbo start",
-    "clean": "turbo clean && rm -rf node_modules",
-    "setup": "bash setup.sh",
-    "db:migrate": "cd apps/api && prisma migrate dev",
-    "db:push": "cd apps/api && prisma db push",
-    "db:seed": "cd apps/api && tsx prisma/seed.ts",
-    "db:studio": "cd apps/api && prisma studio",
-    "type-check": "turbo type-check"
+    "build": "turbo run build",
+    "build:api": "turbo run build --filter=@cms/api",
+    "build:web": "turbo run build --filter=@cms/web",
+    "dev": "turbo run dev",
+    "dev:api": "turbo run dev --filter=@cms/api",
+    "dev:web": "turbo run dev --filter=@cms/web",
+    "start": "turbo run start",
+    "start:api": "turbo run start --filter=@cms/api",
+    "start:web": "turbo run start --filter=@cms/web",
+    "clean": "turbo run clean",
+    "lint": "turbo run lint",
+    "db:generate": "turbo run db:generate",
+    "db:push": "turbo run db:push",
+    "db:migrate": "turbo run db:migrate",
+    "db:studio": "turbo run db:studio",
+    "db:seed": "turbo run db:seed",
+    "install:all": "pnpm install",
+    "setup": "pnpm install:all && pnpm db:generate && pnpm db:push",
+    "dev:all": "concurrently \"npm run dev:api\" \"npm run dev:web\""
   },
   "devDependencies": {
-    "turbo": "^2.0.0",
-    "typescript": "^5.0.0",
-    "@types/node": "^20.0.0",
-    "prettier": "^3.0.0"
-  }
+    "turbo": "^1.10.0",
+    "prettier": "^3.0.0",
+    "typescript": "^5.3.0",
+    "concurrently": "^8.2.0"
+  },
+  "packageManager": "pnpm@8.15.0"
 }

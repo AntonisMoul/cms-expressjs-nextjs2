@@ -1,6 +1,6 @@
-export { default as plugin } from './plugin';
-export { MediaService } from './services/mediaService';
-export { UploadUtils, uploadUtils } from './utils/upload';
-export * from './models/types';
-export { default as mediaRoutes } from './api/routes';
+import { PluginContract } from '@cms/core';
+declare const plugin: PluginContract;
+export { plugin as mediaPlugin };
+export { MediaService } from './service';
+export { MediaAdminController } from './admin/controller';
 //# sourceMappingURL=index.d.ts.map

@@ -1,44 +1,49 @@
-import jwt from 'jsonwebtoken';
-import { JWT_CONSTANTS } from '@cms/shared';
-export class JWTService {
-    static accessSecret = process.env.JWT_SECRET || 'your-jwt-secret';
-    static refreshSecret = process.env.JWT_REFRESH_SECRET || 'your-refresh-secret';
-    static generateAccessToken(payload) {
-        return jwt.sign(payload, this.accessSecret, {
-            expiresIn: JWT_CONSTANTS.ACCESS_TOKEN_EXPIRY,
-        });
+"use strict";
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.generateAccessToken = generateAccessToken;
+exports.generateRefreshToken = generateRefreshToken;
+exports.generateTokens = generateTokens;
+exports.verifyAccessToken = verifyAccessToken;
+exports.verifyRefreshToken = verifyRefreshToken;
+exports.refreshAccessToken = refreshAccessToken;
+const jsonwebtoken_1 = __importDefault(require("jsonwebtoken"));
+const JWT_ACCESS_SECRET = process.env.JWT_ACCESS_SECRET || 'your-access-secret';
+const JWT_REFRESH_SECRET = process.env.JWT_REFRESH_SECRET || 'your-refresh-secret';
+const JWT_ACCESS_EXPIRES = process.env.JWT_ACCESS_EXPIRES || '15m';
+const JWT_REFRESH_EXPIRES = process.env.JWT_REFRESH_EXPIRES || '7d';
+function generateAccessToken(payload) {
+    return jsonwebtoken_1.default.sign(payload, JWT_ACCESS_SECRET, {
+        expiresIn: JWT_ACCESS_EXPIRES,
+    });
+}
+function generateRefreshToken(payload) {
+    return jsonwebtoken_1.default.sign(payload, JWT_REFRESH_SECRET, {
+        expiresIn: JWT_REFRESH_EXPIRES,
+    });
+}
+function generateTokens(userId, email) {
+    const payload = { userId, email };
+    return {
+        accessToken: generateAccessToken(payload),
+        refreshToken: generateRefreshToken(payload),
+    };
+}
+function verifyAccessToken(token) {
+    return jsonwebtoken_1.default.verify(token, JWT_ACCESS_SECRET);
+}
+function verifyRefreshToken(token) {
+    return jsonwebtoken_1.default.verify(token, JWT_REFRESH_SECRET);
+}
+function refreshAccessToken(refreshToken) {
+    try {
+        const payload = verifyRefreshToken(refreshToken);
+        return generateTokens(payload.userId, payload.email);
     }
-    static generateRefreshToken(payload) {
-        return jwt.sign(payload, this.refreshSecret, {
-            expiresIn: JWT_CONSTANTS.REFRESH_TOKEN_EXPIRY,
-        });
-    }
-    static verifyAccessToken(token) {
-        try {
-            return jwt.verify(token, this.accessSecret);
-        }
-        catch (error) {
-            return null;
-        }
-    }
-    static verifyRefreshToken(token) {
-        try {
-            return jwt.verify(token, this.refreshSecret);
-        }
-        catch (error) {
-            return null;
-        }
-    }
-    static refreshAccessToken(refreshToken) {
-        const payload = this.verifyRefreshToken(refreshToken);
-        if (!payload) {
-            return null;
-        }
-        // Generate new access token
-        return this.generateAccessToken({
-            userId: payload.userId,
-            email: payload.email,
-            permissions: payload.permissions,
-        });
+    catch (error) {
+        return null;
     }
 }
+//# sourceMappingURL=jwt.js.map

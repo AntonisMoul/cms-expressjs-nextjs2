@@ -3,6 +3,8 @@ version: '3.8'
 services:
   db:
     image: mysql:8.0
+    container_name: cms_mysql
+    restart: unless-stopped
     environment:
       MYSQL_ROOT_PASSWORD: root
       MYSQL_DATABASE: cms_db
@@ -12,7 +14,9 @@ services:
       - "3306:3306"
     volumes:
       - mysql_data:/var/lib/mysql
-    command: --default-authentication-plugin=mysql_native_password
+      - ./docker/mysql/init.sql:/docker-entrypoint-initdb.d/init.sql:ro
+    networks:
+      - cms_network
     healthcheck:
       test: ["CMD", "mysqladmin", "ping", "-h", "localhost"]
       timeout: 20s
@@ -20,22 +24,58 @@ services:
 
   redis:
     image: redis:7-alpine
+    container_name: cms_redis
+    restart: unless-stopped
     ports:
       - "6379:6379"
-    healthcheck:
-      test: ["CMD", "redis-cli", "ping"]
-      timeout: 20s
-      retries: 10
+    volumes:
+      - redis_data:/data
+    networks:
+      - cms_network
+    command: redis-server --appendonly yes
 
-  mailhog:
-    image: mailhog/mailhog:latest
+  api:
+    build:
+      context: .
+      dockerfile: ./docker/api.Dockerfile
+    container_name: cms_api
+    restart: unless-stopped
+    environment:
+      - DATABASE_URL=mysql://cms:cms@db:3306/cms_db
+      - JWT_ACCESS_SECRET=your-super-secret-jwt-access-key
+      - JWT_REFRESH_SECRET=your-super-secret-jwt-refresh-key
+      - API_PORT=3001
+      - NODE_ENV=production
     ports:
-      - "1025:1025"  # SMTP server
-      - "8025:8025"  # Web interface
-    healthcheck:
-      test: ["CMD", "wget", "--quiet", "--tries=1", "--spider", "http://localhost:8025"]
-      timeout: 20s
-      retries: 10
+      - "3001:3001"
+    volumes:
+      - ./uploads:/app/uploads
+    depends_on:
+      db:
+        condition: service_healthy
+    networks:
+      - cms_network
+
+  web:
+    build:
+      context: .
+      dockerfile: ./docker/web.Dockerfile
+    container_name: cms_web
+    restart: unless-stopped
+    environment:
+      - NEXT_PUBLIC_API_URL=http://api:3001/api/v1
+      - NEXT_PUBLIC_SITE_URL=http://localhost:3000
+    ports:
+      - "3000:3000"
+    depends_on:
+      - api
+    networks:
+      - cms_network
 
 volumes:
   mysql_data:
+  redis_data:
+
+networks:
+  cms_network:
+    driver: bridge

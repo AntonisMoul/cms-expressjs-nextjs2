@@ -1,184 +1,343 @@
 import { PrismaClient } from '@prisma/client';
-import slugify from 'slugify';
-import { transliterate as tr } from 'transliteration';
-import { SlugCreateData, SlugCheckResponse, SLUG_PREFIXES } from '@cms/shared';
+import { Slug, CreateSlugRequest, SlugCheckRequest, SlugCheckResponse } from '../types';
 
 export class SlugService {
   constructor(private prisma: PrismaClient) {}
 
-  async create(data: SlugCreateData): Promise<string> {
-    const { entityType, entityId, locale, key, prefix } = data;
-
-    // Generate slug if not provided
-    let finalKey = key;
-    if (!finalKey) {
-      finalKey = await this.generateSlug(entityType, entityId, locale);
-    }
-
-    // Ensure uniqueness
-    const uniqueKey = await this.ensureUnique(finalKey, entityType, locale, prefix, entityId);
-
-    // Create slug record
-    await this.prisma.slug.create({
-      data: {
-        key: uniqueKey,
-        referenceId: entityId,
-        referenceType: entityType,
-        prefix: prefix || null,
-      },
-    });
-
-    return uniqueKey;
-  }
-
-  async update(
-    entityType: string,
-    entityId: number,
-    locale: string,
-    newKey: string,
-    prefix?: string
-  ): Promise<string> {
-    // Check if slug exists
-    const existingSlug = await this.prisma.slug.findFirst({
-      where: {
-        referenceId: entityId,
-        referenceType: entityType,
-        prefix: prefix || null,
-      },
-    });
-
-    if (!existingSlug) {
-      return this.create({ entityType, entityId, locale, key: newKey, prefix });
-    }
-
-    // Ensure uniqueness
-    const uniqueKey = await this.ensureUnique(newKey, entityType, locale, prefix, entityId);
-
-    // Update slug
-    await this.prisma.slug.update({
-      where: { id: existingSlug.id },
-      data: { key: uniqueKey },
-    });
-
-    return uniqueKey;
-  }
-
-  async checkAvailability(
-    entityType: string,
-    locale: string,
-    slug: string,
-    prefix?: string,
-    excludeId?: number
-  ): Promise<SlugCheckResponse> {
-    const where: any = {
-      key: slug,
-      referenceType: entityType,
-      prefix: prefix || null,
+  private transliterate(text: string): string {
+    // Basic transliteration for Greek and common special characters
+    const transliterations: Record<string, string> = {
+      'α': 'a', 'β': 'b', 'γ': 'g', 'δ': 'd', 'ε': 'e', 'ζ': 'z', 'η': 'i', 'θ': 'th',
+      'ι': 'i', 'κ': 'k', 'λ': 'l', 'μ': 'm', 'ν': 'n', 'ξ': 'x', 'ο': 'o', 'π': 'p',
+      'ρ': 'r', 'σ': 's', 'τ': 't', 'υ': 'y', 'φ': 'f', 'χ': 'ch', 'ψ': 'ps', 'ω': 'o',
+      'ά': 'a', 'έ': 'e', 'ή': 'i', 'ί': 'i', 'ό': 'o', 'ύ': 'y', 'ώ': 'o',
+      'Α': 'A', 'Β': 'B', 'Γ': 'G', 'Δ': 'D', 'Ε': 'E', 'Ζ': 'Z', 'Η': 'I', 'Θ': 'Th',
+      'Ι': 'I', 'Κ': 'K', 'Λ': 'L', 'Μ': 'M', 'Ν': 'N', 'Ξ': 'X', 'Ο': 'O', 'Π': 'P',
+      'Ρ': 'R', 'Σ': 'S', 'Τ': 'T', 'Υ': 'Y', 'Φ': 'F', 'Χ': 'Ch', 'Ψ': 'Ps', 'Ω': 'O',
+      'Ά': 'A', 'Έ': 'E', 'Ή': 'I', 'Ί': 'I', 'Ό': 'O', 'Ύ': 'Y', 'Ώ': 'O',
+      'ς': 's', // Greek final sigma
+      'ä': 'ae', 'ö': 'oe', 'ü': 'ue', 'ß': 'ss', // German
+      'ç': 'c', 'ğ': 'g', 'ı': 'i', 'ö': 'o', 'ş': 's', 'ü': 'u', // Turkish
+      'ñ': 'n', // Spanish
+      'ø': 'o', 'å': 'a', // Norwegian/Danish
     };
 
-    if (excludeId) {
-      where.referenceId = { not: excludeId };
-    }
+    return text
+      .split('')
+      .map(char => transliterations[char] || char)
+      .join('');
+  }
 
-    const existing = await this.prisma.slug.findFirst({ where });
+  private generateSlug(text: string): string {
+    return this.transliterate(text)
+      .toLowerCase()
+      .replace(/[^a-z0-9\s-]/g, '') // Remove special characters except spaces and hyphens
+      .replace(/\s+/g, '-') // Replace spaces with hyphens
+      .replace(/-+/g, '-') // Replace multiple hyphens with single hyphen
+      .replace(/^-|-$/g, ''); // Remove leading/trailing hyphens
+  }
 
-    if (!existing) {
-      return { available: true };
-    }
+  async createSlug(data: CreateSlugRequest): Promise<Slug> {
+    const fullPath = data.prefix ? `${data.prefix}/${data.key}` : data.key;
 
-    // Generate suggestion
-    const suggestion = await this.generateUniqueSlug(slug, entityType, locale, prefix, excludeId);
+    const slug = await this.prisma.slug.create({
+      data: {
+        key: data.key,
+        entityId: data.entityId,
+        entityType: data.entityType,
+        prefix: data.prefix,
+        fullPath,
+        locale: data.locale || 'en',
+      },
+    });
 
     return {
-      available: false,
-      suggestion,
-      message: 'Slug is already in use',
+      id: slug.id,
+      key: slug.key,
+      entityId: slug.entityId,
+      entityType: slug.entityType,
+      prefix: slug.prefix,
+      fullPath: slug.fullPath,
+      locale: slug.locale,
+      isActive: slug.isActive,
+      createdAt: slug.createdAt,
+      updatedAt: slug.updatedAt,
     };
   }
 
-  async findBySlug(slug: string, entityType?: string, prefix?: string): Promise<any | null> {
+  async updateSlug(id: string, data: Partial<CreateSlugRequest>): Promise<Slug> {
+    const updateData: any = {};
+
+    if (data.key) {
+      updateData.key = data.key;
+      updateData.fullPath = data.prefix ? `${data.prefix}/${data.key}` : data.key;
+    }
+
+    if (data.prefix !== undefined) {
+      updateData.prefix = data.prefix;
+      updateData.fullPath = data.prefix ? `${data.prefix}/${updateData.key || data.key}` : (updateData.key || data.key);
+    }
+
+    if (data.locale) updateData.locale = data.locale;
+
+    const slug = await this.prisma.slug.update({
+      where: { id },
+      data: updateData,
+    });
+
+    return {
+      id: slug.id,
+      key: slug.key,
+      entityId: slug.entityId,
+      entityType: slug.entityType,
+      prefix: slug.prefix,
+      fullPath: slug.fullPath,
+      locale: slug.locale,
+      isActive: slug.isActive,
+      createdAt: slug.createdAt,
+      updatedAt: slug.updatedAt,
+    };
+  }
+
+  async deleteSlug(id: string): Promise<void> {
+    await this.prisma.slug.delete({
+      where: { id },
+    });
+  }
+
+  async getSlugById(id: string): Promise<Slug | null> {
+    const slug = await this.prisma.slug.findUnique({
+      where: { id },
+    });
+
+    if (!slug) return null;
+
+    return {
+      id: slug.id,
+      key: slug.key,
+      entityId: slug.entityId,
+      entityType: slug.entityType,
+      prefix: slug.prefix,
+      fullPath: slug.fullPath,
+      locale: slug.locale,
+      isActive: slug.isActive,
+      createdAt: slug.createdAt,
+      updatedAt: slug.updatedAt,
+    };
+  }
+
+  async getSlugByEntity(entityType: string, entityId: string, locale = 'en'): Promise<Slug | null> {
+    const slug = await this.prisma.slug.findFirst({
+      where: {
+        entityType,
+        entityId,
+        locale,
+        isActive: true,
+      },
+    });
+
+    if (!slug) return null;
+
+    return {
+      id: slug.id,
+      key: slug.key,
+      entityId: slug.entityId,
+      entityType: slug.entityType,
+      prefix: slug.prefix,
+      fullPath: slug.fullPath,
+      locale: slug.locale,
+      isActive: slug.isActive,
+      createdAt: slug.createdAt,
+      updatedAt: slug.updatedAt,
+    };
+  }
+
+  async resolveSlug(fullSlug: string, locale = 'en'): Promise<Slug | null> {
+    const slug = await this.prisma.slug.findFirst({
+      where: {
+        fullPath: fullSlug,
+        locale,
+        isActive: true,
+      },
+    });
+
+    if (!slug) return null;
+
+    return {
+      id: slug.id,
+      key: slug.key,
+      entityId: slug.entityId,
+      entityType: slug.entityType,
+      prefix: slug.prefix,
+      fullPath: slug.fullPath,
+      locale: slug.locale,
+      isActive: slug.isActive,
+      createdAt: slug.createdAt,
+      updatedAt: slug.updatedAt,
+    };
+  }
+
+  async checkSlugAvailability(request: SlugCheckRequest): Promise<SlugCheckResponse> {
+    const { entityType, locale = 'en', slug, excludeId } = request;
+
     const where: any = {
       key: slug,
+      locale,
       isActive: true,
     };
 
-    if (entityType) {
-      where.referenceType = entityType;
+    if (excludeId) {
+      where.id = { not: excludeId };
     }
 
-    if (prefix !== undefined) {
-      where.prefix = prefix;
+    const existingSlug = await this.prisma.slug.findFirst({
+      where,
+    });
+
+    const available = !existingSlug;
+
+    let suggestion: string | undefined;
+    if (!available) {
+      // Generate suggestion by appending number
+      let counter = 1;
+      let suggestedSlug = `${slug}-${counter}`;
+
+      while (await this.prisma.slug.findFirst({
+        where: {
+          key: suggestedSlug,
+          locale,
+          isActive: true,
+          ...(excludeId && { id: { not: excludeId } }),
+        },
+      })) {
+        counter++;
+        suggestedSlug = `${slug}-${counter}`;
+      }
+
+      suggestion = suggestedSlug;
     }
 
-    const slugRecord = await this.prisma.slug.findFirst({ where });
-    return slugRecord;
+    return {
+      available,
+      suggestion,
+    };
   }
 
-  private async generateSlug(entityType: string, entityId: number, locale: string): Promise<string> {
-    // This would typically get the title from the entity
-    // For now, return a generic slug
-    const timestamp = Date.now();
-    return `entity-${entityId}-${timestamp}`;
-  }
+  async generateUniqueSlug(title: string, entityType: string, locale = 'en', excludeId?: string): Promise<string> {
+    let baseSlug = this.generateSlug(title);
+    let finalSlug = baseSlug;
 
-  private async ensureUnique(
-    slug: string,
-    entityType: string,
-    locale: string,
-    prefix?: string,
-    excludeId?: number
-  ): Promise<string> {
-    const check = await this.checkAvailability(entityType, locale, slug, prefix, excludeId);
-
-    if (check.available) {
-      return slug;
+    if (!baseSlug) {
+      baseSlug = 'untitled';
+      finalSlug = baseSlug;
     }
 
-    return check.suggestion || `${slug}-${Date.now()}`;
-  }
+    // Check if base slug is available
+    const checkResult = await this.checkSlugAvailability({
+      entityType,
+      locale,
+      slug: baseSlug,
+      excludeId,
+    });
 
-  private async generateUniqueSlug(
-    baseSlug: string,
-    entityType: string,
-    locale: string,
-    prefix?: string,
-    excludeId?: number
-  ): Promise<string> {
+    if (checkResult.available) {
+      return baseSlug;
+    }
+
+    // Use suggestion if available
+    if (checkResult.suggestion) {
+      return checkResult.suggestion;
+    }
+
+    // Fallback: keep trying with incrementing numbers
     let counter = 1;
-    let suggestion = `${baseSlug}-${counter}`;
+    while (true) {
+      finalSlug = `${baseSlug}-${counter}`;
+      const result = await this.checkSlugAvailability({
+        entityType,
+        locale,
+        slug: finalSlug,
+        excludeId,
+      });
 
-    while (!(await this.checkAvailability(entityType, locale, suggestion, prefix, excludeId)).available) {
+      if (result.available) {
+        break;
+      }
       counter++;
-      suggestion = `${baseSlug}-${counter}`;
     }
 
-    return suggestion;
+    return finalSlug;
   }
 
-  static transliterate(text: string): string {
-    // First transliterate to Latin characters
-    const transliterated = tr(text);
+  async createSlugForEntity(
+    entityType: string,
+    entityId: string,
+    title: string,
+    prefix?: string,
+    locale = 'en'
+  ): Promise<Slug> {
+    const key = await this.generateUniqueSlug(title, entityType, locale);
 
-    // Then create URL-safe slug
-    return slugify(transliterated, {
-      lower: true,
-      strict: true,
-      remove: /[*+~.()'"!:@]/g,
+    return this.createSlug({
+      entityType,
+      entityId,
+      key,
+      prefix,
+      locale,
     });
   }
 
-  static getPrefix(entityType: string): string | null {
-    switch (entityType) {
-      case 'Post':
-        return SLUG_PREFIXES.POSTS;
-      case 'Category':
-        return SLUG_PREFIXES.CATEGORIES;
-      case 'Tag':
-        return SLUG_PREFIXES.TAGS;
-      case 'Page':
-        return SLUG_PREFIXES.PAGES;
-      default:
-        return null;
+  async updateSlugForEntity(
+    entityType: string,
+    entityId: string,
+    title: string,
+    prefix?: string,
+    locale = 'en'
+  ): Promise<Slug> {
+    const existingSlug = await this.getSlugByEntity(entityType, entityId, locale);
+
+    if (!existingSlug) {
+      return this.createSlugForEntity(entityType, entityId, title, prefix, locale);
     }
+
+    const newKey = await this.generateUniqueSlug(title, entityType, locale, existingSlug.id);
+
+    return this.updateSlug(existingSlug.id, {
+      key: newKey,
+      prefix,
+      locale,
+    });
+  }
+
+  async deactivateSlug(id: string): Promise<void> {
+    await this.prisma.slug.update({
+      where: { id },
+      data: { isActive: false },
+    });
+  }
+
+  async getSlugsByEntityType(entityType: string, locale = 'en'): Promise<Slug[]> {
+    const slugs = await this.prisma.slug.findMany({
+      where: {
+        entityType,
+        locale,
+        isActive: true,
+      },
+      orderBy: { createdAt: 'desc' },
+    });
+
+    return slugs.map(slug => ({
+      id: slug.id,
+      key: slug.key,
+      entityId: slug.entityId,
+      entityType: slug.entityType,
+      prefix: slug.prefix,
+      fullPath: slug.fullPath,
+      locale: slug.locale,
+      isActive: slug.isActive,
+      createdAt: slug.createdAt,
+      updatedAt: slug.updatedAt,
+    }));
   }
 }
+

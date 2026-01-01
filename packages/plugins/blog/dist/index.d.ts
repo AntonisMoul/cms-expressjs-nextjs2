@@ -1,7 +1,9 @@
-export { default as plugin } from './plugin';
-export { PostService } from './services/postService';
-export { CategoryService } from './services/categoryService';
-export { TagService } from './services/tagService';
-export * from './models/types';
-export { default as blogRoutes } from './api/routes';
+import { PluginContract } from '@cms/core';
+declare const plugin: PluginContract;
+export { plugin as blogPlugin };
+export { BlogService } from './service';
+export { BlogPostsAdminController } from './admin/posts-controller';
+export { BlogCategoriesAdminController } from './admin/categories-controller';
+export { BlogTagsAdminController } from './admin/tags-controller';
+export { BlogPublicController } from './public/controller';
 //# sourceMappingURL=index.d.ts.map

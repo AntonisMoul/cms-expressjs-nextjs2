@@ -1,11 +1,8 @@
-import { JWTPayload } from '@cms/shared';
-export declare class JWTService {
-    private static readonly accessSecret;
-    private static readonly refreshSecret;
-    static generateAccessToken(payload: Omit<JWTPayload, 'iat' | 'exp'>): string;
-    static generateRefreshToken(payload: Omit<JWTPayload, 'iat' | 'exp'>): string;
-    static verifyAccessToken(token: string): JWTPayload | null;
-    static verifyRefreshToken(token: string): JWTPayload | null;
-    static refreshAccessToken(refreshToken: string): string | null;
-}
+import { JWTPayload, AuthTokens } from '../types';
+export declare function generateAccessToken(payload: Omit<JWTPayload, 'iat' | 'exp'>): string;
+export declare function generateRefreshToken(payload: Omit<JWTPayload, 'iat' | 'exp'>): string;
+export declare function generateTokens(userId: string, email: string): AuthTokens;
+export declare function verifyAccessToken(token: string): JWTPayload;
+export declare function verifyRefreshToken(token: string): JWTPayload;
+export declare function refreshAccessToken(refreshToken: string): AuthTokens | null;
 //# sourceMappingURL=jwt.d.ts.map

@@ -1,439 +1,230 @@
-# Next.js + Express.js Architecture for Botble CMS Reimplementation
+# Next.js + Express.js CMS Architecture
 
-This document outlines the monorepo architecture designed to replicate Botble CMS functionality while leveraging modern Next.js 16 and TypeScript patterns.
+This document describes the monorepo architecture for the Botble-compatible CMS implementation using Next.js 16 App Router and Express.js with TypeScript.
 
-## Monorepo Layout
+## Monorepo Structure
 
-### Root Structure
 ```
-cms-expressjs-nextjs2/
+cms-expressjs-nextjs/
 ├── apps/
 │   ├── api/                    # Express.js API server
-│   └── web/                    # Next.js 16 web application
+│   │   ├── src/
+│   │   │   ├── controllers/    # Route handlers
+│   │   │   ├── middleware/     # Auth, validation, etc.
+│   │   │   ├── services/       # Business logic
+│   │   │   ├── routes/         # API route definitions
+│   │   │   ├── config/         # Database, env config
+│   │   │   └── utils/          # Helpers
+│   │   ├── prisma/             # Database schema & migrations
+│   │   ├── package.json
+│   │   └── tsconfig.json
+│   └── web/                    # Next.js admin + public site
+│       ├── app/                # Next.js App Router
+│       │   ├── (admin)/        # Admin routes under /admin
+│       │   ├── (public)/       # Public site routes
+│       │   ├── api/            # Next.js API routes (if needed)
+│       │   └── globals.css
+│       ├── components/         # Shared React components
+│       ├── lib/                # Client-side utilities
+│       ├── public/             # Static assets
+│       ├── package.json
+│       └── next.config.js
 ├── packages/
-│   ├── core/                   # Shared core functionality
-│   ├── plugins/                # Feature plugins (pages, blog, etc.)
-│   │   ├── pages/
-│   │   ├── blog/
-│   │   ├── media/
-│   │   ├── menu/
-│   │   ├── widget/
-│   │   ├── theme/
-│   │   ├── language/
-│   │   └── translation/
+│   ├── core/                   # Core functionality
+│   │   ├── src/
+│   │   │   ├── auth/           # Authentication logic
+│   │   │   ├── rbac/           # Role/permission system
+│   │   │   ├── settings/       # Settings store
+│   │   │   ├── audit/          # Activity logging
+│   │   │   ├── slug/           # Slug management
+│   │   │   ├── locales/        # Language support
+│   │   │   └── types/          # Shared TypeScript types
+│   │   ├── package.json
+│   │   └── tsconfig.json
+│   ├── plugins/                # Plugin packages
+│   │   ├── pages/              # Pages plugin
+│   │   ├── blog/               # Blog plugin
+│   │   ├── media/              # Media manager plugin
+│   │   ├── menu/               # Menu builder plugin
+│   │   ├── widget/             # Widget system plugin
+│   │   └── theme/              # Theme system plugin
 │   ├── ui/                     # Shared UI components
-│   └── shared/                 # Shared utilities and types
+│   │   ├── components/         # Reusable React components
+│   │   ├── hooks/              # Custom React hooks
+│   │   └── styles/             # CSS/Tailwind utilities
+│   └── shared/                 # Shared utilities
+│       ├── types/              # Global TypeScript types
+│       ├── utils/              # Helper functions
+│       ├── constants/          # App constants
+│       └── validations/        # Zod schemas
 ├── docs/                       # Documentation
-├── package.json                # Root package.json with workspaces
+├── docker/                     # Docker configuration
+├── scripts/                    # Build/deployment scripts
+├── package.json                # Root package.json for monorepo
 ├── pnpm-workspace.yaml         # Workspace configuration
-├── turbo.json                  # Turborepo configuration
-└── docker-compose.yml          # Development environment
+└── turbo.json                  # Build pipeline configuration
 ```
 
-### Apps Directory
+## Plugin Architecture
 
-#### `apps/api/` - Express.js Backend
-```
-apps/api/
-├── src/
-│   ├── index.ts                # Express app entry point
-│   ├── routes/                 # API routes
-│   │   ├── auth.ts
-│   │   ├── users.ts
-│   │   ├── plugins/            # Plugin-registered routes
-│   │   └── index.ts
-│   ├── middleware/             # Express middleware
-│   │   ├── auth.ts
-│   │   ├── cors.ts
-│   │   ├── rate-limit.ts
-│   │   └── validation.ts
-│   ├── services/               # Business logic services
-│   ├── utils/                  # Utilities
-│   └── types/                  # TypeScript types
-├── prisma/                     # Database schema
-│   └── schema.prisma
-├── package.json
-└── tsconfig.json
-```
+### Plugin Contract
 
-#### `apps/web/` - Next.js 16 Frontend
-```
-apps/web/
-├── app/                        # Next.js App Router
-│   ├── (public)/               # Public routes (SSR)
-│   │   ├── [locale]/           # Localized routes
-│   │   │   ├── [...slug]/      # Dynamic slug resolution
-│   │   │   │   └── page.tsx
-│   │   │   └── layout.tsx
-│   │   └── layout.tsx
-│   ├── admin/                  # Admin routes
-│   │   ├── layout.tsx          # Admin shell
-│   │   ├── dashboard/
-│   │   │   └── page.tsx
-│   │   ├── pages/              # Thin route wrappers
-│   │   │   ├── page.tsx        # Imports from @cms/plugins-pages
-│   │   │   ├── create/
-│   │   │   │   └── page.tsx
-│   │   │   └── [id]/
-│   │   │       ├── edit/
-│   │   │       │   └── page.tsx
-│   │   │       └── page.tsx
-│   │   ├── blog/
-│   │   │   ├── posts/
-│   │   │   ├── categories/
-│   │   │   └── tags/
-│   │   ├── media/
-│   │   ├── menus/
-│   │   ├── widgets/
-│   │   ├── appearance/
-│   │   ├── system/
-│   │   │   ├── users/
-│   │   │   ├── roles/
-│   │   │   ├── languages/
-│   │   │   ├── translations/
-│   │   │   └── settings/
-│   │   └── api/                 # Client-side API routes
-│   ├── api/                     # Next.js API routes (proxied to Express)
-│   └── globals.css
-├── components/                  # Shared components
-├── lib/                         # Utilities
-├── hooks/                       # Custom hooks
-├── types/                       # TypeScript types
-├── package.json
-└── next.config.js
-```
+Each plugin must export a standard interface:
 
-### Packages Directory
-
-#### `packages/core/` - Core Functionality
-```
-packages/core/
-├── src/
-│   ├── auth/                   # Authentication logic
-│   │   ├── jwt.ts
-│   │   ├── cookies.ts
-│   │   └── middleware.ts
-│   ├── rbac/                   # Role-based access control
-│   │   ├── permissions.ts
-│   │   ├── roles.ts
-│   │   └── middleware.ts
-│   ├── settings/               # Settings store
-│   │   ├── store.ts
-│   │   └── service.ts
-│   ├── audit/                  # Audit logging
-│   │   ├── logger.ts
-│   │   └── service.ts
-│   ├── slug/                   # Slug/permalink system
-│   │   ├── service.ts
-│   │   ├── transliteration.ts
-│   │   └── redirects.ts
-│   ├── language/               # Language/localization
-│   │   ├── manager.ts
-│   │   ├── middleware.ts
-│   │   └── translations.ts
-│   ├── database/               # Database utilities
-│   ├── utils/                  # Shared utilities
-│   └── index.ts                # Core exports
-├── prisma/                     # Core database schema
-└── package.json
-```
-
-#### `packages/plugins/*/`
-Each plugin follows this structure:
-```
-packages/plugins/pages/
-├── src/
-│   ├── api/                    # API routes for Express
-│   │   ├── routes.ts           # Route definitions
-│   │   ├── controllers/        # Route controllers
-│   │   └── requests/           # Request validation
-│   ├── admin/                  # Admin screens for Next.js
-│   │   ├── pages/              # Page components
-│   │   │   ├── list.tsx
-│   │   │   ├── create.tsx
-│   │   │   └── edit.tsx
-│   │   ├── components/         # Admin components
-│   │   └── navigation.ts       # Navigation items
-│   ├── public/                 # Public rendering
-│   │   ├── components/         # Public components
-│   │   └── types.ts
-│   ├── models/                 # Prisma models/types
-│   ├── services/               # Business logic
-│   ├── permissions.ts          # Permission definitions
-│   ├── plugin.ts               # Plugin registration
-│   └── index.ts                # Plugin exports
-├── prisma/                     # Plugin-specific schema
-└── package.json
-```
-
-#### `packages/ui/` - Shared UI Components
-```
-packages/ui/
-├── src/
-│   ├── components/
-│   │   ├── forms/              # Form components
-│   │   │   ├── TextField.tsx
-│   │   │   ├── SelectField.tsx
-│   │   │   ├── MetaBoxes.tsx
-│   │   │   └── SlugField.tsx
-│   │   ├── layout/             # Layout components
-│   │   │   ├── AdminLayout.tsx
-│   │   │   ├── TwoColumnEditor.tsx
-│   │   │   └── Table.tsx
-│   │   ├── media/              # Media components
-│   │   ├── navigation/         # Navigation components
-│   │   └── common/             # Common components
-│   ├── themes/                 # Theme system
-│   ├── hooks/                  # UI hooks
-│   └── index.ts
-├── package.json
-└── tailwind.config.js
-```
-
-#### `packages/shared/` - Shared Utilities
-```
-packages/shared/
-├── src/
-│   ├── types/                  # Shared TypeScript types
-│   ├── utils/                  # Utility functions
-│   ├── constants/              # Constants
-│   ├── validation/             # Validation schemas
-│   └── index.ts
-└── package.json
-```
-
-## Plugin Contract
-
-### Plugin Interface
 ```typescript
-// packages/shared/src/types/plugin.ts
-export interface Plugin {
+// packages/plugins/pages/src/index.ts
+export interface PluginContract {
   name: string;
   version: string;
-  description?: string;
 
-  // API registration
-  registerApiRoutes?: (router: Router, context: PluginContext) => void;
+  // API routes to register
+  registerApiRoutes?: (router: Router, ctx: PluginContext) => void;
 
-  // Permissions
-  permissions?: PermissionDefinition[];
+  // Admin navigation items
+  getAdminNavigation?: () => AdminNavItem[];
 
-  // Admin navigation
-  adminNavigation?: AdminNavigationItem[];
+  // Admin screens/routes to register
+  getAdminScreens?: () => AdminScreen[];
 
-  // Settings panels
-  settingsPanels?: SettingsPanel[];
+  // Settings panels to add
+  getSettingsPanels?: () => SettingsPanel[];
 
-  // Initialization
-  init?: (context: PluginContext) => Promise<void> | void;
+  // Database migrations to run
+  migrations?: string[];
 
-  // Cleanup
-  destroy?: () => Promise<void> | void;
+  // Permissions to register
+  permissions?: Permission[];
 }
 
-export interface PluginContext {
-  prisma: PrismaClient;
-  config: Config;
-  logger: Logger;
-  cache: Cache;
+// Admin navigation item structure
+export interface AdminNavItem {
+  id: string;
+  label: string;
+  icon: string;
+  href: string;
+  parentId?: string;
+  priority?: number;
+  permissions?: string[];
 }
-```
 
-### API Routes Registration
-```typescript
-// packages/plugins/pages/src/api/routes.ts
-import { Router } from 'express';
-import { PluginContext } from '@cms/shared';
-
-export function registerRoutes(router: Router, context: PluginContext) {
-  const { prisma, logger } = context;
-
-  // Pages API routes
-  router.get('/pages', async (req, res) => {
-    // Implementation
-  });
-
-  router.post('/pages', async (req, res) => {
-    // Implementation
-  });
-
-  router.put('/pages/:id', async (req, res) => {
-    // Implementation
-  });
+// Admin screen structure
+export interface AdminScreen {
+  path: string;
+  component: React.ComponentType;
+  layout?: React.ComponentType;
+  permissions?: string[];
 }
 ```
 
-### Permissions Namespace
-```typescript
-// packages/plugins/pages/src/permissions.ts
-export const PAGE_PERMISSIONS = {
-  INDEX: 'pages.index',
-  CREATE: 'pages.create',
-  EDIT: 'pages.edit',
-  DELETE: 'pages.delete',
-  PUBLISH: 'pages.publish',
-} as const;
+### Plugin Registration
 
-export const pagePermissions: PermissionDefinition[] = [
-  {
-    key: PAGE_PERMISSIONS.INDEX,
-    name: 'View Pages',
-    module: 'pages',
-  },
-  {
-    key: PAGE_PERMISSIONS.CREATE,
-    name: 'Create Pages',
-    module: 'pages',
-  },
-  // ... more permissions
-];
+```typescript
+// apps/api/src/plugins/index.ts
+import { pagesPlugin } from '@cms/plugins/pages';
+import { blogPlugin } from '@cms/plugins/blog';
+
+export const plugins = [pagesPlugin, blogPlugin];
+
+export function registerPlugins(app: Express) {
+  plugins.forEach(plugin => {
+    // Register API routes
+    if (plugin.registerApiRoutes) {
+      const router = Router();
+      plugin.registerApiRoutes(router, { app, prisma });
+      app.use(`/api/v1/${plugin.name}`, router);
+    }
+
+    // Collect admin navigation, screens, etc.
+    // ...
+  });
+}
 ```
 
-### Admin Navigation Items
-```typescript
-// packages/plugins/pages/src/admin/navigation.ts
-export const pageNavigation: AdminNavigationItem[] = [
-  {
-    id: 'pages',
-    name: 'Pages',
-    icon: 'ti ti-notebook',
-    route: '/admin/pages',
-    permissions: [PAGE_PERMISSIONS.INDEX],
-    priority: 2,
-  },
-];
-```
-
-### Settings Panels
-```typescript
-// packages/plugins/pages/src/admin/settings.ts
-export const pageSettingsPanels: SettingsPanel[] = [
-  {
-    id: 'pages-general',
-    title: 'Pages Settings',
-    route: '/admin/settings/pages',
-    permissions: ['settings.edit'],
-    component: 'PageSettingsForm',
-  },
-];
-```
-
-## Next.js Admin Route Pattern
+## Next.js Admin Integration
 
 ### Thin Route Wrappers
-Admin routes in `apps/web/app/admin/` are minimal wrappers that import and render components from plugins:
+
+Admin routes use thin wrappers that import screens from plugins:
 
 ```typescript
-// apps/web/app/admin/pages/page.tsx
-import { PageListScreen } from '@cms/plugins-pages/admin';
+// apps/web/app/admin/pages/page/[id]/edit/page.tsx
+import { getPageEditScreen } from '@cms/plugins/pages/admin';
 
-export default function PagesPage() {
-  return <PageListScreen />;
+export default function PageEditPage({ params }: { params: { id: string } }) {
+  const PageEditScreen = getPageEditScreen();
+  return <PageEditScreen pageId={params.id} />;
 }
 ```
 
-```typescript
-// apps/web/app/admin/pages/create/page.tsx
-import { PageCreateScreen } from '@cms/plugins-pages/admin';
-
-export default function CreatePagePage() {
-  return <PageCreateScreen />;
-}
-```
+### Admin Layout System
 
 ```typescript
-// apps/web/app/admin/pages/[id]/edit/page.tsx
-import { PageEditScreen } from '@cms/plugins-pages/admin';
-
-interface EditPageProps {
-  params: Promise<{ id: string }>;
-}
-
-export default async function EditPagePage({ params }: EditPageProps) {
-  const { id } = await params;
-  return <PageEditScreen id={id} />;
-}
-```
-
-### Plugin Admin Components
-```typescript
-// packages/plugins/pages/src/admin/pages/list.tsx
+// apps/web/components/admin/AdminLayout.tsx
 'use client';
 
-import { usePages } from '../hooks/usePages';
-import { AdminTable } from '@cms/ui';
-import { PageFilters } from '../components/PageFilters';
+import { usePathname } from 'next/navigation';
+import { AdminSidebar } from './AdminSidebar';
+import { AdminHeader } from './AdminHeader';
 
-export function PageListScreen() {
-  const { pages, loading, filters, setFilters } = usePages();
+export function AdminLayout({ children }: { children: React.ReactNode }) {
+  const pathname = usePathname();
+  const navigation = useAdminNavigation();
 
   return (
-    <div className="space-y-6">
-      <div className="flex justify-between items-center">
-        <h1>Pages</h1>
-        <Link href="/admin/pages/create" className="btn-primary">
-          Create Page
-        </Link>
+    <div className="admin-layout">
+      <AdminSidebar navigation={navigation} currentPath={pathname} />
+      <div className="admin-content">
+        <AdminHeader />
+        <main>{children}</main>
       </div>
-
-      <PageFilters filters={filters} onChange={setFilters} />
-
-      <AdminTable
-        data={pages}
-        columns={pageColumns}
-        loading={loading}
-        bulkActions={pageBulkActions}
-      />
     </div>
   );
 }
 ```
 
-## Public Site Slug Resolution
+### Admin Navigation Generation
 
-### Dynamic Slug Route Handler
 ```typescript
-// apps/web/app/[locale]/[...slug]/page.tsx
-import { notFound } from 'next/navigation';
-import { getContentBySlug } from '@cms/core';
+// apps/web/lib/admin-navigation.ts
+import { plugins } from '@cms/plugins';
 
-interface PageProps {
-  params: Promise<{
-    locale: string;
-    slug: string[];
-  }>;
+export function getAdminNavigation(): AdminNavItem[] {
+  const navigation: AdminNavItem[] = [];
+
+  plugins.forEach(plugin => {
+    if (plugin.getAdminNavigation) {
+      navigation.push(...plugin.getAdminNavigation());
+    }
+  });
+
+  // Sort by priority and build hierarchy
+  return buildNavigationTree(navigation);
 }
+```
 
-export async function generateMetadata({ params }: PageProps) {
-  const { locale, slug } = await params;
-  const content = await getContentBySlug(slug.join('/'), locale);
+## Public Site Architecture
 
-  if (!content) {
+### Slug Resolution System
+
+```typescript
+// apps/web/app/[...slug]/page.tsx
+import { resolveSlug } from '@cms/core/slug';
+import { renderPage } from '@cms/plugins/pages/public';
+import { renderPost } from '@cms/plugins/blog/public';
+
+export default async function SlugPage({ params }: { params: { slug: string[] } }) {
+  const fullSlug = params.slug.join('/');
+  const resolved = await resolveSlug(fullSlug);
+
+  if (!resolved) {
     notFound();
   }
 
-  return {
-    title: content.seoTitle || content.title,
-    description: content.seoDescription,
-  };
-}
-
-export default async function SlugPage({ params }: PageProps) {
-  const { locale, slug } = await params;
-  const content = await getContentBySlug(slug.join('/'), locale);
-
-  if (!content) {
-    notFound();
-  }
-
-  // Render based on content type
-  switch (content.type) {
+  switch (resolved.entityType) {
     case 'page':
-      return <PageRenderer content={content} />;
+      return renderPage(resolved.entityId, resolved.locale);
     case 'post':
-      return <PostRenderer content={content} />;
-    case 'category':
-      return <CategoryRenderer content={content} />;
+      return renderPost(resolved.entityId, resolved.locale);
     default:
       notFound();
   }
@@ -441,142 +232,304 @@ export default async function SlugPage({ params }: PageProps) {
 ```
 
 ### Slug Resolution Service
+
 ```typescript
-// packages/core/src/slug/service.ts
-export async function getContentBySlug(
-  slug: string,
-  locale: string
-): Promise<Content | null> {
-  // Check pages first
-  const page = await prisma.page.findFirst({
+// packages/core/src/slug/resolver.ts
+export async function resolveSlug(fullSlug: string, locale?: string) {
+  // Remove language prefix if present
+  const { slug, detectedLocale } = parseSlugWithLocale(fullSlug, locale);
+
+  // Query database for slug
+  const slugRecord = await prisma.slug.findFirst({
     where: {
-      translations: {
-        some: {
-          locale,
-          slug: {
-            key: slug,
-            prefix: null, // Pages have no prefix
-          },
-        },
-      },
-      status: 'published',
-    },
-    include: {
-      translations: true,
-      author: true,
+      key: slug,
+      locale: detectedLocale,
+      isActive: true,
     },
   });
 
-  if (page) {
-    return {
-      type: 'page',
-      id: page.id,
-      title: page.name,
-      content: page.content,
-      // ... other fields
-    };
+  if (!slugRecord) {
+    return null;
   }
 
-  // Check posts (with 'blog' prefix)
-  const post = await prisma.post.findFirst({
-    where: {
-      translations: {
-        some: {
-          locale,
-          slug: {
-            key: slug,
-            prefix: 'blog',
-          },
-        },
-      },
-      status: 'published',
-    },
-    include: {
-      translations: true,
-      categories: true,
-      tags: true,
-      author: true,
-    },
-  });
-
-  if (post) {
-    return {
-      type: 'post',
-      id: post.id,
-      title: post.name,
-      content: post.content,
-      // ... other fields
-    };
-  }
-
-  // Check categories
-  const category = await prisma.category.findFirst({
-    where: {
-      translations: {
-        some: {
-          locale,
-          slug: {
-            key: slug,
-            prefix: null,
-          },
-        },
-      },
-      status: 'published',
-    },
-  });
-
-  if (category) {
-    return {
-      type: 'category',
-      id: category.id,
-      title: category.name,
-      // ... other fields
-    };
-  }
-
-  return null;
+  return {
+    entityType: slugRecord.entityType,
+    entityId: slugRecord.entityId,
+    locale: detectedLocale,
+    fullPath: slugRecord.fullPath,
+  };
 }
 ```
 
-## Environment Variables & Development Setup
+## Database Schema (Prisma)
 
-### Environment Configuration
-```bash
-# .env.local (apps/web)
-NEXT_PUBLIC_API_URL=http://localhost:3001/api/v1
-NEXT_PUBLIC_APP_URL=http://localhost:3000
-NEXT_PUBLIC_DEFAULT_LOCALE=en
+### Core Schema
 
-# .env (apps/api)
-DATABASE_URL="mysql://user:password@localhost:3306/cms_db"
-JWT_SECRET="your-jwt-secret"
-JWT_REFRESH_SECRET="your-refresh-secret"
-REDIS_URL="redis://localhost:6379"
+```prisma
+// packages/core/prisma/schema.prisma
+model User {
+  id        String   @id @default(cuid())
+  email     String   @unique
+  firstName String?
+  lastName  String?
+  username  String?  @unique
+  password  String
+  avatarId  String?
+  superUser Boolean  @default(false)
+  lastLogin DateTime?
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
 
-# SMTP Configuration
-SMTP_HOST=localhost
-SMTP_PORT=1025
-SMTP_USER=
-SMTP_PASS=
+  roles     UserRole[]
+  meta      UserMeta[]
+  auditLogs AuditHistory[]
 
-# Development
-NODE_ENV=development
-DEBUG=true
+  @@map("users")
+}
+
+model Role {
+  id          String   @id @default(cuid())
+  slug        String   @unique
+  name        String
+  permissions Json?
+  description String?
+  isDefault   Boolean  @default(false)
+  createdBy   String
+  updatedBy   String
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  users UserRole[]
+
+  @@map("roles")
+}
+
+model UserRole {
+  id     String @id @default(cuid())
+  userId String
+  roleId String
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+  role Role @relation(fields: [roleId], references: [id], onDelete: Cascade)
+
+  @@unique([userId, roleId])
+  @@map("role_users")
+}
+
+model Setting {
+  id    String @id @default(cuid())
+  key   String @unique
+  value String?
+
+  @@map("settings")
+}
+
+model AuditHistory {
+  id            String   @id @default(cuid())
+  userId        String
+  module        String
+  action        String
+  request       Json?
+  userAgent     String?
+  ipAddress     String?
+  referenceUser String
+  referenceId   String
+  referenceName String
+  type          String
+  createdAt     DateTime @default(now())
+
+  user User @relation(fields: [userId], references: [id])
+
+  @@map("audit_histories")
+}
+
+model Slug {
+  id           String  @id @default(cuid())
+  key          String
+  entityId     String
+  entityType   String
+  prefix       String?
+  fullPath     String
+  locale       String  @default("en")
+  isActive     Boolean @default(true)
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+
+  @@unique([key, locale])
+  @@index([entityType, entityId])
+  @@index([key, prefix])
+  @@map("slugs")
+}
+
+model Language {
+  id        String  @id @default(cuid())
+  name      String
+  locale    String  @unique
+  code      String
+  flag      String?
+  isDefault Boolean @default(false)
+  order     Int     @default(0)
+  isRTL     Boolean @default(false)
+
+  @@map("languages")
+}
 ```
 
-### Docker Compose Setup
+## API Architecture
+
+### Route Structure
+
+```typescript
+// apps/api/src/routes/index.ts
+import { Router } from 'express';
+import { authRoutes } from './auth';
+import { adminRoutes } from './admin';
+import { publicRoutes } from './public';
+
+const router = Router();
+
+// Public routes
+router.use('/auth', authRoutes);
+router.use('/public', publicRoutes);
+
+// Protected admin routes
+router.use('/admin', authenticate, authorize, adminRoutes);
+
+// Plugin routes
+registerPlugins(router);
+
+export { router };
+```
+
+### Authentication Middleware
+
+```typescript
+// packages/core/src/auth/middleware.ts
+export async function authenticate(req: Request, res: Response, next: NextFunction) {
+  try {
+    const accessToken = req.cookies.access_token;
+
+    if (!accessToken) {
+      return res.status(401).json({ error: 'No access token' });
+    }
+
+    const payload = verifyJWT(accessToken);
+    req.user = await getUserById(payload.userId);
+
+    next();
+  } catch (error) {
+    // Try refresh token
+    const refreshToken = req.cookies.refresh_token;
+
+    if (!refreshToken) {
+      return res.status(401).json({ error: 'No refresh token' });
+    }
+
+    const newTokens = await refreshAccessToken(refreshToken);
+
+    if (!newTokens) {
+      return res.status(401).json({ error: 'Invalid refresh token' });
+    }
+
+    setAuthCookies(res, newTokens);
+    req.user = newTokens.user;
+
+    next();
+  }
+}
+```
+
+### Permission Middleware
+
+```typescript
+// packages/core/src/rbac/middleware.ts
+export function authorize(permission: string) {
+  return (req: Request, res: Response, next: NextFunction) => {
+    if (!req.user) {
+      return res.status(401).json({ error: 'Not authenticated' });
+    }
+
+    if (!hasPermission(req.user, permission)) {
+      return res.status(403).json({ error: 'Insufficient permissions' });
+    }
+
+    next();
+  };
+}
+```
+
+## Environment Configuration
+
+### API Environment Variables
+
+```bash
+# apps/api/.env
+DATABASE_URL="mysql://user:pass@localhost:3306/cms"
+JWT_ACCESS_SECRET="your-access-secret"
+JWT_REFRESH_SECRET="your-refresh-secret"
+JWT_ACCESS_EXPIRES="15m"
+JWT_REFRESH_EXPIRES="7d"
+
+# Email
+SMTP_HOST="smtp.gmail.com"
+SMTP_PORT=587
+SMTP_USER="your-email@gmail.com"
+SMTP_PASS="your-app-password"
+
+# File Upload
+UPLOAD_PATH="/uploads"
+MAX_FILE_SIZE="10MB"
+
+# Redis (optional)
+REDIS_URL="redis://localhost:6379"
+```
+
+### Web Environment Variables
+
+```bash
+# apps/web/.env.local
+NEXT_PUBLIC_API_URL="http://localhost:3001/api/v1"
+NEXT_PUBLIC_SITE_URL="http://localhost:3000"
+
+# For production builds
+NEXT_PUBLIC_API_URL="https://api.yourcms.com/api/v1"
+NEXT_PUBLIC_SITE_URL="https://yourcms.com"
+```
+
+## Development Setup
+
+### Local Development
+
+```bash
+# Install dependencies
+pnpm install
+
+# Start database
+docker-compose up -d db
+
+# Run migrations
+cd apps/api && pnpm prisma migrate dev
+
+# Start API server
+cd apps/api && pnpm dev
+
+# Start web server (new terminal)
+cd apps/web && pnpm dev
+```
+
+### Docker Development
+
 ```yaml
 # docker-compose.yml
 version: '3.8'
-
 services:
   db:
     image: mysql:8.0
     environment:
-      MYSQL_ROOT_PASSWORD: root
-      MYSQL_DATABASE: cms_db
+      MYSQL_DATABASE: cms
       MYSQL_USER: cms
       MYSQL_PASSWORD: cms
+      MYSQL_ROOT_PASSWORD: root
     ports:
       - "3306:3306"
     volumes:
@@ -587,94 +540,42 @@ services:
     ports:
       - "6379:6379"
 
-  mailhog:
-    image: mailhog/mailhog:latest
-    ports:
-      - "1025:1025"  # SMTP server
-      - "8025:8025"  # Web interface
-
 volumes:
   mysql_data:
 ```
 
-### Development Scripts
+## Build & Deployment
+
+### Production Builds
+
 ```json
-// package.json (root)
+// package.json scripts
 {
-  "scripts": {
-    "dev": "turbo dev",
-    "build": "turbo build",
-    "start": "turbo start",
-    "db:migrate": "cd apps/api && prisma migrate dev",
-    "db:seed": "cd apps/api && prisma db seed",
-    "db:studio": "cd apps/api && prisma studio",
-    "clean": "turbo clean && rm -rf node_modules"
-  }
+  "build": "turbo run build",
+  "build:api": "cd apps/api && pnpm build",
+  "build:web": "cd apps/web && pnpm build",
+  "start": "turbo run start"
 }
 ```
 
-```json
-// apps/api/package.json
-{
-  "scripts": {
-    "dev": "tsx watch src/index.ts",
-    "build": "tsc",
-    "start": "node dist/index.js",
-    "db:migrate": "prisma migrate dev",
-    "db:push": "prisma db push",
-    "db:seed": "tsx prisma/seed.ts",
-    "db:studio": "prisma studio"
-  }
-}
+### Docker Production
+
+```dockerfile
+# apps/api/Dockerfile
+FROM node:18-alpine AS base
+WORKDIR /app
+COPY package*.json ./
+RUN npm ci --only=production
+
+FROM base AS build
+COPY . .
+RUN npm run build
+
+FROM base AS production
+COPY --from=build /app/dist ./dist
+EXPOSE 3001
+CMD ["npm", "start"]
 ```
 
-```json
-// apps/web/package.json
-{
-  "scripts": {
-    "dev": "next dev",
-    "build": "next build",
-    "start": "next start",
-    "lint": "next lint"
-  }
-}
-```
+This architecture provides a scalable, maintainable foundation for the CMS that closely matches Botble's plugin-based architecture while leveraging modern Next.js and Express.js patterns.
 
-### Turborepo Configuration
-```json
-// turbo.json
-{
-  "$schema": "https://turbo.build/schema.json",
-  "globalDependencies": ["**/.env.*local"],
-  "tasks": {
-    "build": {
-      "dependsOn": ["^build"],
-      "outputs": ["dist/**", ".next/**", "!.next/cache/**"]
-    },
-    "dev": {
-      "cache": false,
-      "persistent": true
-    },
-    "start": {
-      "dependsOn": ["build"]
-    },
-    "lint": {},
-    "test": {}
-  }
-}
-```
-
-### Workspace Configuration
-```yaml
-# pnpm-workspace.yaml
-packages:
-  - 'apps/*'
-  - 'packages/*'
-```
-
-This architecture provides:
-- **Scalable monorepo** with clear separation of concerns
-- **Plugin-based extensibility** matching Botble's architecture
-- **Type-safe** development with shared types and interfaces
-- **Modern tooling** with Turborepo, pnpm workspaces, and Docker
-- **Exact Botble parity** in functionality and UX patterns

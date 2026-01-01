@@ -1,185 +1,217 @@
 import { PrismaClient } from '@prisma/client';
-import { AuditLogCreateData, AUDIT_ACTIONS, AUDIT_MODULES } from '@cms/shared';
+import { AuditHistory, AuditLogData } from '../types';
 
 export class AuditService {
   constructor(private prisma: PrismaClient) {}
 
-  async log(data: AuditLogCreateData): Promise<void> {
-    try {
-      await this.prisma.auditHistory.create({
-        data: {
-          userId: data.userId,
-          module: data.module,
-          action: data.action,
-          referenceUser: data.referenceUser,
-          referenceId: data.referenceId,
-          referenceName: data.referenceName,
-          request: data.request,
-          userAgent: data.userAgent,
-          ipAddress: data.ipAddress,
-          type: data.type,
-        },
-      });
-    } catch (error) {
-      // Log audit failure but don't throw to avoid breaking main flow
-      console.error('Failed to create audit log:', error);
-    }
+  async log(data: AuditLogData & { userId: string; ipAddress?: string; userAgent?: string }): Promise<void> {
+    await this.prisma.auditHistory.create({
+      data: {
+        userId: data.userId,
+        module: data.module,
+        action: data.action,
+        request: data.request,
+        userAgent: data.userAgent,
+        ipAddress: data.ipAddress,
+        referenceUser: data.referenceUser,
+        referenceId: data.referenceId,
+        referenceName: data.referenceName,
+        type: data.type,
+      },
+    });
   }
 
-  async logAction(
-    userId: number,
-    module: string,
-    action: string,
-    referenceId: number,
-    referenceName: string,
-    request?: any,
-    userAgent?: string,
-    ipAddress?: string,
-    referenceUser?: number
-  ): Promise<void> {
+  async getLogs(options: {
+    userId?: string;
+    module?: string;
+    action?: string;
+    referenceId?: string;
+    type?: string;
+    limit?: number;
+    offset?: number;
+    startDate?: Date;
+    endDate?: Date;
+  } = {}): Promise<AuditHistory[]> {
+    const where: any = {};
+
+    if (options.userId) where.userId = options.userId;
+    if (options.module) where.module = options.module;
+    if (options.action) where.action = options.action;
+    if (options.referenceId) where.referenceId = options.referenceId;
+    if (options.type) where.type = options.type;
+
+    if (options.startDate || options.endDate) {
+      where.createdAt = {};
+      if (options.startDate) where.createdAt.gte = options.startDate;
+      if (options.endDate) where.createdAt.lte = options.endDate;
+    }
+
+    const logs = await this.prisma.auditHistory.findMany({
+      where,
+      include: {
+        user: {
+          select: {
+            id: true,
+            email: true,
+            firstName: true,
+            lastName: true,
+            username: true,
+          },
+        },
+      },
+      orderBy: { createdAt: 'desc' },
+      take: options.limit || 50,
+      skip: options.offset || 0,
+    });
+
+    return logs.map(log => ({
+      id: log.id,
+      userId: log.userId,
+      module: log.module,
+      action: log.action,
+      request: log.request,
+      userAgent: log.userAgent,
+      ipAddress: log.ipAddress,
+      referenceUser: log.referenceUser,
+      referenceId: log.referenceId,
+      referenceName: log.referenceName,
+      type: log.type,
+      createdAt: log.createdAt,
+    }));
+  }
+
+  async getLogById(id: string): Promise<AuditHistory | null> {
+    const log = await this.prisma.auditHistory.findUnique({
+      where: { id },
+      include: {
+        user: {
+          select: {
+            id: true,
+            email: true,
+            firstName: true,
+            lastName: true,
+            username: true,
+          },
+        },
+      },
+    });
+
+    if (!log) {
+      return null;
+    }
+
+    return {
+      id: log.id,
+      userId: log.userId,
+      module: log.module,
+      action: log.action,
+      request: log.request,
+      userAgent: log.userAgent,
+      ipAddress: log.ipAddress,
+      referenceUser: log.referenceUser,
+      referenceId: log.referenceId,
+      referenceName: log.referenceName,
+      type: log.type,
+      createdAt: log.createdAt,
+    };
+  }
+
+  async getLogsCount(options: {
+    userId?: string;
+    module?: string;
+    action?: string;
+    referenceId?: string;
+    type?: string;
+    startDate?: Date;
+    endDate?: Date;
+  } = {}): Promise<number> {
+    const where: any = {};
+
+    if (options.userId) where.userId = options.userId;
+    if (options.module) where.module = options.module;
+    if (options.action) where.action = options.action;
+    if (options.referenceId) where.referenceId = options.referenceId;
+    if (options.type) where.type = options.type;
+
+    if (options.startDate || options.endDate) {
+      where.createdAt = {};
+      if (options.startDate) where.createdAt.gte = options.startDate;
+      if (options.endDate) where.createdAt.lte = options.endDate;
+    }
+
+    return this.prisma.auditHistory.count({ where });
+  }
+
+  async deleteLogs(options: {
+    userId?: string;
+    module?: string;
+    action?: string;
+    referenceId?: string;
+    type?: string;
+    olderThan?: Date;
+  } = {}): Promise<number> {
+    const where: any = {};
+
+    if (options.userId) where.userId = options.userId;
+    if (options.module) where.module = options.module;
+    if (options.action) where.action = options.action;
+    if (options.referenceId) where.referenceId = options.referenceId;
+    if (options.type) where.type = options.type;
+
+    if (options.olderThan) {
+      where.createdAt = {
+        lt: options.olderThan,
+      };
+    }
+
+    const result = await this.prisma.auditHistory.deleteMany({ where });
+    return result.count;
+  }
+
+  // Helper methods for common audit actions
+  async logUserAction(userId: string, action: string, referenceId: string, referenceName: string, request?: any, ipAddress?: string, userAgent?: string): Promise<void> {
+    await this.log({
+      userId,
+      module: 'users',
+      action,
+      referenceUser: userId,
+      referenceId,
+      referenceName,
+      type: 'user',
+      request,
+      ipAddress,
+      userAgent,
+    });
+  }
+
+  async logContentAction(userId: string, module: string, action: string, referenceId: string, referenceName: string, request?: any, ipAddress?: string, userAgent?: string): Promise<void> {
     await this.log({
       userId,
       module,
       action,
-      referenceUser: referenceUser || userId,
+      referenceUser: userId,
       referenceId,
       referenceName,
-      request: request ? JSON.stringify(request) : undefined,
-      userAgent,
+      type: 'content',
+      request,
       ipAddress,
-      type: 'admin',
+      userAgent,
     });
   }
 
-  async logCreate(
-    userId: number,
-    module: string,
-    referenceId: number,
-    referenceName: string,
-    request?: any,
-    userAgent?: string,
-    ipAddress?: string
-  ): Promise<void> {
-    await this.logAction(
+  async logSystemAction(userId: string, action: string, referenceName: string, request?: any, ipAddress?: string, userAgent?: string): Promise<void> {
+    await this.log({
       userId,
-      module,
-      AUDIT_ACTIONS.CREATE,
-      referenceId,
+      module: 'system',
+      action,
+      referenceUser: userId,
+      referenceId: 'system',
       referenceName,
+      type: 'system',
       request,
+      ipAddress,
       userAgent,
-      ipAddress
-    );
-  }
-
-  async logUpdate(
-    userId: number,
-    module: string,
-    referenceId: number,
-    referenceName: string,
-    request?: any,
-    userAgent?: string,
-    ipAddress?: string
-  ): Promise<void> {
-    await this.logAction(
-      userId,
-      module,
-      AUDIT_ACTIONS.UPDATE,
-      referenceId,
-      referenceName,
-      request,
-      userAgent,
-      ipAddress
-    );
-  }
-
-  async logDelete(
-    userId: number,
-    module: string,
-    referenceId: number,
-    referenceName: string,
-    userAgent?: string,
-    ipAddress?: string
-  ): Promise<void> {
-    await this.logAction(
-      userId,
-      module,
-      AUDIT_ACTIONS.DELETE,
-      referenceId,
-      referenceName,
-      undefined,
-      userAgent,
-      ipAddress
-    );
-  }
-
-  async logPublish(
-    userId: number,
-    module: string,
-    referenceId: number,
-    referenceName: string,
-    userAgent?: string,
-    ipAddress?: string
-  ): Promise<void> {
-    await this.logAction(
-      userId,
-      module,
-      AUDIT_ACTIONS.PUBLISH,
-      referenceId,
-      referenceName,
-      undefined,
-      userAgent,
-      ipAddress
-    );
-  }
-
-  async logLogin(
-    userId: number,
-    userAgent?: string,
-    ipAddress?: string
-  ): Promise<void> {
-    const user = await this.prisma.user.findUnique({
-      where: { id: userId },
-      select: { firstName: true, lastName: true, email: true },
     });
-
-    if (user) {
-      const referenceName = `${user.firstName} ${user.lastName}`.trim() || user.email;
-      await this.logAction(
-        userId,
-        AUDIT_MODULES.USERS,
-        AUDIT_ACTIONS.LOGIN,
-        userId,
-        referenceName,
-        undefined,
-        userAgent,
-        ipAddress
-      );
-    }
-  }
-
-  async logLogout(
-    userId: number,
-    userAgent?: string,
-    ipAddress?: string
-  ): Promise<void> {
-    const user = await this.prisma.user.findUnique({
-      where: { id: userId },
-      select: { firstName: true, lastName: true, email: true },
-    });
-
-    if (user) {
-      const referenceName = `${user.firstName} ${user.lastName}`.trim() || user.email;
-      await this.logAction(
-        userId,
-        AUDIT_MODULES.USERS,
-        'logout',
-        userId,
-        referenceName,
-        undefined,
-        userAgent,
-        ipAddress
-      );
-    }
   }
 }
+

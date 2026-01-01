@@ -1,31 +1,22 @@
-// Authentication
-export { AuthService } from './auth/service';
-export { JWTService } from './auth/jwt';
-export { PasswordService } from './auth/password';
+// Core package exports
+export * from './types';
 
-// RBAC
+// Auth exports
+export { AuthService } from './auth/service';
+export { generateTokens, verifyAccessToken, verifyRefreshToken, refreshAccessToken } from './auth/jwt';
+
+// RBAC exports
 export { RBACService } from './rbac/service';
 
-// Settings
+// Settings exports
 export { SettingsService } from './settings/service';
 
-// Audit
+// Audit exports
 export { AuditService } from './audit/service';
 
-// Slug
+// Slug exports
 export { SlugService } from './slug/service';
 
-// Locale
-export { LocaleService } from './locale/service';
+// Locales exports
+export { LocalesService } from './locales/service';
 
-// Plugins
-export { PluginService } from './services/pluginService';
-
-// Middleware
-export { AuthMiddleware } from './middleware/auth';
-
-// Database client (re-export Prisma)
-export { PrismaClient } from '@prisma/client';
-
-// Types
-export * from '@cms/shared';

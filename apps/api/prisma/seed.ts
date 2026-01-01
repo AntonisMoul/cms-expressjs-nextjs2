@@ -4,188 +4,318 @@ import bcrypt from 'bcryptjs';
 const prisma = new PrismaClient();
 
 async function main() {
-  console.log('🌱 Seeding database...');
+  console.log('🌱 Starting database seeding...');
 
   // Create default roles
-  const adminRole = await prisma.role.upsert({
-    where: { name: 'Administrator' },
+  const superAdminRole = await prisma.role.upsert({
+    where: { slug: 'super-admin' },
     update: {},
     create: {
+      slug: 'super-admin',
+      name: 'Super Administrator',
+      permissions: {
+        '*': true, // All permissions
+      },
+      description: 'Full system access',
+      isDefault: false,
+      createdBy: 'system',
+      updatedBy: 'system',
+    },
+  });
+
+  const adminRole = await prisma.role.upsert({
+    where: { slug: 'admin' },
+    update: {},
+    create: {
+      slug: 'admin',
       name: 'Administrator',
-      slug: 'administrator',
-      description: 'Full system access'
-    }
+      permissions: {
+        'users.*': true,
+        'pages.*': true,
+        'blog.*': true,
+        'media.*': true,
+        'menu.*': true,
+        'widget.*': true,
+        'settings.*': true,
+      },
+      description: 'Administrative access',
+      isDefault: false,
+      createdBy: 'system',
+      updatedBy: 'system',
+    },
   });
 
   const editorRole = await prisma.role.upsert({
-    where: { name: 'Editor' },
+    where: { slug: 'editor' },
     update: {},
     create: {
-      name: 'Editor',
       slug: 'editor',
-      description: 'Content management access'
-    }
+      name: 'Editor',
+      permissions: {
+        'pages.*': true,
+        'blog.*': true,
+        'media.upload': true,
+        'media.view': true,
+      },
+      description: 'Content editing access',
+      isDefault: true,
+      createdBy: 'system',
+      updatedBy: 'system',
+    },
   });
 
-  console.log('✅ Created roles');
+  console.log('✅ Roles created');
 
   // Create admin user
-  const hashedPassword = await bcrypt.hash('admin123', 10);
+  const hashedPassword = await bcrypt.hash(process.env.ADMIN_PASSWORD || 'admin123', 12);
 
   const adminUser = await prisma.user.upsert({
-    where: { email: 'admin@example.com' },
+    where: { email: process.env.ADMIN_EMAIL || 'admin@example.com' },
     update: {},
     create: {
-      email: 'admin@example.com',
+      email: process.env.ADMIN_EMAIL || 'admin@example.com',
       password: hashedPassword,
-      first_name: 'Admin',
-      last_name: 'User',
-      is_active: true,
-      email_verified_at: new Date()
-    }
+      firstName: 'Admin',
+      lastName: 'User',
+      username: 'admin',
+      superUser: true,
+    },
   });
 
-  // Assign admin role to admin user
+  // Assign super admin role to admin user
   await prisma.userRole.upsert({
     where: {
-      user_id_role_id: {
-        user_id: adminUser.id,
-        role_id: adminRole.id
-      }
+      userId_roleId: {
+        userId: adminUser.id,
+        roleId: superAdminRole.id,
+      },
     },
     update: {},
     create: {
-      user_id: adminUser.id,
-      role_id: adminRole.id
-    }
+      userId: adminUser.id,
+      roleId: superAdminRole.id,
+    },
   });
 
-  console.log('✅ Created admin user');
+  console.log('✅ Admin user created');
+
+  // Create default languages
+  const english = await prisma.language.upsert({
+    where: { locale: 'en' },
+    update: {},
+    create: {
+      name: 'English',
+      locale: 'en',
+      code: 'en',
+      flag: '🇺🇸',
+      isDefault: true,
+      order: 1,
+      isRTL: false,
+    },
+  });
+
+  const greek = await prisma.language.upsert({
+    where: { locale: 'el' },
+    update: {},
+    create: {
+      name: 'Ελληνικά',
+      locale: 'el',
+      code: 'el',
+      flag: '🇬🇷',
+      isDefault: false,
+      order: 2,
+      isRTL: false,
+    },
+  });
+
+  console.log('✅ Languages created');
 
   // Create default settings
-  const defaultSettings = [
+  const settings = [
     { key: 'site_name', value: 'My CMS Site' },
-    { key: 'site_description', value: 'A modern CMS built with Next.js' },
-    { key: 'site_url', value: 'http://localhost:3000' },
-    { key: 'admin_email', value: 'admin@example.com' },
-    { key: 'default_language', value: 'en' },
-    { key: 'timezone', value: 'UTC' },
-    { key: 'maintenance_mode', value: 'false' }
+    { key: 'site_description', value: 'A modern CMS built with Next.js and Express.js' },
+    { key: 'site_url', value: process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:3000' },
+    { key: 'default_locale', value: 'en' },
+    { key: 'timezone', value: 'Europe/Athens' },
+    { key: 'date_format', value: 'd/m/Y' },
+    { key: 'time_format', value: 'H:i' },
+    { key: 'maintenance_mode', value: 'false' },
+    { key: 'media_driver', value: 'local' },
   ];
 
-  for (const setting of defaultSettings) {
+  for (const setting of settings) {
     await prisma.setting.upsert({
       where: { key: setting.key },
       update: { value: setting.value },
-      create: { key: setting.key, value: setting.value }
+      create: setting,
     });
   }
 
-  console.log('✅ Created default settings');
+  console.log('✅ Default settings created');
 
-  // Create default languages
-  const languages = [
-    { code: 'en', name: 'English', native_name: 'English', flag: '🇺🇸', is_default: true },
-    { code: 'el', name: 'Greek', native_name: 'Ελληνικά', flag: '🇬🇷', is_default: false }
-  ];
-
-  for (const lang of languages) {
-    await prisma.language.upsert({
-      where: { code: lang.code },
-      update: lang,
-      create: lang
-    });
-  }
-
-  console.log('✅ Created default languages');
-
-  // Create sample pages
-  const homePage = await prisma.page.upsert({
-    where: { slug: 'home' },
-    update: {},
-    create: {
-      title: 'Welcome to Our Site',
-      slug: 'home',
-      content: '<h1>Welcome!</h1><p>This is the homepage of our CMS site.</p>',
-      status: 'published',
-      is_homepage: true,
-      meta_title: 'Home - My CMS Site',
-      meta_description: 'Welcome to our modern CMS website'
-    }
-  });
-
-  const aboutPage = await prisma.page.upsert({
-    where: { slug: 'about' },
-    update: {},
-    create: {
-      title: 'About Us',
-      slug: 'about',
-      content: '<h1>About Us</h1><p>Learn more about our organization.</p>',
-      status: 'published',
-      meta_title: 'About Us - My CMS Site',
-      meta_description: 'Learn more about our organization and mission'
-    }
-  });
-
-  console.log('✅ Created sample pages');
-
-  // Create sample categories and posts
+  // Create sample categories
   const newsCategory = await prisma.category.upsert({
-    where: { slug: 'news' },
+    where: { name: 'News' },
     update: {},
     create: {
       name: 'News',
-      slug: 'news',
-      description: 'Latest news and updates'
-    }
+      description: 'Latest news and announcements',
+      status: 'published',
+      authorId: adminUser.id,
+      authorType: 'User',
+      order: 1,
+      isFeatured: true,
+      isDefault: true,
+    },
   });
 
-  const samplePost = await prisma.post.upsert({
-    where: { slug: 'welcome-post' },
+  const tutorialsCategory = await prisma.category.upsert({
+    where: { name: 'Tutorials' },
     update: {},
     create: {
-      title: 'Welcome to Our Blog',
-      slug: 'welcome-post',
-      excerpt: 'This is our first blog post welcoming you to our site.',
-      content: '<h1>Welcome!</h1><p>This is our first blog post. We hope you enjoy our content!</p>',
+      name: 'Tutorials',
+      description: 'How-to guides and tutorials',
       status: 'published',
-      author_id: adminUser.id,
-      meta_title: 'Welcome to Our Blog',
-      meta_description: 'Our first blog post welcoming you to our site'
-    }
+      authorId: adminUser.id,
+      authorType: 'User',
+      order: 2,
+      isFeatured: true,
+      isDefault: false,
+    },
   });
 
-  // Link post to category
+  console.log('✅ Sample categories created');
+
+  // Create sample tags
+  const sampleTags = ['cms', 'nextjs', 'react', 'typescript', 'tutorial'];
+
+  for (const tagName of sampleTags) {
+    await prisma.tag.upsert({
+      where: { name: tagName },
+      update: {},
+      create: {
+        name: tagName,
+        description: `Content related to ${tagName}`,
+        status: 'published',
+        authorId: adminUser.id,
+        authorType: 'User',
+      },
+    });
+  }
+
+  console.log('✅ Sample tags created');
+
+  // Create sample page
+  const welcomePage = await prisma.page.upsert({
+    where: { name: 'Welcome' },
+    update: {},
+    create: {
+      name: 'Welcome',
+      content: `<h1>Welcome to Our CMS</h1>
+<p>This is a sample page created during the database seeding process.</p>
+<h2>Features</h2>
+<ul>
+<li>Modern Next.js 16 frontend</li>
+<li>Express.js API backend</li>
+<li>MySQL database with Prisma ORM</li>
+<li>Plugin-based architecture</li>
+<li>Multi-language support</li>
+<li>Role-based access control</li>
+</ul>
+<p>You can edit this page through the admin panel.</p>`,
+      status: 'published',
+      userId: adminUser.id,
+    },
+  });
+
+  console.log('✅ Sample page created');
+
+  // Create sample post
+  const samplePost = await prisma.post.upsert({
+    where: { name: 'Getting Started with Our CMS' },
+    update: {},
+    create: {
+      name: 'Getting Started with Our CMS',
+      description: 'A comprehensive guide to using our modern CMS platform',
+      content: `<h1>Getting Started with Our CMS</h1>
+<p>Welcome to our modern CMS built with Next.js and Express.js!</p>
+
+<h2>What is a CMS?</h2>
+<p>A Content Management System (CMS) allows you to create, manage, and publish digital content without needing advanced technical skills.</p>
+
+<h2>Key Features</h2>
+<ul>
+<li><strong>Pages:</strong> Create static pages for your website</li>
+<li><strong>Blog:</strong> Write and publish blog posts with categories and tags</li>
+<li><strong>Media:</strong> Upload and manage images, videos, and documents</li>
+<li><strong>Menus:</strong> Create navigation menus with drag-and-drop</li>
+<li><strong>Widgets:</strong> Add dynamic content to sidebars</li>
+<li><strong>Users:</strong> Manage users and permissions</li>
+</ul>
+
+<h2>Next Steps</h2>
+<p>Now that you've set up the CMS, you can:</p>
+<ol>
+<li>Log in to the admin panel</li>
+<li>Create your first page</li>
+<li>Write a blog post</li>
+<li>Customize your menu</li>
+<li>Upload media files</li>
+</ol>
+
+<p>Happy content creating! 🎉</p>`,
+      status: 'published',
+      authorId: adminUser.id,
+      authorType: 'User',
+      isFeatured: true,
+    },
+  });
+
+  // Add post to categories and tags
   await prisma.postCategory.upsert({
     where: {
-      post_id_category_id: {
-        post_id: samplePost.id,
-        category_id: newsCategory.id
-      }
+      postId_categoryId: {
+        postId: samplePost.id,
+        categoryId: tutorialsCategory.id,
+      },
     },
     update: {},
     create: {
-      post_id: samplePost.id,
-      category_id: newsCategory.id
-    }
+      postId: samplePost.id,
+      categoryId: tutorialsCategory.id,
+    },
   });
 
-  console.log('✅ Created sample blog content');
+  await prisma.postTag.upsert({
+    where: {
+      postId_tagId: {
+        postId: samplePost.id,
+        tagId: (await prisma.tag.findFirst({ where: { name: 'cms' } }))!.id,
+      },
+    },
+    update: {},
+    create: {
+      postId: samplePost.id,
+      tagId: (await prisma.tag.findFirst({ where: { name: 'cms' } }))!.id,
+    },
+  });
 
-  console.log('🎉 Database seeded successfully!');
-  console.log('');
-  console.log('Default login credentials:');
-  console.log('Email: admin@example.com');
-  console.log('Password: admin123');
-  console.log('');
-  console.log('Admin panel: http://localhost:3000/admin');
+  console.log('✅ Sample post created');
+
+  console.log('🎉 Database seeding completed successfully!');
+  console.log('\n📋 Next steps:');
+  console.log('1. Start the API server: pnpm dev:api');
+  console.log('2. Start the web app: pnpm dev:web');
+  console.log('3. Visit admin panel: http://localhost:3000/admin');
+  console.log(`4. Login with: ${process.env.ADMIN_EMAIL || 'admin@example.com'} / ${process.env.ADMIN_PASSWORD || 'admin123'}`);
 }
 
 main()
   .catch((e) => {
-    console.error('❌ Error seeding database:', e);
+    console.error('❌ Error during seeding:', e);
     process.exit(1);
   })
   .finally(async () => {
     await prisma.$disconnect();
   });
+
