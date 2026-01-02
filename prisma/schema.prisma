@@ -1,0 +1,557 @@
+// Prisma Schema for CMS
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+// ============================================
+// Core Tables
+// ============================================
+
+model User {
+  id           Int       @id @default(autoincrement())
+  firstName    String?   @map("first_name")
+  lastName     String?   @map("last_name")
+  username     String?   @unique
+  email        String    @unique
+  password     String?
+  avatarId     Int?      @map("avatar_id")
+  superUser    Boolean   @default(false) @map("super_user")
+  manageSupers Boolean   @default(false) @map("manage_supers")
+  permissions  String?   @db.Text
+  lastLogin    DateTime? @map("last_login")
+  createdAt    DateTime  @default(now()) @map("created_at")
+  updatedAt    DateTime  @updatedAt @map("updated_at")
+
+  roles        RoleUser[]
+  meta         UserMeta[]
+  auditLogs    AuditHistory[] @relation("UserAuditLogs")
+  pages        Page[]
+  posts        Post[]         @relation("PostAuthor")
+  categories   Category[]     @relation("CategoryAuthor")
+  tags         Tag[]          @relation("TagAuthor")
+  mediaFolders MediaFolder[]  @relation("MediaFolderUser")
+  mediaFiles   MediaFile[]    @relation("MediaFileUser")
+
+  @@map("users")
+}
+
+model Role {
+  id          Int       @id @default(autoincrement())
+  slug        String    @unique
+  name        String
+  permissions String?   @db.Text
+  description String?   @db.VarChar(400)
+  isDefault   Boolean   @default(false) @map("is_default")
+  createdBy   Int       @map("created_by")
+  updatedBy   Int       @map("updated_by")
+  createdAt   DateTime  @default(now()) @map("created_at")
+  updatedAt   DateTime  @updatedAt @map("updated_at")
+
+  users       RoleUser[]
+
+  @@map("roles")
+}
+
+model RoleUser {
+  id        Int      @id @default(autoincrement())
+  userId    Int      @map("user_id")
+  roleId    Int      @map("role_id")
+  createdAt DateTime @default(now()) @map("created_at")
+  updatedAt DateTime @updatedAt @map("updated_at")
+
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  role      Role     @relation(fields: [roleId], references: [id], onDelete: Cascade)
+
+  @@unique([userId, roleId])
+  @@map("role_users")
+}
+
+model UserMeta {
+  id        Int      @id @default(autoincrement())
+  key       String?  @db.VarChar(120)
+  value     String?  @db.Text
+  userId    Int      @map("user_id")
+  createdAt DateTime @default(now()) @map("created_at")
+  updatedAt DateTime @updatedAt @map("updated_at")
+
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@map("user_meta")
+}
+
+model Setting {
+  id        Int      @id @default(autoincrement())
+  key       String   @unique
+  value     String?  @db.Text
+  createdAt DateTime @default(now()) @map("created_at")
+  updatedAt DateTime @updatedAt @map("updated_at")
+
+  @@map("settings")
+}
+
+// ============================================
+// Slug System
+// ============================================
+
+model Slug {
+  id            Int       @id @default(autoincrement())
+  key           String    @db.VarChar(191)
+  referenceId   Int       @map("reference_id")
+  referenceType String    @map("reference_type") @db.VarChar(191)
+  prefix        String    @default("") @db.VarChar(120)
+  locale        String?   @db.VarChar(20)
+  isActive      Boolean   @default(true) @map("is_active")
+  createdAt     DateTime  @default(now()) @map("created_at")
+  updatedAt     DateTime  @updatedAt @map("updated_at")
+
+  translations  SlugTranslation[]
+
+  @@index([referenceId])
+  @@index([key])
+  @@index([prefix])
+  @@index([key, prefix])
+  @@index([referenceType, referenceId])
+  @@map("slugs")
+}
+
+model SlugTranslation {
+  langCode String
+  slugsId  Int      @map("slugs_id")
+  key      String?  @db.VarChar(191)
+  prefix  String?  @default("") @db.VarChar(120)
+
+  slug     Slug     @relation(fields: [slugsId], references: [id], onDelete: Cascade)
+
+  @@id([langCode, slugsId])
+  @@map("slugs_translations")
+}
+
+// ============================================
+// Languages & Translations
+// ============================================
+
+model Language {
+  id            Int      @id @default(autoincrement())
+  langName      String   @map("lang_name")
+  langCode      String   @unique @map("lang_code") @db.VarChar(20)
+  langFlag      String?  @map("lang_flag") @db.VarChar(20)
+  langIsDefault Boolean  @default(false) @map("lang_is_default")
+  langIsRtl     Boolean  @default(false) @map("lang_is_rtl")
+  langOrder     Int      @default(0) @map("lang_order")
+  createdAt     DateTime @default(now()) @map("created_at")
+  updatedAt     DateTime @updatedAt @map("updated_at")
+
+  @@map("languages")
+}
+
+// ============================================
+// Queue System
+// ============================================
+
+model Job {
+  id          BigInt    @id @default(autoincrement())
+  queue       String    @default("default") @db.VarChar(191)
+  name        String    @db.VarChar(191)
+  payloadJson String    @map("payload_json") @db.Text
+  status      JobStatus @default(QUEUED)
+  priority    Int       @default(0)
+  runAt       DateTime  @default(now()) @map("run_at")
+  attempts    Int       @default(0)
+  maxAttempts Int       @default(3) @map("max_attempts")
+  lastError   String?   @map("last_error") @db.Text
+  lockedAt    DateTime? @map("locked_at")
+  lockedBy    String?   @map("locked_by") @db.VarChar(191)
+  createdAt   DateTime  @default(now()) @map("created_at")
+  updatedAt   DateTime  @updatedAt @map("updated_at")
+
+  @@index([status, runAt, priority])
+  @@index([queue, status, runAt])
+  @@map("jobs")
+}
+
+enum JobStatus {
+  QUEUED
+  PROCESSING
+  COMPLETED
+  FAILED
+}
+
+model FailedJob {
+  id         BigInt   @id @default(autoincrement())
+  uuid       String   @unique
+  connection String   @db.VarChar(191)
+  queue      String   @db.VarChar(191)
+  payload    String   @db.Text
+  exception  String   @db.Text
+  failedAt   DateTime @default(now()) @map("failed_at")
+
+  @@map("failed_jobs")
+}
+
+// ============================================
+// Audit Log
+// ============================================
+
+model AuditHistory {
+  id            Int       @id @default(autoincrement())
+  userId        Int       @map("user_id")
+  module        String?   @db.VarChar(60)
+  request       String?   @db.Text
+  action        String?   @db.VarChar(120)
+  userAgent     String?   @map("user_agent") @db.Text
+  ipAddress     String?   @map("ip_address") @db.VarChar(45)
+  referenceUser Int?      @map("reference_user")
+  referenceId   BigInt?   @map("reference_id")
+  referenceName String?   @map("reference_name") @db.VarChar(255)
+  type          String?   @db.VarChar(20)
+  createdAt     DateTime  @default(now()) @map("created_at")
+  updatedAt     DateTime  @updatedAt @map("updated_at")
+
+  user          User      @relation("UserAuditLogs", fields: [userId], references: [id])
+
+  @@index([userId])
+  @@index([module])
+  @@index([createdAt])
+  @@map("audit_histories")
+}
+
+// ============================================
+// Pages Plugin
+// ============================================
+
+model Page {
+  id                Int       @id @default(autoincrement())
+  name              String    @db.VarChar(120)
+  content           String?   @db.Text
+  userId            Int?      @map("user_id")
+  image             String?   @db.VarChar(191)
+  template          String?   @db.VarChar(60)
+  description       String?   @db.VarChar(400)
+  status            String    @default("published") @db.VarChar(60)
+  translationGroupId String?   @unique @map("translation_group_id") @db.VarChar(36) // UUID for linking translations
+  createdAt         DateTime  @default(now()) @map("created_at")
+  updatedAt         DateTime  @updatedAt @map("updated_at")
+
+  user              User?     @relation(fields: [userId], references: [id])
+  translations      PageTranslation[]
+
+  @@index([userId])
+  @@index([status])
+  @@index([translationGroupId])
+  @@map("pages")
+}
+
+model PageTranslation {
+  langCode  String   @map("lang_code") @db.VarChar(20)
+  pagesId   Int      @map("pages_id")
+  name      String?  @db.VarChar(191)
+  description String? @db.VarChar(400)
+  content   String?  @db.Text
+
+  page      Page     @relation(fields: [pagesId], references: [id], onDelete: Cascade)
+
+  @@id([langCode, pagesId])
+  @@map("pages_translations")
+}
+
+// ============================================
+// Meta Boxes (for SEO, Gallery, etc.)
+// ============================================
+
+model MetaBox {
+  id            Int       @id @default(autoincrement())
+  referenceId   Int       @map("reference_id")
+  referenceType String    @map("reference_type") @db.VarChar(191)
+  metaKey       String    @map("meta_key") @db.VarChar(191)
+  metaValue     String?   @map("meta_value") @db.Text
+  createdAt     DateTime  @default(now()) @map("created_at")
+  updatedAt     DateTime  @updatedAt @map("updated_at")
+
+  @@index([referenceId])
+  @@index([referenceType, referenceId])
+  @@index([metaKey])
+  @@map("meta_boxes")
+}
+
+// ============================================
+// Blog Plugin
+// ============================================
+
+model Post {
+  id                Int       @id @default(autoincrement())
+  name              String
+  description       String?   @db.VarChar(400)
+  content           String?   @db.Text
+  status            String    @default("published") @db.VarChar(60)
+  authorId          Int       @map("author_id")
+  authorType        String    @default("User") @map("author_type") @db.VarChar(191)
+  isFeatured        Boolean   @default(false) @map("is_featured")
+  image             String?   @db.VarChar(191)
+  views             Int       @default(0)
+  formatType        String?   @map("format_type") @db.VarChar(30)
+  translationGroupId String?   @unique @map("translation_group_id") @db.VarChar(36)
+  createdAt         DateTime  @default(now()) @map("created_at")
+  updatedAt         DateTime  @updatedAt @map("updated_at")
+
+  author            User      @relation("PostAuthor", fields: [authorId], references: [id])
+  translations      PostTranslation[]
+  categories        PostCategory[]
+  tags              PostTag[]
+
+  @@index([authorId])
+  @@index([status])
+  @@index([createdAt])
+  @@index([translationGroupId])
+  @@map("posts")
+}
+
+model PostTranslation {
+  langCode  String   @map("lang_code") @db.VarChar(20)
+  postsId   Int      @map("posts_id")
+  name      String?  @db.VarChar(191)
+  description String? @db.VarChar(400)
+  content   String?  @db.Text
+
+  post      Post     @relation(fields: [postsId], references: [id], onDelete: Cascade)
+
+  @@id([langCode, postsId])
+  @@index([postsId])
+  @@map("posts_translations")
+}
+
+model Category {
+  id                Int       @id @default(autoincrement())
+  name              String    @db.VarChar(120)
+  parentId           Int       @default(0) @map("parent_id")
+  description       String?   @db.VarChar(400)
+  status            String    @default("published") @db.VarChar(60)
+  authorId          Int       @map("author_id")
+  authorType        String    @default("User") @map("author_type") @db.VarChar(191)
+  icon              String?   @db.VarChar(60)
+  order             Int       @default(0) @db.TinyInt
+  isFeatured        Boolean   @default(false) @map("is_featured")
+  isDefault         Boolean   @default(false) @map("is_default")
+  translationGroupId String?   @unique @map("translation_group_id") @db.VarChar(36)
+  createdAt         DateTime  @default(now()) @map("created_at")
+  updatedAt         DateTime  @updatedAt @map("updated_at")
+
+  author            User      @relation("CategoryAuthor", fields: [authorId], references: [id])
+  translations      CategoryTranslation[]
+  posts             PostCategory[]
+
+  @@index([parentId])
+  @@index([status])
+  @@index([order])
+  @@index([translationGroupId])
+  @@map("categories")
+}
+
+model CategoryTranslation {
+  langCode  String   @map("lang_code") @db.VarChar(20)
+  categoriesId Int   @map("categories_id")
+  name      String?  @db.VarChar(191)
+  description String? @db.VarChar(400)
+
+  category  Category @relation(fields: [categoriesId], references: [id], onDelete: Cascade)
+
+  @@id([langCode, categoriesId])
+  @@index([categoriesId])
+  @@map("categories_translations")
+}
+
+model Tag {
+  id                Int       @id @default(autoincrement())
+  name              String    @db.VarChar(120)
+  authorId          Int?      @map("author_id")
+  authorType        String    @default("User") @map("author_type") @db.VarChar(191)
+  description       String?   @db.VarChar(400)
+  status            String    @default("published") @db.VarChar(60)
+  translationGroupId String?   @unique @map("translation_group_id") @db.VarChar(36)
+  createdAt         DateTime  @default(now()) @map("created_at")
+  updatedAt         DateTime  @updatedAt @map("updated_at")
+
+  author            User?     @relation("TagAuthor", fields: [authorId], references: [id])
+  translations      TagTranslation[]
+  posts             PostTag[]
+
+  @@index([status])
+  @@index([translationGroupId])
+  @@map("tags")
+}
+
+model TagTranslation {
+  langCode  String   @map("lang_code") @db.VarChar(20)
+  tagsId    Int      @map("tags_id")
+  name      String?  @db.VarChar(191)
+  description String? @db.VarChar(400)
+
+  tag       Tag      @relation(fields: [tagsId], references: [id], onDelete: Cascade)
+
+  @@id([langCode, tagsId])
+  @@index([tagsId])
+  @@map("tags_translations")
+}
+
+model PostCategory {
+  categoryId Int     @map("category_id")
+  postId     Int     @map("post_id")
+
+  category   Category @relation(fields: [categoryId], references: [id], onDelete: Cascade)
+  post       Post     @relation(fields: [postId], references: [id], onDelete: Cascade)
+
+  @@id([categoryId, postId])
+  @@index([categoryId])
+  @@index([postId])
+  @@map("post_categories")
+}
+
+model PostTag {
+  tagId      Int     @map("tag_id")
+  postId     Int     @map("post_id")
+
+  tag        Tag     @relation(fields: [tagId], references: [id], onDelete: Cascade)
+  post       Post    @relation(fields: [postId], references: [id], onDelete: Cascade)
+
+  @@id([tagId, postId])
+  @@index([tagId])
+  @@index([postId])
+  @@map("post_tags")
+}
+
+// ============================================
+// Media Plugin
+// ============================================
+
+model MediaFolder {
+  id          Int       @id @default(autoincrement())
+  userId      Int       @map("user_id")
+  name        String?
+  slug        String?
+  parentId    Int       @default(0) @map("parent_id")
+  createdAt   DateTime  @default(now()) @map("created_at")
+  updatedAt   DateTime  @updatedAt @map("updated_at")
+  deletedAt   DateTime? @map("deleted_at")
+
+  user        User      @relation("MediaFolderUser", fields: [userId], references: [id])
+  files       MediaFile[]
+
+  @@index([userId])
+  @@index([parentId])
+  @@map("media_folders")
+}
+
+model MediaFile {
+  id          Int       @id @default(autoincrement())
+  userId      Int       @map("user_id")
+  name        String
+  folderId    Int       @default(0) @map("folder_id")
+  mimeType    String    @map("mime_type") @db.VarChar(120)
+  size        Int
+  url         String
+  options     String?   @db.Text // JSON
+  alt         String?
+  visibility  String?   @db.VarChar(20)
+  createdAt   DateTime  @default(now()) @map("created_at")
+  updatedAt   DateTime  @updatedAt @map("updated_at")
+  deletedAt   DateTime? @map("deleted_at")
+
+  user        User      @relation("MediaFileUser", fields: [userId], references: [id])
+  folder      MediaFolder? @relation(fields: [folderId], references: [id])
+
+  @@index([userId])
+  @@index([folderId])
+  @@map("media_files")
+}
+
+model MediaSetting {
+  id          Int       @id @default(autoincrement())
+  key         String    @db.VarChar(120)
+  value       String?   @db.Text
+  mediaId     Int?      @map("media_id")
+  userId      Int?      @map("user_id")
+  createdAt   DateTime  @default(now()) @map("created_at")
+  updatedAt   DateTime  @updatedAt @map("updated_at")
+
+  @@map("media_settings")
+}
+
+// ============================================
+// Menu Plugin
+// ============================================
+
+model Menu {
+  id          Int       @id @default(autoincrement())
+  name        String    @db.VarChar(120)
+  slug        String?   @unique @db.VarChar(120)
+  status      String    @default("published") @db.VarChar(60)
+  createdAt   DateTime  @default(now()) @map("created_at")
+  updatedAt   DateTime  @updatedAt @map("updated_at")
+
+  nodes       MenuNode[]
+  locations   MenuLocation[]
+
+  @@map("menus")
+}
+
+model MenuNode {
+  id            Int       @id @default(autoincrement())
+  menuId        Int       @map("menu_id")
+  parentId      Int       @default(0) @map("parent_id")
+  referenceId   Int?      @map("reference_id")
+  referenceType String?   @map("reference_type") @db.VarChar(191)
+  url           String?   @db.VarChar(120)
+  iconFont      String?   @map("icon_font") @db.VarChar(50)
+  position      Int       @default(0) @db.TinyInt
+  title         String?   @db.VarChar(120)
+  cssClass      String?   @map("css_class") @db.VarChar(120)
+  target        String    @default("_self") @db.VarChar(20)
+  hasChild      Boolean   @default(false) @map("has_child")
+  createdAt     DateTime  @default(now()) @map("created_at")
+  updatedAt     DateTime  @updatedAt @map("updated_at")
+
+  menu          Menu      @relation(fields: [menuId], references: [id], onDelete: Cascade)
+
+  @@index([menuId])
+  @@index([parentId])
+  @@index([referenceId])
+  @@index([referenceType])
+  @@map("menu_nodes")
+}
+
+model MenuLocation {
+  id          Int       @id @default(autoincrement())
+  menuId      Int       @map("menu_id")
+  location    String    @db.VarChar(120)
+  createdAt   DateTime  @default(now()) @map("created_at")
+  updatedAt   DateTime  @updatedAt @map("updated_at")
+
+  menu        Menu      @relation(fields: [menuId], references: [id], onDelete: Cascade)
+
+  @@index([menuId])
+  @@map("menu_locations")
+}
+
+// ============================================
+// Widget Plugin
+// ============================================
+
+model Widget {
+  id          Int       @id @default(autoincrement())
+  widgetId    String    @map("widget_id") @db.VarChar(120)
+  sidebarId   String    @map("sidebar_id") @db.VarChar(120)
+  theme       String    @db.VarChar(120)
+  position    Int       @default(0) @db.TinyInt
+  data        String?   @db.Text // JSON
+  createdAt   DateTime  @default(now()) @map("created_at")
+  updatedAt   DateTime  @updatedAt @map("updated_at")
+
+  @@index([sidebarId])
+  @@index([theme])
+  @@map("widgets")
+}
+

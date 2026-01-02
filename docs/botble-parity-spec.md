@@ -1,316 +1,761 @@
 # Botble CMS Parity Specification
 
-This document outlines the modules, data models, admin routes, and key behaviors that must be replicated in the Next.js + Express.js re-implementation to achieve feature parity with Botble CMS.
+This document inventories all modules, plugins, database schemas, admin routes, UX flows, and key behaviors in the Botble CMS reference implementation. This serves as the behavioral specification for the Node.js/TypeScript re-implementation.
+
+## Table of Contents
+
+1. [Core Modules](#core-modules)
+2. [Packages](#packages)
+3. [Plugins](#plugins)
+4. [Database Schema](#database-schema)
+5. [Admin Routes & UX Flows](#admin-routes--ux-flows)
+6. [Key Behaviors](#key-behaviors)
+
+---
 
 ## Core Modules
 
-### 1. Authentication & Admin (platform/core/acl)
+### ACL (Access Control List)
 
-**Data Models:**
-- `users` table: id, first_name, last_name, username, email, password, avatar_id, super_user, manage_supers, permissions, last_login, timestamps
-- `roles` table: id, slug, name, permissions, description, is_default, created_by, updated_by, timestamps
-- `role_users` table: id, user_id, role_id, timestamps
-- `user_meta` table: id, key, value, user_id, timestamps
-- `activations` table: id, user_id, code, completed, completed_at, timestamps
+**Purpose**: Role-based access control (RBAC) system for admin users.
 
-**Admin Routes:**
-- `/admin/users` - User management
-- `/admin/roles` - Role management
-- `/admin/profile` - User profile
+**Database Tables**:
+- `users`: Admin users
+  - `id`, `first_name`, `last_name`, `username` (unique, nullable), `email`, `password` (nullable), `avatar_id`, `super_user` (boolean), `manage_supers` (boolean), `permissions` (text/json), `last_login`, `created_at`, `updated_at`
+- `roles`: User roles
+  - `id`, `slug` (unique), `name`, `permissions` (text/json), `description`, `is_default` (tinyint), `created_by`, `updated_by`, `created_at`, `updated_at`
+- `role_users`: Many-to-many relationship
+  - `id`, `user_id`, `role_id`, `created_at`, `updated_at`
+- `activations`: User activation codes
+  - `id`, `user_id`, `code`, `completed` (boolean), `completed_at`, `created_at`, `updated_at`
+- `user_meta`: User metadata key-value store
+  - `id`, `key`, `value` (text), `user_id`, `created_at`, `updated_at`
 
-**Key Behaviors:**
-- JWT access + refresh tokens in httpOnly cookies
-- Super admin permissions system
-- Role-based access control (RBAC)
-- User activation system
+**Admin Routes**:
+- `/admin/users` - List users
+- `/admin/users/create` - Create user
+- `/admin/users/{id}` - Edit user
+- `/admin/roles` - List roles
+- `/admin/roles/create` - Create role
+- `/admin/roles/{id}` - Edit role
 
-### 2. Settings Store (platform/core/setting)
+**Key Behaviors**:
+- Super users (`super_user=1`) bypass all permission checks
+- Permissions stored as JSON/text in `roles.permissions` and `users.permissions`
+- Permission format: `module.action` (e.g., `pages.create`, `blog.posts.index`)
+- Default roles can be set (`is_default=1`)
+- Users can have multiple roles via `role_users` table
 
-**Data Models:**
-- `settings` table: id, key (unique), value, timestamps
+---
 
-**Admin Routes:**
-- `/admin/settings` - Global settings management
+### Base
 
-**Key Behaviors:**
-- Key-value store for application configuration
-- Cached settings retrieval
+**Purpose**: Core foundation providing base models, helpers, events, and admin UI components.
 
-### 3. Audit/Activity Log (platform/plugins/audit-log)
+**Database Tables**: None (provides base functionality)
 
-**Data Models:**
-- `audit_histories` table: id, user_id, module, request, action, user_agent, ip_address, reference_user, reference_id, reference_name, type, timestamps
+**Key Features**:
+- Base model class with common behaviors
+- Event system: `CreatedContentEvent`, `UpdatedContentEvent`, `DeletedContentEvent`
+- Admin UI components (forms, tables, cards)
+- Breadcrumb system
+- Flash messages
+- HTTP response helpers
+- Meta boxes system for content editing
 
-**Admin Routes:**
-- `/admin/system/audit-logs` - Activity log viewer
+**Key Behaviors**:
+- Content events trigger hooks for slugs, SEO, sitemap, etc.
+- Meta boxes can be registered per content type
+- Admin forms use consistent validation and error handling
 
-**Key Behaviors:**
-- Automatic logging of admin actions (create/update/delete/publish)
-- IP address and user agent tracking
-- Reference entity tracking
+---
 
-### 4. Media Manager (platform/core/media)
+### Dashboard
 
-**Data Models:**
-- `media_folders` table: id, user_id, name, slug, parent_id, timestamps, soft_deletes
-- `media_files` table: id, user_id, name, folder_id, mime_type, size, url, options, timestamps, soft_deletes
-- `media_settings` table: id, key, value, media_id, user_id, timestamps
+**Purpose**: Admin dashboard with customizable widgets.
 
-**Admin Routes:**
-- `/admin/media` - Media library with folder structure
+**Database Tables**:
+- `dashboard_widgets`: Available widget types
+  - `id`, `name`, `created_at`, `updated_at`
+- `dashboard_widget_settings`: User-specific widget configurations
+  - `id`, `settings` (text/json), `user_id`, `widget_id`, `order` (tinyint), `status` (tinyint), `created_at`, `updated_at`
 
-**Key Behaviors:**
-- Hierarchical folder structure
-- Multiple storage drivers (S3, local, etc.)
-- Image thumbnails and metadata
-- Bulk operations
+**Admin Routes**:
+- `/admin` - Dashboard (main admin page)
+- `/admin/widgets/hide` - Hide widget
+- `/admin/widgets/hides` - Hide multiple widgets (POST)
+- `/admin/widgets/order` - Update widget order (POST)
+- `/admin/widgets/setting-item` - Edit widget setting (POST)
 
-## Content Modules
+**Key Behaviors**:
+- Widgets are user-specific (per `user_id`)
+- Widgets can be hidden, reordered, and configured per user
+- Widget order stored in `order` column (0-127)
 
-### 5. Pages (platform/packages/page)
+---
 
-**Data Models:**
-- `pages` table: id, name, content, user_id, image, template, is_featured, description, status, timestamps
-- `pages_translations` table: lang_code, pages_id, name, description, content (composite primary key)
+### Media
 
-**Admin Routes:**
-- `/admin/pages` - Page listing with filters/pagination/bulk actions
-- `/admin/pages/create` - Page creation form
-- `/admin/pages/{id}` - Page edit form
+**Purpose**: Media library for file uploads and management.
+
+**Database Tables**:
+- `media_folders`: Folder structure
+  - `id`, `user_id`, `name`, `slug`, `parent_id` (default 0), `created_at`, `updated_at`, `deleted_at` (soft deletes)
+- `media_files`: Files
+  - `id`, `user_id`, `name`, `folder_id` (default 0), `mime_type`, `size` (integer), `url`, `options` (text/json), `alt` (nullable), `visibility` (nullable), `created_at`, `updated_at`, `deleted_at` (soft deletes)
+- `media_settings`: Media settings
+  - `id`, `key`, `value` (text), `media_id` (nullable), `user_id` (nullable), `created_at`, `updated_at`
+
+**Admin Routes**:
+- `/admin/media` - Media library (AJAX-based UI)
+- `/admin/media/upload` - Upload files
+- `/admin/media/folders` - Manage folders
+
+**Key Behaviors**:
+- Hierarchical folder structure via `parent_id`
+- Files support soft deletes
+- `options` JSON field stores metadata (dimensions, thumbnails, etc.)
+- `visibility` field controls public/private access
+- Media can be organized by user (`user_id`)
+
+**Queue Jobs** (expected):
+- `media.processImage` - Generate thumbnails and process images after upload
+
+---
+
+### Setting
+
+**Purpose**: System-wide settings key-value store.
+
+**Database Tables**:
+- `settings`: Settings storage
+  - `id`, `key` (unique), `value` (text), `created_at`, `updated_at`
+
+**Admin Routes**:
+- `/admin/settings` - Settings index
+- `/admin/settings/options` - General settings
+- `/admin/settings/general` - General settings (GET/PUT)
+- `/admin/settings/admin-appearance` - Admin UI appearance (GET/PUT)
+- `/admin/settings/cache` - Cache management
+
+**Key Behaviors**:
+- Settings stored as key-value pairs
+- Keys are unique
+- Values stored as text (can contain JSON)
+- Settings can be grouped by prefix (e.g., `media_*`, `sitemap_*`)
+
+---
+
+## Packages
+
+### Page
+
+**Purpose**: Static page management with translations and SEO.
+
+**Database Tables**:
+- `pages`: Pages
+  - `id`, `name` (varchar 120), `content` (longtext), `user_id` (nullable), `image` (nullable), `template` (varchar 60, nullable), `description` (varchar 400, nullable), `status` (varchar 60, default 'published'), `created_at`, `updated_at`
+- `pages_translations`: Page translations (when language-advanced plugin active)
+  - `lang_code` (varchar 20), `pages_id`, `name`, `description`, `content`
+  - Primary key: `(lang_code, pages_id)`
+
+**Admin Routes**:
+- `/admin/pages` - List pages
+- `/admin/pages/create` - Create page
+- `/admin/pages/{id}` - Edit page
 - `/admin/pages/{id}/visual-builder` - Visual page builder
+- `/admin/pages/{id}/preview` - Preview page (GET/POST)
 
-**Admin UI Structure:**
-- **List Screen:** Table with columns (Name, Author, Status, Created Date, Actions)
-- **Create/Edit Screen:** 2-column layout on desktop, stacked on mobile
-  - **Left Column:** Content editor with title, content (rich text/visual builder)
-  - **Right Column:** Meta boxes stacked vertically:
-    - **Publish Box:** Status (Draft/Published), Publish Date, Save Draft/Publish/Update buttons
-    - **Permalink Box:** Auto-generated slug from title, manual edit with uniqueness validation
-    - **Featured Image Box:** Single image upload/selection
-    - **Gallery Box:** Multiple images for page gallery
-    - **SEO Box:** Meta title, meta description, meta keywords
-    - **Language Box:** Current language selector
-    - **Translations Box:** Links to create/edit translations in other languages
+**UX Flow - Create/Edit Page**:
+1. Form fields:
+   - **Left column**: Name, Content (rich text editor), Description
+   - **Right meta boxes**:
+     - **Publish**: Status dropdown (published/draft), Template selector
+     - **Permalink**: Slug input with live availability check, prefix display
+     - **Banner**: Image upload/selector
+     - **Gallery**: Multiple image selector
+     - **SEO**: Meta title, description, keywords, image
+     - **Language**: Current locale selector
+     - **Translations**: List linked translations, "Create translation" button
+2. Slug generation:
+   - Auto-generated from `name` field on create
+   - Greek/non-Latin characters transliterated to Latin (e.g., "Ελλάδα" → "ellada")
+   - Live availability check via AJAX
+   - If taken, suggests `slug-2`, `slug-3`, etc.
+   - Block publish/update if slug is taken
+3. Translations:
+   - When "Create translation" clicked, opens new page form
+   - Copies content, SEO, banner, gallery from source
+   - Slug generated/validated for target locale
+   - Linked via `translationGroupId` (stored in meta or separate table)
+   - Translation group + locale must be unique
 
-**Key Behaviors:**
-- Visual page builder with drag-and-drop shortcodes
-- Multilingual content with linked translations
-- SEO meta fields
-- Status workflow (draft → published)
-- Author attribution
+**Key Behaviors**:
+- Status: `published` or `draft`
+- Pages have slugs via `slugs` table (reference_type=`Botble\Page\Models\Page`)
+- Slug prefix: configurable via settings (default empty for pages)
+- Visual builder: Optional drag-and-drop page builder using shortcodes
+- Preview: Renders page in theme context before publishing
 
-### 6. Blog Posts (platform/plugins/blog)
+**Queue Jobs**:
+- On publish: Enqueue `sitemap.generate` job
 
-**Data Models:**
-- `posts` table: id, name, description, content, status, author_id, author_type, is_featured, image, views, format_type, timestamps
-- `categories` table: id, name, parent_id, description, status, author_id, author_type, icon, order, is_featured, is_default, timestamps
-- `tags` table: id, name, author_id, author_type, description, status, timestamps
-- `post_tags` table: tag_id, post_id (composite key)
-- `post_categories` table: category_id, post_id (composite key)
-- `posts_translations` table: lang_code, posts_id, name, description, content (composite primary key)
-- `categories_translations` table: lang_code, categories_id, name, description (composite primary key)
-- `tags_translations` table: lang_code, tags_id, name, description (composite primary key)
+---
 
-**Admin Routes:**
-- `/admin/blog/posts` - Post listing
-- `/admin/blog/posts/create` - Post creation
-- `/admin/blog/posts/{id}` - Post editing
-- `/admin/blog/categories` - Category management
-- `/admin/blog/tags` - Tag management
-- `/admin/blog/reports` - Blog analytics/reports
+### Blog
 
-**Admin UI Structure:**
-- Same 2-column layout as Pages but with additional meta boxes:
-  - **Categories Box:** Multi-select category assignment
-  - **Tags Box:** Tag input with autocomplete/suggestions
-- **Category Management:** Tree structure for hierarchical categories
-- **Tag Management:** Simple list with usage counts
+**Purpose**: Blog posts, categories, and tags management.
 
-**Key Behaviors:**
-- Hierarchical categories with parent-child relationships
-- Many-to-many tag relationships
-- Post format types (standard, video, gallery, etc.)
-- Author attribution with polymorphic relationship
-- View counting
-- Featured posts
+**Database Tables**:
+- `posts`: Blog posts
+  - `id`, `name`, `description` (varchar 400), `content` (longtext), `status` (varchar 60, default 'published'), `author_id`, `author_type` (varchar 191), `is_featured` (tinyint), `image` (nullable), `views` (integer, default 0), `format_type` (varchar 30, nullable), `created_at`, `updated_at`
+- `posts_translations`: Post translations
+  - `lang_code`, `posts_id`, `name`, `description`, `content`
+  - Primary key: `(lang_code, posts_id)`
+- `categories`: Blog categories (hierarchical)
+  - `id`, `name` (varchar 120), `parent_id` (default 0), `description` (varchar 400), `status` (varchar 60), `author_id`, `author_type`, `icon` (varchar 60), `order` (tinyint), `is_featured` (tinyint), `is_default` (tinyint), `created_at`, `updated_at`
+- `categories_translations`: Category translations
+  - `lang_code`, `categories_id`, `name`, `description`
+- `tags`: Blog tags
+  - `id`, `name` (varchar 120), `author_id`, `author_type`, `description` (varchar 400), `status` (varchar 60), `created_at`, `updated_at`
+- `tags_translations`: Tag translations
+  - `lang_code`, `tags_id`, `name`, `description`
+- `post_categories`: Many-to-many posts ↔ categories
+  - `category_id`, `post_id`
+- `post_tags`: Many-to-many posts ↔ tags
+  - `tag_id`, `post_id`
 
-### 7. Media Manager (see above - integrated with content)
+**Admin Routes**:
+- `/admin/blog/posts` - List posts
+- `/admin/blog/posts/create` - Create post
+- `/admin/blog/posts/{id}` - Edit post
+- `/admin/blog/categories` - List categories
+- `/admin/blog/categories/create` - Create category
+- `/admin/blog/categories/{id}` - Edit category
+- `/admin/blog/categories/update-tree` - Update category hierarchy (PUT)
+- `/admin/blog/categories/search` - Search categories (AJAX)
+- `/admin/blog/tags` - List tags
+- `/admin/blog/tags/create` - Create tag
+- `/admin/blog/tags/{id}` - Edit tag
+- `/admin/blog/reports` - Blog reports/analytics
 
-### 8. Menus (platform/packages/menu)
+**UX Flow - Create/Edit Post**:
+- Similar to Pages: Name, Content, Description
+- Additional fields:
+  - Categories: Multi-select with tree view
+  - Tags: Autocomplete input (creates tags on-the-fly)
+  - Featured image
+  - Format type (standard, video, gallery, etc.)
+- Meta boxes: Publish, Permalink (prefix: "blog"), Banner, Gallery, SEO, Language, Translations
 
-**Data Models:**
-- `menus` table: id, name, slug, status, timestamps
-- `menu_nodes` table: id, menu_id, parent_id, reference_id, reference_type, url, icon_font, position, title, css_class, target, has_child, timestamps
-- `menu_locations` table: id, menu_id, location, timestamps
+**Key Behaviors**:
+- Slug prefix: `blog` (configurable via settings)
+- Categories are hierarchical (`parent_id`)
+- Categories can be reordered via drag-and-drop (`order` field)
+- Posts can have multiple categories and tags
+- Views counter (`views` field)
+- Featured posts (`is_featured=1`)
 
-**Admin Routes:**
-- `/admin/appearance/menus` - Menu management
-- `/admin/appearance/menus/create` - Menu creation
-- `/admin/appearance/menus/{id}` - Menu editing
+**Queue Jobs**:
+- On publish: Enqueue `sitemap.generate` job
 
-**Key Behaviors:**
-- Hierarchical menu structure with drag-and-drop ordering
-- Multiple menu locations (header, footer, etc.)
-- Reference to any content type (pages, posts, categories, custom URLs)
-- Menu caching for performance
+---
 
-### 9. Widgets (platform/packages/widget)
+### Slug
 
-**Data Models:**
-- `widgets` table: id, widget_id, sidebar_id, theme, position, data, timestamps
+**Purpose**: Permalink/slug management system.
 
-**Admin Routes:**
-- `/admin/appearance/widgets` - Widget management
+**Database Tables**:
+- `slugs`: Slugs
+  - `id`, `key` (varchar 191, the slug string), `reference_id` (bigint), `reference_type` (varchar 191, model class), `prefix` (varchar 120, default ''), `created_at`, `updated_at`
+- `slugs_translations`: Slug translations
+  - `lang_code` (varchar 20), `slugs_id`, `key`, `prefix`
+  - Primary key: `(lang_code, slugs_id)`
 
-**Key Behaviors:**
-- Widget placement in sidebars/areas
-- Theme-specific widget areas
-- Configurable widget data
-- Core widgets: Text, Custom Menu, etc.
+**Key Behaviors**:
+- Slugs link to any model via `reference_type` + `reference_id`
+- Prefixes are model-specific (e.g., `blog` for posts, empty for pages)
+- Uniqueness: `(key, prefix)` must be unique
+- Slug generation:
+  - Auto-transliterates non-Latin to Latin (unless setting disabled)
+  - If slug exists, appends `-2`, `-3`, etc.
+  - Can be manually edited
+- Slug changes: Old slug should redirect to new slug (301 redirect)
+- Translations: Each locale can have different slug for same content
 
-### 10. Theme System (platform/packages/theme)
+**Admin Routes**:
+- No direct admin UI (used by other modules)
+- AJAX endpoint for slug availability check
 
-**Data Models:**
-- Theme options stored in settings table with theme-specific keys
+---
 
-**Admin Routes:**
-- `/admin/appearance/themes` - Theme selection
-- `/admin/appearance/theme-options` - Theme configuration
-- `/admin/appearance/custom-css` - Custom CSS editor
-- `/admin/appearance/custom-js` - Custom JS editor
-- `/admin/appearance/robots-txt` - Robots.txt editor
+### Menu
 
-**Key Behaviors:**
-- Theme activation/deactivation
-- Theme options panels
-- Custom CSS/JS injection
-- Robots.txt management
+**Purpose**: Menu builder for navigation menus.
 
-## System Modules
+**Database Tables**:
+- `menus`: Menu containers
+  - `id`, `name` (varchar 120), `slug` (varchar 120, unique, nullable), `status` (varchar 60, default 'published'), `created_at`, `updated_at`
+- `menu_nodes`: Menu items (hierarchical)
+  - `id`, `menu_id`, `parent_id` (default 0), `reference_id` (nullable), `reference_type` (nullable), `url` (varchar 120, nullable), `icon_font` (varchar 50, nullable), `position` (tinyint, default 0), `title` (varchar 120, nullable), `css_class` (varchar 120, nullable), `target` (varchar 20, default '_self'), `has_child` (tinyint, default 0), `created_at`, `updated_at`
+- `menu_locations`: Menu-to-location assignments
+  - `id`, `menu_id`, `location` (varchar 120), `created_at`, `updated_at`
 
-### 11. Slug/Permalink System (platform/packages/slug)
+**Admin Routes**:
+- `/admin/menus` - List menus
+- `/admin/menus/create` - Create menu
+- `/admin/menus/{id}` - Edit menu (drag-and-drop builder)
+- `/admin/menus/ajax/get-node` - Get menu node data (AJAX)
 
-**Data Models:**
-- `slugs` table: id, key, reference_id, reference_type, prefix, timestamps
+**UX Flow - Menu Builder**:
+1. Create/edit menu: Enter name, slug
+2. Menu builder interface:
+   - Drag-and-drop tree structure
+   - Add items: Custom link, Page, Category, Tag, etc.
+   - Items can reference content (`reference_type` + `reference_id`)
+   - Items can have icons, CSS classes, target (_self/_blank)
+   - Items can be nested (via `parent_id`)
+   - Position stored in `position` field
 
-**Key Behaviors:**
-- Automatic slug generation from titles
-- Module-specific prefixes (blog/, page/, etc.)
-- Slug uniqueness validation
-- 301 redirects on slug changes
-- Frontend slug resolution to content
+**Key Behaviors**:
+- Menus can be assigned to locations (e.g., "header", "footer")
+- Menu items can reference pages, posts, categories, or be custom links
+- Hierarchical structure via `parent_id`
+- `has_child` flag indicates if node has children
 
-### 12. Locales & Content Translations (platform/plugins/language)
+---
 
-**Data Models:**
-- `languages` table: lang_id, lang_name, lang_locale, lang_code, lang_flag, lang_is_default, lang_order, lang_is_rtl
-- `language_meta` table: lang_meta_id, lang_meta_code, lang_meta_origin, reference_id, reference_type
+### Widget
 
-**Admin Routes:**
-- `/admin/settings/languages` - Language management
+**Purpose**: Widget system for theme sidebars.
 
-**Key Behaviors:**
-- Multiple active languages
-- Default language designation
-- RTL language support
-- URL prefixing for non-default languages
-- Content translation linking
+**Database Tables**:
+- `widgets`: Widget instances
+  - `id`, `widget_id` (varchar 120, widget type), `sidebar_id` (varchar 120), `theme` (varchar 120), `position` (tinyint, default 0), `data` (text/json), `created_at`, `updated_at`
 
-### 13. String Translations (platform/plugins/translation)
+**Admin Routes**:
+- `/admin/widgets` - Widget management page
+- `/admin/widgets/load-widget` - Load widget form (AJAX)
+- `/admin/widgets/get-widget-form` - Get widget configuration form (AJAX)
+- `/admin/widgets/save-widgets-to-sidebar` - Save widgets to sidebar (POST)
+- `/admin/widgets/delete` - Delete widget (DELETE)
 
-**Data Models:**
-- `translations` table: id, status, locale, group, key, value, timestamps
+**UX Flow - Widget Management**:
+1. Widget page shows available sidebars (defined by theme)
+2. Drag widgets from "Available Widgets" to sidebars
+3. Click widget to configure (opens modal/form)
+4. Widget data stored in `data` JSON field
+5. Position in sidebar stored in `position` field
 
-**Admin Routes:**
-- `/admin/system/translations` - Translation management
+**Key Behaviors**:
+- Widgets are theme-specific (`theme` field)
+- Widgets can be locale-specific (theme name + locale suffix)
+- Widget data is JSON (widget-specific configuration)
+- Position determines order in sidebar (0 = first)
 
-**Key Behaviors:**
-- Key-value translation storage
-- Grouped translations (admin, theme, plugin-specific)
-- Import/export functionality
-- Missing translation detection
+---
 
-### 14. Cache Management (platform/core/base)
+### Theme
 
-**Admin Routes:**
-- `/admin/system/cache` - Cache clearing tools
+**Purpose**: Theme management and theme options.
 
-**Key Behaviors:**
-- Multiple cache types (view, config, route, etc.)
-- Bulk cache clearing
+**Database Tables**: None (themes are file-based, options stored in `settings` table)
 
-### 15. Sitemap (platform/packages/sitemap)
+**Admin Routes**:
+- `/admin/theme/all` - List available themes
+- `/admin/theme/active` - Activate theme (POST)
+- `/admin/theme/remove` - Remove theme (POST)
+- `/admin/theme/options/{id?}` - Theme options page (GET/POST)
+- `/admin/theme/custom-css` - Custom CSS editor (GET/POST)
 
-**Admin Routes:**
-- `/admin/settings/sitemap` - Sitemap configuration
+**UX Flow - Theme Options**:
+1. Theme options organized in sections/tabs
+2. Each section has form fields (text, textarea, image, color, etc.)
+3. Options saved to `settings` table with prefix (e.g., `theme_*`)
+4. Custom CSS: Editor for theme-specific CSS file
 
-**Key Behaviors:**
-- Automatic sitemap generation
-- Search engine submission
-- Configurable inclusion rules
+**Key Behaviors**:
+- Themes stored in `platform/themes/` directory
+- Active theme stored in settings
+- Theme options can be registered by theme or plugins
+- Options are key-value pairs in `settings` table
 
-## Admin Navigation Structure
+---
 
-Based on service provider registrations, the admin navigation should be organized as follows:
+### Sitemap
 
-### Top Level Items (in priority order):
-1. **Dashboard** (`/admin/dashboard`) - priority -9999
-2. **Pages** (`/admin/pages`) - priority 2
-3. **Blog** (parent menu) - priority 3
-   - Posts (`/admin/blog/posts`)
-   - Categories (`/admin/blog/categories`)
-   - Tags (`/admin/blog/tags`)
-   - Reports (`/admin/blog/reports`)
-4. **Media** (`/admin/media`) - priority 999
-5. **Appearance** (parent menu) - priority 2000
-   - Themes (`/admin/appearance/themes`)
-   - Theme Options (`/admin/appearance/theme-options`)
-   - Menus (`/admin/appearance/menus`)
-   - Widgets (`/admin/appearance/widgets`)
-   - Custom CSS (`/admin/appearance/custom-css`)
-   - Custom JS (`/admin/appearance/custom-js`)
-   - Robots.txt (`/admin/appearance/robots-txt`)
-6. **Settings** (top-level) - priority varies by module
-7. **System** (panel section group) - various system tools
-   - Languages (`/admin/settings/languages`)
-   - Translations (`/admin/system/translations`)
-   - Audit Logs (`/admin/system/audit-logs`)
-   - Cache management
-   - Sitemap settings
+**Purpose**: XML sitemap generation for SEO.
 
-## Critical UX Rules
+**Database Tables**: None (sitemap is generated dynamically)
 
-### Page/Post Editor Layout:
-- **Responsive Design:** 2-column desktop, single column mobile
-- **Meta Boxes:** Right sidebar with stacked boxes
-- **Publish Box:** Always at top of right sidebar with primary action buttons
-- **Permalink Field:** Auto-generates from title, validates uniqueness client and server-side
-- **Status Workflow:** Draft → Published with scheduled publishing support
-- **Translations:** Linked translations with copy-from-source functionality
+**Admin Routes**:
+- `/admin/sitemap/settings` - Sitemap settings
+- Public: `/sitemap.xml` - Generated sitemap
 
-### List Screens:
-- **Consistent Structure:** Name, Author, Status, Date, Actions columns
-- **Filters:** Status, Author, Date range
-- **Bulk Actions:** Delete, Change Status, etc.
-- **Pagination:** Standard with page size options
+**Key Behaviors**:
+- Sitemap generated on-demand or cached
+- Includes: Pages, Posts, Categories (published only)
+- Items per page configurable (default 1000)
+- Can be enabled/disabled via settings
+- Triggers:
+  - On content publish/update (via event listener)
+  - Scheduled daily (via scheduler)
+  - Manual generation from admin
 
-### Slug System:
-- **Auto-generation:** Transliterate special characters (especially Greek to Latin)
-- **Validation:** Real-time uniqueness checking
-- **Redirects:** 301 redirects created when slugs change
-- **Prefixes:** Module-specific (blog/, page/, etc.)
+**Queue Jobs**:
+- `sitemap.generate` - Generate sitemap XML
+- `sitemap.indexnow` - Submit to IndexNow API (if enabled)
 
-### Multilingual Support:
-- **Content Translations:** Separate records linked by translation group
-- **URL Structure:** Language prefixes for non-default locales
-- **Fallbacks:** Default language fallback for missing translations
+---
 
-## Implementation Priorities
+### SEO Helper
 
-1. **Phase 1:** Core auth, RBAC, settings, audit log
-2. **Phase 2:** Slug system, locales, media manager
-3. **Phase 3:** Pages with full editor UX parity
-4. **Phase 4:** Blog with categories/tags
-5. **Phase 5:** Menus, widgets, theme system
-6. **Phase 6:** Translation system, sitemap, remaining system tools
+**Purpose**: SEO meta tags management.
+
+**Database Tables**:
+- `meta_boxes`: SEO metadata
+  - `id`, `reference_id`, `reference_type`, `meta_key` (varchar 191), `meta_value` (text), `created_at`, `updated_at`
+
+**Key Behaviors**:
+- SEO data stored per content item via `meta_boxes` table
+- Meta keys: `seo_title`, `seo_description`, `seo_keywords`, `seo_image`
+- Automatically saved on content create/update
+- Used by themes to render `<meta>` tags
+
+---
+
+### Translation
+
+**Purpose**: String translation management (UI strings, not content).
+
+**Database Tables**: None (translations stored in `lang/` files)
+
+**Admin Routes**:
+- `/admin/translations` - Translation management
+- `/admin/translations/group/edit` - Edit translation group (POST)
+
+**UX Flow**:
+1. List all translation keys grouped by file/group
+2. Show default locale (English) and target locale columns
+3. Inline editing: Click value to edit
+4. Translations saved to `lang/{locale}/{group}.php` files
+
+**Key Behaviors**:
+- Translations organized by groups (files)
+- Keys can be nested (dot notation: `group.key.subkey`)
+- Default locale: English (`en`)
+- Supports import/export
+
+---
+
+## Plugins
+
+### Language
+
+**Purpose**: Multi-language support (locale management).
+
+**Database Tables**:
+- `languages`: Available locales
+  - `id`, `lang_name`, `lang_code` (varchar 20), `lang_flag` (varchar 20), `lang_is_default` (tinyint), `lang_is_rtl` (tinyint), `lang_order` (tinyint), `created_at`, `updated_at`
+
+**Admin Routes**:
+- `/admin/languages` - List languages
+- `/admin/languages/create` - Create language
+- `/admin/languages/{id}` - Edit language
+
+**Key Behaviors**:
+- One default language (`lang_is_default=1`)
+- Languages can be RTL (`lang_is_rtl=1`)
+- Language order determines display order
+- Language switcher in admin and frontend
+
+---
+
+### Language Advanced
+
+**Purpose**: Content translations (linked translations).
+
+**Database Tables**: Creates `*_translations` tables for translatable models.
+
+**Key Behaviors**:
+- Enables translation tables for: Pages, Posts, Categories, Tags, Galleries, Blocks
+- Translation group ID links translations together
+- When creating translation, copies content from source
+- Each locale has separate slug (via `slugs_translations`)
+
+---
+
+### Audit Log
+
+**Purpose**: Activity logging for admin actions.
+
+**Database Tables**:
+- `audit_histories`: Audit log entries
+  - `id`, `user_id`, `module` (varchar 60), `request` (text/json), `action` (varchar 120), `user_agent` (text), `ip_address` (varchar 45), `reference_user` (bigint), `reference_id` (bigint), `reference_name` (varchar 255), `type` (varchar 20), `created_at`, `updated_at`
+
+**Admin Routes**:
+- `/admin/audit-logs` - View audit logs
+
+**Key Behaviors**:
+- Logs all admin actions (create, update, delete)
+- Stores request data, user agent, IP address
+- Can filter by module, user, date range
+
+---
+
+### Gallery
+
+**Purpose**: Image gallery management.
+
+**Database Tables**:
+- `galleries`: Gallery containers
+  - `id`, `name` (varchar 120), `description` (varchar 400), `image` (varchar 191), `user_id` (nullable), `is_featured` (tinyint), `order` (tinyint), `status` (varchar 60), `created_at`, `updated_at`
+- `gallery_meta`: Gallery images (many-to-many via meta)
+  - Uses `meta_boxes` table with `reference_type='Botble\Gallery\Models\Gallery'`
+- `galleries_translations`: Gallery translations
+  - `lang_code`, `galleries_id`, `name`, `description`
+
+**Admin Routes**:
+- `/admin/galleries` - List galleries
+- `/admin/galleries/create` - Create gallery
+- `/admin/galleries/{id}` - Edit gallery
+
+**Key Behaviors**:
+- Galleries contain multiple images (stored as meta)
+- Galleries can be featured, ordered
+- Supports translations
+
+---
+
+### Member
+
+**Purpose**: Frontend user/member management.
+
+**Database Tables**:
+- `members`: Frontend users
+  - `id`, `first_name`, `last_name`, `email` (unique), `password`, `avatar_id`, `dob` (date), `phone` (varchar 20), `description` (text), `status` (varchar 60), `created_at`, `updated_at`
+- `member_activity_logs`: Member activity
+  - `id`, `member_id`, `action` (varchar 120), `reference_url` (text), `reference_name` (varchar 255), `ip_address` (varchar 45), `user_agent` (text), `created_at`, `updated_at`
+- `member_password_resets`: Password reset tokens
+  - `email`, `token`, `created_at`
+
+**Admin Routes**:
+- `/admin/members` - List members
+- `/admin/members/create` - Create member
+- `/admin/members/{id}` - Edit member
+
+**Key Behaviors**:
+- Separate from admin users
+- Members can register/login on frontend
+- Activity logging for member actions
+
+---
+
+### Contact
+
+**Purpose**: Contact form submissions.
+
+**Database Tables**:
+- `contacts`: Contact submissions
+  - `id`, `name` (varchar 60), `email` (varchar 60), `phone` (varchar 60), `address` (text), `subject` (varchar 120), `content` (text), `status` (varchar 60), `created_at`, `updated_at`
+
+**Admin Routes**:
+- `/admin/contacts` - List contact submissions
+- `/admin/contacts/{id}` - View contact
+
+**Key Behaviors**:
+- Contact forms on frontend submit to admin
+- Status: `read`, `unread`
+- Can send email notifications
+
+---
+
+### Custom Field
+
+**Purpose**: Custom fields for content types.
+
+**Database Tables**:
+- `custom_fields`: Field definitions
+  - `id`, `use_for` (varchar 60), `use_for_id` (bigint, nullable), `field_item_id` (bigint, nullable), `slug` (varchar 191), `type` (varchar 60), `value` (text), `order` (tinyint), `status` (varchar 60), `created_at`, `updated_at`
+- `custom_field_items`: Field items (for repeater fields)
+  - `id`, `custom_field_id`, `field_item_id` (bigint, nullable), `parent_id` (bigint, nullable), `title` (varchar 191), `slug` (varchar 191), `type` (varchar 60), `value` (text), `order` (tinyint), `created_at`, `updated_at`
+- `custom_fields_translations`: Field translations
+  - `lang_code`, `custom_fields_id`, `value`
+
+**Key Behaviors**:
+- Custom fields can be attached to any content type
+- Supports various field types (text, textarea, image, repeater, etc.)
+- Fields can be grouped and ordered
+
+---
+
+## Database Schema Summary
+
+### Core Tables
+
+- `users` - Admin users
+- `roles` - User roles
+- `role_users` - User-role assignments
+- `activations` - User activation codes
+- `user_meta` - User metadata
+- `settings` - System settings (key-value)
+- `sessions` - User sessions
+- `cache` - Cache storage
+- `jobs` - Queue jobs (Laravel)
+- `failed_jobs` - Failed queue jobs
+- `migrations` - Migration tracking
+
+### Content Tables
+
+- `pages` - Static pages
+- `pages_translations` - Page translations
+- `posts` - Blog posts
+- `posts_translations` - Post translations
+- `categories` - Blog categories
+- `categories_translations` - Category translations
+- `tags` - Blog tags
+- `tags_translations` - Tag translations
+- `post_categories` - Post-category relationships
+- `post_tags` - Post-tag relationships
+
+### System Tables
+
+- `slugs` - Permalinks/slugs
+- `slugs_translations` - Slug translations
+- `menus` - Menu containers
+- `menu_nodes` - Menu items
+- `menu_locations` - Menu location assignments
+- `widgets` - Widget instances
+- `meta_boxes` - SEO and custom metadata
+- `revisions` - Content revision history
+
+### Media Tables
+
+- `media_folders` - Media folders
+- `media_files` - Media files
+- `media_settings` - Media settings
+
+### Plugin Tables
+
+- `languages` - Available locales
+- `audit_histories` - Audit logs
+- `galleries` - Galleries
+- `galleries_translations` - Gallery translations
+- `members` - Frontend users
+- `member_activity_logs` - Member activity
+- `contacts` - Contact submissions
+- `custom_fields` - Custom field definitions
+- `custom_field_items` - Custom field items
+- `custom_fields_translations` - Custom field translations
+
+---
+
+## Admin Routes & UX Flows
+
+### Common Admin Patterns
+
+1. **List View**: Table with pagination, search, filters, bulk actions
+2. **Create/Edit**: Same form component, right-side meta boxes
+3. **Meta Boxes**: Publish, Permalink, Banner, Gallery, SEO, Language, Translations
+4. **Slug Management**: Live availability check, auto-generation, manual override
+5. **Translation Linking**: Create translation button, linked translations list
+
+### Key Admin Routes
+
+```
+/admin - Dashboard
+/admin/users - User management
+/admin/roles - Role management
+/admin/pages - Page management
+/admin/blog/posts - Post management
+/admin/blog/categories - Category management
+/admin/blog/tags - Tag management
+/admin/menus - Menu builder
+/admin/widgets - Widget management
+/admin/theme/options - Theme options
+/admin/settings - Settings
+/admin/media - Media library
+/admin/languages - Language management
+/admin/translations - String translations
+/admin/audit-logs - Audit logs
+/admin/galleries - Gallery management
+/admin/members - Member management
+/admin/contacts - Contact submissions
+/admin/sitemap/settings - Sitemap settings
+```
+
+---
+
+## Key Behaviors
+
+### Slug System
+
+1. **Generation**:
+   - Auto-generated from title/name field
+   - Non-Latin characters transliterated to Latin (Greek → Latin)
+   - Uniqueness: `(key, prefix)` must be unique
+   - If taken, appends `-2`, `-3`, etc.
+
+2. **Prefixes**:
+   - Model-specific (e.g., `blog` for posts, empty for pages)
+   - Configurable via settings
+   - Stored in `slugs.prefix`
+
+3. **Translations**:
+   - Each locale can have different slug
+   - Stored in `slugs_translations` table
+
+4. **Redirects**:
+   - When slug changes, old slug should redirect to new (301)
+
+5. **Availability Check**:
+   - Live AJAX check during editing
+   - Blocks publish/update if slug is taken
+
+### Translation System
+
+1. **Content Translations** (Language Advanced plugin):
+   - Translation group ID links translations
+   - Each locale has separate record in `*_translations` table
+   - Creating translation copies content from source
+   - Slug generated separately for each locale
+
+2. **String Translations** (Translation plugin):
+   - UI strings stored in `lang/{locale}/{group}.php` files
+   - Admin UI for editing translations
+   - Supports import/export
+
+### Theme System
+
+1. **Theme Structure**:
+   - Themes in `platform/themes/{theme-name}/`
+   - Each theme can have views, assets, options
+
+2. **Theme Options**:
+   - Options stored in `settings` table with `theme_*` prefix
+   - Options organized in sections/tabs
+   - Custom CSS editor
+
+3. **Widgets**:
+   - Widgets assigned to sidebars (theme-defined)
+   - Widget data stored as JSON
+   - Position determines order
+
+### Queue System
+
+- Uses Laravel's database queue driver
+- Jobs stored in `jobs` table
+- Failed jobs in `failed_jobs` table
+- See `docs/botble-queues-spec.md` for details
+
+---
+
+## Notes
+
+- All timestamps use `created_at`, `updated_at` (Laravel convention)
+- Soft deletes use `deleted_at` (nullable timestamp)
+- Status fields typically: `published`, `draft`, `pending`
+- Many content types support `is_featured` flag
+- Author tracking: `author_id` + `author_type` (polymorphic)
+- Translations use composite primary keys: `(lang_code, {model}_id)`
 

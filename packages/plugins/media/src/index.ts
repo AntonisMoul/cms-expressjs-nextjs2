@@ -1,65 +1,43 @@
-import { Router } from 'express';
-import { PluginContract, AdminNavItem } from '@cms/core';
-import { MediaAdminController } from './admin/controller';
-import multer from 'multer';
+import { Plugin, PluginContext, Permission, AdminNavItem, JobHandler } from '@cms/shared';
+import { registerMediaRoutes } from './routes';
+import { getMediaJobHandlers } from './handlers';
 
-const plugin: PluginContract = {
-  name: 'media',
-  version: '1.0.0',
+export class MediaPlugin implements Plugin {
+  name = 'media';
+  version = '1.0.0';
+  description = 'Media plugin for file uploads and management';
 
-  registerApiRoutes(router: Router, ctx: any) {
-    const upload = multer({ storage: multer.memoryStorage() });
+  async initialize(ctx: PluginContext): Promise<void> {
+    // Plugin initialization
+  }
 
-    // Admin routes
-    const adminRouter = Router();
+  registerRoutes(router: any, ctx: PluginContext, requireAuth: any, requirePermission: any): void {
+    registerMediaRoutes(router, ctx, requireAuth, requirePermission);
+  }
 
-    // Folder routes
-    adminRouter.get('/folders', MediaAdminController.getFolders);
-    adminRouter.post('/folders', MediaAdminController.createFolder);
-    adminRouter.put('/folders/:id', MediaAdminController.updateFolder);
-    adminRouter.delete('/folders/:id', MediaAdminController.deleteFolder);
+  getPermissions(ctx: PluginContext): Permission[] {
+    return [
+      { name: 'media.index', description: 'List media files' },
+      { name: 'media.upload', description: 'Upload media files' },
+      { name: 'media.delete', description: 'Delete media files' },
+    ];
+  }
 
-    // File routes
-    adminRouter.get('/files', MediaAdminController.getFiles);
-    adminRouter.post('/files/upload', upload.array('files'), MediaAdminController.uploadFiles);
-    adminRouter.put('/files/:id', MediaAdminController.updateFile);
-    adminRouter.delete('/files/:id', MediaAdminController.deleteFile);
-    adminRouter.put('/files/:id/move', MediaAdminController.moveFile);
-
-    // Bulk operations
-    adminRouter.post('/files/bulk-delete', MediaAdminController.bulkDelete);
-    adminRouter.post('/files/bulk-move', MediaAdminController.bulkMove);
-
-    // Storage info
-    adminRouter.get('/storage-usage', MediaAdminController.getStorageUsage);
-
-    // Mount admin routes
-    router.use('/media', adminRouter);
-  },
-
-  getAdminNavigation(): AdminNavItem[] {
+  getAdminNavItems(ctx: PluginContext): AdminNavItem[] {
     return [
       {
         id: 'media',
         label: 'Media',
-        icon: 'ti ti-folder',
+        icon: 'image',
         href: '/admin/media',
-        priority: 999,
-        permissions: ['media.index'],
+        permission: 'media.index',
+        order: 30,
       },
     ];
-  },
+  }
 
-  permissions: [
-    { key: 'media.index', name: 'View Media Library', module: 'media' },
-    { key: 'media.upload', name: 'Upload Files', module: 'media' },
-    { key: 'media.edit', name: 'Edit Media Files', module: 'media' },
-    { key: 'media.delete', name: 'Delete Media Files', module: 'media' },
-    { key: 'media.folders.manage', name: 'Manage Folders', module: 'media' },
-  ],
-};
-
-export { plugin as mediaPlugin };
-export { MediaService } from './service';
-export { MediaAdminController } from './admin/controller';
+  getJobHandlers(ctx: PluginContext): JobHandler[] {
+    return getMediaJobHandlers(ctx);
+  }
+}
 

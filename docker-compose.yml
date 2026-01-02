@@ -1,81 +1,55 @@
-version: '3.8'
-
 services:
-  db:
-    image: mysql:8.0
-    container_name: cms_mysql
-    restart: unless-stopped
-    environment:
-      MYSQL_ROOT_PASSWORD: root
-      MYSQL_DATABASE: cms_db
-      MYSQL_USER: cms
-      MYSQL_PASSWORD: cms
-    ports:
-      - "3306:3306"
-    volumes:
-      - mysql_data:/var/lib/mysql
-      - ./docker/mysql/init.sql:/docker-entrypoint-initdb.d/init.sql:ro
-    networks:
-      - cms_network
-    healthcheck:
-      test: ["CMD", "mysqladmin", "ping", "-h", "localhost"]
-      timeout: 20s
-      retries: 10
-
-  redis:
-    image: redis:7-alpine
-    container_name: cms_redis
-    restart: unless-stopped
-    ports:
-      - "6379:6379"
-    volumes:
-      - redis_data:/data
-    networks:
-      - cms_network
-    command: redis-server --appendonly yes
-
-  api:
-    build:
-      context: .
-      dockerfile: ./docker/api.Dockerfile
-    container_name: cms_api
-    restart: unless-stopped
-    environment:
-      - DATABASE_URL=mysql://cms:cms@db:3306/cms_db
-      - JWT_ACCESS_SECRET=your-super-secret-jwt-access-key
-      - JWT_REFRESH_SECRET=your-super-secret-jwt-refresh-key
-      - API_PORT=3001
-      - NODE_ENV=production
-    ports:
-      - "3001:3001"
-    volumes:
-      - ./uploads:/app/uploads
-    depends_on:
-      db:
-        condition: service_healthy
-    networks:
-      - cms_network
-
-  web:
-    build:
-      context: .
-      dockerfile: ./docker/web.Dockerfile
-    container_name: cms_web
-    restart: unless-stopped
-    environment:
-      - NEXT_PUBLIC_API_URL=http://api:3001/api/v1
-      - NEXT_PUBLIC_SITE_URL=http://localhost:3000
-    ports:
-      - "3000:3000"
-    depends_on:
-      - api
-    networks:
-      - cms_network
-
-volumes:
-  mysql_data:
-  redis_data:
-
+    laravel.test:
+        build:
+            context: './vendor/laravel/sail/runtimes/8.2'
+            dockerfile: Dockerfile
+            args:
+                WWWGROUP: '${WWWGROUP}'
+        image: 'sail-8.2/app'
+        extra_hosts:
+            - 'host.docker.internal:host-gateway'
+        ports:
+            - '${APP_PORT:-80}:80'
+            - '${VITE_PORT:-5173}:${VITE_PORT:-5173}'
+        environment:
+            WWWUSER: '${WWWUSER}'
+            LARAVEL_SAIL: 1
+            XDEBUG_MODE: '${SAIL_XDEBUG_MODE:-off}'
+            XDEBUG_CONFIG: '${SAIL_XDEBUG_CONFIG:-client_host=host.docker.internal}'
+            IGNITION_LOCAL_SITES_PATH: '${PWD}'
+        volumes:
+            - '.:/var/www/html'
+        networks:
+            - sail
+        depends_on:
+            - mysql
+    mysql:
+        image: 'mysql/mysql-server:8.0'
+        ports:
+            - '${FORWARD_DB_PORT:-3306}:3306'
+        environment:
+            MYSQL_ROOT_PASSWORD: '${DB_PASSWORD}'
+            MYSQL_ROOT_HOST: '%'
+            MYSQL_DATABASE: '${DB_DATABASE}'
+            MYSQL_USER: '${DB_USERNAME}'
+            MYSQL_PASSWORD: '${DB_PASSWORD}'
+            MYSQL_ALLOW_EMPTY_PASSWORD: 1
+        volumes:
+            - 'sail-mysql:/var/lib/mysql'
+            - './vendor/laravel/sail/database/mysql/create-testing-database.sh:/docker-entrypoint-initdb.d/10-create-testing-database.sh'
+        networks:
+            - sail
+        healthcheck:
+            test:
+                - CMD
+                - mysqladmin
+                - ping
+                - '-p${DB_PASSWORD}'
+            retries: 3
+            timeout: 5s
 networks:
-  cms_network:
-    driver: bridge
+    sail:
+        driver: bridge
+volumes:
+    sail-mysql:
+        driver: local

@@ -1,22 +1,9 @@
-// Core package exports
-export * from './types';
-
-// Auth exports
-export { AuthService } from './auth/service';
-export { generateTokens, verifyAccessToken, verifyRefreshToken, refreshAccessToken } from './auth/jwt';
-
-// RBAC exports
-export { RBACService } from './rbac/service';
-
-// Settings exports
-export { SettingsService } from './settings/service';
-
-// Audit exports
-export { AuditService } from './audit/service';
-
-// Slug exports
-export { SlugService } from './slug/service';
-
-// Locales exports
-export { LocalesService } from './locales/service';
+// Core services exports
+export * from './auth';
+export * from './rbac';
+export * from './settings';
+export * from './audit';
+export * from './slug';
+export * from './queue';
+export * from './i18n';
 
