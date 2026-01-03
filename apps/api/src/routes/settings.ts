@@ -1,7 +1,8 @@
 import { Router, Response } from 'express';
 import { PrismaClient } from '@cms/shared';
 import { SettingsService } from '@cms/core';
-import { requireAuth, requirePermission, AuthRequest } from '../middleware/auth';
+import { requireAuth, AuthRequest } from '../middleware/auth';
+import { requirePermission } from '../middleware/rbac';
 
 export function settingsRoutes(db: PrismaClient): Router {
   const router = Router();

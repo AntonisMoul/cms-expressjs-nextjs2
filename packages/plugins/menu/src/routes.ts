@@ -20,7 +20,7 @@ const createMenuNodeSchema = z.object({
   position: z.number().default(0),
   title: z.string().max(120).optional(),
   cssClass: z.string().max(120).optional(),
-  target: z.string().default('_self').max(20),
+  target: z.string().default('_self'),
 });
 
 export function registerMenuRoutes(
@@ -87,7 +87,7 @@ export function registerMenuRoutes(
         }
 
         // Build tree structure
-        const buildTree = (parentId: number = 0) => {
+        const buildTree = (parentId: number = 0): any[] => {
           return menu.nodes
             .filter((node) => node.parentId === parentId)
             .map((node) => ({
@@ -282,16 +282,16 @@ export function registerMenuRoutes(
 
         const node = await db.menuNode.create({
           data: {
-            menuId: data.menuId,
-            parentId: data.parentId,
-            referenceId: data.referenceId,
-            referenceType: data.referenceType,
-            url: data.url,
-            iconFont: data.iconFont,
-            position: data.position,
-            title: data.title,
-            cssClass: data.cssClass,
-            target: data.target,
+            menuId: data.menuId as number,
+            parentId: data.parentId as number | undefined,
+            referenceId: data.referenceId as number | null | undefined,
+            referenceType: data.referenceType as string | null | undefined,
+            url: data.url as string | null | undefined,
+            iconFont: data.iconFont as string | null | undefined,
+            position: data.position as number | undefined,
+            title: data.title as string | null | undefined,
+            cssClass: data.cssClass as string | null | undefined,
+            target: data.target as string | undefined,
           },
         });
 
@@ -326,19 +326,20 @@ export function registerMenuRoutes(
         const nodeId = parseInt(req.params.nodeId);
         const data = createMenuNodeSchema.partial().parse(req.body);
 
+        const updateData: any = {};
+        if (data.parentId !== undefined) updateData.parentId = data.parentId;
+        if (data.referenceId !== undefined) updateData.referenceId = data.referenceId;
+        if (data.referenceType !== undefined) updateData.referenceType = data.referenceType;
+        if (data.url !== undefined) updateData.url = data.url;
+        if (data.iconFont !== undefined) updateData.iconFont = data.iconFont;
+        if (data.position !== undefined) updateData.position = data.position;
+        if (data.title !== undefined) updateData.title = data.title;
+        if (data.cssClass !== undefined) updateData.cssClass = data.cssClass;
+        if (data.target !== undefined) updateData.target = data.target;
+
         const node = await db.menuNode.update({
           where: { id: nodeId },
-          data: {
-            ...(data.parentId !== undefined && { parentId: data.parentId }),
-            ...(data.referenceId !== undefined && { referenceId: data.referenceId }),
-            ...(data.referenceType !== undefined && { referenceType: data.referenceType }),
-            ...(data.url !== undefined && { url: data.url }),
-            ...(data.iconFont !== undefined && { iconFont: data.iconFont }),
-            ...(data.position !== undefined && { position: data.position }),
-            ...(data.title !== undefined && { title: data.title }),
-            ...(data.cssClass !== undefined && { cssClass: data.cssClass }),
-            ...(data.target !== undefined && { target: data.target }),
-          },
+          data: updateData,
         });
 
         res.json({
@@ -450,17 +451,14 @@ export function registerMenuRoutes(
         if (referenceType === 'Page') {
           entity = await db.page.findUnique({
             where: { id: parseInt(referenceId as string) },
-            include: { slug: true },
           });
         } else if (referenceType === 'Post') {
           entity = await db.post.findUnique({
             where: { id: parseInt(referenceId as string) },
-            include: { slug: true },
           });
         } else if (referenceType === 'Category') {
           entity = await db.category.findUnique({
             where: { id: parseInt(referenceId as string) },
-            include: { slug: true },
           });
         }
 

@@ -25,7 +25,6 @@ export async function createPageTranslation(
     where: { id: data.sourcePageId },
     include: {
       translations: true,
-      slug: true,
     },
   });
 

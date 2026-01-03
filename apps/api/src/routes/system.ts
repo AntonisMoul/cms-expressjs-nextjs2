@@ -1,6 +1,7 @@
 import { Router, Response } from 'express';
 import { PrismaClient } from '@cms/shared';
-import { requireAuth, requirePermission, AuthRequest } from '../middleware/auth';
+import { requireAuth, AuthRequest } from '../middleware/auth';
+import { requirePermission } from '../middleware/rbac';
 import { QueueService } from '@cms/core';
 import { SettingsService } from '@cms/core';
 

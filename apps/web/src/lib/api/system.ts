@@ -50,15 +50,15 @@ export interface JobsResponse {
 
 export const systemApi = {
   clearCache: async (): Promise<SystemResponse<null>> => {
-    return apiClient.post<SystemResponse<null>>('/api/v1/system/cache/clear');
+    return apiClient.post<SystemResponse<null>>('/api/v1/admin/system/cache/clear');
   },
 
   getSitemapStatus: async (): Promise<SystemResponse<SitemapStatus>> => {
-    return apiClient.get<SystemResponse<SitemapStatus>>('/api/v1/system/sitemap');
+    return apiClient.get<SystemResponse<SitemapStatus>>('/api/v1/admin/system/sitemap');
   },
 
   generateSitemap: async (): Promise<SystemResponse<null>> => {
-    return apiClient.post<SystemResponse<null>>('/api/v1/system/sitemap/generate');
+    return apiClient.post<SystemResponse<null>>('/api/v1/admin/system/sitemap/generate');
   },
 
   getJobs: async (params?: {
@@ -69,15 +69,15 @@ export const systemApi = {
     if (params?.status) query.append('status', params.status);
     if (params?.limit) query.append('limit', params.limit.toString());
     
-    return apiClient.get<JobsResponse>(`/api/v1/system/jobs?${query.toString()}`);
+    return apiClient.get<JobsResponse>(`/api/v1/admin/system/jobs?${query.toString()}`);
   },
 
   retryFailedJob: async (uuid: string, jobName: string): Promise<SystemResponse<null>> => {
-    return apiClient.post<SystemResponse<null>>(`/api/v1/queue/failed/${uuid}/retry`, { jobName });
+    return apiClient.post<SystemResponse<null>>(`/api/v1/admin/queue/failed/${uuid}/retry`, { jobName });
   },
 
   deleteFailedJob: async (uuid: string): Promise<SystemResponse<null>> => {
-    return apiClient.delete<SystemResponse<null>>(`/api/v1/queue/failed/${uuid}`);
+    return apiClient.delete<SystemResponse<null>>(`/api/v1/admin/queue/failed/${uuid}`);
   },
 };
 

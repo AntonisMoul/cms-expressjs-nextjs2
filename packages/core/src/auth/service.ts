@@ -1,5 +1,5 @@
 import bcrypt from 'bcryptjs';
-import jwt from 'jsonwebtoken';
+import jwt, { SignOptions } from 'jsonwebtoken';
 import { PrismaClient, User } from '@cms/shared';
 
 export interface AuthResult {
@@ -89,7 +89,7 @@ export class AuthService {
     return jwt.sign(
       { userId: user.id, email: user.email },
       this.jwtSecret,
-      { expiresIn: this.jwtExpiresIn }
+      { expiresIn: this.jwtExpiresIn } as SignOptions
     );
   }
 

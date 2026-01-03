@@ -63,7 +63,6 @@ export function registerPostRoutes(
           db.post.findMany({
             where,
             include: {
-              slug: true,
               author: {
                 select: {
                   id: true,
@@ -121,7 +120,6 @@ export function registerPostRoutes(
         const post = await db.post.findUnique({
           where: { id: parseInt(req.params.id) },
           include: {
-            slug: true,
             translations: true,
             categories: {
               include: {
@@ -171,9 +169,6 @@ export function registerPostRoutes(
             where: {
               translationGroupId: post.translationGroupId,
               id: { not: post.id },
-            },
-            include: {
-              slug: true,
             },
           });
         }

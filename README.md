@@ -40,17 +40,40 @@ cp .env.example .env
 pnpm db:migrate
 
 # Generate Prisma client
-# Note: If you encounter "pnpm add prisma" errors during generation, try:
-# 1. Run from the prisma directory: cd prisma && npx prisma generate
-# 2. Or manually: npx prisma generate --schema=prisma/schema.prisma
+# ⚠️  Known Issue: Prisma generate fails in pnpm workspaces due to auto-install conflicts
+# Workaround: Run this command manually:
+#   cd packages/shared
+#   pnpm add @prisma/client@5.22.0
+#   PRISMA_GENERATE_DATAPROXY=false npx prisma generate --schema=../../prisma/schema.prisma
+# 
+# Or use npm temporarily (from project root):
+#   npm install -g prisma@5.22.0
+#   cd packages/shared && npx prisma generate --schema=../../prisma/schema.prisma
 pnpm db:generate
 ```
 
-### 3. Seed Database (Optional)
+### 3. Generate Prisma Client (Required before seeding)
+
+**⚠️ Important**: Due to a known pnpm workspace issue, we use a workaround script:
 
 ```bash
-pnpm --filter '@cms/shared' seed
+# This script creates a temporary npm project to generate the client
+pnpm db:generate
 ```
+
+The script automatically handles the pnpm workspace issue by using npm temporarily.
+
+### 4. Seed Database (Optional)
+
+```bash
+# Seed the database (creates admin user, role, default language, and settings)
+pnpm db:seed
+```
+
+**Default Admin Credentials:**
+- Email: `admin@company.com`
+- Username: `admin`
+- Password: `password`
 
 ### 4. Start Development
 

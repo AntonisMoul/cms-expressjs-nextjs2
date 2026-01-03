@@ -1,4 +1,5 @@
 import { PluginContext, JobHandler } from '@cms/shared';
+import { SlugService } from '@cms/core';
 import * as fs from 'fs/promises';
 import * as path from 'path';
 
@@ -9,6 +10,7 @@ export function getSitemapJobHandlers(ctx: PluginContext): JobHandler[] {
       handler: async (payload: any) => {
         const db = ctx.db as any;
         const settings = ctx.settings as any;
+        const slugService = new SlugService(db);
 
         // Get sitemap settings
         const enabled = await settings.get('sitemap_enabled');
@@ -25,16 +27,15 @@ export function getSitemapJobHandlers(ctx: PluginContext): JobHandler[] {
         // Get published pages
         const pages = await db.page.findMany({
           where: { status: 'published' },
-          include: { slug: true },
           orderBy: { updatedAt: 'desc' },
         });
 
         for (const page of pages) {
-          if (page.slug && page.slug.isActive) {
-            const prefix = page.slug.prefix || '';
-            const slug = page.slug.key;
+          const slug = await slugService.getByEntity('Page', page.id);
+          if (slug && slug.isActive) {
+            const prefix = slug.prefix || '';
             urls.push({
-              url: `${prefix ? `/${prefix}` : ''}/${slug}`,
+              url: `${prefix ? `/${prefix}` : ''}/${slug.key}`,
               lastmod: page.updatedAt,
               priority: '0.8',
             });
@@ -44,16 +45,15 @@ export function getSitemapJobHandlers(ctx: PluginContext): JobHandler[] {
         // Get published posts
         const posts = await db.post.findMany({
           where: { status: 'published' },
-          include: { slug: true },
           orderBy: { updatedAt: 'desc' },
         });
 
         for (const post of posts) {
-          if (post.slug && post.slug.isActive) {
-            const prefix = post.slug.prefix || 'blog';
-            const slug = post.slug.key;
+          const slug = await slugService.getByEntity('Post', post.id);
+          if (slug && slug.isActive) {
+            const prefix = slug.prefix || 'blog';
             urls.push({
-              url: `/${prefix}/${slug}`,
+              url: `/${prefix}/${slug.key}`,
               lastmod: post.updatedAt,
               priority: '0.7',
             });
@@ -63,16 +63,15 @@ export function getSitemapJobHandlers(ctx: PluginContext): JobHandler[] {
         // Get published categories
         const categories = await db.category.findMany({
           where: { status: 'published' },
-          include: { slug: true },
           orderBy: { updatedAt: 'desc' },
         });
 
         for (const category of categories) {
-          if (category.slug && category.slug.isActive) {
-            const prefix = category.slug.prefix || 'blog';
-            const slug = category.slug.key;
+          const slug = await slugService.getByEntity('Category', category.id);
+          if (slug && slug.isActive) {
+            const prefix = slug.prefix || 'blog';
             urls.push({
-              url: `/${prefix}/${slug}`,
+              url: `/${prefix}/${slug.key}`,
               lastmod: category.updatedAt,
               priority: '0.6',
             });

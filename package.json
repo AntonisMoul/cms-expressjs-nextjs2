@@ -10,9 +10,10 @@
     "scheduler": "pnpm --filter '@cms/api' scheduler",
     "build": "pnpm --recursive build",
     "db:migrate": "pnpm --filter '@cms/shared' db:migrate",
-    "db:generate": "pnpm --filter '@cms/shared' db:generate",
+    "db:generate": "node scripts/generate-prisma-client.js",
     "db:studio": "pnpm --filter '@cms/shared' db:studio",
-    "setup:local": "pnpm db:migrate && pnpm --filter '@cms/shared' seed"
+    "db:seed": "pnpm --filter '@cms/shared' seed",
+    "setup:local": "pnpm db:migrate && pnpm db:seed"
   },
   "devDependencies": {
     "@types/node": "^20.10.0",

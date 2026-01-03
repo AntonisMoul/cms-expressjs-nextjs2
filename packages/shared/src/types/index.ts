@@ -26,6 +26,10 @@ export interface PluginContext {
   rbac: any; // RBACService
   slug: any; // SlugService
   i18n: any; // I18nService
+  audit: any; // AuditService
+  plugins: any; // PluginRegistry
+  apiApp: any; // Express app
+  webApp: any; // Next.js app
 }
 
 export interface Permission {

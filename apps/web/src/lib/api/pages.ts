@@ -66,11 +66,11 @@ export const pagesApi = {
     if (params?.search) query.append('search', params.search);
     if (params?.status) query.append('status', params.status);
     
-    return apiClient.get<PagesResponse>(`/api/v1/pages?${query.toString()}`);
+    return apiClient.get<PagesResponse>(`/api/v1/admin/pages?${query.toString()}`);
   },
 
   get: async (id: number): Promise<PageResponse> => {
-    return apiClient.get<PageResponse>(`/api/v1/pages/${id}`);
+    return apiClient.get<PageResponse>(`/api/v1/admin/pages/${id}`);
   },
 
   create: async (data: {
@@ -89,7 +89,7 @@ export const pagesApi = {
     banner?: string;
     gallery?: string[];
   }): Promise<PageResponse> => {
-    return apiClient.post<PageResponse>('/api/v1/pages', data);
+    return apiClient.post<PageResponse>('/api/v1/admin/pages', data);
   },
 
   update: async (
@@ -111,11 +111,11 @@ export const pagesApi = {
       gallery?: string[];
     }
   ): Promise<PageResponse> => {
-    return apiClient.put<PageResponse>(`/api/v1/pages/${id}`, data);
+    return apiClient.put<PageResponse>(`/api/v1/admin/pages/${id}`, data);
   },
 
   delete: async (id: number): Promise<{ success: boolean; message: string }> => {
-    return apiClient.delete(`/api/v1/pages/${id}`);
+    return apiClient.delete(`/api/v1/admin/pages/${id}`);
   },
 
   checkSlug: async (params: {
@@ -124,7 +124,7 @@ export const pagesApi = {
     locale?: string;
     excludeId?: number;
   }): Promise<{ success: boolean; data: SlugAvailability }> => {
-    return apiClient.post('/api/v1/pages/slug/check', params);
+    return apiClient.post('/api/v1/admin/pages/slug/check', params);
   },
 
   createTranslation: async (
@@ -137,7 +137,7 @@ export const pagesApi = {
       slug?: string;
     }
   ): Promise<PageResponse> => {
-    return apiClient.post<PageResponse>(`/api/v1/pages/${pageId}/translations`, data);
+    return apiClient.post<PageResponse>(`/api/v1/admin/pages/${pageId}/translations`, data);
   },
 };
 

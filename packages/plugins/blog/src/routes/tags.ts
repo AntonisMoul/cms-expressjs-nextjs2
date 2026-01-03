@@ -48,7 +48,6 @@ export function registerTagRoutes(
           db.tag.findMany({
             where,
             include: {
-              slug: true,
               author: {
                 select: {
                   id: true,
@@ -96,7 +95,6 @@ export function registerTagRoutes(
         const tag = await db.tag.findUnique({
           where: { id: parseInt(req.params.id) },
           include: {
-            slug: true,
             translations: true,
             author: {
               select: {

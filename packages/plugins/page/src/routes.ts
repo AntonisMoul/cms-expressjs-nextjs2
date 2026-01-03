@@ -71,7 +71,6 @@ export function registerPageRoutes(
           db.page.findMany({
             where,
             include: {
-              slug: true,
               user: {
                 select: {
                   id: true,
@@ -119,7 +118,6 @@ export function registerPageRoutes(
         const page = await db.page.findUnique({
           where: { id: parseInt(req.params.id) },
           include: {
-            slug: true,
             translations: true,
             user: {
               select: {
@@ -159,9 +157,6 @@ export function registerPageRoutes(
             where: {
               translationGroupId: page.translationGroupId,
               id: { not: page.id },
-            },
-            include: {
-              slug: true,
             },
           });
         }

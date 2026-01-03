@@ -39,7 +39,6 @@ export function registerCategoryRoutes(
       try {
         const categories = await db.category.findMany({
           include: {
-            slug: true,
             author: {
               select: {
                 id: true,
@@ -53,7 +52,7 @@ export function registerCategoryRoutes(
         });
 
         // Build tree structure
-        const buildTree = (parentId: number = 0) => {
+        const buildTree = (parentId: number = 0): any[] => {
           return categories
             .filter((cat) => cat.parentId === parentId)
             .map((cat) => ({
@@ -87,7 +86,6 @@ export function registerCategoryRoutes(
         const category = await db.category.findUnique({
           where: { id: parseInt(req.params.id) },
           include: {
-            slug: true,
             translations: true,
             author: {
               select: {
